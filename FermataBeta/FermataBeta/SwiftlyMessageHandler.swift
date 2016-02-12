@@ -34,10 +34,10 @@ class SwiftlyMessageHandler:NSObject, WKScriptMessageHandler {
         super.init()
         let theConfiguration = WKWebViewConfiguration()
         
-        theConfiguration.userContentController.addScriptMessageHandler(self, name: "native")
+        //theConfiguration.userContentController.addScriptMessageHandler(self, name: "native")
         
         let rect = CGRect(
-            origin: CGPoint(x: 0, y: 90),
+            origin: CGPoint(x: 0, y: 40),
             size: UIScreen.mainScreen().bounds.size
         )
         
@@ -46,10 +46,12 @@ class SwiftlyMessageHandler:NSObject, WKScriptMessageHandler {
         let url = NSURL(fileURLWithPath: indexHTMLPath!)
         let request = NSURLRequest(URL: url)
         appWebView!.loadRequest(request)
+        //appWebView!.evaluateJavaScript("dumb()", completionHandler: nil)
+        //appWebView!.loadRequest(request)
         theController.view.addSubview(appWebView!)
     }
     func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
-        let sentData = message.body as! NSDictionary
+        /*let sentData = message.body as! NSDictionary
         
         let command = sentData["cmd"] as! String
         var response = Dictionary<String,AnyObject>()
@@ -61,10 +63,13 @@ class SwiftlyMessageHandler:NSObject, WKScriptMessageHandler {
             response["count"] = count
         }
         print("here")
-        print(sentData["message"])
-        let callbackString = sentData["callbackFunc"] as? String
-        sendResponse(response, callback: callbackString)
-    }
+        print(sentData["message"])*/
+        
+        appWebView!.evaluateJavaScript("dumb()", completionHandler: nil)
+        
+        //let callbackString = sentData["callbackFunc"] as? String
+        //sendResponse(response, callback: callbackString)
+    }/*
     func sendResponse(aResponse:Dictionary<String,AnyObject>, callback:String?){
         guard let callbackString = callback else{
             return
@@ -84,6 +89,6 @@ class SwiftlyMessageHandler:NSObject, WKScriptMessageHandler {
                 //print("no return from JS")
             }
         }
-    }
+    }*/
     
 }
