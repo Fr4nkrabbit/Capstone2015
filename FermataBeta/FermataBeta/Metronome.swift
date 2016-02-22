@@ -14,8 +14,9 @@ import AVFoundation
 
 class Metronome: UIViewController {
     
-    @IBOutlet weak var tempoTextField: UITextField!
-    @IBOutlet weak var  tempoStepper: UIStepper!
+    @IBOutlet weak var tempoTextField: UILabel!
+    
+    @IBOutlet weak var tempoStepper: UIStepper!
     
     var timer: NSTimer!
     
@@ -26,11 +27,14 @@ class Metronome: UIViewController {
     var tempo: NSTimeInterval = 60 {
         didSet {
             //use this to set up the initial image on the UI
+            tempoTextField.text = String(format: "%.0f", tempo)
+            tempoStepper.value = Double(tempo)
         }
     }
     
     @IBAction func tempoChanged(var tempoStepper: UIStepper) {
         tempo = tempoStepper.value
+        tempoTextField.text = String(format: "%.0f", tempo)
     }
     
     @IBAction func toggleMetronome(var toggleMetronomeButton: UIButton){
@@ -76,6 +80,10 @@ class Metronome: UIViewController {
             tempoTextField.enabled = false
             
         }
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        tempoTextField.resignFirstResponder()
     }
     
     func playSound() {

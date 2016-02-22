@@ -14,7 +14,7 @@ The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT SwNOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
@@ -29,47 +29,29 @@ import WebKit
 class SwiftlyMessageHandler:NSObject, WKScriptMessageHandler {
     var appWebView:WKWebView?
     
-    
     init(theController:SongViewController){
         super.init()
         let theConfiguration = WKWebViewConfiguration()
         
-        //theConfiguration.userContentController.addScriptMessageHandler(self, name: "native")
-        
-        let rect = CGRect(
-            origin: CGPoint(x: 0, y: 40),
-            size: UIScreen.mainScreen().bounds.size
-        )
+        theConfiguration.userContentController.addScriptMessageHandler(self, name: "native")
+        print("hiii")
         
         let indexHTMLPath = NSBundle.mainBundle().pathForResource("index", ofType: "html")
-        appWebView = WKWebView(frame: rect, configuration: theConfiguration)
+        appWebView = WKWebView(frame: theController.view.frame, configuration: theConfiguration)
         let url = NSURL(fileURLWithPath: indexHTMLPath!)
         let request = NSURLRequest(URL: url)
         appWebView!.loadRequest(request)
-        //appWebView!.evaluateJavaScript("dumb()", completionHandler: nil)
-        //appWebView!.loadRequest(request)
         theController.view.addSubview(appWebView!)
     }
     func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
-        /*let sentData = message.body as! NSDictionary
+        print("hello")
+        let sentData = message.body as! NSDictionary
         
-        let command = sentData["cmd"] as! String
         var response = Dictionary<String,AnyObject>()
-        if command == "increment"{
-            guard var count = sentData["count"] as? Int else{
-                return
-            }
-            count++
-            response["count"] = count
-        }
-        print("here")
-        print(sentData["message"])*/
         
-        appWebView!.evaluateJavaScript("dumb()", completionHandler: nil)
-        
-        //let callbackString = sentData["callbackFunc"] as? String
-        //sendResponse(response, callback: callbackString)
-    }/*
+        let callbackString = sentData["callbackFunc"] as? String
+        sendResponse(response, callback: callbackString)
+    }
     func sendResponse(aResponse:Dictionary<String,AnyObject>, callback:String?){
         guard let callbackString = callback else{
             return
@@ -78,17 +60,22 @@ class SwiftlyMessageHandler:NSObject, WKScriptMessageHandler {
             print("failed to generate JSON for \(aResponse)")
             return
         }
-        appWebView!.evaluateJavaScript("(\(callbackString)('\(NSString(data:generatedJSONData, encoding:NSUTF8StringEncoding)!)'))"){(JSReturnValue:AnyObject?, error:NSError?) in
-            if let errorDescription = error?.description{
-                print("returned value: \(errorDescription)")
-            }
-            else if JSReturnValue != nil{
-                print("returned value: \(JSReturnValue!)")
-            }
-            else{
-                //print("no return from JS")
-            }
+        appWebView!.evaluateJavaScript("(\(callbackString)('\(NSString(data:generatedJSONData, encoding:NSUTF8StringEncoding)!)'))")
+            {
+                (JSReturnValue:AnyObject?, error:NSError?) in
+                if let errorDescription = error?.description{
+                    print("returned value: \(errorDescription)")
+                }
+                else if JSReturnValue != nil{
+                    print("returned value: \(JSReturnValue!)")
+                }
+                else{
+                    print("no return from JS")
+                }
         }
-    }*/
+        appWebView!.evaluateJavaScript("createSheetMusic('FLUTE')", completionHandler: nil  )
+        print("exit")
+        
+    }
     
 }
