@@ -19,11 +19,11 @@ class SongTableViewController: UITableViewController {
     
     func loadSampleSongs(){
     
-        if let url = NSURL(string: "http://people.eecs.ku.edu/~sbenson/grabTitles.php") {
+        if let url = NSURL(string: "http://people.eecs.ku.edu/~sxiao/grabTitles.php") {
             do {
                 let songListNP = try NSString(contentsOfURL: url, usedEncoding: nil)
                 let songListAsString = songListNP as String
-                let songList = songListAsString.characters.split{$0 == " "}.map(String.init)
+                let songList = songListAsString.characters.split{$0 == "@"}.map(String.init)
                 
                 //populate songList
                 for item in songList{
