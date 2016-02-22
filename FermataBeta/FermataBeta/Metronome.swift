@@ -14,20 +14,12 @@ import AVFoundation
 
 class Metronome: UIViewController {
     
-    <<<<<<< HEAD
-    @IBOutlet weak var tempoTextField: UILabel!
-    
-    =======
-    @IBOutlet weak var tempoTextField: UITextField!
-    >>>>>>> 24df43e33eae8046a3331bc0d232696e007b49ff
-    @IBOutlet weak var tempoStepper: UIStepper!
-    
     var timer: NSTimer!
     
     var isOn = false
     
     var soundPlayer: AVAudioPlayer!
-    
+/*
     var tempo: NSTimeInterval = 60 {
         didSet {
             <<<<<<< HEAD
@@ -111,6 +103,6 @@ class Metronome: UIViewController {
         tempo = 120
         
         //set the sound to the clicks
-    }
+    }*/
     
 }
