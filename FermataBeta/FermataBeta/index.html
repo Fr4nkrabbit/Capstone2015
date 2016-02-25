@@ -2,7 +2,7 @@
 <html>
     <head>
         <!-- External Scripts -->
-        
+
         <script type="text/javascript" src="inter.js" charset="utf-8"></script>
         <script type="text/javascript" src="main.js" charset="utf-8"></script>
         <script src="vexflow-debug.js"></script>
@@ -11,7 +11,7 @@
         <script src="JZZ.MidiFile.js"></script>
         <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
         <style type="text/css">
-            
+
             canvas {
                 background: #eed;
                 padding: 10px;
@@ -23,7 +23,7 @@
         }
         </style>
     </head>
-    
+
     <body>
         <!-- Formatting Constants -->
         <script>
@@ -34,51 +34,51 @@
             var STAFF_OFFSET_Y = 140
             var STAFF_OFFSET_Y_CENTER = (CANVAS_HEIGHT - 120) / 2
             </script>
-        
+
         <!-- Necessary, Hidden Divisions -->
         <h1 id ="tester1"> one has not run yet</h1>
         <h1 id ="tester2">two has not run yet</h1>
         <div style="display: none;" id=fname>&nbsp;</div>
         <div style="display: none;" id=midi>Files accepted: SMF (*.mid, *.kar), RMID (*.rmi)</div>
-        
+
         <!-- Create canvas -->
         <script>
             document.write('<p><canvas width=' + (CANVAS_WIDTH+25) + ' height=' + CANVAS_HEIGHT + '></canvas></p>')
             </script>
-        
+
         <!-- ReadMidiFile -->
         <script>
             var boobs="heres"
         function test1(){
             document.querySelector("#tester1").innerText="test one worked"
         }
-        
+
         function test2(){
-            
+
             $("#tester2")[0].innerHTML="test two worked"
             return "here is a thing"
         }
-        
+
         function test3(){
              return parseMidi(string1)
             //need to add the code for posting
-            
+
         }
-        
+
         function fromString(){
             readMidiFile(JZZ.MidiFile.fromBase64(b64));
         }
-        
+
         var string1="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AAFNfTtNAAFNfXhNAABMfTtMAAFNfTtNAAFPfTtPAAFRfTtRAAFSfTtSAAFPfTtPAAFRfYFwUQAAVH14VAAAT307TwABUX07UQABUn14UgAAVH13VAABT307TwABUX07UQABUn14UgAAUX07UQABUn07UgABVH14VAAAVn07VgABUn07UgABUX07UQABTX07TQABT314TwAATX2CaE0AAEh+O0gAAUh+O0gAAUh+eEgAAE1+O00AAU1+O00AAU1+eE0AAEx+O0wAAU1+O00AAU9+O08AAVF+O1EAAVJ+O1IAAU9+O08AAVF+gXBRAABUfndUAAFPfjtPAAFRfjtRAAFSfnhSAABUfnhUAABPfjtPAAFRfjtRAAFSfnhSAABUfnhUAABPfjtPAAFRfjtRAAFSfnhSAABRfjtRAAFSfjtSAAFUfnhUAABWfjtWAAFSfjtSAAFRfjtRAAFNfjtNAAFPfnhPAABNfoJoTQAASH47SAABSH47SAABSH54SAAATX47TQABTX47TQABTX54TQAATH47TAABTX47TQABT347TwABUX47UQABUn47UgABT347TwABUX6BcFEAAFR+gXBUAABWfnhWAABTfnhTAABUfoNgVAAAVH47VAABUn47UgABUX47UQABT347TwABTX54TQAAUn54UgAASn54SgAATX54TQAAT347TwABTX47TQABTH47TAABSn47SgABSH54SAAAUX47UQABUn47UgABVH54VAAAVn47VgABUn47UgABUX47UQABTX47TQABT354TwAATX6DYE0AAP8vAE1UcmsAAAQSAP8hAQAA/wMHU1RSSU5HUwDDMACzB24AClAAQAAA4wBApUCTOX0ARX0AKX2BcCkAAEUAADkAADx9AEh9AC19gXAtAABIAAA8AAA+fQBKfQAufTsuAAEtfTstAAFKAAA+AABAfQBMfQArfTsrAAEwfTswAAFMAABAAABBfQBNfQApfYFwKQAATQAAQQAAQH0ATH0AMH2BcDAAAEwAAEAAAEF9AE19ADJ9eDIAAE0AAEEAAEB9AEx9ADB9gXAwAABMAABAAABBfQBNfQAyfXgyAABNAABBAABAfQBMfQAwfTswAAEufTsuAAFMAABAAABBfQBNfQAtfXgtAABNAABBAABBfQBNfQAufXguAABNAABBAABBfQBNfQAwfXgwAABNAABBAABAfQBMfQAkfXgkAABMAABAAAA+fQBKfQApfXhKAAA+AAA8fQBIfYFwSAAAPAAAKQB4OX4ARX4AKX6BcCkAAEUAADkAADx+AEh+AC1+gXAtAABIAAA8AAA+fgBKfgAufjsuAAEtfjstAAFKAAA+AABAfgBMfgArfjsrAAEwfjswAAFMAABAAABBfgBNfgApfoFwKQAATQAAQQAAQH4ATH4AMH6BcDAAAEwAAEAAAEF+AE1+ADJ+eDIAAE0AAEEAAEB+AEx+ADB+gXAwAABMAABAAABBfgBNfgAyfngyAABNAABBAABAfgBMfgAwfoFwMAAATAAAQAAAQX4ATX4AMn54MgAATQAAQQAAQH4ATH4AMH47MAABLn47LgABTAAAQAAAQX4ATX4ALX54LQAATQAAQQAAQX4ATX4ALn54LgAATQAAQQAAQX4ATX4AMH54MAAATQAAQQAAQH4ATH4AJH54JAAATAAAQAAAPn4ASn4AKX54SgAAPgAAPH4ASH6BcCkAPEgAADwAPDl+AEV+ACl+gXApAABFAAA5AAA8fgBIfgAtfoFwLQAASAAAPAAAPn4ASn4ALn47LgABLX47LQABSgAAPgAAQH4ATH4AK347KwABMH47MAABTAAAQAAAQX4ATX4AKX6BcCkAAE0AAEEAAEF+AE1+ADB+gXAwAABNAABBAABBfgBNfgAvfngvAAAyfngyAABNAABBAABAfgBMfgAwfngwAAArfngrAAAwfngwAAAufnguAABMAABAAIg4MH4AQH4ATH4AMH47MAAAMAABLn4ALn47LgAALgABTAAAQAAALX4AQX4ATX4ALX54LQAALQAAQQAATQAALn4AQX4ATX4ALn54LgAALgAAQQAATQAAMH4AQX4ATX4AMH54MAAAMAAAQQAATQAAJH4AQH4ATH4AJH54JAAAJAAAQAAATAAAKX4APn4ASn4AKX54SgAAPgAAPH4ASH6CaEgAACkAACkAADwAAP8vAE1UcmsAAAU5AP8hAQAA/wMLQUNDLiBHVUlUQVIAxAYAtAd4AAoyAEAAAOQAQINglEV9AFF9ADV9gXA1AABRAABFAABIfQBUfQA5fYFwOQAAVAAASAAASn0AVn0AOn07OgABOX07OQABVgAASgAATH0AWH0AN307NwABPH07PAABWAAATAAATX0AWX0ANX2BNDUAADd9OzcAAVkAAE0AAE19AFl9ADl9eDkAAFkAAE0AAE19AFl9ADp9eDoAAFkAAE0AAE19AFl9ADx9eDwAAFkAAE0AAEx9AFh9ADB9eDAAAFgAAEwAAEp9AFZ9ADV9eFYAAEoAAEh9AFR9gXA1AHhUAABIAABFfQBRfQA1fYFwNQAAUQAARQAASH0AVH0AOX2BcDkAAFQAAEgAAEp9AFZ9ADp9OzoAATl9OzkAAVYAAEoAAEx9AFh9ADd9OzcAATx9OzwAAVgAAEwAAE19AFl9ADV9gXA1AABZAABNAABMfQBYfQA8fYFwPAAAWAAATAAATX0AWX0APn14PgAAWQAATQAATH0AWH0APH07PAABOn07OgABWAAATAAATX0AWX0AOX14OQAAOn14OgAAWQAATQAATX0AWX0APH14PAAAWQAATQAATH0AWH0AMH14MAAAWAAATAAASn0AVn0ANX14VgAASgAASH0AVH2BcDUAPFQAAEgAlgRFfgBRfgA1foFwNQAAUQAARQAASH4AVH4AOX6BcDkAAFQAAEgAAEp+AFZ+ADp+OzoAATl+OzkAAVYAAEoAAEx+AFh+ADd+OzcAATx+OzwAAVgAAEwAAE1+AFl+ADV+gXA1AABZAABNAABMfgBYfgA8foFwPAAAWAAATAAATX4AWX4APn54PgAAWQAATQAATH4AWH4APH6BcDwAAFgAAEwAAE1+AFl+AD5+eD4AAFkAAE0AAEx+AFh+ADx+gXA8AABYAABMAABNfgBZfgA+fng+AABZAABNAABMfgBYfgA8fjs8AAE6fjs6AAFYAABMAABNfgBZfgA5fng5AABZAABNAABNfgBZfgA6fng6AABZAABNAABNfgBZfgA8fng8AABZAABNAABMfgBYfgAwfngwAABYAABMAABKfgBWfgA1fnhWAABKAABIfgBUfoFwNQA8VAAASAA8RX4AUX4ANX6BcDUAAFEAAEUAAEh+AFR+ADl+gXA5AABUAABIAABKfgBWfgA6fjs6AAE5fjs5AAFWAABKAABMfgBYfgA3fjs3AAE8fjs8AAFYAABMAABNfgBZfgA1foFwNQAAWQAATQAATX4AWX4APH6BcDwAAFkAAE0AAE1+AFl+ADt+eDsAAD5+eD4AAFkAAE0AAEx+AFh+ADx+eDwAADd+eDcAADx+eDwAADp+eDoAAFgAAEwAAE1+AFl+ADl+eDkAAFkAAE0AAEx+AFh+ADx+OzwAATp+OzoAAVgAAEwAAE1+AFl+ADl+eDkAAFkAAE0AAEp+AFZ+ADp+eFYAAEoAAEp+AFZ+eFYAAEoAADoAAEp+AFZ+ADp+eDoAAFYAAEoAAEp+AFZ+ADd+eDcAAFYAAEoAAEd+AFN+ADd+OzcAATV+OzUAAVMAAEcAAEh+AFR+ADR+eDQAAFQAAEgAAEx+AFh+ADx+OzwAATp+OzoAAVgAAEwAAE1+AFl+ADl+eDkAAFkAAE0AAE1+AFl+ADp+eDoAAFkAAE0AAE1+AFl+ADx+eDwAAFkAAE0AAEx+AFh+ADB+eDAAAFgAAEwAADV+AEp+AFZ+eFYAAEoAAEh+AFR+gmhUAABIAAA1AAD/LwBNVHJrAAAAGgD/IQEAAP8DDXNlcXVlbmNlZCBieToA/y8ATVRyawAAABgA/yEBAAD/AwtEb24gQ2Fycm9sbAD/LwBNVHJrAAAAGwD/IQEAAP8DDkhvdXN0b24sIFRleGFzAP8vAE1UcmsAAAAiAP8hAQAA/wMVZG9ubmllY0BpeC5uZXRjb20uY29tAP8vAA=="
         //fromPassedString(string1)
-        
+
         function fromPassedString(s){
             var inst= parseMidi(s)
             createSheetMusic(inst[0])
         }
-        
+
         var parsedEvents
-        
+
         function parseMidi(s){
             var jzzmf=JZZ.MidiFile.fromBase64(s)
             var mf = new JZZ.MidiFile(jzzmf)
@@ -88,10 +88,10 @@
             var events =gatherEvents(trans)
             console.log(events)
             var instruments=[]
-            
+
             for (instrument in events.instruments)
                 instruments.push(instrument)
-            
+
             console.log(instruments)
             parsedEvents=events
             if(instruments.length==1)
@@ -99,20 +99,20 @@
             else
                 return instruments
         }
-        
+
         function createSheetMusic(instrument){
             if(parsedEvents==undefined)
                 return "no events"
-            
+
             var notesToShow=combineNotes(parsedEvents.instruments[instrument],parsedEvents.ppqn)
-            
+						notesToShow=createRest(notesToShow,parsedEvents.ppqn)
             console.log(notesToShow)
             var measures=populateMeasures(notesToShow,parsedEvents.ppqn,parsedEvents.keysig,parsedEvents.timesig)
-            
+
             console.log(measures);
             drawSheets(measures)
         }
-        
+
         //takes a midi file that has been parsed into a 64 bit string and generates sheet music
         function readMidiFile(s)
         {
@@ -120,16 +120,16 @@
             try
             {
                 var mf = new JZZ.MidiFile(s)
-                
+
                 //console.log(mf)
                 var outMeasures = displayMidiFile(mf)
-                
+
                 drawSheets(outMeasures)
             }
             catch(e){ err(e) }
         }
-        
-        
+
+
         //this takes in a list of midi tracks and there events and returns a list of all the events in string format
         var globalppqn;
         function translateMfEvents(mf){
@@ -149,10 +149,10 @@
             }
             return arg;
         }
-        
-        
+
+
         function gatherEvents(arg){
-            
+
             var instruments={}
             var events={}
             events.notes    = []
@@ -173,7 +173,7 @@
                     hitnote=false
                 }
                 lasttime=parseInt(lts[0]);
-                
+
                 if(parseInt(lts[1]/10) == 9)	{
                     events.notes.push(lts)
                     hitnote=true
@@ -194,7 +194,7 @@
             events.instruments=instruments
             return events
         }
-        
+
         //this needs to be handed a list of that contains the starts and stops of notes and also the pulse per quater note
         function combineNotes(notes,ppqn){
             var combined=[]
@@ -209,8 +209,8 @@
                         {
                             combined.push(
                                           {
-                                          start:	notes[item][0],
-                                          finish:	notes[thing][0],
+                                          start:	parseInt(notes[item][0]),
+                                          finish:	parseInt(notes[thing][0]),
                                           pitch:	notes[item][2],
                                           note:	((notes[thing][0]-notes[item][0])/ppqn)/4
                                           })
@@ -221,10 +221,38 @@
             }
             return combined
         }
-        
+//fills in the gap between notes with rest
+				function createRest(notes,ppqn){
+					var lasttime=0
+					var notesWithRest=[]
+					for (note in notes){
+
+						//checks to see if the last notes ended when the current note starts
+						//to check to see if we need to add something to fill in that gap
+						//I used greater that 10 because i noticed that would be a gap of
+						// 1 sometimes between notes so i figured we could just use a buffer
+						//to make sure we dont create unnescarry rest
+						if (lasttime-notes[note].start <= -10) {
+							notesWithRest.push({
+							start:	lasttime,
+							finish:	notes[note].start,
+							pitch:	-1,
+							note:	((notes[note].start- lasttime)/ppqn)/4
+							})
+						}
+						notesWithRest.push(notes[note])
+
+						lasttime=notes[note].finish
+					}
+
+
+					return notesWithRest
+				}
+
+
+
         //this will take the list of notes and the time signature and then create list
-        //of notes that fit into measures it will then also go and fill the gaps
-        //inbetween notes with rests (notes with a pitch of negative one)
+        //of notes that fit into measures
         function populateMeasures(notes2,ppqn,keysig,timesig){
             var laststart = -1
             var lastfinish = 0
@@ -232,95 +260,66 @@
             var holder
             var measures = []
             var meas = {m: []}
-            
+
             //populate measures
             for (noter in notes2)
             {
-                if(keysig[0]&&lastfinish==keysig[0][0]){
+							if(notes2[noter].start>=ppqmeas){
+//adds a measures if the note we are about to look at is in another measure
+								console.log("here")
+								console.log(ppqmeas)
+								console.log(meas);
+								measures.push(meas)
+								meas={m: []}
+
+								ppqmeas+=ppqn*4
+
+							}
+
+                if(keysig[0]&&lastfinish==parseInt(keysig[0][0])){
                     meas.key=keysig[0][4]
                     keysig=keysig.slice(1)
                 }
-                if(timesig[0]&&lastfinish==timesig[0][0]){
+                if(timesig[0]&&lastfinish==parseInt(timesig[0][0])){
                     meas.time={top: timesig[0][4].split('/')[0],
                         bottem: timesig[0][4].split('/')[1]}
                     timesig=timesig.slice(1)
                 }
-                
-                if (lastfinish < notes2[noter].start)
-                {
-                    //add rests here will need to loop
-                    while (lastfinish != notes2[noter].start)
-                    {
-                        if (ppqmeas < notes2[noter].start)
-                        {
-                            meas.m.push(
-                                        {
-                                        start:	lastfinish,
-                                        finish:	ppqmeas,
-                                        pitch:	-1,
-                                        note:	((ppqmeas-lastfinish)/ppqn)/4
-                                        })
-                                        lastfinish = ppqmeas<notes2[noter].start ? ppqmeas : notes2[noter].start
-                                        measures.push(meas)
-                                        ppqmeas += ppqn*4
-                                        meas = {m:[]}
-                        }
-                        else
-                        {
-                            meas.m.push(
-                                        {
-                                        start:	lastfinish,
-                                        finish:	notes2[noter].start,
-                                        pitch:	-1,
-                                        note:	((notes2[noter].start-lastfinish)/ppqn)/4,
-                                        
-                                        })
-                                        lastfinish = notes2[noter].start
-                        }
-                    }
-                }
-                
+
+
                 if (notes2[noter].finish > ppqmeas)
                 {
-                    //split note between measure will need to loop
+                    //for notes that go over a measure and need to be split into notes for each indivdual measure
                     while (notes2[noter].finish > ppqmeas)
                     {
                         meas.m.push(
                                     {
                                     start:	notes2[noter].start,
                                     finish:	ppqmeas,
-                                    pitch:	notes2[noter][2],
+                                    pitch:	notes2[noter].pitch,
                                     note:	((ppqmeas-notes2[noter].start)/ppqn)/4,
                                     tie: true
                                     })
-                                    notes2[noter].start = ppqmeas
-                                    ppqmeas += ppqn*4
-                                    measures.push(meas)
-                                    meas = {m:[]}
+                        notes2[noter].start = ppqmeas
+
+												console.log(ppqmeas)
+                        ppqmeas += ppqn*4
+                        measures.push(meas)
+                        meas = {m:[]}
+												notes2[noter].tie=true
                     }
-                    lastfinish = notes2[noter].finish
                 }
-                else if (notes2[noter].finish == ppqmeas)
-                {
-                    //add note and add meas
-                    meas.m.push(notes2[noter])
-                    measures.push(meas)
-                    ppqmeas += ppqn*4
-                    meas = {m:[]}
-                    lastfinish = notes2[noter].finish
-                }
-                else
-                {
                     //add note
                     meas.m.push(notes2[noter])
                     lastfinish = notes2[noter].finish
-                }
+
             }
+						measures.push(meas)
             return measures
         }
-        
-        
-        
+
+
+
         function displayMidiFile(mf)
         {
             var ppqn = mf.ppqn
@@ -331,7 +330,7 @@
             var timesigs = []
             var measures = []
             var meas = {m: []}
-            
+
             var instruments={}
             //populate arg[]
             for (var i = 0; i < mf.length; i++)
@@ -346,15 +345,15 @@
                     }
                 }
             }
-            
+
             var item, thing
             var notes2 = []
             var singlemeasure = []
             console.log("arg")
             console.log(arg)
             //separate midi events by type
-            
-            
+
+
             var lasttime=0;
             var hitnote=false;
             var title;
@@ -362,16 +361,16 @@
             {
                 var lts = arg[item].split(' ');
                 if(lasttime>parseInt(lts[0])&&hitnote){
-                    
+
                     console.log(title)
                     instruments[title]=notes;
                     notes=[]
                     hitnote=false
-                    
+
                     console.log(title)
                 }
                 lasttime=parseInt(lts[0]);
-                
+
                 if(lts[1] / 10 == 9)	{
                     //hitnote=true
                     notes.push(lts)
@@ -382,7 +381,7 @@
                 if(lts[1] == "ff58")	timesigs.push(lts)
                 if(lts[1] == "ff03")	title=lts[4];
             }
-            
+
             console.log("instruments")
             console.log(instruments)
             //populate notes2
@@ -407,7 +406,7 @@
                     }
                 }
             }
-            
+
             console.log("notes2")
             //console.log(notes2)
             var laststart = -1
@@ -426,7 +425,7 @@
                         bottem: timesigs[0][4].split('/')[1]}
                     timesigs=timesigs.slice(1)
                 }
-                
+
                 if (lastfinish < notes2[noter].start)
                 {
                     //add rests here will need to loop
@@ -454,13 +453,13 @@
                                         finish:	notes2[noter].start,
                                         pitch:	-1,
                                         note:	((notes2[noter].start-lastfinish)/ppqn)/4,
-                                        
+
                                         })
                                         lastfinish = notes2[noter].start
                         }
                     }
                 }
-                
+
                 if (notes2[noter].finish > ppqmeas)
                 {
                     //split note between measure will need to loop
@@ -499,44 +498,44 @@
             }
             return measures
         }
-        
+
         function durToWhole(inFloat) //.125 > 8
         {
-            return 1 / inFloat
+            return parseInt(1 / inFloat)
         }
-        
+
         function pitToStr(inHex) //5C > G#6
         {
             if (inHex == -1)
             return 'B/4' //rest position
-            
+
             var note = Vex.Flow.integerToNote(parseInt(inHex, 16) % 12)
             var octave = parseInt(parseInt(inHex, 16) / 12)-1
-            
+
             return note + '/' + octave
         }
-        
+
         function drawSheets(inM)
         {
-            
-            
+
+
             var timesig = {top: 4,
                 bottem: 4
             };
             var keysig={name: "C",
                 acidentals:[]
             }
-            
-            
+
+
             for (var mC = 0; mC < inM.length; mC++)
             {
                 var canvas = document.querySelector("canvas")
-                
+
                 //var canvas = $("canvas")[mC]
                 var renderer = new Vex.Flow.Renderer(canvas, Vex.Flow.Renderer.Backends.CANVAS)
                 var ctx = renderer.getContext()
                 var stave = new Vex.Flow.Stave(STAFF_OFFSET_X, STAFF_OFFSET_Y * mC, CANVAS_WIDTH)
-                
+
                 // Add a treble clef
                 stave.addClef("treble")
                 if(inM[mC].time!=undefined){
@@ -546,41 +545,52 @@
                 if(inM[mC].key!=undefined){
                     keysig.name =inM[mC].key
                     keysig.Accidental=[]
-                    
+
                     //stave.addKeySignature(keysig.name)
                 }
                 stave.addKeySignature(keysig.name)
                 stave.setContext(ctx).draw()
-                
+
                 //create notes from inM
                 var notes = []
-                
-                
+
+
                 console.log('measure ' + mC)
                 var forbeamnotes=[],
                 allbeams=[],
                 lengthofbeam=0;
-                
+
                 for (var n = 0, i=0; n < inM[mC].m.length; n++)
                 {
                     var pit = pitToStr(inM[mC].m[n].pitch)
-                    
-                    var dur = durToWhole(inM[mC].m[n].note) + (inM[mC].m[n].pitch == -1 ? 'r' : '') //append 'r' if this note is a rest
-                    //console.log('note' + n + ': ' + dur + ', ' + pit)
-                    //return
-                    
+										var dotted=false
+                    var dur = durToWhole(inM[mC].m[n].note)
+
+										if(parseInt((1/inM[mC].m[n].note)*3)%3!=0){
+											dur=dur*2
+											dur=dur+'d'
+											dotted=true
+										}
+
+										dur= dur + (inM[mC].m[n].pitch == -1 ? 'r' : '')//append 'r' if this note is a rest
+										console.log('note' + n + ': ' + dur + ', ' + pit +', dotted ' + dotted+" + "+inM[mC].m[n].pitch)
                     notes.push(new Vex.Flow.StaveNote({ keys: [pit], duration: dur }))
-                    
+										if(dotted){
+											  notes[notes.length-1].addDotToAll()
+										}
+
                     if(!keysig.acidentals.includes(pit)&&pit.includes('#')){
                         notes[notes.length-1].addAccidental(0, new Vex.Flow.Accidental("#"))
                     }
-                    
+
+
+
                     if(i<4&&inM[mC].m[n].note<.25){
                         forbeamnotes.push(notes[notes.length-1])
                         i++;
                         lengthofbeam+=inM[mC].m[n].note;
                     }else if((1/(lengthofbeam/.50))%2==0){
-                        
+
                         allbeams.push(new Vex.Flow.Beam(forbeamnotes))
                         forbeamnotes=[];
                         lengthofbeam=0;
@@ -590,7 +600,7 @@
                         lengthofbeam=0;
                         i=0;
                     }
-                    
+
                     if(i==4||(lengthofbeam==.5&&i>1)||((1/(lengthofbeam/.50))%2==0&&n == inM[mC].m.length-1)){
                         allbeams.push(new Vex.Flow.Beam(forbeamnotes))
                         forbeamnotes=[];
@@ -598,9 +608,9 @@
                         i=0;
                     }
                 }
-                
-                //console.log('')
-                
+
+                console.log('')
+
                 // Create a voice in 4/4
                 function create_voice(sig)
                 {
@@ -611,13 +621,13 @@
                                               resolution:	Vex.Flow.RESOLUTION
                                               })
                 }
-                
+
                 // Create voices and add notes to each of them
                 var voice = create_voice(timesig).addTickables(notes)
-                
+
                 // Format and justify the notes
                 var formatter = new Vex.Flow.Formatter().joinVoices([voice]).format([voice], CANVAS_WIDTH)
-                
+
                 // Render voice
                 voice.draw(ctx, stave)
                 while(allbeams.length){
@@ -626,11 +636,9 @@
             }
             ///	console.log("Successful run!")
         }
-        
-        
-        
+
+
+
             </script>
     </body>
 </html>
-
-
