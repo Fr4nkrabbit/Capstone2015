@@ -38,8 +38,12 @@ class SwiftlyMessageHandler:NSObject, WKScriptMessageHandler {
         theConfiguration.userContentController.addScriptMessageHandler(self, name: "native")
         print("hiii")
         
+        let rect = CGRect(
+            origin: CGPoint(x: 0, y: 40),
+            size: UIScreen.mainScreen().bounds.size)
+        
         let indexHTMLPath = NSBundle.mainBundle().pathForResource("index", ofType: "html")
-        appWebView = WKWebView(frame: theController.view.frame, configuration: theConfiguration)
+        appWebView = WKWebView(frame: rect, configuration: theConfiguration)
         let url = NSURL(fileURLWithPath: indexHTMLPath!)
         let request = NSURLRequest(URL: url)
         appWebView!.loadRequest(request)
