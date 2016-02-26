@@ -12,97 +12,103 @@ import UIKit
 
 import AVFoundation
 
-class Metronome: UIViewController {
+class MetronomeViewController: UIViewController {
     
-    var timer: NSTimer!
+    @IBOutlet weak var tempoTextField: UITextField!
     
-    var isOn = false
+    @IBOutlet weak var tempoStepper: UIStepper!
+
+    var metronomeTimer: NSTimer!
     
-    var soundPlayer: AVAudioPlayer!
-/*
+    var metronomeIsOn = false
+    
+    var metronomeSoundPlayer: AVAudioPlayer!
+    
     var tempo: NSTimeInterval = 60 {
         didSet {
-            <<<<<<< HEAD
-            //use this to set up the initial image on the UI
             tempoTextField.text = String(format: "%.0f", tempo)
-                =======
-                tempoTextField.text = String(format: "%.0f",tempo)
-                >>>>>>> 24df43e33eae8046a3331bc0d232696e007b49ff
             tempoStepper.value = Double(tempo)
         }
     }
     
-    @IBAction func tempoChanged(var tempoStepper: UIStepper) {
-        // Save the new tempo
+    @IBAction func tempoChanged(tempoStepper: UIStepper) {
+        // Save the new tempo.
         tempo = tempoStepper.value
-        tempoTextField.text = String(format: "%.0f", tempo)
     }
     
-    @IBAction func toggleMetronome(var toggleMetronomeButton: UIButton){
-        
-        if isOn {
+    @IBAction func toggleMetronome(toggleMetronomeButton: UIButton) {
+        // If the metronome is currently on, stop the metronome and change
+        // the image of the toggle metronome button to the "Play" image and
+        // its tint color to green.
+        if metronomeIsOn {
+            // Mark the metronome as off.
+            metronomeIsOn = false
             
-            //mark the metronome as off
-            isOn = false
+            // Stop the metronome.
+            metronomeTimer?.invalidate()
             
-            //stop the metronome
-            timer?.invalidate()
-            
-            //changing the start/stop button's tint and image
+            // Change the toggle metronome button's image to "Play" and tint
+            // color to green.
             toggleMetronomeButton.setImage(UIImage(named: "Play"), forState: .Normal)
             toggleMetronomeButton.tintColor = UIColor.greenColor()
             
-            //enable the stepper
+            // Enable the metronome stepper.
             tempoStepper.enabled = true
             
-            //enable editing the tempo field
+            // Enable editing the tempo text field.
             tempoTextField.enabled = true
         }
             
+            // If the metronome is currently off, start the metronome and change
+            // the image of the toggle metronome button to the "Start" image and
+            // its tint color to green
         else {
-            // mark as on
-            isOn = true
+            // Mark the metronome as on.
+            metronomeIsOn = true
             
-            //start metronome
-            let timeInterval:NSTimeInterval = 60.0 / tempo
-            timer = NSTimer.scheduledTimerWithTimeInterval(timeInterval, target: self, selector: Selector("playMetronomeSound"), userInfo: nil, repeats: true)
+            // Start the metronome.
+            let metronomeTimeInterval:NSTimeInterval = 60.0 / tempo
+            metronomeTimer = NSTimer.scheduledTimerWithTimeInterval(metronomeTimeInterval, target: self, selector: Selector("playMetronomeSound"), userInfo: nil, repeats: true)
+            metronomeTimer?.fire()
             
-            //changing the image
-            toggleMetronomeButton.setImage(UIImage(named: "stop"), forState: .Normal)
+            // Change the toggle metronome button's image to "Stop" and tint
+            // color to red.
+            toggleMetronomeButton.setImage(UIImage(named: "Stop"), forState: .Normal)
             toggleMetronomeButton.tintColor = UIColor.redColor()
             
-            //disable stepper
+            // Disable the metronome stepper.
             tempoStepper.enabled = false
             
-            //hide keyboard
+            // Hide the keyboard
             tempoTextField.resignFirstResponder()
             
-            //disable editing the tempo text field
+            // Disable editing the tempo text field.
             tempoTextField.enabled = false
-            
         }
     }
-    @IBOutlet weak var toggleMetronomeButton: UIButton!
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        tempoTextField.resignFirstResponder()
+    
+    func playMetronomeSound() {
+        let currentTime = CFAbsoluteTimeGetCurrent()
+        print("Play metronome sound @ \(currentTime)")
+        
+        metronomeSoundPlayer.play()
     }
     
-    func playSound() {
-        
-        let curTime = CFAbsoluteTimeGetCurrent()
-        print("Play metronome sound @ \(curTime)")
-        
-        soundPlayer.play()
-        
-    }
+    // MARK: - UIViewController
+    // MARK: Managing the View
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set the inital value of the tempo.
         tempo = 120
         
-        //set the sound to the clicks
-    }*/
+        // Initialize the sound player
+        let metronomeSoundURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("metronomeClick", ofType: "mp3")!)
+        metronomeSoundPlayer = try? AVAudioPlayer(contentsOfURL: metronomeSoundURL)
+        metronomeSoundPlayer.prepareToPlay()
+    }
     
+    // MARK: - UIResponder
 }
