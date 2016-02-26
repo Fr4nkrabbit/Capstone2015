@@ -22,37 +22,60 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import UIKit
 
-class SongViewController: UIViewController {
-    var theHandler:SwiftlyMessageHandler?
+import UIKit
+import WebKit
+class SongViewController: UIViewController, WKScriptMessageHandler {
     
-    @IBOutlet weak var SongTitle: UINavigationItem!
-    
-    
-    var song: Song?
-    
+    var theWebView:WKWebView?
     @IBAction func GoBack(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    
-    override func viewDidLoad() {
+override func viewDidLoad() {
         super.viewDidLoad()
-        SongTitle.title = song!.name
-        theHandler = SwiftlyMessageHandler(theController: self)
+        let path = NSBundle.mainBundle().pathForResource("index",
+            ofType: "html")
+        let url = NSURL(fileURLWithPath: path!)
+        let request = NSURLRequest(URL: url)
         
-        if theHandler!.testStr=="0"{
-           print("go here")
-        }
-        print("it worked??")
-    }
+        let theConfiguration = WKWebViewConfiguration()
+        theConfiguration.userContentController.addScriptMessageHandler(self,
+            name: "native")
+        
+        theWebView = WKWebView(frame: self.view.frame,
+            configuration: theConfiguration)
+        theWebView!.loadRequest(request)
+        self.view.addSubview(theWebView!)
     
+        print("hello")
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
+        print("hello")
+        let sentData = message.body as! NSDictionary
+        
+        var response = Dictionary<String,AnyObject>()
+        
+        let callbackString = sentData["callbackFunc"] as? String
+   
+        theWebView!.evaluateJavaScript("test1()",completionHandler: nil)
+        theWebView!.evaluateJavaScript("test3()"){(JSReturnValue:AnyObject?, error:NSError?) in
+            if let errorDescription = error?.description{
+                print("returned value: \(errorDescription)")
+            }
+            else if JSReturnValue != nil{
+                print("returned value: \(JSReturnValue!)")
+            }
+            else{
+                print("no return from JS")
+            }
+        }
     
+    }
 }
-
