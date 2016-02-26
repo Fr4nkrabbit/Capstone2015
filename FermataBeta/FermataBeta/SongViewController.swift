@@ -27,6 +27,11 @@ import UIKit
 class SongViewController: UIViewController {
     var theHandler:SwiftlyMessageHandler?
     
+    @IBOutlet weak var SongTitle: UINavigationItem!
+    
+    
+    var song: Song?
+    
     @IBAction func GoBack(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -34,6 +39,7 @@ class SongViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        SongTitle.title = song!.name
         theHandler = SwiftlyMessageHandler(theController: self)
     }
     

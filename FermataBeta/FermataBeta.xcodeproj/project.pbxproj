@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		99FC3BE31C7FF7ED007F956F /* metronomeClick.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 99FC3BE21C7FF7ED007F956F /* metronomeClick.mp3 */; };
 		DB3C93C11C6925050032556B /* 0A.wav in Resources */ = {isa = PBXBuildFile; fileRef = DB3C93B51C6925050032556B /* 0A.wav */; };
 		DB3C93C21C6925050032556B /* 10G.wav in Resources */ = {isa = PBXBuildFile; fileRef = DB3C93B61C6925050032556B /* 10G.wav */; };
 		DB3C93C31C6925050032556B /* 11Gs.wav in Resources */ = {isa = PBXBuildFile; fileRef = DB3C93B71C6925050032556B /* 11Gs.wav */; };
@@ -49,6 +48,7 @@
 		DB9AEA851BF6D6AC00506C24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB9AEA831BF6D6AC00506C24 /* LaunchScreen.storyboard */; };
 		DB9AEA901BF6D6AC00506C24 /* FermataBetaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9AEA8F1BF6D6AC00506C24 /* FermataBetaTests.swift */; };
 		DB9AEA9B1BF6D6AC00506C24 /* FermataBetaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9AEA9A1BF6D6AC00506C24 /* FermataBetaUITests.swift */; };
+		DBDAB6941C80A52500BCC3EF /* metronomeClick.wav in Resources */ = {isa = PBXBuildFile; fileRef = DBDAB6931C80A52500BCC3EF /* metronomeClick.wav */; };
 		DBF841F61C137767002D9729 /* MidiToVex in Resources */ = {isa = PBXBuildFile; fileRef = DBF841F51C137767002D9729 /* MidiToVex */; };
 		DBFB28131C5A781800999BE0 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBFB28121C5A781800999BE0 /* SWRevealViewController.m */; };
 		DBFB28151C5A791A00999BE0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFB28141C5A791A00999BE0 /* ViewController.swift */; };
@@ -76,7 +76,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		99FC3BE21C7FF7ED007F956F /* metronomeClick.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = metronomeClick.mp3; path = "../../../Metronome-Swift-master/Metronome-Swift/metronomeClick.mp3"; sourceTree = "<group>"; };
 		DB3C93B51C6925050032556B /* 0A.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0A.wav; sourceTree = "<group>"; };
 		DB3C93B61C6925050032556B /* 10G.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 10G.wav; sourceTree = "<group>"; };
 		DB3C93B71C6925050032556B /* 11Gs.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 11Gs.wav; sourceTree = "<group>"; };
@@ -118,6 +117,7 @@
 		DB9AEA961BF6D6AC00506C24 /* FermataBetaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FermataBetaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB9AEA9A1BF6D6AC00506C24 /* FermataBetaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FermataBetaUITests.swift; sourceTree = "<group>"; };
 		DB9AEA9C1BF6D6AC00506C24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBDAB6931C80A52500BCC3EF /* metronomeClick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = metronomeClick.wav; sourceTree = "<group>"; };
 		DBF841F51C137767002D9729 /* MidiToVex */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MidiToVex; sourceTree = "<group>"; };
 		DBFB28101C5A781700999BE0 /* FermataBeta-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FermataBeta-Bridging-Header.h"; sourceTree = "<group>"; };
 		DBFB28111C5A781800999BE0 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -226,7 +226,7 @@
 				DB9AEA831BF6D6AC00506C24 /* LaunchScreen.storyboard */,
 				DB3FBBD21BF824C4004C22A3 /* Genre.swift */,
 				DB9AEA861BF6D6AC00506C24 /* Info.plist */,
-				99FC3BE21C7FF7ED007F956F /* metronomeClick.mp3 */,
+				DBDAB6931C80A52500BCC3EF /* metronomeClick.wav */,
 			);
 			path = FermataBeta;
 			sourceTree = "<group>";
@@ -383,10 +383,10 @@
 				DB3C93C11C6925050032556B /* 0A.wav in Resources */,
 				DB62A1B91C7B9DF6007EDA48 /* vexflow-debug.js in Resources */,
 				DB62A1BA1C7B9DF6007EDA48 /* vexflow-min.js in Resources */,
-				99FC3BE31C7FF7ED007F956F /* metronomeClick.mp3 in Resources */,
 				DB3C93C91C6925050032556B /* 6Ds.wav in Resources */,
 				DB3C93C41C6925050032556B /* 1As.wav in Resources */,
 				DB3C93CA1C6925050032556B /* 7E.wav in Resources */,
+				DBDAB6941C80A52500BCC3EF /* metronomeClick.wav in Resources */,
 				DB62A1B41C7B9DF6007EDA48 /* index.html in Resources */,
 				DB9AEA801BF6D6AC00506C24 /* Main.storyboard in Resources */,
 			);

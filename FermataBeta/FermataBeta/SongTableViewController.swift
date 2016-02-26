@@ -90,7 +90,7 @@ class SongTableViewController: UITableViewController {
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             let songDetailViewController = segue.destinationViewController as! SongViewController
             
@@ -101,6 +101,6 @@ class SongTableViewController: UITableViewController {
                 songDetailViewController.song = selectedSong
             }
         }
-    }*/
+    }
 
 }
