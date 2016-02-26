@@ -28,8 +28,11 @@ import Foundation
 
 import WebKit
 
-class SwiftlyMessageHandler:NSObject, WKScriptMessageHandler {
+class SwiftlyMessageHandler:NSObject, WKScriptMessageHandler{
     var appWebView:WKWebView?
+    
+    var testStr = "0"
+    
     
     init(theController:SongViewController){
         super.init()
@@ -81,6 +84,7 @@ class SwiftlyMessageHandler:NSObject, WKScriptMessageHandler {
         }
         appWebView!.evaluateJavaScript("createSheetMusic('FLUTE')", completionHandler: nil  )
         print("exit")
+        testStr = "1"
         
     }
     

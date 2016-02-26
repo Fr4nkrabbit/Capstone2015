@@ -41,6 +41,11 @@ class SongViewController: UIViewController {
         super.viewDidLoad()
         SongTitle.title = song!.name
         theHandler = SwiftlyMessageHandler(theController: self)
+        
+        if theHandler!.testStr=="0"{
+           print("go here")
+        }
+        print("it worked??")
     }
     
     override func didReceiveMemoryWarning() {
