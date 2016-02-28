@@ -19,11 +19,12 @@ class SongTableViewController: UITableViewController {
     
     func loadSampleSongs(){
     
-        if let url = NSURL(string: "http://people.eecs.ku.edu/~sxiao/grabTitles.php") {
+        //if let url = NSURL(string: "http://people.eecs.ku.edu/~sxiao/grabTitles.php")
+        if let url = NSURL(string: "http://people.eecs.ku.edu/~sbenson/grabTitles.php") {
             do {
                 let songListNP = try NSString(contentsOfURL: url, usedEncoding: nil)
                 let songListAsString = songListNP as String
-                let songList = songListAsString.characters.split{$0 == "@"}.map(String.init)
+                let songList = songListAsString.characters.split{$0 == " "}.map(String.init)
                 
                 //populate songList
                 for item in songList{
@@ -90,17 +91,21 @@ class SongTableViewController: UITableViewController {
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
-            let songDetailViewController = segue.destinationViewController as! SongViewController
+            print("do we even get here1?")
+            let songDetailViewController = segue.destinationViewController as! InstrumentsViewController
             
             // Get the cell that generated this segue.
             if let selectedSongCell = sender as? SongTableViewCell {
+                print("do we even get here2?")
                 let indexPath = tableView.indexPathForCell(selectedSongCell)!
                 let selectedSong = songs[indexPath.row]
                 songDetailViewController.song = selectedSong
+                print(selectedSong.name)
+                print("do we even get here3?")
             }
         }
-    }*/
+    }
 
 }

@@ -60,7 +60,11 @@
         }
         
         function test3(){
-             return parseMidi(string1)
+            
+             var temp= parseMidi(string1)
+             
+             
+             return temp.toString()
             //need to add the code for posting
             
         }
@@ -80,6 +84,7 @@
         var parsedEvents
         
         function parseMidi(s){
+            return "hello 3"
             var jzzmf=JZZ.MidiFile.fromBase64(s)
             var mf = new JZZ.MidiFile(jzzmf)
             console.log(mf)

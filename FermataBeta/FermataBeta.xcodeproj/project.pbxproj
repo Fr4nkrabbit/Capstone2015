@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		99FC3BE31C7FF7ED007F956F /* metronomeClick.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 99FC3BE21C7FF7ED007F956F /* metronomeClick.mp3 */; };
 		DB3C93C11C6925050032556B /* 0A.wav in Resources */ = {isa = PBXBuildFile; fileRef = DB3C93B51C6925050032556B /* 0A.wav */; };
 		DB3C93C21C6925050032556B /* 10G.wav in Resources */ = {isa = PBXBuildFile; fileRef = DB3C93B61C6925050032556B /* 10G.wav */; };
 		DB3C93C31C6925050032556B /* 11Gs.wav in Resources */ = {isa = PBXBuildFile; fileRef = DB3C93B71C6925050032556B /* 11Gs.wav */; };
@@ -41,6 +40,8 @@
 		DB62A1B81C7B9DF6007EDA48 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = DB62A1B11C7B9DF6007EDA48 /* main.js */; };
 		DB62A1B91C7B9DF6007EDA48 /* vexflow-debug.js in Resources */ = {isa = PBXBuildFile; fileRef = DB62A1B21C7B9DF6007EDA48 /* vexflow-debug.js */; };
 		DB62A1BA1C7B9DF6007EDA48 /* vexflow-min.js in Resources */ = {isa = PBXBuildFile; fileRef = DB62A1B31C7B9DF6007EDA48 /* vexflow-min.js */; };
+		DB6D17961C813E45005AFEFE /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6D17951C813E45005AFEFE /* CheckBox.swift */; };
+		DB6D17981C814215005AFEFE /* InstrumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6D17971C814215005AFEFE /* InstrumentsViewController.swift */; };
 		DB87B45D1C16108000AF7476 /* stuff.txt in Resources */ = {isa = PBXBuildFile; fileRef = DB87B45C1C16108000AF7476 /* stuff.txt */; };
 		DB9AEA7B1BF6D6AC00506C24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9AEA7A1BF6D6AC00506C24 /* AppDelegate.swift */; };
 		DB9AEA7D1BF6D6AC00506C24 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9AEA7C1BF6D6AC00506C24 /* SongViewController.swift */; };
@@ -76,7 +77,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		99FC3BE21C7FF7ED007F956F /* metronomeClick.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = metronomeClick.mp3; path = "../../../Metronome-Swift-master/Metronome-Swift/metronomeClick.mp3"; sourceTree = "<group>"; };
 		DB3C93B51C6925050032556B /* 0A.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0A.wav; sourceTree = "<group>"; };
 		DB3C93B61C6925050032556B /* 10G.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 10G.wav; sourceTree = "<group>"; };
 		DB3C93B71C6925050032556B /* 11Gs.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 11Gs.wav; sourceTree = "<group>"; };
@@ -104,6 +104,8 @@
 		DB62A1B11C7B9DF6007EDA48 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		DB62A1B21C7B9DF6007EDA48 /* vexflow-debug.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "vexflow-debug.js"; sourceTree = "<group>"; };
 		DB62A1B31C7B9DF6007EDA48 /* vexflow-min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "vexflow-min.js"; sourceTree = "<group>"; };
+		DB6D17951C813E45005AFEFE /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		DB6D17971C814215005AFEFE /* InstrumentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstrumentsViewController.swift; sourceTree = "<group>"; };
 		DB87B45C1C16108000AF7476 /* stuff.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = stuff.txt; path = MidiToVex/stuff.txt; sourceTree = "<group>"; };
 		DB9AEA771BF6D6AC00506C24 /* FermataBeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FermataBeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB9AEA7A1BF6D6AC00506C24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -211,10 +213,11 @@
 				DB62A1B31C7B9DF6007EDA48 /* vexflow-min.js */,
 				DB3FBBDB1BF94B64004C22A3 /* Song.swift */,
 				DB3FBBD81BF8297A004C22A3 /* GenreTableViewCell.swift */,
-				DB9AEA7C1BF6D6AC00506C24 /* SongViewController.swift */,
 				DB3C93CD1C69323F0032556B /* SwiftlyMessageHandler.swift */,
 				DB3FBBE71BFA936A004C22A3 /* SongTableViewController.swift */,
 				DB9AEA7E1BF6D6AC00506C24 /* Main.storyboard */,
+				DB9AEA7C1BF6D6AC00506C24 /* SongViewController.swift */,
+				DB6D17971C814215005AFEFE /* InstrumentsViewController.swift */,
 				DBFB281F1C5D0ECA00999BE0 /* Login.swift */,
 				DBFB28211C5D132400999BE0 /* Metronome.swift */,
 				DBFB28231C5D133000999BE0 /* Tuner.swift */,
@@ -222,11 +225,11 @@
 				DBFB28141C5A791A00999BE0 /* ViewController.swift */,
 				DB3FBBE41BFA9195004C22A3 /* SongTableViewCell.swift */,
 				DB9AEA811BF6D6AC00506C24 /* Assets.xcassets */,
+				DB6D17951C813E45005AFEFE /* CheckBox.swift */,
 				DBFB280F1C5A77EC00999BE0 /* Supporting Files */,
 				DB9AEA831BF6D6AC00506C24 /* LaunchScreen.storyboard */,
 				DB3FBBD21BF824C4004C22A3 /* Genre.swift */,
 				DB9AEA861BF6D6AC00506C24 /* Info.plist */,
-				99FC3BE21C7FF7ED007F956F /* metronomeClick.mp3 */,
 			);
 			path = FermataBeta;
 			sourceTree = "<group>";
@@ -383,7 +386,6 @@
 				DB3C93C11C6925050032556B /* 0A.wav in Resources */,
 				DB62A1B91C7B9DF6007EDA48 /* vexflow-debug.js in Resources */,
 				DB62A1BA1C7B9DF6007EDA48 /* vexflow-min.js in Resources */,
-				99FC3BE31C7FF7ED007F956F /* metronomeClick.mp3 in Resources */,
 				DB3C93C91C6925050032556B /* 6Ds.wav in Resources */,
 				DB3C93C41C6925050032556B /* 1As.wav in Resources */,
 				DB3C93CA1C6925050032556B /* 7E.wav in Resources */,
@@ -413,6 +415,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB6D17961C813E45005AFEFE /* CheckBox.swift in Sources */,
 				DB3C93CE1C69323F0032556B /* SwiftlyMessageHandler.swift in Sources */,
 				DB3FBBDC1BF94B64004C22A3 /* Song.swift in Sources */,
 				DBFB28201C5D0ECA00999BE0 /* Login.swift in Sources */,
@@ -424,6 +427,7 @@
 				DB3FBBD91BF8297A004C22A3 /* GenreTableViewCell.swift in Sources */,
 				DB9AEA7D1BF6D6AC00506C24 /* SongViewController.swift in Sources */,
 				DB3FBBE81BFA936A004C22A3 /* SongTableViewController.swift in Sources */,
+				DB6D17981C814215005AFEFE /* InstrumentsViewController.swift in Sources */,
 				DBFB28221C5D132400999BE0 /* Metronome.swift in Sources */,
 				DBFB28131C5A781800999BE0 /* SWRevealViewController.m in Sources */,
 				DBFB28241C5D133000999BE0 /* Tuner.swift in Sources */,
