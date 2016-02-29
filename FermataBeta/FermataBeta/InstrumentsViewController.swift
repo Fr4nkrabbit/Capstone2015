@@ -56,7 +56,7 @@ class InstrumentsViewController: UIViewController, WKScriptMessageHandler, UITab
     }
     
     //var instruLists = [String]()
-    var instruLists = ["flute", "piano", "sax"]
+    var instruLists = ["", "loading", ""]
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
@@ -154,26 +154,29 @@ class InstrumentsViewController: UIViewController, WKScriptMessageHandler, UITab
         //print(MidiArg)
         let quote="\""
         print(quote)
+        var index1 = MidiArg.startIndex.advancedBy(MidiArg.characters.count-1)
+        var substring1 = MidiArg.substringToIndex(index1)
+        var js = "parseMidi('\(substring1)')" as String
         
-       // var js = "parseMidi(" + quote + MidiArg + quote + ")"
         //print(js)
-        /*theWebView!.evaluateJavaScript(js){(JSReturnValue:AnyObject?, error:NSError?) in
+        theWebView!.evaluateJavaScript(js){(JSReturnValue:AnyObject?, error:NSError?) in
             if let errorDescription = error?.description{
                 print("returned value: \(errorDescription)")
+                self.instruLists=["failed"]
             }
             else if JSReturnValue != nil{
                 print("returned value: \(JSReturnValue!)")
-                /*let instListAsString = JSReturnValue!
+                let instListAsString = JSReturnValue!
                 self.instruLists = instListAsString.componentsSeparatedByString(",")
                 print(self.instruLists)
                 self.myTableView.reloadData()
-                print(self.song!.name)*/
+                print(self.song!.name)
                 
             }
             else{
                 print("no return from JS")
             }
-        }*/
+        }
         
     }
 }
