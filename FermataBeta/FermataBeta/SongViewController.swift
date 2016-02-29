@@ -41,7 +41,6 @@ class SongViewController: UIViewController, WKScriptMessageHandler {
         
         print(instruments)
         
-        
         print(songName)
         
         let rect = CGRect(
