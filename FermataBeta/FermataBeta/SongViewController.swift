@@ -28,6 +28,8 @@ class SongViewController: UIViewController, WKScriptMessageHandler {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBOutlet weak var songTitle: UINavigationItem!
+    
     var instruments: String = ""
     var songName: String = ""
     var MidiArg = ""
@@ -35,6 +37,7 @@ class SongViewController: UIViewController, WKScriptMessageHandler {
         super.viewDidLoad()
         print("songviewstuff")
         
+        songTitle.title = songName
         
         print(instruments)
         

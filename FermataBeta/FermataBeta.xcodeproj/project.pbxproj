@@ -50,6 +50,7 @@
 		DB9AEA851BF6D6AC00506C24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB9AEA831BF6D6AC00506C24 /* LaunchScreen.storyboard */; };
 		DB9AEA901BF6D6AC00506C24 /* FermataBetaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9AEA8F1BF6D6AC00506C24 /* FermataBetaTests.swift */; };
 		DB9AEA9B1BF6D6AC00506C24 /* FermataBetaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9AEA9A1BF6D6AC00506C24 /* FermataBetaUITests.swift */; };
+		DBF794A31C84A57200AB5D7D /* metronomeClick.wav in Resources */ = {isa = PBXBuildFile; fileRef = DBF794A21C84A57200AB5D7D /* metronomeClick.wav */; };
 		DBF841F61C137767002D9729 /* MidiToVex in Resources */ = {isa = PBXBuildFile; fileRef = DBF841F51C137767002D9729 /* MidiToVex */; };
 		DBFB28131C5A781800999BE0 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBFB28121C5A781800999BE0 /* SWRevealViewController.m */; };
 		DBFB28151C5A791A00999BE0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFB28141C5A791A00999BE0 /* ViewController.swift */; };
@@ -120,6 +121,7 @@
 		DB9AEA961BF6D6AC00506C24 /* FermataBetaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FermataBetaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB9AEA9A1BF6D6AC00506C24 /* FermataBetaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FermataBetaUITests.swift; sourceTree = "<group>"; };
 		DB9AEA9C1BF6D6AC00506C24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBF794A21C84A57200AB5D7D /* metronomeClick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = metronomeClick.wav; sourceTree = "<group>"; };
 		DBF841F51C137767002D9729 /* MidiToVex */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MidiToVex; sourceTree = "<group>"; };
 		DBFB28101C5A781700999BE0 /* FermataBeta-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FermataBeta-Bridging-Header.h"; sourceTree = "<group>"; };
 		DBFB28111C5A781800999BE0 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				DBFB28231C5D133000999BE0 /* Tuner.swift */,
 				DBFB281D1C5C024F00999BE0 /* BackTableVC.swift */,
 				DBFB28141C5A791A00999BE0 /* ViewController.swift */,
+				DBF794A21C84A57200AB5D7D /* metronomeClick.wav */,
 				DB3FBBE41BFA9195004C22A3 /* SongTableViewCell.swift */,
 				DB9AEA811BF6D6AC00506C24 /* Assets.xcassets */,
 				DB6D17951C813E45005AFEFE /* CheckBox.swift */,
@@ -386,6 +389,7 @@
 				DB3C93C11C6925050032556B /* 0A.wav in Resources */,
 				DB62A1B91C7B9DF6007EDA48 /* vexflow-debug.js in Resources */,
 				DB62A1BA1C7B9DF6007EDA48 /* vexflow-min.js in Resources */,
+				DBF794A31C84A57200AB5D7D /* metronomeClick.wav in Resources */,
 				DB3C93C91C6925050032556B /* 6Ds.wav in Resources */,
 				DB3C93C41C6925050032556B /* 1As.wav in Resources */,
 				DB3C93CA1C6925050032556B /* 7E.wav in Resources */,

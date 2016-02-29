@@ -75,6 +75,9 @@ class InstrumentsViewController: UIViewController, WKScriptMessageHandler, UITab
     func loadInstruments(){
         
     }
+    
+    @IBOutlet weak var songTitle: UINavigationItem!
+    
 
     var song: Song?
     var something = ""
@@ -89,6 +92,8 @@ class InstrumentsViewController: UIViewController, WKScriptMessageHandler, UITab
             print(song.name)
             
         }*/
+        
+        songTitle.title = something
         
         let webstring = "http://people.eecs.ku.edu/~sbenson/grabMidi.php?title=" + song!.name
         

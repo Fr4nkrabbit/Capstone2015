@@ -180,7 +180,14 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i6N-iF-W6f">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZoS-Sa-ghf">
+                                <rect key="frame" x="270" y="226" width="49" height="30"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <segue destination="S7W-aS-m7B" kind="showDetail" identifier="showDetail" id="ZH4-KR-eLb"/>
+                                </connections>
+                            </button>
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i6N-iF-W6f">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="iQO-Lm-KSb">
@@ -192,18 +199,16 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZoS-Sa-ghf">
-                                <rect key="frame" x="270" y="226" width="49" height="30"/>
-                                <state key="normal" title="Submit"/>
-                                <connections>
-                                    <segue destination="S7W-aS-m7B" kind="showDetail" identifier="showDetail" id="ZH4-KR-eLb"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="i6N-iF-W6f" firstAttribute="leading" secondItem="VNI-wg-daR" secondAttribute="leadingMargin" constant="-20" id="bFr-PL-0RF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="i6N-iF-W6f" secondAttribute="trailing" constant="-20" id="oRf-3u-UrW"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="myTableView" destination="HrU-mF-NEo" id="YN2-yF-H1H"/>
+                        <outlet property="songTitle" destination="iQO-Lm-KSb" id="qel-9T-2s1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fyP-8T-bpU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -372,7 +377,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ke0-5o-jUG">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ke0-5o-jUG">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="wwm-yw-WNl">
@@ -387,11 +392,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="ke0-5o-jUG" secondAttribute="trailing" constant="-20" id="5GK-3h-jvJ"/>
-                            <constraint firstItem="ke0-5o-jUG" firstAttribute="leading" secondItem="u1l-al-IfP" secondAttribute="leadingMargin" constant="-20" id="xih-SO-JBO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ke0-5o-jUG" secondAttribute="trailing" constant="-20" id="SYA-lZ-d9H"/>
+                            <constraint firstItem="ke0-5o-jUG" firstAttribute="leading" secondItem="u1l-al-IfP" secondAttribute="leadingMargin" constant="-20" id="cnT-5B-HVl"/>
+                            <constraint firstItem="ke0-5o-jUG" firstAttribute="top" secondItem="u1l-al-IfP" secondAttribute="topMargin" id="l7I-gE-V91"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
+                    <connections>
+                        <outlet property="songTitle" destination="wwm-yw-WNl" id="zte-v0-PhN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gld-Cc-OlY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

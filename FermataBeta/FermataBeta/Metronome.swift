@@ -101,11 +101,14 @@ class MetronomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //allows the right wipe
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
         // Set the inital value of the tempo.
         tempo = 120
         
         // Initialize the sound player
-        let metronomeSoundURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("0A", ofType: "wav")!)
+        let metronomeSoundURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("metronomeClick", ofType: "wav")!)
         metronomeSoundPlayer = try? AVAudioPlayer(contentsOfURL: metronomeSoundURL)
         metronomeSoundPlayer.prepareToPlay()
     }

@@ -169,11 +169,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FermataBeta/InstrumentsViewController.swift"
-            timestampString = "478359116.756476"
+            timestampString = "478451503.688756"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -185,11 +185,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FermataBeta/InstrumentsViewController.swift"
-            timestampString = "478359116.756476"
+            timestampString = "478451503.688756"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "userContentController(_:didReceiveScriptMessage:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -201,11 +201,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FermataBeta/InstrumentsViewController.swift"
-            timestampString = "478359116.756476"
+            timestampString = "478451503.688756"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "userContentController(_:didReceiveScriptMessage:)"
             landmarkType = "5">
          </BreakpointContent>
