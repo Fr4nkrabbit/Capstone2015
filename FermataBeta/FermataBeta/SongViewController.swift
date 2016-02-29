@@ -30,14 +30,14 @@ class SongViewController: UIViewController, WKScriptMessageHandler {
     
     var instruments: String = ""
     var songName: String = ""
-    
+    var MidiArg = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("songviewstuff")
         
         
-        if instruments == instruments {
-            print(instruments)
-        }
+        print(instruments)
+        
         
         print(songName)
         
@@ -58,7 +58,21 @@ class SongViewController: UIViewController, WKScriptMessageHandler {
             configuration: theConfiguration)
         theWebView!.loadRequest(request)
         self.view.addSubview(theWebView!)
+        let webstring = "http://people.eecs.ku.edu/~sbenson/grabMidi.php?title=" + songName
         
+        if let url = NSURL(string: webstring) {
+            do {
+                
+                let something = try NSString(contentsOfURL: url, usedEncoding: nil)
+                let songListAsString = something as String
+                MidiArg = songListAsString as String
+                
+            } catch {
+                print("contents bad yo")
+            }
+        } else {
+            print("bad url")
+        }
         print("hello")
         
     }
@@ -75,18 +89,13 @@ class SongViewController: UIViewController, WKScriptMessageHandler {
         
         let callbackString = sentData["callbackFunc"] as? String
         
-        theWebView!.evaluateJavaScript("test1()",completionHandler: nil)
-        theWebView!.evaluateJavaScript("test3()"){(JSReturnValue:AnyObject?, error:NSError?) in
-            if let errorDescription = error?.description{
-                print("returned value: \(errorDescription)")
-            }
-            else if JSReturnValue != nil{
-                print("returned value: \(JSReturnValue!)")
-            }
-            else{
-                print("no return from JS")
-            }
-        }
+        var index1 = MidiArg.startIndex.advancedBy(MidiArg.characters.count-1)
+        var substring1 = MidiArg.substringToIndex(index1)
+        var js = "parseMidi('\(substring1)')" as String
+        
+        theWebView!.evaluateJavaScript(js,completionHandler: nil)
+        theWebView!.evaluateJavaScript("createSheetMusic('\(instruments)')",completionHandler: nil)
+
         
     }
 }
