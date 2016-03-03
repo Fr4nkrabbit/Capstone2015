@@ -14,3 +14,8 @@ We also need to deal with not standard notes ( the vex can generate notes when g
       
 - [ ] tied notes so ties are when a note continues and you add on another notes value to the length
   - so this is for note lengths that arent standard or either of the two above we have to combine notes will we get something of the         right length
+
+- [x] some times notes dont go all the way to the end and will instead earlier by a tick which sometimes makes us add unescary rest and make not durations a little weird
+- [ ] i have seen it where notes go over and intrude into the next note 
+    - this might be a something we need to add as a possiblity cause some instruments can have it like piano and percussian
+    - that or we need to go through and fix it so nottes have one after another
