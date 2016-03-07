@@ -11,7 +11,6 @@
 <script src="JZZ.MidiFile.js"></script>
 <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
 <style type="text/css">
-
 	<p><input type=file id=file size=80 onchange='fromFile();'></p>
 	canvas {
 	background: #eed;
@@ -119,7 +118,7 @@ var parsedEvents
 
 function parseMidi(s)
 {
-	//     var jzzmf=JZZ.MidiFile.fromBase64(s)
+	//var jzzmf=JZZ.MidiFile.fromBase64(s)
 	var mf = new JZZ.MidiFile(s)
 	//console.log(mf)
 	var trans=translateMfEvents(mf);
@@ -272,8 +271,11 @@ function combineNotes(notes,ppqn)
 //fills in the gap between notes with rest
 function createRest(notes,ppqn)
 {
+	console.log('inside createRest')
+	console.log(notes)
 	var lasttime=0
 	var notesWithRest=[]
+	
 	for (note in notes)
 	{
 		//checks to see if the last notes ended when the current note starts
@@ -281,17 +283,37 @@ function createRest(notes,ppqn)
 		//I used greater that 10 because i noticed that would be a gap of
 		// 1 sometimes between notes so i figured we could just use a buffer
 		//to make sure we dont create unnescarry rest
-		if (lasttime-notes[note].start <= -10) 
+		console.log('note starts at ' + notes[note].start)
+		
+		//if (lasttime - notes[note].start <= -10)
+		if (notes[note].start - lasttime > 0)
 		{
+			console.log ('gap of size ' + (notes[note].start - lasttime))
 			notesWithRest.push({
-			start:	lasttime,
-			finish:	notes[note].start,
-			pitch:	-1,
-			note:	((notes[note].start- lasttime)/ppqn)/4
+				start:	lasttime,
+				finish:	notes[note].start,
+				pitch:	-1,
+				note:	((notes[note].start- lasttime)/ppqn) / 4
 			})
 		}
 		notesWithRest.push(notes[note])
 		lasttime=notes[note].finish
+		
+		console.log('lasttime is now ' + lasttime)
+	}
+	
+	var trailingRest = lasttime % (ppqn * 4)
+	if (trailingRest > 0)
+	{
+		//if the last note didn't end the measure, insert a rest
+		console.log(trailingRest)
+		
+		notesWithRest.push({
+				start:	lasttime,
+				finish:	lasttime + trailingRest,
+				pitch:	-1,
+				note:	((notes[note].start- lasttime)/ppqn) / 4
+			})
 	}
 	
 	return notesWithRest
@@ -302,10 +324,10 @@ function createRest(notes,ppqn)
 //this will take the list of notes and the time signature and then create list
 //of notes that fit into measures
 function populateMeasures(notes2,ppqn,keysig,timesig)
-{
+{	
 	var laststart = -1
 	var lastfinish = 0
-	var ppqmeas = ppqn*4
+	var ppqmeas = ppqn*4 // running counter of the ending pulse of the currently read measures
 	var holder
 	var measures = []
 	var meas = {m: []}
@@ -313,15 +335,15 @@ function populateMeasures(notes2,ppqn,keysig,timesig)
 	//populate measures
 	for (noter in notes2)
 	{
-		if(notes2[noter].start>=ppqmeas)
+		if(notes2[noter].start >= ppqmeas)
 		{
 			//adds a measures if the note we are about to look at is in another measure
-			console.log("here")
+			console.log(notes2[noter].start)
 			console.log(ppqmeas)
-			console.log(meas);
+			console.log("push a measure")
 			measures.push(meas)
-			meas={m: []}
-			ppqmeas+=ppqn*4
+			meas = {m: []}
+			ppqmeas += ppqn*4
 		}
 
 		if(keysig[0]&&lastfinish==parseInt(keysig[0][0]))
@@ -329,10 +351,13 @@ function populateMeasures(notes2,ppqn,keysig,timesig)
 			meas.key=keysig[0][4]
 			keysig=keysig.slice(1)
 		}
-		if(timesig[0]&&lastfinish==parseInt(timesig[0][0])){
-			meas.time={
+		if(timesig[0]&&lastfinish==parseInt(timesig[0][0]))
+		{
+			meas.time = 
+			{
 				top:		timesig[0][4].split('/')[0],
-				bottem:	timesig[0][4].split('/')[1]}
+				bottem:	timesig[0][4].split('/')[1]
+			}
 			timesig=timesig.slice(1)
 		}
 
@@ -345,7 +370,7 @@ function populateMeasures(notes2,ppqn,keysig,timesig)
 					start:	notes2[noter].start,
 					finish:	ppqmeas,
 					pitch:	notes2[noter].pitch,
-					note:	((ppqmeas-notes2[noter].start)/ppqn)/4,
+					note:	((ppqmeas-notes2[noter].start) / ppqn)/4,
 					tie: true
 				})
 				notes2[noter].start = ppqmeas
@@ -358,16 +383,15 @@ function populateMeasures(notes2,ppqn,keysig,timesig)
 				notes2[noter].tie=true
 			}
 		}
-		    //add note
-		    meas.m.push(notes2[noter])
-		    lastfinish = notes2[noter].finish
-
+		
+		//add note
+		meas.m.push(notes2[noter])
+		lastfinish = notes2[noter].finish
 	}
-					measures.push(meas)
+	console.log("pushing last measure")
+	measures.push(meas)
 	return measures
 }
-
-
 
 function displayMidiFile(mf)
 {
@@ -380,7 +404,7 @@ function displayMidiFile(mf)
 	var measures = []
 	var meas = {m: []}
 
-	var instruments={}
+	var instruments = {}
 	//populate arg[]
 	for (var i = 0; i < mf.length; i++)
 	{
@@ -408,27 +432,31 @@ function displayMidiFile(mf)
 	var title;
 	for (item in arg)
 	{
-	var lts = arg[item].split(' ');
-	if(lasttime>parseInt(lts[0])&&hitnote){
+		var lts = arg[item].split(' ');
+		
+		if(lasttime>parseInt(lts[0])&&hitnote)
+		{
+			console.log(title)
+			instruments[title]=notes;
+			notes=[]
+			hitnote=false
 
-	    console.log(title)
-	    instruments[title]=notes;
-	    notes=[]
-	    hitnote=false
+			console.log(title)
+		}
+		
+		lasttime=parseInt(lts[0]);
 
-	    console.log(title)
-	}
-	lasttime=parseInt(lts[0]);
-
-	if(lts[1] / 10 == 9)	{
-	    //hitnote=true
-	    notes.push(lts)
-	}
-	if(lts[1] / 10 == 8)	notes.push(lts)
-	if(lts[1] == "ff51")	tempo.push(lts)
-	if(lts[1] == "ff59")	keysig.push(lts)
-	if(lts[1] == "ff58")	timesigs.push(lts)
-	if(lts[1] == "ff03")	title=lts[4];
+		if(lts[1] / 10 == 9)	
+		{
+			//hitnote=true
+			notes.push(lts)
+		}
+		
+		if(lts[1] / 10 == 8)	notes.push(lts)
+		if(lts[1] == "ff51")	tempo.push(lts)
+		if(lts[1] == "ff59")	keysig.push(lts)
+		if(lts[1] == "ff58")	timesigs.push(lts)
+		if(lts[1] == "ff03")	title=lts[4];
 	}
 
 	console.log("instruments")
@@ -465,14 +493,19 @@ function displayMidiFile(mf)
 	//populate measures
 	for (noter in notes2)
 	{
-	if(keysig[0]&&lastfinish==keysig[0][0]){
-	    meas.key=keysig[0][4]
-	    keysig=keysig.slice(1)
+	if(keysig[0]&&lastfinish==keysig[0][0])
+	{
+		meas.key=keysig[0][4]
+		keysig=keysig.slice(1)
 	}
-	if(timesigs[0]&&lastfinish==timesigs[0][0]){
-	    meas.time={top: timesigs[0][4].split('/')[0],
-		bottem: timesigs[0][4].split('/')[1]}
-	    timesigs=timesigs.slice(1)
+	if(timesigs[0]&&lastfinish==timesigs[0][0])
+	{
+		meas.time=
+		{
+			top: timesigs[0][4].split('/')[0],
+			bottem: timesigs[0][4].split('/')[1]
+		}
+		timesigs=timesigs.slice(1)
 	}
 
 	if (lastfinish < notes2[noter].start)
@@ -484,10 +517,10 @@ function displayMidiFile(mf)
 		{
 		    meas.m.push(
 				{
-				start:	lastfinish,
-				finish:	ppqmeas,
-				pitch:	-1,
-				note:	((ppqmeas-lastfinish)/ppqn)/4
+					start:	lastfinish,
+					finish:	ppqmeas,
+					pitch:	-1,
+					note:	((ppqmeas-lastfinish)/ppqn)/4
 				})
 				lastfinish = ppqmeas<notes2[noter].start ? ppqmeas : notes2[noter].start
 				measures.push(meas)
@@ -498,11 +531,10 @@ function displayMidiFile(mf)
 		{
 		    meas.m.push(
 				{
-				start:	lastfinish,
-				finish:	notes2[noter].start,
-				pitch:	-1,
-				note:	((notes2[noter].start-lastfinish)/ppqn)/4,
-
+					start:	lastfinish,
+					finish:	notes2[noter].start,
+					pitch:	-1,
+					note:	((notes2[noter].start-lastfinish)/ppqn)/4,
 				})
 				lastfinish = notes2[noter].start
 		}
@@ -516,11 +548,11 @@ function displayMidiFile(mf)
 		{
 			meas.m.push(
 				{
-				start:	notes2[noter].start,
-				finish:	ppqmeas,
-				pitch:	notes2[noter][2],
-				note:	((ppqmeas-notes2[noter].start)/ppqn)/4,
-				tie: true
+					start:	notes2[noter].start,
+					finish:	ppqmeas,
+					pitch:	notes2[noter][2],
+					note:	((ppqmeas-notes2[noter].start)/ppqn)/4,
+					tie: true
 				})
 				notes2[noter].start = ppqmeas
 				notes2[noter].note = ((notes2[noter].finish-notes2[noter].start)/ppqn)/4
@@ -568,13 +600,16 @@ function pitToStr(inHex) //5C > G#6
 
 function drawSheets(inM)
 {
-	var timesig = {top: 4,
-	bottem: 4
+	var timesig = 
+	{
+		top: 4,
+		bottem: 4
 	};
-	var keysig={name: "C",
-	acidentals:[]
+	var keysig =
+	{
+		name: "C",
+		acidentals:[]
 	}
-
 
 	for (var mC = 0; mC < inM.length; mC++)
 	{
@@ -584,25 +619,28 @@ function drawSheets(inM)
 		var renderer = new Vex.Flow.Renderer(canvas, Vex.Flow.Renderer.Backends.CANVAS)
 		var ctx = renderer.getContext()
 		var stave = new Vex.Flow.Stave(STAFF_OFFSET_X, STAFF_OFFSET_Y * mC, CANVAS_WIDTH)
-
+		
 		// Add a treble clef
 		stave.addClef("treble")
-		if(inM[mC].time!=undefined){
-		stave.addTimeSignature(""+timesig.top+'/'+timesig.bottem)
-		timesig =inM[mC].time
+		
+		if(inM[mC].time!=undefined)
+		{
+			stave.addTimeSignature(""+timesig.top+'/'+timesig.bottem)
+			timesig =inM[mC].time
 		}
-		if(inM[mC].key!=undefined){
-		keysig.name =inM[mC].key
-		keysig.Accidental=[]
-
-		//stave.addKeySignature(keysig.name)
+		
+		if(inM[mC].key!=undefined)
+		{
+			keysig.name =inM[mC].key
+			keysig.Accidental=[]
+			//stave.addKeySignature(keysig.name)
 		}
+		
 		stave.addKeySignature(keysig.name)
 		stave.setContext(ctx).draw()
 
 		//create notes from inM
 		var notes = []
-
 
 		console.log('measure ' + mC)
 		var forbeamnotes=[],
@@ -612,21 +650,25 @@ function drawSheets(inM)
 		for (var n = 0, i=0; n < inM[mC].m.length; n++)
 		{
 			var pit = pitToStr(inM[mC].m[n].pitch)
-										var dotted=false
+			var dotted=false
 			var dur = durToWhole(inM[mC].m[n].note)
+			console.log ('dur is ' + dur)
 
-			if(parseInt((1/inM[mC].m[n].note)*3)%3!=0){
-				dur=dur*2
-				dur=dur+'d'
-				dotted=true
+			//should this note be dotted?
+			if(parseInt((1 / inM[mC].m[n].note) * 3) % 3 != 0)
+			{
+				dur = dur * 2
+				dur = dur + 'd'
+				dotted = true
 			}
 
-			dur= dur + (inM[mC].m[n].pitch == -1 ? 'r' : '')//append 'r' if this note is a rest
-			console.log('note' + n + ': ' + dur + ', ' + pit +', dotted ' + dotted+" + "+inM[mC].m[n].pitch)
+			dur = dur + (inM[mC].m[n].pitch == -1 ? 'r' : '')//append 'r' if this note is a rest
+			console.log('note' + n + ': ' + dur + ', ' + pit + ', dotted ' + dotted + " + " + inM[mC].m[n].pitch)
 			notes.push(new Vex.Flow.StaveNote({ keys: [pit], duration: dur }))
+			
 			if(dotted)
 			{
-				  notes[notes.length-1].addDotToAll()
+				notes[notes.length-1].addDotToAll()
 			}
 
 			if(!keysig.acidentals.includes(pit)&&pit.includes('#'))
@@ -634,11 +676,12 @@ function drawSheets(inM)
 				notes[notes.length-1].addAccidental(0, new Vex.Flow.Accidental("#"))
 			}
 
+			/*
 			if(i<4&&inM[mC].m[n].note<.25)
 			{
 				forbeamnotes.push(notes[notes.length-1])
 				i++;
-				lengthofbeam+=inM[mC].m[n].note;
+				lengthofbeam += inM[mC].m[n].note;
 			}
 			else if((1/(lengthofbeam/.50))%2==0)
 			{
@@ -662,6 +705,7 @@ function drawSheets(inM)
 				lengthofbeam=0;
 				i=0;
 			}
+			*/
 		}
 
 		console.log('')
@@ -690,7 +734,7 @@ function drawSheets(inM)
 			allbeams.pop().setContext(ctx).draw();
 		}
 	}
-	//console.log("Successful run!")
+	console.log("Successful run!")
 }
 
 
