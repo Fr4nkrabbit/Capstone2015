@@ -308,13 +308,18 @@ function createRest(notes,ppqn)
 	
 	if (trailingRest > 0)
 	{
+		var startT = lasttime
+		var finishT = lasttime + ((ppqn * 4) - trailingRest)
 		//if the last note didn't end the measure, insert a rest
 		notesWithRest.push({
-				start:	lasttime,
-				finish:	lasttime + ((ppqn * 4) - trailingRest),
+				start:	startT,
+				finish:	finishT,
 				pitch:	-1,
-				note:	((notes[note].start- lasttime)/ppqn) / 4
+				note:	((finishT - startT)/ppqn)/4
 			})
+		
+		console.log('trailing rest:')
+		console.log(notesWithRest[notesWithRest.length-1])
 	}
 	
 	return notesWithRest
@@ -596,20 +601,31 @@ function pitToStr(inHex) //5C > G#6
 {
 	if (inHex == -1)
 	return 'B/4' //rest position
-
+	
+	
 	var note = Vex.Flow.integerToNote(parseInt(inHex, 16) % 12)
-	var octave = parseInt(parseInt(inHex, 16) / 12)-1
+	var octave = parseInt(parseInt(inHex, 16) / 12) - 1
 
 	return note + '/' + octave
 }
 
 function drawSheets(inM)
 {
+
+	
+	
+	//console.log('inM')
+	//console.log(inM)
+	//console.log(timeSig)
+	
 	var timesig = 
 	{
 		top: 4,
 		bottem: 4
 	};
+
+	var timesig = inM[0].time;
+	
 	var keysig =
 	{
 		name: "C",
@@ -660,27 +676,17 @@ function drawSheets(inM)
 			var pit = pitToStr(inM[mC].m[n].pitch)
 			var dotted = false
 			var dur = durToWhole(inM[mC].m[n].note)
-			console.log ('dur is ' + dur)
-			
-			/*
-				48	96	144	192	240	288	336	384	
-				8th	4th		2nd				whole
-				432	480	528	576	624	672	720	768	
-				8th	4th		2nd				whole
-				816	864	912	960	1008	1056	1104	1152
-				8th	4th		2nd				whole
-				1200	1248	1296	1344	1392	1440	1488	1536
-				8th	4th		2nd				whole
-			*/
+			//console.log ('dur is ' + dur)
 			
 			//should this note be dotted?
 			if(parseInt((1 / inM[mC].m[n].note) * 3) % 3 != 0)
 			{
-				dur = dur * 2
+				dur = durToWhole((2/3)*(inM[mC].m[n].note))
+				//dur = dur * 2
 				dur = dur + 'd'
 				dotted = true
 			}
-
+			
 			dur = dur + (inM[mC].m[n].pitch == -1 ? 'r' : '')//append 'r' if this note is a rest
 			console.log('note' + n + ': ' + dur + ', ' + pit + ', dotted ' + dotted + " + " + inM[mC].m[n].pitch)
 			notes.push(new Vex.Flow.StaveNote({ keys: [pit], duration: dur }))
