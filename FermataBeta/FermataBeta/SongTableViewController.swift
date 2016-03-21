@@ -16,19 +16,43 @@ class SongTableViewController: UITableViewController {
     
     //MARK: Properties
     var songs = [Song]()
+    var ID: [String] = []
+    //var numbers: [Int] = []
     
     func loadSampleSongs(){
     
-        //if let url = NSURL(string: "http://people.eecs.ku.edu/~sxiao/grabTitles.php")
-        if let url = NSURL(string: "http://people.eecs.ku.edu/~sbenson/grabTitles.php") {
+        
+        //if let url = NSURL(string: "http://people.eecs.ku.edu/~sbenson/grabTitles.php") {
+        /*if let url = NSURL(string: "http://people.eecs.ku.edu/~sxiao/grabTitles.php"){
+            do {
+                let songListNP = try NSString(contentsOfURL: url, usedEncoding: nil)
+                let songListAsString = songListNP as String
+                let songList = songListAsString.characters.split{$0 == "@"}.map(String.init)
+                
+                var bool = true
+                
+                //populate songList
+                for item in songList{
+                    if bool {
+                        songs += [Song(name: item)]
+                    }else {
+                        ID.append(item)
+                    }
+                    bool = !bool
+                    
+        }*/if let url = NSURL(string: "http://people.eecs.ku.edu/~sbenson/grabTitles.php"){
             do {
                 let songListNP = try NSString(contentsOfURL: url, usedEncoding: nil)
                 let songListAsString = songListNP as String
                 let songList = songListAsString.characters.split{$0 == " "}.map(String.init)
+
                 
                 //populate songList
                 for item in songList{
-                    songs += [Song(name: item)]
+      
+                        songs += [Song(name: item)]
+
+                    
                 }
                 
             } catch {
@@ -101,7 +125,9 @@ class SongTableViewController: UITableViewController {
                 print("do we even get here2?")
                 let indexPath = tableView.indexPathForCell(selectedSongCell)!
                 let selectedSong = songs[indexPath.row]
+               // let selectedID = ID[indexPath.row]
                 songDetailViewController.song = selectedSong
+                //songDetailViewController.id = selectedID
                 print(selectedSong.name)
                 print("do we even get here3?")
             }

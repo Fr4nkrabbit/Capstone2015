@@ -81,12 +81,15 @@ class InstrumentsViewController: UIViewController, WKScriptMessageHandler, UITab
 
     var song: Song?
     var something = ""
+    var id = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         something = song!.name
         
         print(something)
+        print("PRINT")
+        print(id)
         
         /*if let song = song {
             print(song.name)
@@ -96,6 +99,8 @@ class InstrumentsViewController: UIViewController, WKScriptMessageHandler, UITab
         songTitle.title = something
         
         let webstring = "http://people.eecs.ku.edu/~sbenson/grabMidi.php?title=" + song!.name
+        //let webstring = "http://people.eecs.ku.edu/~sxiao/grabMidi.php/?id=" + id
+
         
         if let url = NSURL(string: webstring) {
             do {
