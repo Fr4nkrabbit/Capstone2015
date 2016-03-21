@@ -191,7 +191,6 @@ function translateMfEvents(mf)
 	return arg;
 }
 
-
 function gatherEvents(arg)
 {
 	var instruments = {}
@@ -244,6 +243,7 @@ function gatherEvents(arg)
 function combineNotes(notes,ppqn)
 {
 	var combined=[]
+	
 	//go though and combine the note start and stops
 	for (item = 0; item < notes.length; item++)
 	{
@@ -271,8 +271,8 @@ function combineNotes(notes,ppqn)
 //fills in the gap between notes with rest
 function createRest(notes,ppqn)
 {
-	console.log('inside createRest')
-	console.log(notes)
+	//console.log('inside createRest ' + ppqn)
+	//console.log(notes)
 	var lasttime=0
 	var notesWithRest=[]
 	
@@ -283,12 +283,12 @@ function createRest(notes,ppqn)
 		//I used greater that 10 because i noticed that would be a gap of
 		// 1 sometimes between notes so i figured we could just use a buffer
 		//to make sure we dont create unnescarry rest
-		console.log('note starts at ' + notes[note].start)
+		//console.log('note starts at ' + notes[note].start)
 		
 		//if (lasttime - notes[note].start <= -10)
 		if (notes[note].start - lasttime > 0)
 		{
-			console.log ('gap of size ' + (notes[note].start - lasttime))
+			//console.log ('gap of size ' + (notes[note].start - lasttime))
 			notesWithRest.push({
 				start:	lasttime,
 				finish:	notes[note].start,
@@ -299,18 +299,19 @@ function createRest(notes,ppqn)
 		notesWithRest.push(notes[note])
 		lasttime=notes[note].finish
 		
-		console.log('lasttime is now ' + lasttime)
+		//console.log('lasttime is now ' + lasttime)
 	}
 	
 	var trailingRest = lasttime % (ppqn * 4)
+	
+	//console.log('lasttime ' + lasttime + ' and whole note ' + (ppqn * 4))
+	
 	if (trailingRest > 0)
 	{
 		//if the last note didn't end the measure, insert a rest
-		console.log(trailingRest)
-		
 		notesWithRest.push({
 				start:	lasttime,
-				finish:	lasttime + trailingRest,
+				finish:	lasttime + ((ppqn * 4) - trailingRest),
 				pitch:	-1,
 				note:	((notes[note].start- lasttime)/ppqn) / 4
 			})
@@ -338,8 +339,8 @@ function populateMeasures(notes2,ppqn,keysig,timesig)
 		if(notes2[noter].start >= ppqmeas)
 		{
 			//adds a measures if the note we are about to look at is in another measure
-			console.log(notes2[noter].start)
-			console.log(ppqmeas)
+			//console.log(notes2[noter].start)
+			//console.log(ppqmeas)
 			console.log("push a measure")
 			measures.push(meas)
 			meas = {m: []}
@@ -351,6 +352,7 @@ function populateMeasures(notes2,ppqn,keysig,timesig)
 			meas.key=keysig[0][4]
 			keysig=keysig.slice(1)
 		}
+		
 		if(timesig[0]&&lastfinish==parseInt(timesig[0][0]))
 		{
 			meas.time = 
@@ -360,7 +362,7 @@ function populateMeasures(notes2,ppqn,keysig,timesig)
 			}
 			timesig=timesig.slice(1)
 		}
-
+		
 		if (notes2[noter].finish > ppqmeas)
 		{
 			//for notes that go over a measure and need to be split into notes for each indivdual measure
@@ -388,6 +390,7 @@ function populateMeasures(notes2,ppqn,keysig,timesig)
 		meas.m.push(notes2[noter])
 		lastfinish = notes2[noter].finish
 	}
+	
 	console.log("pushing last measure")
 	measures.push(meas)
 	return measures
@@ -403,20 +406,20 @@ function displayMidiFile(mf)
 	var timesigs = []
 	var measures = []
 	var meas = {m: []}
-
 	var instruments = {}
+
 	//populate arg[]
 	for (var i = 0; i < mf.length; i++)
 	{
-	if (mf[i] instanceof JZZ.MidiFile.MTrk)
-	{
-	    for (var j = 0; j < mf[i].length; j++)
-	    {
-		var evt = mf[i][j]
-		var s = evt.toString().replace(/&/g,'&amp;').replace(/>/g,'&gt;').replace(/</g,'&lt;')
-		arg.push(evt.time + " " + s)
-	    }
-	}
+		if (mf[i] instanceof JZZ.MidiFile.MTrk)
+		{
+			for (var j = 0; j < mf[i].length; j++)
+			{
+				var evt = mf[i][j]
+				var s = evt.toString().replace(/&/g,'&amp;').replace(/>/g,'&gt;').replace(/</g,'&lt;')
+				arg.push(evt.time + " " + s)
+			}
+		}
 	}
 
 	var item, thing
@@ -425,7 +428,6 @@ function displayMidiFile(mf)
 	console.log("arg")
 	console.log(arg)
 	//separate midi events by type
-
 
 	var lasttime=0;
 	var hitnote=false;
@@ -465,23 +467,23 @@ function displayMidiFile(mf)
 	//go though and combine the note start and stops
 	for (item = 0; item < notes.length; item++)
 	{
-	if (notes[item][6] == "On")
-	{
-	    for (thing = item+1; thing < notes.length; thing++)
-	    {
-		if (notes[item][2] == notes[thing][2])
+		if (notes[item][6] == "On")
 		{
-		    notes2.push(
+			for (thing = item+1; thing < notes.length; thing++)
+			{
+				if (notes[item][2] == notes[thing][2])
 				{
-				start:	notes[item][0],
-				finish:	notes[thing][0],
-				pitch:	notes[item][2],
-				note:	((notes[thing][0]-notes[item][0])/ppqn)/4
-				})
-				break
+					notes2.push(
+					{
+						start:	notes[item][0],
+						finish:	notes[thing][0],
+						pitch:	notes[item][2],
+						note:	((notes[thing][0]-notes[item][0])/ppqn)/4
+					})
+					break
+				}
+			}
 		}
-	    }
-	}
 	}
 
 	console.log("notes2")
@@ -493,91 +495,94 @@ function displayMidiFile(mf)
 	//populate measures
 	for (noter in notes2)
 	{
-	if(keysig[0]&&lastfinish==keysig[0][0])
-	{
-		meas.key=keysig[0][4]
-		keysig=keysig.slice(1)
-	}
-	if(timesigs[0]&&lastfinish==timesigs[0][0])
-	{
-		meas.time=
+		if(keysig[0]&&lastfinish==keysig[0][0])
 		{
-			top: timesigs[0][4].split('/')[0],
-			bottem: timesigs[0][4].split('/')[1]
+			meas.key=keysig[0][4]
+			keysig=keysig.slice(1)
 		}
-		timesigs=timesigs.slice(1)
-	}
-
-	if (lastfinish < notes2[noter].start)
-	{
-	    //add rests here will need to loop
-	    while (lastfinish != notes2[noter].start)
-	    {
-		if (ppqmeas < notes2[noter].start)
+		if(timesigs[0]&&lastfinish==timesigs[0][0])
 		{
-		    meas.m.push(
-				{
-					start:	lastfinish,
-					finish:	ppqmeas,
-					pitch:	-1,
-					note:	((ppqmeas-lastfinish)/ppqn)/4
-				})
-				lastfinish = ppqmeas<notes2[noter].start ? ppqmeas : notes2[noter].start
-				measures.push(meas)
-				ppqmeas += ppqn*4
-				meas = {m:[]}
+			meas.time=
+			{
+				top: timesigs[0][4].split('/')[0],
+				bottem: timesigs[0][4].split('/')[1]
+			}
+			timesigs=timesigs.slice(1)
+		}
+
+		if (lastfinish < notes2[noter].start)
+		{
+		    //add rests here will need to loop
+		    while (lastfinish != notes2[noter].start)
+		    {
+			if (ppqmeas < notes2[noter].start)
+			{
+			    meas.m.push(
+					{
+						start:	lastfinish,
+						finish:	ppqmeas,
+						pitch:	-1,
+						note:	((ppqmeas-lastfinish)/ppqn)/4
+					})
+					
+					lastfinish = ppqmeas<notes2[noter].start ? ppqmeas : notes2[noter].start
+					console.log("PUSHING MEASURE?")
+					measures.push(meas)
+					ppqmeas += ppqn*4
+					meas = {m:[]}
+			}
+			else
+			{
+			    meas.m.push(
+					{
+						start:	lastfinish,
+						finish:	notes2[noter].start,
+						pitch:	-1,
+						note:	((notes2[noter].start-lastfinish)/ppqn)/4,
+					})
+					lastfinish = notes2[noter].start
+			}
+		    }
+		}
+
+		if (notes2[noter].finish > ppqmeas)
+		{
+			//split note between measure will need to loop
+			while (notes2[noter].finish > ppqmeas)
+			{
+				meas.m.push(
+					{
+						start:	notes2[noter].start,
+						finish:	ppqmeas,
+						pitch:	notes2[noter][2],
+						note:	((ppqmeas-notes2[noter].start)/ppqn)/4,
+						tie: true
+					})
+					notes2[noter].start = ppqmeas
+					notes2[noter].note = ((notes2[noter].finish-notes2[noter].start)/ppqn)/4
+					ppqmeas += ppqn*4
+					console.log("PUSHING MEASURE?")
+					measures.push(meas)
+					meas = {m:[]}
+			}
+			
+			lastfinish = notes2[noter].finish
+		}
+		else if (notes2[noter].finish == ppqmeas)
+		{
+			//add note and add meas
+			meas.m.push(notes2[noter])
+			measures.push(meas)
+			ppqmeas += ppqn*4
+			meas = {m:[]}
+			lastfinish = notes2[noter].finish
 		}
 		else
 		{
-		    meas.m.push(
-				{
-					start:	lastfinish,
-					finish:	notes2[noter].start,
-					pitch:	-1,
-					note:	((notes2[noter].start-lastfinish)/ppqn)/4,
-				})
-				lastfinish = notes2[noter].start
+			//add note
+			meas.m.push(notes2[noter])
+			lastfinish = notes2[noter].finish
 		}
-	    }
-	}
-
-	if (notes2[noter].finish > ppqmeas)
-	{
-		//split note between measure will need to loop
-		while (notes2[noter].finish > ppqmeas)
-		{
-			meas.m.push(
-				{
-					start:	notes2[noter].start,
-					finish:	ppqmeas,
-					pitch:	notes2[noter][2],
-					note:	((ppqmeas-notes2[noter].start)/ppqn)/4,
-					tie: true
-				})
-				notes2[noter].start = ppqmeas
-				notes2[noter].note = ((notes2[noter].finish-notes2[noter].start)/ppqn)/4
-				ppqmeas += ppqn*4
-				measures.push(meas)
-				meas = {m:[]}
-		}
-		
-		lastfinish = notes2[noter].finish
-	}
-	else if (notes2[noter].finish == ppqmeas)
-	{
-	    //add note and add meas
-	    meas.m.push(notes2[noter])
-	    measures.push(meas)
-	    ppqmeas += ppqn*4
-	    meas = {m:[]}
-	    lastfinish = notes2[noter].finish
-	}
-	else
-	{
-	    //add note
-	    meas.m.push(notes2[noter])
-	    lastfinish = notes2[noter].finish
-	}
 	}
 	return measures
 }
@@ -649,11 +654,25 @@ function drawSheets(inM)
 
 		for (var n = 0, i=0; n < inM[mC].m.length; n++)
 		{
+			//console.log('note is ')
+			console.log(inM[mC].m[n])
+		
 			var pit = pitToStr(inM[mC].m[n].pitch)
-			var dotted=false
+			var dotted = false
 			var dur = durToWhole(inM[mC].m[n].note)
 			console.log ('dur is ' + dur)
-
+			
+			/*
+				48	96	144	192	240	288	336	384	
+				8th	4th		2nd				whole
+				432	480	528	576	624	672	720	768	
+				8th	4th		2nd				whole
+				816	864	912	960	1008	1056	1104	1152
+				8th	4th		2nd				whole
+				1200	1248	1296	1344	1392	1440	1488	1536
+				8th	4th		2nd				whole
+			*/
+			
 			//should this note be dotted?
 			if(parseInt((1 / inM[mC].m[n].note) * 3) % 3 != 0)
 			{
@@ -734,8 +753,10 @@ function drawSheets(inM)
 			allbeams.pop().setContext(ctx).draw();
 		}
 	}
+	
 	console.log("Successful run!")
 }
+
 
 
 </script>
