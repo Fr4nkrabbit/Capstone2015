@@ -13,7 +13,7 @@ class BackTableVC: UITableViewController {
     var MenuItems = [String]()
     
     override func viewDidLoad() {
-            MenuItems = ["Recent", "Songs", "Metronome", "Tuner"]
+            MenuItems = ["Login", "Songs", "Metronome", "Tuner"]
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

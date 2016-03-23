@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Recent: UITableViewController {
+class Login: UIViewController {
     
     override func viewDidLoad() {
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
