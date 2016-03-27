@@ -40,7 +40,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Iek-sT-pAA">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Iek-sT-pAA">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="EhH-qg-twt">
@@ -64,6 +64,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="b2k-ri-MqY" firstAttribute="top" secondItem="Iek-sT-pAA" secondAttribute="bottom" id="4H6-fa-gpc"/>
+                            <constraint firstItem="Iek-sT-pAA" firstAttribute="top" secondItem="E0D-U9-XbJ" secondAttribute="topMargin" id="4W7-WF-E1G"/>
+                            <constraint firstItem="Iek-sT-pAA" firstAttribute="leading" secondItem="E0D-U9-XbJ" secondAttribute="leadingMargin" constant="-20" id="4tM-VX-6CZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Iek-sT-pAA" secondAttribute="trailing" constant="-20" id="E0w-Oe-rqS"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Songs" id="4j9-YL-JAB"/>
                     <connections>
@@ -373,9 +379,10 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nuY-gL-v3f" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="WSG-p3-2yx"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K8S-Ka-dh4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" id="K8S-Ka-dh4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
