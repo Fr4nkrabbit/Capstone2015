@@ -602,11 +602,26 @@ function pitToStr(inHex) //5C > G#6
 	if (inHex == -1)
 	return 'B/4' //rest position
 	
-	
 	var note = Vex.Flow.integerToNote(parseInt(inHex, 16) % 12)
 	var octave = parseInt(parseInt(inHex, 16) / 12) - 1
 
 	return note + '/' + octave
+}
+
+function quantizeNote(inDec) //0.5598958333333334 => 0.5625
+{
+	var step = 1 / 128
+	var skew = inDec % step
+
+	if (skew)
+	{
+		inDec -= skew
+
+		if (skew > step / 2) //round up?
+			inDec += step
+	}
+	
+	return inDec
 }
 
 function drawSheets(inM)
@@ -664,65 +679,73 @@ function drawSheets(inM)
 		var notes = []
 
 		console.log('measure ' + (mC+1))
+		
 		var forbeamnotes=[],
 		allbeams=[],
 		lengthofbeam=0;
 
-		for (var n = 0, i=0; n < inM[mC].m.length; n++)
+		//Loop through each note object in this measure, and create and push a corresponding Vexflow note object
+		for (var n = 0, i = 0; n < inM[mC].m.length; n++)
 		{
-			//console.log('note is ')
 			//console.log(inM[mC].m[n])
+			var decDur = inM[mC].m[n].note
 			var pit = pitToStr(inM[mC].m[n].pitch)
-			var dur = durToWhole(inM[mC].m[n].note)
+			var dur = durToWhole(decDur)
 			var dotted = false
 			var irregularNote = true
 			
-			//console.log ('dur is ' + dur)
-			
-			//Determine the note type
-			for (var i = 0; i < 8 && irregularNote; i++)
+			//Determine if the note is at least normal or dotted
+			for (var p = 0; p < 8 && irregularNote; p++)
 			{
-				if (inM[mC].m[n].note * 2 / 3 == 1 / Math.pow(2,i))
+				if (inM[mC].m[n].note * 2 / 3 == 1 / Math.pow(2,p))
 				{
-					durcheck = durToWhole((2/3)*(inM[mC].m[n].note))
+					dur = durToWhole((2/3)*(decDur))
+					dur = dur + 'd'
 					dotted = true
-					
-					console.log(inM[mC].m[n].note + ' is a dotted ' + durcheck)
 					irregularNote = false
 				}
-				else if (inM[mC].m[n].note == 1 / Math.pow(2,i))
+				else if (decDur == 1 / Math.pow(2,p))
 				{
-					console.log(inM[mC].m[n].note + ' is a ' + dur)
 					irregularNote = false
 				}
 			}
+			
 			
 			if (irregularNote)
 			{
-				console.log(inM[mC].m[n].note + ' is a garbage note')
-				
-				//create a collection of notes for this irregular note
-				
-			}
-			
-			//should this note be dotted?
-			if (parseInt((1 / inM[mC].m[n].note) * 3) % 3 != 0)
-			{
-				dur = durToWhole((2/3)*(inM[mC].m[n].note))
-				//dur = dur * 2
-				dur = dur + 'd'
-				dotted = true
-			}
-			
-			dur = dur + (inM[mC].m[n].pitch == -1 ? 'r' : '') //append 'r' if this note is a rest
-			//console.log('note' + n + ': ' + dur + ', ' + pit + ', dotted ' + dotted + " + " + inM[mC].m[n].pitch)
-			
-			notes.push(new Vex.Flow.StaveNote({ keys: [pit], duration: dur }))
-			if(dotted)
-				notes[notes.length-1].addDotToAll()
+				//Create a collection of mini-notes to sum to the irregular note
 
-			if(!keysig.acidentals.includes(pit) && pit.includes('#'))
-				notes[notes.length-1].addAccidental(0, new Vex.Flow.Accidental("#"))
+				decDur = quantizeNote(decDur) //round the duration to the nearest 1/128th
+
+				var collection = [] //holds integers of the notes to be added
+				
+				for (var t = 0; t < 8 && decDur > 0; t++)
+				{
+					while (decDur >= 1 / Math.pow(2,t))
+					{
+						collection.push(Math.pow(2,t))
+						decDur -= 1 / Math.pow(2,t)
+					}
+				}
+				
+				//push the notes
+				for (var col = 0; col < collection.length; col++)
+					notes.push(new Vex.Flow.StaveNote({ keys: [pit], duration: collection[col].toString()}))
+			}
+			else
+			{
+				//Handle this note normally
+				dur = dur + (inM[mC].m[n].pitch == -1 ? 'r' : '') //append 'r' if this note is a rest
+			
+				//console.log('note' + n + ': ' + dur + ', ' + pit + ', dotted ' + dotted + " + " + inM[mC].m[n].pitch)
+				notes.push(new Vex.Flow.StaveNote({ keys: [pit], duration: dur }))
+				
+				if(dotted)
+					notes[notes.length-1].addDotToAll()
+
+				if(!keysig.acidentals.includes(pit) && pit.includes('#'))
+					notes[notes.length-1].addAccidental(0, new Vex.Flow.Accidental("#"))
+			}
 
 			/*
 			if(i<4&&inM[mC].m[n].note<.25)
