@@ -14,7 +14,7 @@
                         <viewControllerLayoutGuide type="top" id="KJO-4C-cFK"/>
                         <viewControllerLayoutGuide type="bottom" id="hQV-wM-v4h"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="5Ac-Jj-Dmi">
+                    <view key="view" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" id="5Ac-Jj-Dmi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -31,7 +31,7 @@
         <!--Songs-->
         <scene sceneID="uMw-xd-s6D">
             <objects>
-                <viewController id="Q7O-7o-uTA" customClass="testSearchController" customModule="FermataBeta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Q7O-7o-uTA" customClass="SongDisplay" customModule="FermataBeta" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Mx-E5-M7C"/>
                         <viewControllerLayoutGuide type="bottom" id="b2k-ri-MqY"/>
@@ -57,7 +57,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Maw-Na-TYv" kind="showDetail" identifier="showDetail" id="ad5-Zu-zHq"/>
+                                            <segue destination="S7W-aS-m7B" kind="showDetail" id="gRe-Nj-EJD"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -73,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XXh-oD-eup" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3785" y="-2466"/>
+            <point key="canvasLocation" x="3009" y="-1706"/>
         </scene>
         <!--Back TableVC-->
         <scene sceneID="hPR-VI-f4C">
@@ -155,59 +155,6 @@
             </objects>
             <point key="canvasLocation" x="1367" y="-257"/>
         </scene>
-        <!--Songs-->
-        <scene sceneID="YVG-G1-Prt">
-            <objects>
-                <tableViewController id="2Mw-gA-aZH" customClass="SongTableViewController" customModule="FermataBeta" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="2cS-Kx-f7u">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Yom-Ib-Orb">
-                            <rect key="frame" x="0.0" y="182" width="600" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                            <items>
-                                <barButtonItem title="Item" id="NC8-3s-3En"/>
-                            </items>
-                        </toolbar>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SongTableViewCell" id="c6m-Yx-FRz" customClass="SongTableViewCell" customModule="FermataBeta" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="90"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c6m-Yx-FRz" id="n5C-HM-HCd">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Sj-8t-TwA">
-                                            <rect key="frame" x="19" y="16" width="562" height="57"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="nameLabel" destination="5Sj-8t-TwA" id="BRg-aI-Mj0"/>
-                                    <segue destination="Maw-Na-TYv" kind="show" identifier="showDetail" id="l4c-gl-iIX"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="2Mw-gA-aZH" id="mDo-tY-O05"/>
-                            <outlet property="delegate" destination="2Mw-gA-aZH" id="YNR-KJ-ZtT"/>
-                        </connections>
-                    </tableView>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Songs" id="Hdw-Jv-LVo"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="searchBar" destination="Yom-Ib-Orb" id="hwz-Q1-c2K"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fXz-ia-JYg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3745" y="-1685"/>
-        </scene>
         <!--Login-->
         <scene sceneID="yQ3-p8-9VH">
             <objects>
@@ -246,57 +193,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HrU-mF-NEo">
-                                <rect key="frame" x="188" y="52" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="prototype1" id="ypB-69-Wzh">
-                                        <rect key="frame" x="0.0" y="92" width="240" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ypB-69-Wzh" id="Mdf-N1-H9k">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="S7W-aS-m7B" kind="showDetail" identifier="showDetail" id="ErC-bb-GtL"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZoS-Sa-ghf">
-                                <rect key="frame" x="270" y="226" width="49" height="30"/>
-                                <state key="normal" title="Submit"/>
-                                <connections>
-                                    <segue destination="S7W-aS-m7B" kind="showDetail" identifier="showDetail" id="ZH4-KR-eLb"/>
-                                </connections>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IwE-mQ-LlW">
+                                <rect key="frame" x="20" y="20" width="43" height="30"/>
+                                <state key="normal" title="Songs"/>
                             </button>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i6N-iF-W6f">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="Title" id="iQO-Lm-KSb">
-                                        <barButtonItem key="leftBarButtonItem" title="Songs" id="3g3-Gy-5qZ">
-                                            <connections>
-                                                <action selector="GoBack:" destination="Maw-Na-TYv" id="V9h-u5-WLa"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="i6N-iF-W6f" firstAttribute="leading" secondItem="VNI-wg-daR" secondAttribute="leadingMargin" constant="-20" id="bFr-PL-0RF"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="i6N-iF-W6f" secondAttribute="trailing" constant="-20" id="oRf-3u-UrW"/>
-                        </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="3QZ-YH-GwY"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="myTableView" destination="HrU-mF-NEo" id="YN2-yF-H1H"/>
-                        <outlet property="songTitle" destination="iQO-Lm-KSb" id="qel-9T-2s1"/>
+                        <outlet property="button" destination="IwE-mQ-LlW" id="ZPl-Nh-Uy9"/>
+                        <outlet property="goBack" destination="IwE-mQ-LlW" id="7ia-mM-gWl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fyP-8T-bpU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4435" y="-1685"/>
+            <point key="canvasLocation" x="3893" y="-2089"/>
         </scene>
         <!--Metronome View Controller-->
         <scene sceneID="LCZ-sr-mCh">
@@ -427,7 +342,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="wwm-yw-WNl">
-                                        <barButtonItem key="leftBarButtonItem" title="Instruments" id="4Sk-KP-QAY">
+                                        <barButtonItem key="leftBarButtonItem" title="Songs" id="4Sk-KP-QAY">
                                             <connections>
                                                 <action selector="GoBack:" destination="S7W-aS-m7B" id="kGF-eV-090"/>
                                             </connections>
@@ -450,7 +365,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gld-Cc-OlY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5189" y="-1685"/>
+            <point key="canvasLocation" x="3887" y="-1403"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="q8u-VY-p6f">
@@ -469,26 +384,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tOw-06-InI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2249" y="-2016"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="aR3-PB-9eZ">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnSwipe="YES" id="6w8-8C-nAN" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="PXX-Bx-JVT"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6f2-Gg-KKV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="2Mw-gA-aZH" kind="relationship" relationship="rootViewController" id="9f4-y1-vdA"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wGe-wm-gqD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2933" y="-1685"/>
+            <point key="canvasLocation" x="2143" y="-1743"/>
         </scene>
     </scenes>
     <resources>
@@ -496,7 +392,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Gsj-ob-g0y"/>
-        <segue reference="l4c-gl-iIX"/>
-        <segue reference="ZH4-KR-eLb"/>
     </inferredMetricsTieBreakers>
 </document>

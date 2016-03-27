@@ -26,6 +26,11 @@ class InstrumentsViewController: UIViewController, WKScriptMessageHandler, UITab
     var theWebView:WKWebView?
     var MidiArg = ""
 
+    @IBOutlet weak var goBack: UIButton!
+    
+    @IBAction func likedThis(sender: UIButton) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
     @IBOutlet var myTableView: UITableView!
     
@@ -96,7 +101,7 @@ class InstrumentsViewController: UIViewController, WKScriptMessageHandler, UITab
             
         }*/
         
-        songTitle.title = something
+        //songTitle.title = something
         
         let webstring = "http://people.eecs.ku.edu/~sbenson/grabMidi.php?title=" + song!.name
         //let webstring = "http://people.eecs.ku.edu/~sxiao/grabMidi.php/?id=" + id
@@ -117,7 +122,7 @@ class InstrumentsViewController: UIViewController, WKScriptMessageHandler, UITab
         }
         
         let rect = CGRect(
-                origin: CGPoint(x: 0, y: 0),
+                origin: CGPoint(x: 0, y: 45),
                 size: UIScreen.mainScreen().bounds.size)
         
         /////////////////////////////////////////
@@ -137,7 +142,7 @@ class InstrumentsViewController: UIViewController, WKScriptMessageHandler, UITab
         
         print("hello")
         
-        myTableView.dataSource = self
+        //myTableView.dataSource = self
         
         
     }
@@ -179,7 +184,7 @@ class InstrumentsViewController: UIViewController, WKScriptMessageHandler, UITab
                 let instListAsString = JSReturnValue!
                 self.instruLists = instListAsString.componentsSeparatedByString(",")
                 print(self.instruLists)
-                self.myTableView.reloadData()
+          //      self.myTableView.reloadData()
                 print(self.song!.name)
                 
             }

@@ -18,7 +18,7 @@
 
 import UIKit
 
-class testSearchController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate{
+class SongDisplay: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate{
     
     //@IBOutlet weak var searchBar: UISearchBar!
     //@IBOutlet weak var tableView: UITableView!

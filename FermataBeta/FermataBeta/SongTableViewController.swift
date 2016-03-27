@@ -78,7 +78,7 @@ class SongTableViewController: UITableViewController {
     func swipe(){
         
         //allows the right wipe
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        //self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
     }
 

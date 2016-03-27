@@ -91,12 +91,12 @@ class SongViewController: UIViewController, WKScriptMessageHandler {
         
         let callbackString = sentData["callbackFunc"] as? String
         
-        var index1 = MidiArg.startIndex.advancedBy(MidiArg.characters.count-1)
-        var substring1 = MidiArg.substringToIndex(index1)
-        var js = "parseMidi('\(substring1)')" as String
+    //    var index1 = MidiArg.startIndex.advancedBy(MidiArg.characters.count-1)
+      //  var substring1 = MidiArg.substringToIndex(index1)
+       // var js = "parseMidi('\(substring1)')" as String
         
-        theWebView!.evaluateJavaScript(js,completionHandler: nil)
-        theWebView!.evaluateJavaScript("createSheetMusic('\(instruments)')",completionHandler: nil)
+    //    theWebView!.evaluateJavaScript(js,completionHandler: nil)
+      //  theWebView!.evaluateJavaScript("createSheetMusic('\(instruments)')",completionHandler: nil)
 
         
     }
