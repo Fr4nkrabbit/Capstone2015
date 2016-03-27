@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nuY-gL-v3f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aa2-fY-g9n">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -103,7 +103,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="6w8-8C-nAN" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="WCm-p2-JlQ"/>
+                                    <segue destination="nuY-gL-v3f" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="eQF-3b-7EM"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Metronome" id="VAY-Af-DPG">
@@ -143,12 +143,12 @@
         <scene sceneID="5qo-wi-hbd">
             <objects>
                 <navigationController id="BQx-7i-Nqu" customClass="ViewCont" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aov-AB-ams">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="aov-AB-ams">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="6w8-8C-nAN" kind="relationship" relationship="rootViewController" id="Jm2-4F-uoc"/>
+                        <segue destination="nuY-gL-v3f" kind="relationship" relationship="rootViewController" id="Gsj-ob-g0y"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btG-dG-RAa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -457,6 +457,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nuY-gL-v3f" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="WSG-p3-2yx"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="K8S-Ka-dh4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -468,7 +469,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tOw-06-InI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="941" y="-2050"/>
+            <point key="canvasLocation" x="2249" y="-2016"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aR3-PB-9eZ">
@@ -494,7 +495,7 @@
         <image name="Play" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WCm-p2-JlQ"/>
+        <segue reference="Gsj-ob-g0y"/>
         <segue reference="l4c-gl-iIX"/>
         <segue reference="ZH4-KR-eLb"/>
     </inferredMetricsTieBreakers>

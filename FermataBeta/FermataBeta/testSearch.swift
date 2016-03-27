@@ -80,11 +80,18 @@ class testSearchController: UIViewController, UITableViewDataSource, UITableView
         
     }
 
+    func swipe(){
+        
+        //allows the right wipe
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loadSampleSongs()
+        swipe()
         
         /* Setup delegates */
         tableView.delegate = self
@@ -138,7 +145,7 @@ class testSearchController: UIViewController, UITableViewDataSource, UITableView
         if(searchActive) {
             return filtered.count
         }
-        return data.count;
+        return testData.count;
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
