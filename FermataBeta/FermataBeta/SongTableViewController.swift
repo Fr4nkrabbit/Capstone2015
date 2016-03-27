@@ -24,14 +24,6 @@ class SongTableViewController: UITableViewController {
         //      searchBar.delegate = self
     }
     
-
-    
-    
-    
-    
-    let rect = CGRect(
-        origin: CGPoint(x: 0, y: 0),
-        size: UIScreen.mainScreen().bounds.size)
     
     //MARK: Properties
     var songs = [Song]()
