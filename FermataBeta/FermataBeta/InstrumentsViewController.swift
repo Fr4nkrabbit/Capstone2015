@@ -117,7 +117,7 @@ class InstrumentsViewController: UIViewController, WKScriptMessageHandler, UITab
         }
         
         let rect = CGRect(
-                origin: CGPoint(x: 0, y: 10000),
+                origin: CGPoint(x: 0, y: 0),
                 size: UIScreen.mainScreen().bounds.size)
         
         /////////////////////////////////////////

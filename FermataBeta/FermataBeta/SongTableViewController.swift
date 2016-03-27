@@ -13,6 +13,25 @@ import WebKit
 class SongTableViewController: UITableViewController {
     
     @IBOutlet var Menu: UIBarButtonItem!
+    @IBOutlet weak var searchBar: UIToolbar!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        swipe()
+        loadSampleSongs()
+        
+        /* Setup delegates */
+        //      searchBar.delegate = self
+    }
+    
+
+    
+    
+    
+    
+    let rect = CGRect(
+        origin: CGPoint(x: 0, y: 0),
+        size: UIScreen.mainScreen().bounds.size)
     
     //MARK: Properties
     var songs = [Song]()
@@ -69,12 +88,6 @@ class SongTableViewController: UITableViewController {
         //allows the right wipe
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        swipe()
-        loadSampleSongs()
     }
 
     override func didReceiveMemoryWarning() {
