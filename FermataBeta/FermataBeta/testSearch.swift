@@ -26,7 +26,6 @@ class SongDisplay: UIViewController, UITableViewDataSource, UITableViewDelegate,
     @IBOutlet weak var searchBar: UISearchBar!
     
     var searchActive : Bool = false
-    var data = ["San Francisco","New York","San Jose","Chicago","Los Angeles","Austin","Seattle"]
     var testData:[String] = []
     var filtered:[String] = []
     
