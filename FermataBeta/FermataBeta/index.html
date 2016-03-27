@@ -663,7 +663,7 @@ function drawSheets(inM)
 		//create notes from inM
 		var notes = []
 
-		console.log('measure ' + mC)
+		console.log('measure ' + (mC+1))
 		var forbeamnotes=[],
 		allbeams=[],
 		lengthofbeam=0;
@@ -671,15 +671,42 @@ function drawSheets(inM)
 		for (var n = 0, i=0; n < inM[mC].m.length; n++)
 		{
 			//console.log('note is ')
-			console.log(inM[mC].m[n])
-		
+			//console.log(inM[mC].m[n])
 			var pit = pitToStr(inM[mC].m[n].pitch)
-			var dotted = false
 			var dur = durToWhole(inM[mC].m[n].note)
+			var dotted = false
+			var irregularNote = true
+			
 			//console.log ('dur is ' + dur)
 			
+			//Determine the note type
+			for (var i = 0; i < 8 && irregularNote; i++)
+			{
+				if (inM[mC].m[n].note * 2 / 3 == 1 / Math.pow(2,i))
+				{
+					durcheck = durToWhole((2/3)*(inM[mC].m[n].note))
+					dotted = true
+					
+					console.log(inM[mC].m[n].note + ' is a dotted ' + durcheck)
+					irregularNote = false
+				}
+				else if (inM[mC].m[n].note == 1 / Math.pow(2,i))
+				{
+					console.log(inM[mC].m[n].note + ' is a ' + dur)
+					irregularNote = false
+				}
+			}
+			
+			if (irregularNote)
+			{
+				console.log(inM[mC].m[n].note + ' is a garbage note')
+				
+				//create a collection of notes for this irregular note
+				
+			}
+			
 			//should this note be dotted?
-			if(parseInt((1 / inM[mC].m[n].note) * 3) % 3 != 0)
+			if (parseInt((1 / inM[mC].m[n].note) * 3) % 3 != 0)
 			{
 				dur = durToWhole((2/3)*(inM[mC].m[n].note))
 				//dur = dur * 2
@@ -687,19 +714,15 @@ function drawSheets(inM)
 				dotted = true
 			}
 			
-			dur = dur + (inM[mC].m[n].pitch == -1 ? 'r' : '')//append 'r' if this note is a rest
-			console.log('note' + n + ': ' + dur + ', ' + pit + ', dotted ' + dotted + " + " + inM[mC].m[n].pitch)
-			notes.push(new Vex.Flow.StaveNote({ keys: [pit], duration: dur }))
+			dur = dur + (inM[mC].m[n].pitch == -1 ? 'r' : '') //append 'r' if this note is a rest
+			//console.log('note' + n + ': ' + dur + ', ' + pit + ', dotted ' + dotted + " + " + inM[mC].m[n].pitch)
 			
+			notes.push(new Vex.Flow.StaveNote({ keys: [pit], duration: dur }))
 			if(dotted)
-			{
 				notes[notes.length-1].addDotToAll()
-			}
 
-			if(!keysig.acidentals.includes(pit)&&pit.includes('#'))
-			{
+			if(!keysig.acidentals.includes(pit) && pit.includes('#'))
 				notes[notes.length-1].addAccidental(0, new Vex.Flow.Accidental("#"))
-			}
 
 			/*
 			if(i<4&&inM[mC].m[n].note<.25)
