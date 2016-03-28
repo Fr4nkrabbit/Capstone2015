@@ -101,6 +101,11 @@ class SongDisplay: UIViewController, UITableViewDataSource, UITableViewDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       // self.view.backgroundColor = UIColor(red:246, green:247, blue:235, alpha:1)
+        //self.view.backgroundColor = UIColor(red:(246/255), green:(247/255), blue: (235/255), alpha:1.0)
+        //self.view.backgroundColor = UIColor(netHex:0x1E1E1E)
+       self.view.backgroundColor = UIColor.redColor()
+        
         loadSampleSongs()
         swipe()
         
@@ -108,6 +113,10 @@ class SongDisplay: UIViewController, UITableViewDataSource, UITableViewDelegate,
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
+        
+        // Do any additional setup after loading the view, typically from a nib.
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 5
         
     }
     
@@ -162,7 +171,12 @@ class SongDisplay: UIViewController, UITableViewDataSource, UITableViewDelegate,
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell")! as UITableViewCell;
         
-        cell.textLabel?.font = UIFont(name: "HelveticaNeue", size: 15)
+        cell.textLabel?.font = UIFont(name: "Hiragino Sans", size: 35)
+        cell.textLabel?.font = UIFont.systemFontOfSize(35, weight: UIFontWeightThin)
+        
+        
+        cell.contentView.backgroundColor = UIColor(red: 102/256, green: 255/256, blue: 255/256, alpha: 0.66)
+        
         if(searchActive){
             cell.textLabel?.text = filtered[indexPath.row]
         } else {

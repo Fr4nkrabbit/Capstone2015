@@ -126,6 +126,10 @@ class MetronomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
+        self.view.backgroundColor = UIColor.lightGrayColor()
+        
         // Set the inital value of the tempo.
         tempo = 120
         

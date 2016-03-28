@@ -107,6 +107,8 @@ class Tuner: UIViewController {
         noteList = ["0A", "1As", "2B", "3C", "4Cs", "5D", "6Ds", "7E", "8F", "9Fs", "10G", "11Gs"]
         noteNames = ["A", "Bb", "B", "C", "C#", "D", "Eb", "E", "F", "F#", "G", "G#"]
         
+        self.view.backgroundColor = UIColor.lightGrayColor()
+        
         //changes the note display
         Note.text = noteNames[count]
         

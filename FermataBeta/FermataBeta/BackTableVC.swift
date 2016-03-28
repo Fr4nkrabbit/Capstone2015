@@ -13,7 +13,7 @@ class BackTableVC: UITableViewController {
     var MenuItems = [String]()
     
     override func viewDidLoad() {
-            MenuItems = ["Login", "Songs", "Metronome", "Tuner"]
+        MenuItems = ["Login", "Songs", "Metronome", "Tuner"]
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -26,6 +26,8 @@ class BackTableVC: UITableViewController {
         let block = tableView.dequeueReusableCellWithIdentifier(MenuItems[indexPath.row], forIndexPath: indexPath) as UITableViewCell
     
         block.textLabel?.text = MenuItems[indexPath.row]
+        block.textLabel?.font = UIFont(name: "Hiragino Sans", size: 15)
+        block.textLabel?.font = UIFont.systemFontOfSize(15, weight: UIFontWeightThin)
         
         return block
     }

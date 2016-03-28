@@ -14,6 +14,7 @@ class Login: UIViewController, FBSDKLoginButtonDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(red:246, green:247, blue:235, alpha:1)
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
