@@ -31,6 +31,7 @@ class SongViewController: UIViewController, WKScriptMessageHandler {
     @IBOutlet weak var songTitle: UINavigationItem!
     
     var instruments: String = ""
+    var id: String = ""
     var songName: String = ""
     var MidiArg = ""
     
@@ -54,8 +55,11 @@ class SongViewController: UIViewController, WKScriptMessageHandler {
         
         //songTitle.title = something
         
-        let webstring = "http://people.eecs.ku.edu/~sbenson/grabMidi.php?title=" + songName
-        //let webstring = "http://people.eecs.ku.edu/~sxiao/grabMidi.php/?id=" + id
+        //let webstring = "http://people.eecs.ku.edu/~sbenson/grabMidi.php?title=" + songName
+        
+        print("what is id?")
+        print(id)
+        let webstring = "http://people.eecs.ku.edu/~sxiao/grabMidi.php/?id=" + id
         
         
         if let url = NSURL(string: webstring) {

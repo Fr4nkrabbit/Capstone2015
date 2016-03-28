@@ -183,9 +183,9 @@ class SongDisplay: UIViewController, UITableViewDataSource, UITableViewDelegate,
                 print("do we even get here2?")
                 let indexPath = tableView.indexPathForCell(selectedSongCell)!
                 let selectedSong = songs[indexPath.row]
-                // let selectedID = ID[indexPath.row]
+                let selectedID = ID[indexPath.row]
                 songDetailViewController.song = selectedSong
-                //songDetailViewController.id = selectedID
+                songDetailViewController.id = selectedID
                 print(selectedSong.name)
                 print("do we even get here3?")
             }
