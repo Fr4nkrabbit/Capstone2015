@@ -39,24 +39,35 @@ class SongDisplay: UIViewController, UITableViewDataSource, UITableViewDelegate,
         
         
         //if let url = NSURL(string: "http://people.eecs.ku.edu/~sbenson/grabTitles.php") {
-        /*if let url = NSURL(string: "http://people.eecs.ku.edu/~sxiao/grabTitles.php"){
-         do {
-         let songListNP = try NSString(contentsOfURL: url, usedEncoding: nil)
-         let songListAsString = songListNP as String
-         let songList = songListAsString.characters.split{$0 == "@"}.map(String.init)
+        if let url = NSURL(string: "http://people.eecs.ku.edu/~sxiao/grabTitles.php"){
+            do {
+                let songListNP = try NSString(contentsOfURL: url, usedEncoding: nil)
+                let songListAsString = songListNP as String
+                let songList = songListAsString.characters.split{$0 == "@"}.map(String.init)
          
-         var bool = true
+                var bool = true
+                
+                print(songList)
          
-         //populate songList
-         for item in songList{
-         if bool {
-         songs += [Song(name: item)]
-         }else {
-         ID.append(item)
-         }
-         bool = !bool
-         
-         }*/if let url = NSURL(string: "http://people.eecs.ku.edu/~sbenson/grabTitles.php"){
+                //populate songList
+                for item in songList{
+                    if bool {
+                        songs += [Song(name: item)]
+                        testData.append(item)
+                    }else {
+                        ID.append(item)
+                    }
+                    bool = !bool
+                    
+                }
+            } catch {
+                print("contents could not be loaded")
+            }
+        } else {
+            print("Contents are bad!")
+        }
+        
+        /*if let url = NSURL(string: "http://people.eecs.ku.edu/~sbenson/grabTitles.php"){
             do {
                 let songListNP = try NSString(contentsOfURL: url, usedEncoding: nil)
                 let songListAsString = songListNP as String
@@ -76,7 +87,7 @@ class SongDisplay: UIViewController, UITableViewDataSource, UITableViewDelegate,
             }
          } else {
             print("Contents are bad!")
-        }
+        }*/
         
     }
 
@@ -150,6 +161,8 @@ class SongDisplay: UIViewController, UITableViewDataSource, UITableViewDelegate,
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell")! as UITableViewCell;
+        
+        cell.textLabel?.font = UIFont(name: "HelveticaNeue", size: 15)
         if(searchActive){
             cell.textLabel?.text = filtered[indexPath.row]
         } else {
@@ -163,7 +176,7 @@ class SongDisplay: UIViewController, UITableViewDataSource, UITableViewDelegate,
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             print("do we even get here1?")
-            let songDetailViewController = segue.destinationViewController as! InstrumentsViewController
+            let songDetailViewController = segue.destinationViewController as! SongViewController
             
             // Get the cell that generated this segue.
             if let selectedSongCell = sender as? UITableViewCell {

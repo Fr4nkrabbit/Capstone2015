@@ -17,7 +17,10 @@ class MetronomeViewController: UIViewController {
     @IBOutlet weak var tempoTextField: UITextField!
     
     @IBOutlet weak var tempoStepper: UIStepper!
-
+    
+    //@IBOutlet weak var blinkingLight: UILabel!
+    @IBOutlet weak var blinkingLight: UILabel!
+    
     var metronomeTimer: NSTimer!
     
     var metronomeIsOn = false
@@ -43,6 +46,9 @@ class MetronomeViewController: UIViewController {
         if metronomeIsOn {
             // Mark the metronome as off.
             metronomeIsOn = false
+            
+            // Turn the blinking off, and change the label to its gray color
+            blinkingLight.backgroundColor = UIColor.lightGrayColor()
             
             // Stop the metronome.
             metronomeTimer?.invalidate()
@@ -90,9 +96,28 @@ class MetronomeViewController: UIViewController {
     
     func playMetronomeSound() {
         let currentTime = CFAbsoluteTimeGetCurrent()
+        
         print("Play metronome sound @ \(currentTime)")
         
+        //gives short delay and blinks red
+        delay(0.4){
+            self.blinkingLight.backgroundColor = UIColor.redColor()
+        }
+        
+        blinkingLight.backgroundColor = UIColor.lightGrayColor()
+        
         metronomeSoundPlayer.play()
+        
+    }
+    
+    //delay function that works cleaner then the Swift one
+    func delay(delay:Double, closure:()->()){
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
     }
     
     // MARK: - UIViewController
@@ -100,9 +125,6 @@ class MetronomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //allows the right wipe
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
         // Set the inital value of the tempo.
         tempo = 120

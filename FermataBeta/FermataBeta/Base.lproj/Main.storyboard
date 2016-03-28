@@ -57,7 +57,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="S7W-aS-m7B" kind="showDetail" id="gRe-Nj-EJD"/>
+                                            <segue destination="S7W-aS-m7B" kind="showDetail" identifier="showDetail" id="gRe-Nj-EJD"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -255,10 +255,17 @@
                                     <action selector="toggleMetronome:" destination="341-73-xpx" eventType="touchUpInside" id="IPO-MP-u8U"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="        " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5e2-DG-m2H">
+                                <rect key="frame" x="263" y="281" width="36" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="blinkingLight" destination="5e2-DG-m2H" id="Hb7-i2-rO6"/>
                         <outlet property="tempoStepper" destination="R24-gg-y9F" id="7Nc-uO-dvJ"/>
                         <outlet property="tempoTextField" destination="ofn-qp-WDM" id="AC8-i9-LvV"/>
                     </connections>

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DB2E50D11CA76B9800C889EF /* testSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E50D01CA76B9800C889EF /* testSearch.swift */; };
+		DB2E50D11CA76B9800C889EF /* songTableDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E50D01CA76B9800C889EF /* songTableDisplay.swift */; };
 		DB3C93C11C6925050032556B /* 0A.wav in Resources */ = {isa = PBXBuildFile; fileRef = DB3C93B51C6925050032556B /* 0A.wav */; };
 		DB3C93C21C6925050032556B /* 10G.wav in Resources */ = {isa = PBXBuildFile; fileRef = DB3C93B61C6925050032556B /* 10G.wav */; };
 		DB3C93C31C6925050032556B /* 11Gs.wav in Resources */ = {isa = PBXBuildFile; fileRef = DB3C93B71C6925050032556B /* 11Gs.wav */; };
@@ -31,8 +31,6 @@
 		DB3FBBDD1BF94B64004C22A3 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FBBDB1BF94B64004C22A3 /* Song.swift */; };
 		DB3FBBE51BFA9195004C22A3 /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FBBE41BFA9195004C22A3 /* SongTableViewCell.swift */; };
 		DB3FBBE61BFA9195004C22A3 /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FBBE41BFA9195004C22A3 /* SongTableViewCell.swift */; };
-		DB3FBBE81BFA936A004C22A3 /* SongTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FBBE71BFA936A004C22A3 /* SongTableViewController.swift */; };
-		DB3FBBE91BFA936A004C22A3 /* SongTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FBBE71BFA936A004C22A3 /* SongTableViewController.swift */; };
 		DB6188BF1C07B47A002D9D97 /* web in Resources */ = {isa = PBXBuildFile; fileRef = DB6188BE1C07B47A002D9D97 /* web */; };
 		DB62A1B41C7B9DF6007EDA48 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = DB62A1AD1C7B9DF6007EDA48 /* index.html */; };
 		DB62A1B51C7B9DF6007EDA48 /* inter.js in Resources */ = {isa = PBXBuildFile; fileRef = DB62A1AE1C7B9DF6007EDA48 /* inter.js */; };
@@ -81,7 +79,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DB2E50D01CA76B9800C889EF /* testSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testSearch.swift; sourceTree = "<group>"; };
+		DB2E50D01CA76B9800C889EF /* songTableDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = songTableDisplay.swift; sourceTree = "<group>"; };
 		DB3C93B51C6925050032556B /* 0A.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0A.wav; sourceTree = "<group>"; };
 		DB3C93B61C6925050032556B /* 10G.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 10G.wav; sourceTree = "<group>"; };
 		DB3C93B71C6925050032556B /* 11Gs.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 11Gs.wav; sourceTree = "<group>"; };
@@ -100,7 +98,6 @@
 		DB3FBBD81BF8297A004C22A3 /* GenreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreTableViewCell.swift; sourceTree = "<group>"; };
 		DB3FBBDB1BF94B64004C22A3 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		DB3FBBE41BFA9195004C22A3 /* SongTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
-		DB3FBBE71BFA936A004C22A3 /* SongTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongTableViewController.swift; sourceTree = "<group>"; };
 		DB6188BE1C07B47A002D9D97 /* web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = web; sourceTree = "<group>"; };
 		DB62A1AD1C7B9DF6007EDA48 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		DB62A1AE1C7B9DF6007EDA48 /* inter.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = inter.js; sourceTree = "<group>"; };
@@ -226,9 +223,8 @@
 				DB3FBBDB1BF94B64004C22A3 /* Song.swift */,
 				DB3FBBD81BF8297A004C22A3 /* GenreTableViewCell.swift */,
 				DB3C93CD1C69323F0032556B /* SwiftlyMessageHandler.swift */,
-				DB3FBBE71BFA936A004C22A3 /* SongTableViewController.swift */,
 				DB9AEA7E1BF6D6AC00506C24 /* Main.storyboard */,
-				DB2E50D01CA76B9800C889EF /* testSearch.swift */,
+				DB2E50D01CA76B9800C889EF /* songTableDisplay.swift */,
 				DB9AEA7C1BF6D6AC00506C24 /* SongViewController.swift */,
 				DB6D17971C814215005AFEFE /* InstrumentsViewController.swift */,
 				DBFB281F1C5D0ECA00999BE0 /* Login.swift */,
@@ -442,13 +438,12 @@
 				DBFB28151C5A791A00999BE0 /* ViewController.swift in Sources */,
 				DB3FBBD91BF8297A004C22A3 /* GenreTableViewCell.swift in Sources */,
 				DB9AEA7D1BF6D6AC00506C24 /* SongViewController.swift in Sources */,
-				DB3FBBE81BFA936A004C22A3 /* SongTableViewController.swift in Sources */,
 				DB6D17981C814215005AFEFE /* InstrumentsViewController.swift in Sources */,
 				DBFB28221C5D132400999BE0 /* Metronome.swift in Sources */,
 				DBFB28131C5A781800999BE0 /* SWRevealViewController.m in Sources */,
 				DBFB28241C5D133000999BE0 /* Tuner.swift in Sources */,
 				DB9AEA7B1BF6D6AC00506C24 /* AppDelegate.swift in Sources */,
-				DB2E50D11CA76B9800C889EF /* testSearch.swift in Sources */,
+				DB2E50D11CA76B9800C889EF /* songTableDisplay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,7 +452,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB3FBBE61BFA9195004C22A3 /* SongTableViewCell.swift in Sources */,
-				DB3FBBE91BFA936A004C22A3 /* SongTableViewController.swift in Sources */,
 				DB3FBBDD1BF94B64004C22A3 /* Song.swift in Sources */,
 				DB3FBBD71BF8275A004C22A3 /* GenreTableViewController.swift in Sources */,
 				DB9AEA901BF6D6AC00506C24 /* FermataBetaTests.swift in Sources */,
