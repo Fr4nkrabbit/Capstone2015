@@ -67,6 +67,7 @@ class SongDisplay: UIViewController, UITableViewDataSource, UITableViewDelegate,
             print("Contents are bad!")
         }
         
+        //Going to Sam's database
         /*if let url = NSURL(string: "http://people.eecs.ku.edu/~sbenson/grabTitles.php"){
             do {
                 let songListNP = try NSString(contentsOfURL: url, usedEncoding: nil)
@@ -175,7 +176,7 @@ class SongDisplay: UIViewController, UITableViewDataSource, UITableViewDelegate,
         cell.textLabel?.font = UIFont.systemFontOfSize(35, weight: UIFontWeightThin)
         
         
-        cell.contentView.backgroundColor = UIColor(red: 102/256, green: 255/256, blue: 255/256, alpha: 0.66)
+        //cell.contentView.backgroundColor = UIColor(red: 102/256, green: 255/256, blue: 255/256, alpha: 0.66)
         
         if(searchActive){
             cell.textLabel?.text = filtered[indexPath.row]

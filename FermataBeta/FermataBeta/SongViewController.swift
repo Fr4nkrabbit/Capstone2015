@@ -44,9 +44,10 @@ class SongViewController: UIViewController, WKScriptMessageHandler {
         
         
         print("STRING SHOULD BE HERE")
-        print(song?.name)
+        //print(song?.name)
         songName = (song?.name)!
         print(songName)
+        self.navigationItem.title = songName
         
         /*if let song = song {
          print(song.name)

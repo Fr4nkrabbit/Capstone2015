@@ -84,7 +84,7 @@
         <!--Back TableVC-->
         <scene sceneID="hPR-VI-f4C">
             <objects>
-                <tableViewController id="1Q0-ee-aIz" customClass="BackTableVC" customModule="FermataBeta" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="1Q0-ee-aIz" customClass="BackTableVC" customModule="FermataBeta" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ycC-13-vy3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -145,10 +145,10 @@
             </objects>
             <point key="canvasLocation" x="1367" y="-1053"/>
         </scene>
-        <!--View Cont-->
+        <!--Navigation Controller-->
         <scene sceneID="5qo-wi-hbd">
             <objects>
-                <navigationController id="BQx-7i-Nqu" customClass="ViewCont" sceneMemberID="viewController">
+                <navigationController id="BQx-7i-Nqu" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="aov-AB-ams">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -258,7 +258,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="        " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5e2-DG-m2H">
                                 <rect key="frame" x="263" y="281" width="36" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
