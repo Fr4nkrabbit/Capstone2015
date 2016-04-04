@@ -77,9 +77,15 @@ class SongViewController: UIViewController, WKScriptMessageHandler {
             print("bad url")
         }
         
-        let rect = CGRect(
-            origin: CGPoint(x: 0, y: 45),
-            size: UIScreen.mainScreen().bounds.size)
+        //let rect = CGRect(
+          //  origin: CGPoint(x: 0, y: 45),
+            //size: UIScreen.mainScreen().bounds.size)
+        
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        
+        let screenHeight = screenSize.height * 0.1
+        
+        let rect = CGRect(x: 0, y: 45, width: screenSize.width, height: screenHeight)
         
         /////////////////////////////////////////
         //kyles' stuff

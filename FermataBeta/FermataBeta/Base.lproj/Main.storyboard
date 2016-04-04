@@ -351,7 +351,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ke0-5o-jUG">
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ke0-5o-jUG">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="wwm-yw-WNl">
@@ -363,12 +363,18 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eg3-ax-QMz">
+                                <rect key="frame" x="0.0" y="472" width="600" height="128"/>
+                                <connections>
+                                    <segue destination="7nW-MS-Eee" kind="embed" id="itP-MP-gd8"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="ke0-5o-jUG" secondAttribute="trailing" constant="-20" id="SYA-lZ-d9H"/>
-                            <constraint firstItem="ke0-5o-jUG" firstAttribute="leading" secondItem="u1l-al-IfP" secondAttribute="leadingMargin" constant="-20" id="cnT-5B-HVl"/>
-                            <constraint firstItem="ke0-5o-jUG" firstAttribute="top" secondItem="u1l-al-IfP" secondAttribute="topMargin" id="l7I-gE-V91"/>
+                            <constraint firstItem="Eg3-ax-QMz" firstAttribute="leading" secondItem="u1l-al-IfP" secondAttribute="leadingMargin" id="8Xk-F2-U8K"/>
+                            <constraint firstItem="U84-Yd-Knx" firstAttribute="top" secondItem="Eg3-ax-QMz" secondAttribute="bottom" id="T7t-gz-FkM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Eg3-ax-QMz" secondAttribute="trailing" id="qxn-6O-my4"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -399,6 +405,28 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tOw-06-InI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2143" y="-1743"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="syN-wi-1rC">
+            <objects>
+                <viewController id="7nW-MS-Eee" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qdo-RO-buh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="128"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please work" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsO-jw-cKg">
+                                <rect key="frame" x="74" y="5" width="92" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zXy-zF-VT0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3887" y="-863"/>
         </scene>
     </scenes>
     <resources>
