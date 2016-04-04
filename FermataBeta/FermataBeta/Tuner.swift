@@ -54,7 +54,6 @@ class Tuner: UIViewController {
         {
             try audioPlayer = AVAudioPlayer(contentsOfURL: alertSound)
             
-            
         }
         catch _ { }
         

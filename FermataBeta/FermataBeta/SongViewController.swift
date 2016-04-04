@@ -54,8 +54,6 @@ class SongViewController: UIViewController, WKScriptMessageHandler {
          
          }*/
         
-        //songTitle.title = something
-        
         //let webstring = "http://people.eecs.ku.edu/~sbenson/grabMidi.php?title=" + songName
         
         print("what is id?")
