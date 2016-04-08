@@ -393,7 +393,16 @@
         {
             var laststart = -1
             var lastfinish = 0
-            var ppqmeas = ppqn*4 // running counter of the ending pulse of the currently read measures
+			
+			var initMeas = {m: []}
+			
+			initMeas = 
+			{
+				top: timesig[0][4].split('/')[0],
+				bottom: timesig[0][4].split('/')[0] 
+			}
+			
+            var ppqmeas = (4/initMeas.bottom)*ppqn*initMeas.top // running counter of the ending pulse of the currently read measures
             var holder
             var measures = []
             var meas = {m: []}
@@ -409,7 +418,7 @@
                     console.log("push a measure")
                     measures.push(meas)
                     meas = {m: []}
-                    ppqmeas += ppqn*4
+                    ppqmeas += ppqn*initMeas.top
                 }
                 
                 if(keysig[0]&&lastfinish==parseInt(keysig[0][0]))
@@ -444,7 +453,7 @@
                                     notes2[noter].note = ((  notes2[noter].finish-notes2[noter].start)/ppqn)/4
                                     
                                     console.log(ppqmeas)
-                                    ppqmeas += ppqn*4
+                                    ppqmeas += ppqn*initMeas.top
                                     measures.push(meas)
                                     meas = {m:[]}
                                     notes2[noter].tie=true
