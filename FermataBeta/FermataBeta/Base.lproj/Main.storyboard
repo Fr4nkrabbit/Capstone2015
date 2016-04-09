@@ -392,23 +392,38 @@
             </objects>
             <point key="canvasLocation" x="2143" y="-1743"/>
         </scene>
-        <!--View Controller-->
+        <!--Smart Features-->
         <scene sceneID="syN-wi-1rC">
             <objects>
-                <viewController id="7nW-MS-Eee" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qdo-RO-buh">
+                <viewController id="7nW-MS-Eee" customClass="SmartFeatures" customModule="FermataBeta" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rj2-tP-3Ev"/>
+                        <viewControllerLayoutGuide type="bottom" id="yRt-hp-121"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qdo-RO-buh" customClass="Smart">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="128"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please work" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsO-jw-cKg">
-                                <rect key="frame" x="74" y="5" width="92" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sbr-xu-4jV">
+                                <rect key="frame" x="74" y="25" width="52" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="left.png" translatesAutoresizingMaskIntoConstraints="NO" id="Qpz-8i-65q">
+                                <rect key="frame" x="9" y="25" width="57" height="47"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Next.png" translatesAutoresizingMaskIntoConstraints="NO" id="2e3-88-DQz">
+                                <rect key="frame" x="134" y="25" width="63" height="49"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="Next" destination="2e3-88-DQz" id="prK-Pa-leC"/>
+                        <outlet property="Note" destination="Sbr-xu-4jV" id="BbV-RU-zcl"/>
+                        <outlet property="Prev" destination="Qpz-8i-65q" id="7m8-eY-v4g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zXy-zF-VT0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -434,7 +449,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Next.png" width="256" height="256"/>
         <image name="Play" width="100" height="100"/>
+        <image name="left.png" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Gsj-ob-g0y"/>
