@@ -37,11 +37,24 @@ class SongViewController: UIViewController, WKScriptMessageHandler {
     
     var song: Song?
     
-    
+    func handleSwipe(sender:UISwipeGestureRecognizer) {
+        print("left swipe?")
+        
+        if (sender.direction == .Left){
+            self.dismissViewControllerAnimated(false, completion: nil)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //self.navigationController!.interactivePopGestureRecognizer!.enabled = true
+        
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipe"))
+        
+        leftSwipe.direction = .Left
+        
+        view.addGestureRecognizer(leftSwipe)
         
         print("STRING SHOULD BE HERE")
         //print(song?.name)
@@ -106,6 +119,8 @@ class SongViewController: UIViewController, WKScriptMessageHandler {
         
         
     }
+    
+
     
     
     ////////////////////////////////////////////////////////////////////////////////////////////////

@@ -70,7 +70,7 @@ class Tuner: UIViewController {
             count=noteList.count-1
         }
         else {
-            count--
+            count -= 1
         }
         print(count)
         Note.text = noteNames[count]
