@@ -394,6 +394,7 @@
             var laststart = -1
             var lastfinish = 0
 			
+			// initial measure; added in to create the initial time measure in order to correctly create the the measures -ER
 			var initMeas = {m: []}
 			
 			initMeas = 
@@ -402,7 +403,8 @@
 				bottom: timesig[0][4].split('/')[0] 
 			}
 			
-            var ppqmeas = (4/initMeas.bottom)*ppqn*initMeas.top // running counter of the ending pulse of the currently read measures
+            var ppqmeas = (4/initMeas.bottom)*ppqn*initMeas.top // running counter of the ending pulse of the currently read measures; Added in measures from the initial measure in order to dynamically populat them; usese the pulse per quarter note measure done earlier -ER
+
             var holder
             var measures = []
             var meas = {m: []}
@@ -467,202 +469,6 @@
             
             console.log("pushing last measure")
             measures.push(meas)
-            return measures
-        }
-        
-	
-        function displayMidiFile(mf)
-        {
-            var ppqn = mf.ppqn
-            var arg = []
-            var notes = []
-            var tempo = []
-            var keysig = []
-            var timesigs = []
-            var measures = []
-            var meas = {m: []}
-            var instruments = {}
-            
-            //populate arg[]
-            for (var i = 0; i < mf.length; i++)
-            {
-                if (mf[i] instanceof JZZ.MidiFile.MTrk)
-                {
-                    for (var j = 0; j < mf[i].length; j++)
-                    {
-                        var evt = mf[i][j]
-                        var s = evt.toString().replace(/&/g,'&amp;').replace(/>/g,'&gt;').replace(/</g,'&lt;')
-                        arg.push(evt.time + " " + s)
-                    }
-                }
-            }
-            
-            var item, thing
-            var notes2 = []
-            var singlemeasure = []
-            console.log("arg")
-            console.log(arg)
-            //separate midi events by type
-            
-            var lasttime=0;
-            var hitnote=false;
-            var title;
-            for (item in arg)
-            {
-                var lts = arg[item].split(' ');
-                
-                if(lasttime>parseInt(lts[0])&&hitnote)
-                {
-			console.log('is this ever run?')
-                    console.log(title)
-                    instruments[title]=notes; //apparently is never run
-                    notes=[]
-                    hitnote=false
-                
-                }
-                
-                lasttime=parseInt(lts[0]);
-                
-                if(lts[1] / 10 == 9)
-                {
-                    //hitnote=true
-                    notes.push(lts)
-                }
-                
-                if(lts[1] / 10 == 8)	notes.push(lts)
-                if(lts[1] == "ff51")	tempo.push(lts)
-                if(lts[1] == "ff59")	keysig.push(lts)
-                if(lts[1] == "ff58")	timesigs.push(lts)
-                if(lts[1] == "ff03")	{
-			title = lts[4];
-			console.log('this is never run') //never run..?
-			//console.log(title)
-		}
-            }
-            
-            console.log("instruments")
-            console.log(instruments)
-            //populate notes2
-            //go though and combine the note start and stops
-            for (item = 0; item < notes.length; item++)
-            {
-                if (notes[item][6] == "On")
-                {
-                    for (thing = item+1; thing < notes.length; thing++)
-                    {
-                        if (notes[item][2] == notes[thing][2])
-                        {
-                            notes2.push(
-                                        {
-                                        start:	notes[item][0],
-                                        finish:	notes[thing][0],
-                                        pitch:	notes[item][2],
-                                        note:	((notes[thing][0]-notes[item][0])/ppqn)/4
-                                        })
-                                        break
-                        }
-                    }
-                }
-            }
-            
-            console.log("notes2")
-            //console.log(notes2)
-            var laststart = -1
-            var lastfinish = 0
-            var ppqmeas = ppqn*4
-            var holder
-            //populate measures
-            for (noter in notes2)
-            {
-                if(keysig[0]&&lastfinish==keysig[0][0])
-                {
-                    meas.key=keysig[0][4]
-                    keysig=keysig.slice(1)
-                }
-                if(timesigs[0]&&lastfinish==timesigs[0][0])
-                {
-                    meas.time=
-                    {
-                        top: timesigs[0][4].split('/')[0],
-                        bottem: timesigs[0][4].split('/')[1]
-                    }
-                    timesigs=timesigs.slice(1)
-                }
-                
-                if (lastfinish < notes2[noter].start)
-                {
-                    //add rests here will need to loop
-                    while (lastfinish != notes2[noter].start)
-                    {
-                        if (ppqmeas < notes2[noter].start)
-                        {
-                            meas.m.push(
-                                        {
-                                        start:	lastfinish,
-                                        finish:	ppqmeas,
-                                        pitch:	-1,
-                                        note:	((ppqmeas-lastfinish)/ppqn)/4
-                                        })
-                                        
-                                        lastfinish = ppqmeas<notes2[noter].start ? ppqmeas : notes2[noter].start
-                                        console.log("PUSHING MEASURE?")
-                                        measures.push(meas)
-                                        ppqmeas += ppqn*4
-                                        meas = {m:[]}
-                        }
-                        else
-                        {
-                            meas.m.push(
-                                        {
-                                        start:	lastfinish,
-                                        finish:	notes2[noter].start,
-                                        pitch:	-1,
-                                        note:	((notes2[noter].start-lastfinish)/ppqn)/4,
-                                        })
-                                        lastfinish = notes2[noter].start
-                        }
-                    }
-                }
-                
-                if (notes2[noter].finish > ppqmeas)
-                {
-                    //split note between measure will need to loop
-                    while (notes2[noter].finish > ppqmeas)
-                    {
-                        meas.m.push(
-                                    {
-                                    start:	notes2[noter].start,
-                                    finish:	ppqmeas,
-                                    pitch:	notes2[noter][2],
-                                    note:	((ppqmeas-notes2[noter].start)/ppqn)/4,
-                                    tie: true
-                                    })
-                                    notes2[noter].start = ppqmeas
-                                    notes2[noter].note = ((notes2[noter].finish-notes2[noter].start)/ppqn)/4
-                                    ppqmeas += ppqn*4
-                                    console.log("PUSHING MEASURE?")
-                                    measures.push(meas)
-                                    meas = {m:[]}
-                    }
-                    
-                    lastfinish = notes2[noter].finish
-                }
-                else if (notes2[noter].finish == ppqmeas)
-                {
-                    //add note and add meas
-                    meas.m.push(notes2[noter])
-                    measures.push(meas)
-                    ppqmeas += ppqn*4
-                    meas = {m:[]}
-                    lastfinish = notes2[noter].finish
-                }
-                else
-                {
-                    //add note
-                    meas.m.push(notes2[noter])
-                    lastfinish = notes2[noter].finish
-                }
-            }
             return measures
         }
         
