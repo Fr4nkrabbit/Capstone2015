@@ -34,16 +34,20 @@
         <p id=songlist></p>
         <form id=instrumentlist></form>
         
-	<!-- Formatting Constants -->
-        <script>
-            var STAFF_COUNT = 25
-            var CANVAS_WIDTH = 950
-            var CANVAS_HEIGHT = 120 * (STAFF_COUNT+1) + 20
-            var STAFF_OFFSET_X = 10
-            var STAFF_OFFSET_Y = 140
-            var STAFF_OFFSET_Y_CENTER = (CANVAS_HEIGHT - 120) / 2
-            </script>
-        
+<!-- Formatting Constants -->
+<script>
+	var LINE_COUNT = 5 //total number of lines to be shown
+	var MEASURES_PER_LINE = 3
+
+	var CANVAS_WIDTH = 1920 //width of the theoretical sheet of paper
+	var CANVAS_HEIGHT = 140 * (LINE_COUNT) //height of the theoretical sheet of paper
+
+	var STAFF_WIDTH = CANVAS_WIDTH / MEASURES_PER_LINE
+	var STAFF_OFFSET_X = 10
+	var STAFF_OFFSET_Y = 140
+	var STAFF_OFFSET_Y_CENTER = (CANVAS_HEIGHT - 120) / 2
+</script>
+
         <!-- Necessary, Hidden Divisions -->
         <!--
          <p >to run this as is you have to run parseMidi with a string passed in </p>
@@ -403,8 +407,7 @@
 				bottom: timesig[0][4].split('/')[0] 
 			}
 			
-            var ppqmeas = (4/initMeas.bottom)*ppqn*initMeas.top // running counter of the ending pulse of the currently read measures; Added in measures from the initial measure in order to dynamically populat them; usese the pulse per quarter note measure done earlier -ER
-
+            var ppqmeas = (4/initMeas.bottom)*ppqn*initMeas.top // running counter of the ending pulse of the currently read measures
             var holder
             var measures = []
             var meas = {m: []}
@@ -417,7 +420,7 @@
                     //adds a measures if the note we are about to look at is in another measure
                     //console.log(notes2[noter].start)
                     //console.log(ppqmeas)
-                    console.log("push a measure")
+                    //console.log("push a measure")
                     measures.push(meas)
                     meas = {m: []}
                     ppqmeas += ppqn*initMeas.top
@@ -454,7 +457,7 @@
                                     notes2[noter].start = ppqmeas
                                     notes2[noter].note = ((  notes2[noter].finish-notes2[noter].start)/ppqn)/4
                                     
-                                    console.log(ppqmeas)
+                                    //console.log(ppqmeas)
                                     ppqmeas += ppqn*initMeas.top
                                     measures.push(meas)
                                     meas = {m:[]}
@@ -467,7 +470,7 @@
                 lastfinish = notes2[noter].finish
             }
             
-            console.log("pushing last measure")
+            //console.log("pushing last measure")
             measures.push(meas)
             return measures
         }
@@ -526,19 +529,26 @@
                 acidentals:[]
             }
             
-            for (var mC = 0; mC < inM.length; mC++)
+	    var stoppingPoint = Math.min(inM.length, LINE_COUNT* MEASURES_PER_LINE)
+	    
+            for (var mC = 0; mC < stoppingPoint; mC++)
             {
-                var canvas = document.querySelector("canvas")
+		var canvas = document.querySelector("canvas")
                 
                 //var canvas = $("canvas")[mC]
                 var renderer = new Vex.Flow.Renderer(canvas, Vex.Flow.Renderer.Backends.CANVAS)
                 var ctx = renderer.getContext()
-                var stave = new Vex.Flow.Stave(STAFF_OFFSET_X, STAFF_OFFSET_Y * mC, CANVAS_WIDTH)
+		
+		//Decide where to draw the measure, or "staff" as Vexflow calls it
+		var offsetX = STAFF_OFFSET_X + (mC % MEASURES_PER_LINE) * STAFF_WIDTH
+		var offsetY = STAFF_OFFSET_Y * Math.floor(mC / MEASURES_PER_LINE)
+		var stave = new Vex.Flow.Stave(offsetX, offsetY, STAFF_WIDTH)
                 
-                // Add a treble clef
-                stave.addClef("treble")
-                
-                if(inM[mC].time!=undefined)
+                // Add a treble clef if it's the first measure of the line
+                if (mC % MEASURES_PER_LINE == 0)
+			stave.addClef("treble")
+		
+                if(inM[mC].time)
                 {
                     stave.addTimeSignature(""+timesig.top+'/'+timesig.bottem)
                     timesig =inM[mC].time
@@ -557,7 +567,7 @@
                 //create notes from inM
                 var notes = []
                 
-                console.log('measure ' + mC)
+                //console.log('measure ' + mC)
                 var forbeamnotes=[],
                 allbeams=[],
                 lengthofbeam=0;
@@ -623,41 +633,12 @@
 				if(!keysig.acidentals.includes(pit) && pit.includes('#'))
 					notes[notes.length-1].addAccidental(0, new Vex.Flow.Accidental("#"))
 			}
-                    
-                    /*
-                     if(i<4&&inM[mC].m[n].note<.25)
-                     {
-                     forbeamnotes.push(notes[notes.length-1])
-                     i++;
-                     lengthofbeam += inM[mC].m[n].note;
-                     }
-                     else if((1/(lengthofbeam/.50))%2==0)
-                     {
-                     
-                     allbeams.push(new Vex.Flow.Beam(forbeamnotes))
-                     forbeamnotes=[];
-                     lengthofbeam=0;
-                     i=0;
-                     }
-                     else
-                     {
-                     forbeamnotes=[];
-                     lengthofbeam=0;
-                     i=0;
-                     }
-                     
-                     if(i==4||(lengthofbeam==.5&&i>1)||((1/(lengthofbeam/.50))%2== 0 && n == inM[mC].m.length-1))
-                     {
-                     allbeams.push(new Vex.Flow.Beam(forbeamnotes))
-                     forbeamnotes=[];
-                     lengthofbeam=0;
-                     i=0;
-                     }
-                     */
                 }
+		//console.log('')
                 
-                console.log('')
-                
+		//Add beams
+		allbeams = Vex.Flow.Beam.generateBeams(notes)
+		
                 // Create a voice in 4/4
                 function create_voice(sig)
                 {
@@ -673,39 +654,41 @@
                 var voice = create_voice(timesig).addTickables(notes)
                 
                 // Format and justify the notes
-                var formatter = new Vex.Flow.Formatter().joinVoices([voice]).format([voice], CANVAS_WIDTH)
+                var formatter = new Vex.Flow.Formatter().joinVoices([voice]).format([voice], STAFF_WIDTH)
                 
                 // Render voice
                 voice.draw(ctx, stave)
+		
                 while(allbeams.length)
-                {
-                    allbeams.pop().setContext(ctx).draw();
-                }
+		{
+			allbeams.pop().setContext(ctx).draw();
+		}
             }
             
-            console.log("Successful run!")
+		console.log("Successful run!")
         }
         
         
         
-            </script>
+</script>
 
-	    <script>
+<script>
             function loadsong(songname)
 	    {
                 console.log(songname);
-                $.get('http://people.eecs.ku.edu/~sbenson/grabMidi.php',{
+                $.get('http://people.eecs.ku.edu/~sbenson/grabMidi.php',
+		{
                       title: songname
                       //$.get('http://people.eecs.ku.edu/~sxiao/grabMidi.php',{
                       //id: songname
                       
-                      },
-                      function(data, status){
-                      console.log(status)
-                      console.log(data)
-                      return parseMidi(data)
-                      });
-            }
+		},
+		function(data, status){
+		console.log(status)
+		console.log(data)
+		return parseMidi(data)
+		});
+	}
         
         
         function loadsongs(songname)
