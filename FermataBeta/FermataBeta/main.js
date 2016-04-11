@@ -25,9 +25,8 @@
 //you can put your regular JavaScript code in this file or any other.
 
 //var clicks = 0
-sendCount()
 function sendCount(){
-    
+
     var message = {"callbackFunc":function(responseAsJSON){
         var response = JSON.parse(responseAsJSON)
         fromPassedString(string1)

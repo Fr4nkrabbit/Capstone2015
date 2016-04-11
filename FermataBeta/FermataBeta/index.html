@@ -4,12 +4,13 @@
         <!-- External Scripts -->
         
         <script type="text/javascript" src="inter.js" charset="utf-8"></script>
-        <script type="text/javascript" src="main.js" charset="utf-8"></script>
         <script src="vexflow-debug.js"></script>
         <script src="vexflow-min.js"></script>
         <script src="JZZ.Midi.js"></script>
         <script src="JZZ.MidiFile.js"></script>
         <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+        <script type="text/javascript" src="main.js" charset="utf-8"></script>
+
         <style type="text/css">
             <p><input type=file id=file size=80 onchange='fromFile();'></p>
             canvas {
@@ -28,11 +29,14 @@
         <p>
         <div id=fname>&nbsp;</div>
         </p>
+        
+        
         <p id=songlist></p>
         <form id=instrumentlist></form>
+        
         <!-- Formatting Constants -->
         <script>
-            var STAFF_COUNT = 25
+            var STAFF_COUNT = 8
             var CANVAS_WIDTH = 950
             var CANVAS_HEIGHT = 120 * (STAFF_COUNT+1) + 20
             var STAFF_OFFSET_X = 10
@@ -60,6 +64,8 @@
         
         <!-- ReadMidiFile -->
         <script>
+            sendCount()
+
             
             function fromFile()
             {
@@ -130,7 +136,9 @@
             for (instrument in events.instruments)
             instruments.push(instrument)
             
+            console.log('instrument list: ')
             console.log(instruments)
+            
             parsedEvents=events
             if(instruments.length==1)
             createSheetMusic(instruments[0])
@@ -145,8 +153,14 @@
             if(parsedEvents==undefined)
             return "no events"
             
-            var notesToShow=combineNotes(parsedEvents.instruments[instrument],parsedEvents.ppqn)
-            notesToShow=createRest(notesToShow,parsedEvents.ppqn)
+            var notesToShow = combineNotes(parsedEvents.instruments[instrument], parsedEvents.ppqn)
+            
+            //fix overlapping notes
+            notesToShow = forceMonophonic(notesToShow, parsedEvents.ppqn)
+            
+            //add in rests where there are gaps
+            notesToShow = createRest(notesToShow, parsedEvents.ppqn)
+            
             console.log(notesToShow)
             var measures=populateMeasures(notesToShow,parsedEvents.ppqn,parsedEvents.keysig,parsedEvents.timesig)
             
@@ -206,12 +220,24 @@
             var hitnote = false;
             var title;
             var notes = [];
+            
             for (item in arg)
             {
                 var lts = arg[item].split(' ');
+                
+                //console.log('lts:')
+                //console.log(lts)
+                
                 if(lasttime>parseInt(lts[0])&&hitnote)
                 {
-                    instruments[title[4]]=events.notes;
+                    //console.log('assigning notes to an instrument')
+                    //console.log(title)
+                    
+                    console.log('title is '); console.log(title)
+                    var pendingName = "invalid title given"
+                    if (title) pendingName = title.splice(4).join(" ")
+                    
+                    instruments[pendingName] = events.notes;
                     events.notes=[]
                     hitnote=false
                 }
@@ -222,18 +248,28 @@
                     events.notes.push(lts)
                     hitnote=true
                 }
+                
                 if(parseInt(lts[1]/10) == 8)	events.notes.push(lts)
                 if(lts[1] == "ff51")	events.tempo.push(lts)
                 if(lts[1] == "ff59")	events.keysig.push(lts)
                 if(lts[1] == "ff58")	events.timesig.push(lts)
+                
                 if(lts[1] == "ff03")
                 {
-                    title=lts; //console.log(title);
+                    title=lts
+                    //console.log('saw ff03')
+                    //console.log(title)
                 }
+                
             }
             if(hitnote)
             {
-                instruments[title[4]]=events.notes;
+                console.log('title is '); console.log(title)
+                
+                var pendingName = "invalid title given"
+                if (title) pendingName = title.splice(4).join(" ")
+                
+                instruments[pendingName] = events.notes;
                 //events.notes=[]
                 hitnote=false
             }
@@ -268,6 +304,30 @@
                 }
             }
             return combined
+        }
+        
+        //resize notes that overlap
+        function forceMonophonic(notes, ppqn)
+        {
+            var lastTime = 0
+            
+            //console.log('notes: ')
+            for (n in notes)
+            {
+                //console.log(notes[n])
+                if (lastTime > notes[n].start)
+                {
+                    ///console.log(lastTime + ' vs ' + notes[n].start)
+                    notes[n-1].finish = notes[n].start //truncate the previous note.finish to end when this note starts
+                    notes[n-1].note = ((notes[n-1].finish - notes[n-1].start) / ppqn) / 4
+                }
+                
+                lastTime = notes[n].finish
+            }
+            
+            //console.log(notes)
+            
+            return notes
         }
         
         //fills in the gap between notes with rest
@@ -335,7 +395,16 @@
         {
             var laststart = -1
             var lastfinish = 0
-            var ppqmeas = ppqn*4 // running counter of the ending pulse of the currently read measures
+            
+            var initMeas = {m: []}
+            
+            initMeas =
+            {
+                top: timesig[0][4].split('/')[0],
+                bottom: timesig[0][4].split('/')[0]
+            }
+            
+            var ppqmeas = (4/initMeas.bottom)*ppqn*initMeas.top // running counter of the ending pulse of the currently read measures
             var holder
             var measures = []
             var meas = {m: []}
@@ -351,7 +420,7 @@
                     console.log("push a measure")
                     measures.push(meas)
                     meas = {m: []}
-                    ppqmeas += ppqn*4
+                    ppqmeas += ppqn*initMeas.top
                 }
                 
                 if(keysig[0]&&lastfinish==parseInt(keysig[0][0]))
@@ -386,7 +455,7 @@
                                     notes2[noter].note = ((  notes2[noter].finish-notes2[noter].start)/ppqn)/4
                                     
                                     console.log(ppqmeas)
-                                    ppqmeas += ppqn*4
+                                    ppqmeas += ppqn*initMeas.top
                                     measures.push(meas)
                                     meas = {m:[]}
                                     notes2[noter].tie=true
@@ -402,6 +471,7 @@
             measures.push(meas)
             return measures
         }
+        
         
         function displayMidiFile(mf)
         {
@@ -445,12 +515,12 @@
                 
                 if(lasttime>parseInt(lts[0])&&hitnote)
                 {
+                    console.log('is this ever run?')
                     console.log(title)
-                    instruments[title]=notes;
+                    instruments[title]=notes; //apparently is never run
                     notes=[]
                     hitnote=false
                     
-                    console.log(title)
                 }
                 
                 lasttime=parseInt(lts[0]);
@@ -465,7 +535,11 @@
                 if(lts[1] == "ff51")	tempo.push(lts)
                 if(lts[1] == "ff59")	keysig.push(lts)
                 if(lts[1] == "ff58")	timesigs.push(lts)
-                if(lts[1] == "ff03")	title=lts[4];
+                if(lts[1] == "ff03")	{
+                    title = lts[4];
+                    console.log('this is never run') //never run..?
+                    //console.log(title)
+                }
             }
             
             console.log("instruments")
@@ -611,11 +685,25 @@
             return note + '/' + octave
         }
         
+        function quantizeNote(inDec) //0.5598958333333334 => 0.5625
+        {
+            var step = 1 / 128
+            var skew = inDec % step
+            
+            if (skew)
+            {
+                inDec -= skew
+                
+                if (skew > step / 2) //round up?
+                inDec += step
+            }
+            
+            return inDec
+        }
+        
+        
         function drawSheets(inM)
         {
-            
-            
-            
             //console.log('inM')
             //console.log(inM)
             //console.log(timeSig)
@@ -672,34 +760,63 @@
                 
                 for (var n = 0, i=0; n < inM[mC].m.length; n++)
                 {
-                    //console.log('note is ')
-                    console.log(inM[mC].m[n])
-                    
+                    //console.log(inM[mC].m[n])
+                    var decDur = inM[mC].m[n].note
                     var pit = pitToStr(inM[mC].m[n].pitch)
+                    var dur = durToWhole(decDur)
                     var dotted = false
-                    var dur = durToWhole(inM[mC].m[n].note)
-                    //console.log ('dur is ' + dur)
+                    var irregularNote = true
                     
-                    //should this note be dotted?
-                    if(parseInt((1 / inM[mC].m[n].note) * 3) % 3 != 0)
+                    //Determine if the note is at least normal or dotted
+                    for (var p = 0; p < 8 && irregularNote; p++)
                     {
-                        dur = durToWhole((2/3)*(inM[mC].m[n].note))
-                        //dur = dur * 2
-                        dur = dur + 'd'
-                        dotted = true
+                        if (inM[mC].m[n].note * 2 / 3 == 1 / Math.pow(2,p))
+                        {
+                            dur = durToWhole((2/3)*(decDur))
+                            dur = dur + 'd'
+                            dotted = true
+                            irregularNote = false
+                        }
+                        else if (decDur == 1 / Math.pow(2,p))
+                        {
+                            irregularNote = false
+                        }
                     }
                     
-                    dur = dur + (inM[mC].m[n].pitch == -1 ? 'r' : '')//append 'r' if this note is a rest
-                    console.log('note' + n + ': ' + dur + ', ' + pit + ', dotted ' + dotted + " + " + inM[mC].m[n].pitch)
-                    notes.push(new Vex.Flow.StaveNote({ keys: [pit], duration: dur }))
                     
-                    if(dotted)
+                    if (irregularNote)
                     {
+                        //Create a collection of mini-notes to sum to the irregular note
+                        
+                        decDur = quantizeNote(decDur) //round the duration to the nearest 1/128th
+                        
+                        var collection = [] //holds integers of the notes to be added
+                        
+                        for (var t = 0; t < 8 && decDur > 0; t++)
+                        {
+                            while (decDur >= 1 / Math.pow(2,t))
+                            {
+                                collection.push(Math.pow(2,t))
+                                decDur -= 1 / Math.pow(2,t)
+                            }
+                        }
+                        
+                        //push the notes
+                        for (var col = 0; col < collection.length; col++)
+                        notes.push(new Vex.Flow.StaveNote({ keys: [pit], duration: collection[col].toString()}))
+                    }
+                    else
+                    {
+                        //Handle this note normally
+                        dur = dur + (inM[mC].m[n].pitch == -1 ? 'r' : '') //append 'r' if this note is a rest
+                        
+                        //console.log('note' + n + ': ' + dur + ', ' + pit + ', dotted ' + dotted + " + " + inM[mC].m[n].pitch)
+                        notes.push(new Vex.Flow.StaveNote({ keys: [pit], duration: dur }))
+                        
+                        if(dotted)
                         notes[notes.length-1].addDotToAll()
-                    }
-                    
-                    if(!keysig.acidentals.includes(pit)&&pit.includes('#'))
-                    {
+                        
+                        if(!keysig.acidentals.includes(pit) && pit.includes('#'))
                         notes[notes.length-1].addAccidental(0, new Vex.Flow.Accidental("#"))
                     }
                     
@@ -725,7 +842,7 @@
                      i=0;
                      }
                      
-                     if(i==4||(lengthofbeam==.5&&i>1)||((1/(lengthofbeam/.50))%2==0&&n == inM[mC].m.length-1))
+                     if(i==4||(lengthofbeam==.5&&i>1)||((1/(lengthofbeam/.50))%2== 0 && n == inM[mC].m.length-1))
                      {
                      allbeams.push(new Vex.Flow.Beam(forbeamnotes))
                      forbeamnotes=[];
@@ -768,13 +885,15 @@
         
         
             </script>
+        
         <script>
-            function loadsong(songname){
+            function loadsong(songname)
+            {
                 console.log(songname);
-                $.get('http://people.eecs.ku.edu/~sbenson/grabMidi.php',{
-                      title: songname
-                      //$.get('http://people.eecs.ku.edu/~sxiao/grabMidi.php',{
-                      //id: songname
+                //$.get('http://people.eecs.ku.edu/~sbenson/grabMidi.php',{
+                //title: songname
+                $.get('http://people.eecs.ku.edu/~sxiao/grabMidi.php',{
+                      id: songname
                       
                       },
                       function(data, status){
@@ -785,16 +904,18 @@
             }
         
         
-        function loadsongs(songname){
+        function loadsongs(songname)
+        {
             console.log(songname);
             
-            //$.get('http://people.eecs.ku.edu/~sxiao/grabTitles.php',{
-            $.get('http://people.eecs.ku.edu/~sbenson/grabTitles.php',{
+            $.get('http://people.eecs.ku.edu/~sxiao/grabTitles.php',{
+                  //$.get('http://people.eecs.ku.edu/~sbenson/grabTitles.php',{
                   },
-                  function(data, status){
+                  function(data, status)
+                  {
                   console.log(status)
                   console.log(data)
-                  var songs=data.split(' ')
+                  var songs=data.split('@')
                   songs.pop()//remove empty one at end
                   console.log(songs);
                   for(num in songs){
@@ -809,9 +930,19 @@
             
             // body...
         }
-        function instlister(){
-            for(num in parsedEvents.instruments){
-                $("#instrumentlist")[0].innerHTML+="<input type=radio name=instrument value="+num+">"+num+"<br>"
+        function instlister()
+        {
+            
+            for(num in parsedEvents.instruments)
+            {
+                
+                //wrap "s around the identifying name
+                var identifyingName = '"' + num + '"'
+                var displayName = num
+                
+                $("#instrumentlist")[0].innerHTML += '<input type=radio name=instrument value='+identifyingName+'>'+displayName+'<br>'
+                
+                console.log($("#instrumentlist")[0].innerHTML)
             }
             $("#instrumentlist")[0].innerHTML+="<input type=button onclick= instclicked() value= submit><br>"
         }
@@ -822,6 +953,8 @@
             //document.querySelector("#tester1").innerText=string
             document.querySelector("#instrumentlist").innerHTML=""
             
+            //
+            console.log(string)
             
             //document.querySelector("#tester1").innerText=""
             createSheetMusic(string)
@@ -834,8 +967,6 @@
             instruments.push(instrument)
             return instruments.toString()
         }
-        
-        
-            </script>
+        </script>
     </body>
 </html>

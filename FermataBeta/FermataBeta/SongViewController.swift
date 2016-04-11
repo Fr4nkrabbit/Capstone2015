@@ -21,14 +21,17 @@ SOFTWARE.
 
 import UIKit
 import WebKit
-class SongViewController: UIViewController, WKScriptMessageHandler {
+class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRecognizerDelegate {
     
     var theWebView:WKWebView?
     @IBAction func GoBack(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBOutlet weak var songTitle: UINavigationItem!
+    //var FeaturesOn = false
+   // @IBOutlet weak var Features: UIBarButtonItem!
+    
+    //@IBOutlet weak var songTitle: UINavigationItem!
     
     var instruments: String = ""
     var id: String = ""
@@ -48,7 +51,13 @@ class SongViewController: UIViewController, WKScriptMessageHandler {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.navigationController!.interactivePopGestureRecognizer!.enabled = true
+        //var button = UIButton(frame: CGRect(origin: 0, y: 0, size: CGSize(width: 50, height: 50)))
+        
+        //var button = UIButton(frame: CGRect(origin: CGPoint(x: self.view.frame.width / 2 - 25, y: self.view.frame.size.height - 70), size: CGSize(width: 50, height: 50)))
+        
+        //self.navigationController?.view.addSubview(button)
+        
+        
         
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipe"))
         
@@ -117,11 +126,14 @@ class SongViewController: UIViewController, WKScriptMessageHandler {
         
         //myTableView.dataSource = self
         
-        
-    }
-    
+        /*var index1 = MidiArg.startIndex.advancedBy(MidiArg.characters.count-1)
+        var substring1 = MidiArg.substringToIndex(index1)
+        var js = "parseMidi('\(substring1)')" as String
+        //js = "parseMidi('string1')"
+        theWebView!.evaluateJavaScript(js,completionHandler: nil)
+        print("hello")*/
 
-    
+    }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////
     
@@ -140,8 +152,6 @@ class SongViewController: UIViewController, WKScriptMessageHandler {
         
         let callbackString = sentData["callbackFunc"] as? String
         
-        theWebView!.evaluateJavaScript("test1()",completionHandler: nil)
-        //print(MidiArg)
         let quote="\""
         print(quote)
         var index1 = MidiArg.startIndex.advancedBy(MidiArg.characters.count-1)
@@ -151,10 +161,6 @@ class SongViewController: UIViewController, WKScriptMessageHandler {
         theWebView!.evaluateJavaScript(js,completionHandler: nil)
 
     }
-    
-    
-    
-    
     
     /*override func viewDidLoad() {
         super.viewDidLoad()

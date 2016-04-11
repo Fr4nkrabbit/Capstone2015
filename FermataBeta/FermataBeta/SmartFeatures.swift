@@ -9,11 +9,12 @@
 import Foundation
 import AVFoundation
 
-class SmartFeatures: UIViewController, UIGestureRecognizerDelegate {
+class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var Note: UILabel!
     @IBOutlet weak var Next: UIImageView!
     @IBOutlet weak var Prev: UIImageView!
+    @IBOutlet weak var Freq: UILabel!
     
     /***************************************************
      PLAYS A PITCH FOR THE USER
@@ -24,16 +25,19 @@ class SmartFeatures: UIViewController, UIGestureRecognizerDelegate {
     
     var noteList = [String]()
     var noteNames = [String]()
-    
+    var freqList = [Float]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //initializes all the note files and the displayed note names
         noteList = ["0A", "1As", "2B", "3C", "4Cs", "5D", "6Ds", "7E", "8F", "9Fs", "10G", "11Gs"]
         noteNames = ["A", "Bb", "B", "C", "C#", "D", "Eb", "E", "F", "F#", "G", "G#"]
+        freqList = [440, 466, 493, 523, 554, 587, 622, 659, 698, 739, 783, 830]
         
         //changes the note display
         Note.text = noteNames[count]
+        displayFreq(count)
         
         Note?.font = UIFont(name: "Hiragino Sans", size: 35)
         Note?.font = UIFont.systemFontOfSize(35, weight: UIFontWeightThin)
@@ -62,6 +66,11 @@ class SmartFeatures: UIViewController, UIGestureRecognizerDelegate {
         
     }
     
+    func displayFreq(count: Int) {
+        let s = NSString(format: "%.2f", freqList[count])
+        Freq.text = s as String
+    }
+    
     func didTapPrev(sender: UITapGestureRecognizer){
         print("did tap prev")
         if count == 0{
@@ -72,6 +81,8 @@ class SmartFeatures: UIViewController, UIGestureRecognizerDelegate {
         }
         print(count)
         Note.text = noteNames[count]
+        displayFreq(count)
+
         if beingPlayed {
             playNote()
         }
@@ -87,6 +98,7 @@ class SmartFeatures: UIViewController, UIGestureRecognizerDelegate {
         }
         print(count)
         Note.text = noteNames[count]
+        displayFreq(count)
         
         //automatically changes the sound upon the user changing it if it's being played
         //pretty much the play button function
