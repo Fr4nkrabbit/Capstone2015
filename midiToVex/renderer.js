@@ -53,9 +53,9 @@
                 acidentals:[]
             }
 
-	    var stoppingPoint = Math.min(inM.length, LINE_COUNT* MEASURES_PER_LINE)
+	    var stoppingPoint = Math.min(inM.length, (LINE_COUNT+STARTING_LINE)* MEASURES_PER_LINE)
 
-            for (var mC = 0; mC < stoppingPoint; mC++)
+            for (var mC = STARTING_LINE; mC < stoppingPoint; mC++)
             {
 		var canvas = document.querySelector("canvas")
 
@@ -65,7 +65,7 @@
 
 		//Decide where to draw the measure, or "staff" as Vexflow calls it
 		var offsetX = STAFF_OFFSET_X + (mC % MEASURES_PER_LINE) * STAFF_WIDTH
-		var offsetY = STAFF_OFFSET_Y * Math.floor(mC / MEASURES_PER_LINE)
+		var offsetY = STAFF_OFFSET_Y * Math.floor((mC-STARTING_LINE) / MEASURES_PER_LINE)
 		var stave = new Vex.Flow.Stave(offsetX, offsetY, STAFF_WIDTH)
 
                 // Add a treble clef if it's the first measure of the line
@@ -192,3 +192,13 @@
 
 		console.log("Successful run!")
         }
+function follow(){
+	STARTING_LINE++
+	$('canvas').parent()[0].innerHTML='<canvas width="975" height="1100"></canvas>'
+	createSheetMusic(string)
+
+	setTimeout(follow,FOLLOW_TEMPO)
+
+
+
+}
