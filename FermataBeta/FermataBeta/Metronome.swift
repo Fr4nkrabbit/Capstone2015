@@ -74,7 +74,7 @@ class MetronomeViewController: UIViewController {
             
             // Start the metronome.
             let metronomeTimeInterval:NSTimeInterval = 60.0 / tempo
-            metronomeTimer = NSTimer.scheduledTimerWithTimeInterval(metronomeTimeInterval, target: self, selector: Selector("playMetronomeSound"), userInfo: nil, repeats: true)
+            metronomeTimer = NSTimer.scheduledTimerWithTimeInterval(metronomeTimeInterval, target: self, selector: #selector(MetronomeViewController.playMetronomeSound), userInfo: nil, repeats: true)
             metronomeTimer?.fire()
             
             // Change the toggle metronome button's image to "Stop" and tint
@@ -126,9 +126,10 @@ class MetronomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        self.navigationItem.title = "Metronome"
+
         
-        self.view.backgroundColor = UIColor.lightGrayColor()
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
         // Set the inital value of the tempo.
         tempo = 120

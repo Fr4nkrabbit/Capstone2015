@@ -29,7 +29,7 @@ class Tuner: UIViewController {
             count = 0
         }
         else {
-           count++
+           count += 1
         }
         print(count)
         Note.text = noteNames[count]
@@ -105,8 +105,8 @@ class Tuner: UIViewController {
         //initializes all the note files and the displayed note names
         noteList = ["0A", "1As", "2B", "3C", "4Cs", "5D", "6Ds", "7E", "8F", "9Fs", "10G", "11Gs"]
         noteNames = ["A", "Bb", "B", "C", "C#", "D", "Eb", "E", "F", "F#", "G", "G#"]
-        
-        self.view.backgroundColor = UIColor.lightGrayColor()
+        self.navigationItem.title = "Tuner"
+
         
         //changes the note display
         Note.text = noteNames[count]

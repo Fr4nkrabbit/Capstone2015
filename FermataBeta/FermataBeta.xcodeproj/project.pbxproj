@@ -36,7 +36,6 @@
 		DB3FBBDD1BF94B64004C22A3 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FBBDB1BF94B64004C22A3 /* Song.swift */; };
 		DB3FBBE51BFA9195004C22A3 /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FBBE41BFA9195004C22A3 /* SongTableViewCell.swift */; };
 		DB3FBBE61BFA9195004C22A3 /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FBBE41BFA9195004C22A3 /* SongTableViewCell.swift */; };
-		DB6188BF1C07B47A002D9D97 /* web in Resources */ = {isa = PBXBuildFile; fileRef = DB6188BE1C07B47A002D9D97 /* web */; };
 		DB62A1B41C7B9DF6007EDA48 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = DB62A1AD1C7B9DF6007EDA48 /* index.html */; };
 		DB62A1B51C7B9DF6007EDA48 /* inter.js in Resources */ = {isa = PBXBuildFile; fileRef = DB62A1AE1C7B9DF6007EDA48 /* inter.js */; };
 		DB62A1B61C7B9DF6007EDA48 /* JZZ.Midi.js in Resources */ = {isa = PBXBuildFile; fileRef = DB62A1AF1C7B9DF6007EDA48 /* JZZ.Midi.js */; };
@@ -44,19 +43,18 @@
 		DB62A1B81C7B9DF6007EDA48 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = DB62A1B11C7B9DF6007EDA48 /* main.js */; };
 		DB62A1B91C7B9DF6007EDA48 /* vexflow-debug.js in Resources */ = {isa = PBXBuildFile; fileRef = DB62A1B21C7B9DF6007EDA48 /* vexflow-debug.js */; };
 		DB62A1BA1C7B9DF6007EDA48 /* vexflow-min.js in Resources */ = {isa = PBXBuildFile; fileRef = DB62A1B31C7B9DF6007EDA48 /* vexflow-min.js */; };
+		DB63260D1CC55D2600D81E71 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB63260C1CC55D2600D81E71 /* SongViewController.swift */; };
 		DB6D17981C814215005AFEFE /* InstrumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6D17971C814215005AFEFE /* InstrumentsViewController.swift */; };
-		DB87B45D1C16108000AF7476 /* stuff.txt in Resources */ = {isa = PBXBuildFile; fileRef = DB87B45C1C16108000AF7476 /* stuff.txt */; };
 		DB9AEA7B1BF6D6AC00506C24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9AEA7A1BF6D6AC00506C24 /* AppDelegate.swift */; };
-		DB9AEA7D1BF6D6AC00506C24 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9AEA7C1BF6D6AC00506C24 /* SongViewController.swift */; };
 		DB9AEA801BF6D6AC00506C24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB9AEA7E1BF6D6AC00506C24 /* Main.storyboard */; };
 		DB9AEA821BF6D6AC00506C24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB9AEA811BF6D6AC00506C24 /* Assets.xcassets */; };
 		DB9AEA851BF6D6AC00506C24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB9AEA831BF6D6AC00506C24 /* LaunchScreen.storyboard */; };
 		DB9AEA901BF6D6AC00506C24 /* FermataBetaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9AEA8F1BF6D6AC00506C24 /* FermataBetaTests.swift */; };
 		DB9AEA9B1BF6D6AC00506C24 /* FermataBetaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9AEA9A1BF6D6AC00506C24 /* FermataBetaUITests.swift */; };
+		DBA496971CC185A80030D868 /* blackLine.png in Resources */ = {isa = PBXBuildFile; fileRef = DBA496961CC185A80030D868 /* blackLine.png */; };
 		DBB53C891CA87BB000403D6E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB53C871CA87BB000403D6E /* FBSDKCoreKit.framework */; };
 		DBB53C8A1CA87BB000403D6E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB53C881CA87BB000403D6E /* FBSDKLoginKit.framework */; };
 		DBF794A31C84A57200AB5D7D /* metronomeClick.wav in Resources */ = {isa = PBXBuildFile; fileRef = DBF794A21C84A57200AB5D7D /* metronomeClick.wav */; };
-		DBF841F61C137767002D9729 /* MidiToVex in Resources */ = {isa = PBXBuildFile; fileRef = DBF841F51C137767002D9729 /* MidiToVex */; };
 		DBFB28131C5A781800999BE0 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBFB28121C5A781800999BE0 /* SWRevealViewController.m */; };
 		DBFB28151C5A791A00999BE0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFB28141C5A791A00999BE0 /* ViewController.swift */; };
 		DBFB281E1C5C024F00999BE0 /* BackTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFB281D1C5C024F00999BE0 /* BackTableVC.swift */; };
@@ -107,7 +105,6 @@
 		DB3FBBD81BF8297A004C22A3 /* GenreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreTableViewCell.swift; sourceTree = "<group>"; };
 		DB3FBBDB1BF94B64004C22A3 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		DB3FBBE41BFA9195004C22A3 /* SongTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
-		DB6188BE1C07B47A002D9D97 /* web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = web; sourceTree = "<group>"; };
 		DB62A1AD1C7B9DF6007EDA48 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		DB62A1AE1C7B9DF6007EDA48 /* inter.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = inter.js; sourceTree = "<group>"; };
 		DB62A1AF1C7B9DF6007EDA48 /* JZZ.Midi.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = JZZ.Midi.js; sourceTree = "<group>"; };
@@ -115,11 +112,10 @@
 		DB62A1B11C7B9DF6007EDA48 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		DB62A1B21C7B9DF6007EDA48 /* vexflow-debug.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "vexflow-debug.js"; sourceTree = "<group>"; };
 		DB62A1B31C7B9DF6007EDA48 /* vexflow-min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "vexflow-min.js"; sourceTree = "<group>"; };
+		DB63260C1CC55D2600D81E71 /* SongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
 		DB6D17971C814215005AFEFE /* InstrumentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstrumentsViewController.swift; sourceTree = "<group>"; };
-		DB87B45C1C16108000AF7476 /* stuff.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = stuff.txt; path = MidiToVex/stuff.txt; sourceTree = "<group>"; };
 		DB9AEA771BF6D6AC00506C24 /* FermataBeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FermataBeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB9AEA7A1BF6D6AC00506C24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DB9AEA7C1BF6D6AC00506C24 /* SongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
 		DB9AEA7F1BF6D6AC00506C24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB9AEA811BF6D6AC00506C24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB9AEA841BF6D6AC00506C24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -130,10 +126,10 @@
 		DB9AEA961BF6D6AC00506C24 /* FermataBetaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FermataBetaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB9AEA9A1BF6D6AC00506C24 /* FermataBetaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FermataBetaUITests.swift; sourceTree = "<group>"; };
 		DB9AEA9C1BF6D6AC00506C24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBA496961CC185A80030D868 /* blackLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackLine.png; sourceTree = "<group>"; };
 		DBB53C871CA87BB000403D6E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		DBB53C881CA87BB000403D6E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		DBF794A21C84A57200AB5D7D /* metronomeClick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = metronomeClick.wav; sourceTree = "<group>"; };
-		DBF841F51C137767002D9729 /* MidiToVex */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MidiToVex; sourceTree = "<group>"; };
 		DBFB28101C5A781700999BE0 /* FermataBeta-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FermataBeta-Bridging-Header.h"; sourceTree = "<group>"; };
 		DBFB28111C5A781800999BE0 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		DBFB28121C5A781800999BE0 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -215,30 +211,28 @@
 			children = (
 				DBB53C871CA87BB000403D6E /* FBSDKCoreKit.framework */,
 				DBB53C881CA87BB000403D6E /* FBSDKLoginKit.framework */,
-				DBF841F51C137767002D9729 /* MidiToVex */,
 				DB3C93B41C6925050032556B /* TwelveNotes */,
-				DB6188BE1C07B47A002D9D97 /* web */,
 				DB9AEA7A1BF6D6AC00506C24 /* AppDelegate.swift */,
 				DB1906221CB9B11500E0B92B /* Next.png */,
 				DB1906261CBC519100E0B92B /* ArrowLeft.png */,
 				DB1906271CBC519100E0B92B /* ArrowRight.png */,
-				DB87B45C1C16108000AF7476 /* stuff.txt */,
 				DB3FBBD51BF8275A004C22A3 /* GenreTableViewController.swift */,
 				DB62A1AD1C7B9DF6007EDA48 /* index.html */,
 				DB62A1AE1C7B9DF6007EDA48 /* inter.js */,
 				DB62A1AF1C7B9DF6007EDA48 /* JZZ.Midi.js */,
 				DB1906241CB9B1AE00E0B92B /* left.png */,
+				DB63260C1CC55D2600D81E71 /* SongViewController.swift */,
 				DB62A1B01C7B9DF6007EDA48 /* JZZ.MidiFile.js */,
 				DB62A1B11C7B9DF6007EDA48 /* main.js */,
 				DB62A1B21C7B9DF6007EDA48 /* vexflow-debug.js */,
 				DB62A1B31C7B9DF6007EDA48 /* vexflow-min.js */,
+				DBA496961CC185A80030D868 /* blackLine.png */,
 				DB3FBBDB1BF94B64004C22A3 /* Song.swift */,
 				DB3FBBD81BF8297A004C22A3 /* GenreTableViewCell.swift */,
 				DB3C93CD1C69323F0032556B /* SwiftlyMessageHandler.swift */,
 				DB9AEA7E1BF6D6AC00506C24 /* Main.storyboard */,
 				DB1906201CB9AB1F00E0B92B /* SmartFeatures.swift */,
 				DB2E50D01CA76B9800C889EF /* songTableDisplay.swift */,
-				DB9AEA7C1BF6D6AC00506C24 /* SongViewController.swift */,
 				DB6D17971C814215005AFEFE /* InstrumentsViewController.swift */,
 				DBFB281F1C5D0ECA00999BE0 /* Login.swift */,
 				DBFB28211C5D132400999BE0 /* Metronome.swift */,
@@ -391,11 +385,8 @@
 			files = (
 				DB1906231CB9B11500E0B92B /* Next.png in Resources */,
 				DB62A1B81C7B9DF6007EDA48 /* main.js in Resources */,
-				DB87B45D1C16108000AF7476 /* stuff.txt in Resources */,
 				DB3C93C71C6925050032556B /* 4Cs.wav in Resources */,
-				DBF841F61C137767002D9729 /* MidiToVex in Resources */,
 				DB3C93CC1C6925050032556B /* 9Fs.wav in Resources */,
-				DB6188BF1C07B47A002D9D97 /* web in Resources */,
 				DB3C93C21C6925050032556B /* 10G.wav in Resources */,
 				DB3C93C81C6925050032556B /* 5D.wav in Resources */,
 				DB62A1B71C7B9DF6007EDA48 /* JZZ.MidiFile.js in Resources */,
@@ -407,6 +398,7 @@
 				DB9AEA851BF6D6AC00506C24 /* LaunchScreen.storyboard in Resources */,
 				DB3C93CB1C6925050032556B /* 8F.wav in Resources */,
 				DB9AEA821BF6D6AC00506C24 /* Assets.xcassets in Resources */,
+				DBA496971CC185A80030D868 /* blackLine.png in Resources */,
 				DB3C93C11C6925050032556B /* 0A.wav in Resources */,
 				DB62A1B91C7B9DF6007EDA48 /* vexflow-debug.js in Resources */,
 				DB62A1BA1C7B9DF6007EDA48 /* vexflow-min.js in Resources */,
@@ -445,6 +437,7 @@
 			files = (
 				DB3C93CE1C69323F0032556B /* SwiftlyMessageHandler.swift in Sources */,
 				DB3FBBDC1BF94B64004C22A3 /* Song.swift in Sources */,
+				DB63260D1CC55D2600D81E71 /* SongViewController.swift in Sources */,
 				DBFB28201C5D0ECA00999BE0 /* Login.swift in Sources */,
 				DB3FBBD31BF824C4004C22A3 /* Genre.swift in Sources */,
 				DBFB281E1C5C024F00999BE0 /* BackTableVC.swift in Sources */,
@@ -452,7 +445,6 @@
 				DB3FBBE51BFA9195004C22A3 /* SongTableViewCell.swift in Sources */,
 				DBFB28151C5A791A00999BE0 /* ViewController.swift in Sources */,
 				DB3FBBD91BF8297A004C22A3 /* GenreTableViewCell.swift in Sources */,
-				DB9AEA7D1BF6D6AC00506C24 /* SongViewController.swift in Sources */,
 				DB6D17981C814215005AFEFE /* InstrumentsViewController.swift in Sources */,
 				DB1906211CB9AB1F00E0B92B /* SmartFeatures.swift in Sources */,
 				DBFB28221C5D132400999BE0 /* Metronome.swift in Sources */,

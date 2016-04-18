@@ -8,14 +8,18 @@
 
 import Foundation
 import AVFoundation
+import UIKit
 
 class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
     
+    //tuner stuff
     @IBOutlet weak var Note: UILabel!
     @IBOutlet weak var Next: UIImageView!
     @IBOutlet weak var Prev: UIImageView!
     @IBOutlet weak var Freq: UILabel!
+    @IBOutlet weak var blackBox: UILabel!
     
+    @IBOutlet weak var playing: UILabel!
     /***************************************************
      PLAYS A PITCH FOR THE USER
      ***************************************************/
@@ -26,9 +30,41 @@ class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
     var noteList = [String]()
     var noteNames = [String]()
     var freqList = [Float]()
+    
+    //metronome stuff
+    @IBOutlet weak var tempoTextField: UITextField!
+    
+    @IBOutlet weak var tempoStepper: UIStepper!
+    
+    //might not be room for the blinking light
+    //@IBOutlet weak var blinkingLight: UILabel!
+    
+    var metronomeTimer: NSTimer!
+    
+    var metronomeIsOn = false
+    
+    var metronomeSoundPlayer: AVAudioPlayer!
+    
+    var tempo: NSTimeInterval = 60 {
+        didSet {
+            tempoTextField.text = String(format: "%.0f", tempo)
+            tempoStepper.value = Double(tempo)
+        }
+    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //metronome initialization stuff
+        // Set the inital value of the tempo.
+        tempo = 120
+        
+        // Initialize the sound player
+        let metronomeSoundURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("metronomeClick", ofType: "wav")!)
+        metronomeSoundPlayer = try? AVAudioPlayer(contentsOfURL: metronomeSoundURL)
+        metronomeSoundPlayer.prepareToPlay()
+        
         
         //initializes all the note files and the displayed note names
         noteList = ["0A", "1As", "2B", "3C", "4Cs", "5D", "6Ds", "7E", "8F", "9Fs", "10G", "11Gs"]
@@ -41,6 +77,11 @@ class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
         
         Note?.font = UIFont(name: "Hiragino Sans", size: 35)
         Note?.font = UIFont.systemFontOfSize(35, weight: UIFontWeightThin)
+        
+        //make it look like a button
+        blackBox?.layer.borderWidth = 3
+        blackBox?.layer.borderColor = UIColor.blueColor().CGColor
+        //Note?.textAlignment = .Center
         
         //To play the note
         Note.userInteractionEnabled = true // Remember to do this
@@ -135,12 +176,104 @@ class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
         audioPlayer.prepareToPlay()
         audioPlayer.numberOfLoops = -1 //for infinite holding
         audioPlayer.play()
+        playing.text = "playing.."
         print(count)
     }
     
     func stopNote(){
         audioPlayer.stop()
+        playing?.text = ""
     }
+    
+    //more metronome stuff
+    @IBAction func tempoChanged(tempoStepper: UIStepper) {
+        // Save the new tempo.
+        tempo = tempoStepper.value
+    }
+    
+    @IBAction func toggleMetronome(toggleMetronomeButton: UIButton) {
+        // If the metronome is currently on, stop the metronome and change
+        // the image of the toggle metronome button to the "Play" image and
+        // its tint color to green.
+        if metronomeIsOn {
+            // Mark the metronome as off.
+            metronomeIsOn = false
+            
+            // Turn the blinking off, and change the label to its gray color
+            //blinkingLight.backgroundColor = UIColor.lightGrayColor()
+            
+            // Stop the metronome.
+            metronomeTimer?.invalidate()
+            
+            // Change the toggle metronome button's image to "Play" and tint
+            // color to green.
+            toggleMetronomeButton.setImage(UIImage(named: "Play"), forState: .Normal)
+            toggleMetronomeButton.tintColor = UIColor.greenColor()
+            
+            // Enable the metronome stepper.
+            tempoStepper.enabled = true
+            
+            // Enable editing the tempo text field.
+            tempoTextField.enabled = true
+        }
+            
+            // If the metronome is currently off, start the metronome and change
+            // the image of the toggle metronome button to the "Start" image and
+            // its tint color to green
+        else {
+            // Mark the metronome as on.
+            metronomeIsOn = true
+            
+            // Start the metronome.
+            let metronomeTimeInterval:NSTimeInterval = 60.0 / tempo
+            metronomeTimer = NSTimer.scheduledTimerWithTimeInterval(metronomeTimeInterval, target: self, selector: #selector(SmartFeatures.playMetronomeSound), userInfo: nil, repeats: true)
+            metronomeTimer?.fire()
+            
+            // Change the toggle metronome button's image to "Stop" and tint
+            // color to red.
+            toggleMetronomeButton.setImage(UIImage(named: "Stop"), forState: .Normal)
+            toggleMetronomeButton.tintColor = UIColor.redColor()
+            
+            // Disable the metronome stepper.
+            tempoStepper.enabled = false
+            
+            // Hide the keyboard
+            tempoTextField.resignFirstResponder()
+            
+            // Disable editing the tempo text field.
+            tempoTextField.enabled = false
+        }
+    }
+    
+    
+    func playMetronomeSound() {
+        let currentTime = CFAbsoluteTimeGetCurrent()
+        
+        print("Play metronome sound @ \(currentTime)")
+        
+        //gives short delay and blinks red
+        //delay(0.4){
+          //  self.blinkingLight.backgroundColor = UIColor.redColor()
+        //}
+        
+        //blinkingLight.backgroundColor = UIColor.lightGrayColor()
+        
+        metronomeSoundPlayer.play()
+        
+    }
+    
+    //delay function that works cleaner then the Swift one
+    func delay(delay:Double, closure:()->()){
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
+    
+    // MARK: - UIViewController
+    // MARK: Managing the View
 }
 
  

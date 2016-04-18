@@ -53,7 +53,7 @@ class SwiftlyMessageHandler:NSObject, WKScriptMessageHandler {
         print("hello")
         let sentData = message.body as! NSDictionary
         
-        var response = Dictionary<String,AnyObject>()
+        let response = Dictionary<String,AnyObject>()
         
         let callbackString = sentData["callbackFunc"] as? String
         sendResponse(response, callback: callbackString)

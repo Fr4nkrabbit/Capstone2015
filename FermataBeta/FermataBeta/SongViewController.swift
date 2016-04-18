@@ -24,48 +24,49 @@ import WebKit
 class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRecognizerDelegate {
     
     var theWebView:WKWebView?
-    @IBAction func GoBack(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    //var FeaturesOn = false
-   // @IBOutlet weak var Features: UIBarButtonItem!
-    
-    //@IBOutlet weak var songTitle: UINavigationItem!
-    
+
     var instruments: String = ""
     var id: String = ""
     var songName: String = ""
     var MidiArg = ""
     
     var song: Song?
-    
-    func handleSwipe(sender:UISwipeGestureRecognizer) {
-        print("left swipe?")
-        
-        if (sender.direction == .Left){
-            self.dismissViewControllerAnimated(false, completion: nil)
-        }
-    }
+    var flip = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //var button = UIButton(frame: CGRect(origin: 0, y: 0, size: CGSize(width: 50, height: 50)))
+        //measuresShown.textAlignment = NSTextAlignment.Center
+        let measuresShown = UILabel(frame: CGRectMake(0, 0, 100, 100))
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let screenWidth = screenSize.width * 0.5
+        measuresShown.center = CGPointMake(screenWidth, 67)
+        measuresShown.textAlignment = NSTextAlignment.Center
+        measuresShown.text = "measures"
         
-        //var button = UIButton(frame: CGRect(origin: CGPoint(x: self.view.frame.width / 2 - 25, y: self.view.frame.size.height - 70), size: CGSize(width: 50, height: 50)))
+        self.view.addSubview(measuresShown)
         
-        //self.navigationController?.view.addSubview(button)
+        let rightArrowName = "ArrowRight.png"
+        let rightImage = UIImage(named: rightArrowName)
+        let rightArrowView = UIImageView(image: rightImage!)
+        let rightWidth = screenWidth + 50
+        rightArrowView.frame = CGRect(x: rightWidth, y: 55, width: 47, height: 26)
+        view.addSubview(rightArrowView)
+        
+        let leftArrowName = "ArrowLeft.png"
+        let leftImage = UIImage(named: leftArrowName)
+        let leftArrowView = UIImageView(image: leftImage!)
+        let leftWidth = screenWidth - 90
+        leftArrowView.frame = CGRect(x: leftWidth, y: 55, width: 47, height: 26)
+        view.addSubview(leftArrowView)
+        
+        /*let smartFeatureBool = UIButton(frame: CGRectMake(0,0,100,100))
+        let buttonWidth = screenWidth * 0.9
+        smartFeatureBool.center = CGPointMake(buttonWidth, 67)
+        smartFeatureBool.setTitle("Smart Features", forState: UIControlState.Normal)
+        view.addSubview(smartFeatureBool)*/
         
         
-        
-        let leftSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipe"))
-        
-        leftSwipe.direction = .Left
-        
-        view.addGestureRecognizer(leftSwipe)
-        
-        print("STRING SHOULD BE HERE")
         //print(song?.name)
         songName = (song?.name)!
         print(songName)
@@ -96,16 +97,60 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
         } else {
             print("bad url")
         }
+        load()
+
         
+        print("hello")
+        
+        //myTableView.dataSource = self
+        
+        /*var index1 = MidiArg.startIndex.advancedBy(MidiArg.characters.count-1)
+        var substring1 = MidiArg.substringToIndex(index1)
+        var js = "parseMidi('\(substring1)')" as String
+        //js = "parseMidi('string1')"
+        theWebView!.evaluateJavaScript(js,completionHandler: nil)
+        print("hello")*/
+
+    }
+    
+    /*@IBAction func smartFeaturesBool(sender: AnyObject) {
+        if (flip){
+            load()
+        }else {
+            loadModify()
+        }
+    }*/
+    
+    @IBAction func changePage() {
+        
+        print("i got tapped")
+        theWebView?.evaluateJavaScript("test1()", completionHandler: nil)
+
+        /*if (flip){
+            //self.view.willRemoveSubview(theWebView!)
+            print("flip is true")
+            load()
+            flip = !flip
+        }
+        else{
+            print("flip is false")
+            //self.view.willRemoveSubview(theWebView!)
+            loadModify()
+            flip = !flip
+        }*/
+    }
+    
+    func load(){
         //let rect = CGRect(
-          //  origin: CGPoint(x: 0, y: 45),
-            //size: UIScreen.mainScreen().bounds.size)
+        //  origin: CGPoint(x: 0, y: 45),
+        //size: UIScreen.mainScreen().bounds.size)
         
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         
-        let screenHeight = screenSize.height * 0.8
+        let screenHeight = screenSize.height * 0.75
+        let screenWidth = screenSize.width
         
-        let rect = CGRect(x: 0, y: 45, width: screenSize.width, height: screenHeight)
+        let rect = CGRect(x: 0, y: 87, width: screenWidth, height: screenHeight)
         
         /////////////////////////////////////////
         //kyles' stuff
@@ -122,18 +167,37 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
         theWebView!.loadRequest(request)
         self.view.addSubview(theWebView!)
         
-        print("hello")
-        
-        //myTableView.dataSource = self
-        
-        /*var index1 = MidiArg.startIndex.advancedBy(MidiArg.characters.count-1)
-        var substring1 = MidiArg.substringToIndex(index1)
-        var js = "parseMidi('\(substring1)')" as String
-        //js = "parseMidi('string1')"
-        theWebView!.evaluateJavaScript(js,completionHandler: nil)
-        print("hello")*/
-
     }
+    
+    func loadModify(){
+        //print("loadmodify")
+        
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
+        
+        let rect = CGRect(x: 0, y: 87, width: screenWidth, height: screenHeight)
+        
+        /////////////////////////////////////////
+        //kyles' stuff
+        let path = NSBundle.mainBundle().pathForResource("index",
+                                                         ofType: "html")
+        let url = NSURL(fileURLWithPath: path!)
+        let request = NSURLRequest(URL: url)
+        
+        let theConfiguration = WKWebViewConfiguration()
+        theConfiguration.userContentController.addScriptMessageHandler(self,
+                                                                       name: "native")
+        
+        theWebView = WKWebView(frame: rect, configuration: theConfiguration)
+        theWebView!.loadRequest(request)
+        for view in self.view.subviews{
+            print(view)
+            //view.removeFromSuperview()
+        }
+        //self.view.addSubview(theWebView!)
+        
+        }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////
     
