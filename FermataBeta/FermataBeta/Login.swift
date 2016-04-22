@@ -1,5 +1,5 @@
 //
-//  Recent.swift
+//  Login.swift
 //  FermataBeta
 //
 //  Created by Young Liu on 1/30/16.
@@ -11,35 +11,37 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 
+var firstName=""
+var lastName=""
+var imageURL=""
+
 class Login: UIViewController, FBSDKLoginButtonDelegate {
     
+    @IBOutlet weak var btnFacebook: FBSDKButton!
     
-    //@IBOutlet weak var btnFacebook: FBSDKButton!
-   // @IBOutlet weak var ivProfileUserImage: UIImageView!
-    
-    //@IBOutlet weak var lblName: UILabel!
-    
+    @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var ivUserProfileImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Facebook Login"
-
-        self.view.backgroundColor = UIColor(red:246, green:247, blue:235, alpha:1)
         
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        
-        if (FBSDKAccessToken.currentAccessToken() == nil){
-            print("not logged in")
-        } else {
-            print("logged in!")
-        }
+        /* self.view.backgroundColor = UIColor(red:246, green:247, blue:235, alpha:1)
+         
+         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+         
+         if (FBSDKAccessToken.currentAccessToken() == nil){
+         print("not logged in")
+         } else {
+         print("logged in!")
+         }*/
         
         let loginButton = FBSDKLoginButton()
         loginButton.readPermissions = ["public_profile", "email", "user_friends"]
         loginButton.center = self.view.center
         loginButton.delegate = self
         self.view.addSubview(loginButton)
-        // Do any additional setup after loading the view, typically from a nib.
+        // Do any additional setup after loading the view, typically from a nib.*/
     }
     
     override func didReceiveMemoryWarning() {
@@ -51,14 +53,12 @@ class Login: UIViewController, FBSDKLoginButtonDelegate {
     {
         FBSDKGraphRequest.init(graphPath: "me", parameters: ["fields":"first_name, last_name, picture.type(large)"]).startWithCompletionHandler { (connection, result, error) -> Void in
             
-            let strFirstName: String = (result.objectForKey("first_name") as? String)!
-            let strLastName: String = (result.objectForKey("last_name") as? String)!
-            let strPictureURL: String = (result.objectForKey("picture")?.objectForKey("data")?.objectForKey("url") as? String)!
-    
-           // self.lblName.text = "Welcome, \(strFirstName) \(strLastName)"
-            //self.ivProfileUserImage.image = UIImage(data: NSData(contentsOfURL: NSURL(string: strPictureURL)!)!)
-            //self.lblName.text = "Welcome, \(strFirstName) \(strLastName)"
-            //self.ivUserProfileImage.image = UIImage(data: NSData(contentsOfURL: NSURL(string: strPictureURL)!)!)
+            firstName = (result.objectForKey("first_name") as? String)!
+            lastName = (result.objectForKey("last_name") as? String)!
+            imageURL = (result.objectForKey("picture")?.objectForKey("data")?.objectForKey("url") as? String)!
+            
+            self.lblName.text = "Welcome to Fermata Sheet Music, \(firstName) \(lastName)"
+            self.ivUserProfileImage.image = UIImage(data: NSData(contentsOfURL: NSURL(string: imageURL)!)!)
         }
     }
     
@@ -66,9 +66,9 @@ class Login: UIViewController, FBSDKLoginButtonDelegate {
     {
         let loginManager: FBSDKLoginManager = FBSDKLoginManager()
         loginManager.logOut()
-        //ivProfileUserImage.image = nil
-        //lblName.text = ""
+        
+        ivUserProfileImage.image = nil
+        lblName.text = "Please login!"
     }
-    //- See more at: http://www.theappguruz.com/blog/facebook-integration-using-swift#sthash.rPJel4Wd.dpuf
     
 }

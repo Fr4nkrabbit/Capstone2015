@@ -194,7 +194,7 @@
             currentMeasures()
         }
 function startBasicFollow(tempo){
-    FOLLOW_TEMPO=tempo
+    FOLLOW_TEMPO=tempo/60*1000
     follow()
     
     

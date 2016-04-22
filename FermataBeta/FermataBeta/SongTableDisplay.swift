@@ -20,6 +20,7 @@ import UIKit
 
 class SongDisplay: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate{
     
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     //@IBOutlet weak var searchBar: UISearchBar!
     //@IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableView: UITableView!
@@ -108,6 +109,11 @@ class SongDisplay: UIViewController, UITableViewDataSource, UITableViewDelegate,
        // self.view.backgroundColor = UIColor(red:246, green:247, blue:235, alpha:1)
         //self.view.backgroundColor = UIColor(red:(246/255), green:(247/255), blue: (235/255), alpha:1.0)
         //self.view.backgroundColor = UIColor(netHex:0x1E1E1E)
+        if self.revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = Selector("revealToggle:")
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
         self.view.backgroundColor = UIColor.redColor()
         
         navigationController?.navigationBar.translucent = false

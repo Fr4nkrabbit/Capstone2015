@@ -10,12 +10,8 @@ import Foundation
 import AVFoundation
 import UIKit
 
-//let's try to global thing
-struct GlobalStruct
-{
-    var details:Int;
-};
 
+var globalTempo = "120.0"
 class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
     
     //tuner stuff
@@ -57,6 +53,7 @@ class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
         didSet {
             tempoTextField.text = String(format: "%.0f", tempo)
             tempoStepper.value = Double(tempo)
+            
         }
     }
 
@@ -64,11 +61,9 @@ class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //metronome initialization stuff
-        // Set the inital value of the tempo.
         tempo = 120
         
-        // Initialize the sound player
+        // Initialize the sou/Users/youngliu/Documents/EECS_581/FermataBeta/FermataBeta/SmartFeatures.swift:71:28: Use of instance member 'setStructDataReference' on type 'SongViewController'; did you mean to use a value of type 'SongViewController' instead?nd player
         let metronomeSoundURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("metronomeClick", ofType: "wav")!)
         metronomeSoundPlayer = try? AVAudioPlayer(contentsOfURL: metronomeSoundURL)
         metronomeSoundPlayer.prepareToPlay()
@@ -197,8 +192,7 @@ class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
     @IBAction func tempoChanged(tempoStepper: UIStepper) {
         // Save the new tempo.
         tempo = tempoStepper.value
-        
-
+        globalTempo = String(tempoStepper.value)
     }
     
     @IBAction func toggleMetronome(toggleMetronomeButton: UIButton) {

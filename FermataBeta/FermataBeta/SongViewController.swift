@@ -24,6 +24,18 @@ import UIKit
 import WebKit
 class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRecognizerDelegate {
     
+    var followBool = true
+    @IBAction func followAlong(sender: AnyObject) {
+        print("hi")
+        if followBool{
+            basicFollow(globalTempo)
+        }
+        else {
+            stopFollow()
+        }
+        followBool = !followBool
+    }
+
     var theWebView:WKWebView?
 
     var instruments: String = ""
@@ -34,24 +46,15 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
     var song: Song?
     var flip = false
     var measuresShown = UILabel()
+    //var followLabel = UILabel()
     
     //let u = SomeStructure.storedTypeProperty
     
     //var structData:GlobalStruct;
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        //
-        //print("struct data = \(self.structData.tempo)");
-        //var structData:GlobalStruct;
-        
-        //measuresShown.textAlignment = NSTextAlignment.Center
-        measuresShown = UILabel(frame: CGRectMake(0, 0, 100, 100))
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
-        let screenWidth = screenSize.width * 0.5
-        measuresShown.center = CGPointMake(screenWidth, 67)
-        measuresShown.textAlignment = NSTextAlignment.Center
-        measuresShown.text = "measures"
+        showMeasure()
         
         /*let smartFeatureBool = UIButton(frame: CGRectMake(0,0,100,100))
         let buttonWidth = screenWidth * 0.9
@@ -65,50 +68,63 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
         print(songName)
         self.navigationItem.title = songName
         
-        /*if let song = song {
-         print(song.name)
-         
-         }*/
-        
         //let webstring = "http://people.eecs.ku.edu/~sbenson/grabMidi.php?title=" + songName
-        
-        print("what is id?")
-        print(id)
-        let webstring = "http://people.eecs.ku.edu/~sxiao/grabMidi.php/?id=" + id
-        
-        
-        if let url = NSURL(string: webstring) {
-            do {
-                
-                let something = try NSString(contentsOfURL: url, usedEncoding: nil)
-                let songListAsString = something as String
-                MidiArg = songListAsString as String
-               // print(MidiArg)
-            } catch {
-                print("contents bad yo")
-            }
-        } else {
-            print("bad url")
-        }
+        //loads the midi file from the database
+        loadMidi(id)
+        //loads the actual sheet music
         load()
-
         
-        print("hello")
-        
-        //myTableView.dataSource = self
-        
-        /*var index1 = MidiArg.startIndex.advancedBy(MidiArg.characters.count-1)
-        var substring1 = MidiArg.substringToIndex(index1)
-        var js = "parseMidi('\(substring1)')" as String
-        //js = "parseMidi('string1')"
-        theWebView!.evaluateJavaScript(js,completionHandler: nil)
-        print("hello")*/
-        
-        self.view.addSubview(measuresShown)
-        
+        pageTurnButtonLoad()
+    
         let rightArrowName = "ArrowRight.png"
         let rightImage = UIImage(named: rightArrowName)
         let rightArrowView = UIImageView(image: rightImage!)
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let screenWidth = screenSize.width * 0.5
+        let rightWidth = screenWidth + 50+25
+        rightArrowView.frame = CGRect(x: rightWidth, y: 55, width: 47, height: 26)
+        view.addSubview(rightArrowView)
+        
+        let leftArrowName = "ArrowLeft.png"
+        let leftImage = UIImage(named: leftArrowName)
+        let leftArrowView = UIImageView(image: leftImage!)
+        let leftWidth = screenWidth - 90-25
+        leftArrowView.frame = CGRect(x: leftWidth, y: 55, width: 47, height: 26)
+        view.addSubview(leftArrowView)
+        
+        
+        //To change the note down
+        leftArrowView.userInteractionEnabled = true
+        let tapPrev: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self, action: #selector(didTapPrev1))
+        leftArrowView.addGestureRecognizer(tapPrev)
+        
+        //To change the note down
+        rightArrowView.userInteractionEnabled = true
+        let tapNext: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self, action: #selector(didTapNext1))
+        rightArrowView.addGestureRecognizer(tapNext)
+        
+        tapPrev.delegate = self
+        tapNext.delegate = self
+
+        
+        
+        /*followLabel = UILabel(frame: CGRectMake(0, 0, 100, 100))
+        //let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let labelWidth = screenSize.width * 0.9
+        followLabel.center = CGPointMake(screenWidth, 67)
+        followLabel.textAlignment = NSTextAlignment.Center
+        followLabel.text = "measures"
+        self.view.addSubview(followLabel)*/
+        
+    }
+    func pageTurnButtonLoad(){
+        let rightArrowName = "ArrowRight.png"
+        let rightImage = UIImage(named: rightArrowName)
+        let rightArrowView = UIImageView(image: rightImage!)
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let screenWidth = screenSize.width * 0.5
         let rightWidth = screenWidth + 50
         rightArrowView.frame = CGRect(x: rightWidth, y: 55, width: 47, height: 26)
         view.addSubview(rightArrowView)
@@ -134,17 +150,54 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
         
         tapPrev.delegate = self
         tapNext.delegate = self
+    }
+    func loadMidi(Int: AnyObject){
+        print("what is id?")
+        print(id)
+        let webstring = "http://people.eecs.ku.edu/~sxiao/grabMidi.php/?id=" + id
         
         
-        
+        if let url = NSURL(string: webstring) {
+            do {
+                
+                let something = try NSString(contentsOfURL: url, usedEncoding: nil)
+                let songListAsString = something as String
+                MidiArg = songListAsString as String
+                // print(MidiArg)
+            } catch {
+                print("contents bad yo")
+            }
+        } else {
+            print("bad url")
+        }
+    }
+    func showMeasure(){
+        //measuresShown.textAlignment = NSTextAlignment.Center
+        measuresShown = UILabel(frame: CGRectMake(0, 0, 100, 100))
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let screenWidth = screenSize.width * 0.5
+        measuresShown.center = CGPointMake(screenWidth, 67)
+        measuresShown.textAlignment = NSTextAlignment.Center
+        measuresShown.text = "measures"
+        self.view.addSubview(measuresShown)
     }
     func didTapPrev(sender: UITapGestureRecognizer){
         print("i got tapped")
+        print(globalTempo)
         backPage()
     }
     func didTapNext(sender: UITapGestureRecognizer){
         print("i got tapped-right")
         nextPage()
+    }
+    func didTapPrev1(sender: UITapGestureRecognizer){
+        print("left new")
+        //print(globalTempo)
+        backLine()
+    }
+    func didTapNext1(sender: UITapGestureRecognizer){
+        //print("right new")
+        nextLine()
     }
     
     /*@IBAction func smartFeaturesBool(sender: AnyObject) {
