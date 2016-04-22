@@ -19,6 +19,7 @@ SOFTWARE.
 */
 
 
+
 import UIKit
 import WebKit
 class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRecognizerDelegate {
@@ -32,33 +33,25 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
     
     var song: Song?
     var flip = false
+    var measuresShown = UILabel()
+    
+    //let u = SomeStructure.storedTypeProperty
+    
+    //var structData:GlobalStruct;
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //
+        //print("struct data = \(self.structData.tempo)");
+        //var structData:GlobalStruct;
         
         //measuresShown.textAlignment = NSTextAlignment.Center
-        let measuresShown = UILabel(frame: CGRectMake(0, 0, 100, 100))
+        measuresShown = UILabel(frame: CGRectMake(0, 0, 100, 100))
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         let screenWidth = screenSize.width * 0.5
         measuresShown.center = CGPointMake(screenWidth, 67)
         measuresShown.textAlignment = NSTextAlignment.Center
         measuresShown.text = "measures"
-        
-        self.view.addSubview(measuresShown)
-        
-        let rightArrowName = "ArrowRight.png"
-        let rightImage = UIImage(named: rightArrowName)
-        let rightArrowView = UIImageView(image: rightImage!)
-        let rightWidth = screenWidth + 50
-        rightArrowView.frame = CGRect(x: rightWidth, y: 55, width: 47, height: 26)
-        view.addSubview(rightArrowView)
-        
-        let leftArrowName = "ArrowLeft.png"
-        let leftImage = UIImage(named: leftArrowName)
-        let leftArrowView = UIImageView(image: leftImage!)
-        let leftWidth = screenWidth - 90
-        leftArrowView.frame = CGRect(x: leftWidth, y: 55, width: 47, height: 26)
-        view.addSubview(leftArrowView)
         
         /*let smartFeatureBool = UIButton(frame: CGRectMake(0,0,100,100))
         let buttonWidth = screenWidth * 0.9
@@ -90,7 +83,7 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
                 let something = try NSString(contentsOfURL: url, usedEncoding: nil)
                 let songListAsString = something as String
                 MidiArg = songListAsString as String
-                print(MidiArg)
+               // print(MidiArg)
             } catch {
                 print("contents bad yo")
             }
@@ -110,7 +103,48 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
         //js = "parseMidi('string1')"
         theWebView!.evaluateJavaScript(js,completionHandler: nil)
         print("hello")*/
-
+        
+        self.view.addSubview(measuresShown)
+        
+        let rightArrowName = "ArrowRight.png"
+        let rightImage = UIImage(named: rightArrowName)
+        let rightArrowView = UIImageView(image: rightImage!)
+        let rightWidth = screenWidth + 50
+        rightArrowView.frame = CGRect(x: rightWidth, y: 55, width: 47, height: 26)
+        view.addSubview(rightArrowView)
+        
+        let leftArrowName = "ArrowLeft.png"
+        let leftImage = UIImage(named: leftArrowName)
+        let leftArrowView = UIImageView(image: leftImage!)
+        let leftWidth = screenWidth - 90
+        leftArrowView.frame = CGRect(x: leftWidth, y: 55, width: 47, height: 26)
+        view.addSubview(leftArrowView)
+        
+        //To change the note down
+        leftArrowView.userInteractionEnabled = true
+        let tapPrev: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self, action: #selector(didTapPrev))
+        leftArrowView.addGestureRecognizer(tapPrev)
+        
+        //To change the note down
+        rightArrowView.userInteractionEnabled = true
+        let tapNext: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self, action: #selector(didTapNext))
+        rightArrowView.addGestureRecognizer(tapNext)
+        
+        tapPrev.delegate = self
+        tapNext.delegate = self
+        
+        
+        
+    }
+    func didTapPrev(sender: UITapGestureRecognizer){
+        print("i got tapped")
+        backPage()
+    }
+    func didTapNext(sender: UITapGestureRecognizer){
+        print("i got tapped-right")
+        nextPage()
     }
     
     /*@IBAction func smartFeaturesBool(sender: AnyObject) {
@@ -124,8 +158,13 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
     @IBAction func changePage() {
         
         print("i got tapped")
-        theWebView?.evaluateJavaScript("test1()", completionHandler: nil)
-
+        //theWebView?.evaluateJavaScript("turnPage(1)", completionHandler: nil)
+        flip = !flip
+        if(flip){
+            nextMeasure()
+        }else{
+            backMeasure()
+        }
         /*if (flip){
             //self.view.willRemoveSubview(theWebView!)
             print("flip is true")
@@ -139,6 +178,83 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
             flip = !flip
         }*/
     }
+    
+    //call the javascript that will increament which line we are on and then redraw the music with new lines
+    // this will move forward number of lines * measures per line
+    func nextPage(){
+        theWebView?.evaluateJavaScript("turnPage(1)", completionHandler: nil)
+        
+    }
+    // this does the opposite of next page so just moves back a page
+    func backPage(){
+        theWebView?.evaluateJavaScript("turnPage(-1)", completionHandler: nil)
+        
+    }
+    
+    func nextMeasure(){
+        theWebView?.evaluateJavaScript("singleMeasure(1)", completionHandler: nil)
+        
+    }
+    // this does the opposite of next page so just moves back a page
+    func backMeasure(){
+        theWebView?.evaluateJavaScript("singleMeasure(-1)", completionHandler: nil)
+        
+    }
+
+    
+    func nextLine(){
+        theWebView?.evaluateJavaScript("singleLine(1)", completionHandler: nil)
+        
+    }
+    // this does the opposite of next page so just moves back a page
+    func backLine(){
+        theWebView?.evaluateJavaScript("singleLine(-1)", completionHandler: nil)
+        
+    }
+    
+    func goToMeasure(measure: String){
+        
+        theWebView?.evaluateJavaScript("goToMeasure("+measure+")", completionHandler: nil)
+        
+    }
+    func setMeasuresPerLine(num: String){
+        
+        theWebView?.evaluateJavaScript("setMeasurePerLine("+num+")", completionHandler: nil)
+        
+    }
+    
+    func setLineCount(num: String){
+        
+        theWebView?.evaluateJavaScript("setLineCount("+num+")", completionHandler: nil)
+        
+    }
+    
+
+    
+    //this will start off the follow along at a flat tempo
+    func basicFollow(tempo: String){
+        theWebView?.evaluateJavaScript("startBasicFollow("+tempo+")", completionHandler: nil)
+        
+        
+    }
+    
+    //this will stop any follow along we have going
+    func stopFollow(){
+        
+        theWebView?.evaluateJavaScript("stopTimer()", completionHandler: nil)
+
+        
+    }
+    func loadwebview(){
+        let index1 = MidiArg.startIndex.advancedBy(MidiArg.characters.count-1)
+        let substring1 = MidiArg.substringToIndex(index1)
+        let js = "parseMidi('\(substring1)')" as String
+        theWebView?.evaluateJavaScript(js,completionHandler: nil)
+        
+        
+        
+    }
+    
     
     func load(){
         //let rect = CGRect(
@@ -166,6 +282,10 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
         theWebView = WKWebView(frame: rect, configuration: theConfiguration)
         theWebView!.loadRequest(request)
         self.view.addSubview(theWebView!)
+        loadwebview()
+        
+        
+        
         
     }
     
@@ -212,18 +332,36 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
         
         let sentData = message.body as! NSDictionary
         
-        var response = Dictionary<String,AnyObject>()
         
-        let callbackString = sentData["callbackFunc"] as? String
+        let callback = sentData["callback"] as? String
+        print(callback)
         
-        let quote="\""
-        print(quote)
-        var index1 = MidiArg.startIndex.advancedBy(MidiArg.characters.count-1)
-        var substring1 = MidiArg.substringToIndex(index1)
-        var js = "parseMidi('\(substring1)')" as String
-        //js = "parseMidi('string1')"
-        theWebView!.evaluateJavaScript(js,completionHandler: nil)
-
+        if(callback=="start"){
+            //passes the Midi file to javasript
+            
+            let index1 = MidiArg.startIndex.advancedBy(MidiArg.characters.count-1)
+            let substring1 = MidiArg.substringToIndex(index1)
+            let js = "parseMidi('\(substring1)')" as String
+            theWebView!.evaluateJavaScript(js,completionHandler: nil)
+            
+        }else if(callback=="measures"){
+            //this will update the measureShown lable with new values from the javascript
+            let aCount:Int = Int(sentData["start"] as! NSNumber) + 1
+            let anotherCount:Int = Int(sentData["end"] as! NSNumber)
+            
+            let start = String(aCount)
+            let end = String(anotherCount)
+            
+            print(aCount)
+            print(anotherCount)
+            //let newStart = sentData["start"].length.stringValue
+            //print(newStart)
+            //let newEnd = sentData["end"] as! String
+            measuresShown.text = start + " - " + end
+        }
+        
+        
+        
     }
     
     /*override func viewDidLoad() {

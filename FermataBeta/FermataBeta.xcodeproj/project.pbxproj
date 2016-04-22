@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		DB1906211CB9AB1F00E0B92B /* SmartFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1906201CB9AB1F00E0B92B /* SmartFeatures.swift */; };
-		DB1906231CB9B11500E0B92B /* Next.png in Resources */ = {isa = PBXBuildFile; fileRef = DB1906221CB9B11500E0B92B /* Next.png */; };
-		DB1906251CB9B1AE00E0B92B /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = DB1906241CB9B1AE00E0B92B /* left.png */; };
 		DB1906281CBC519100E0B92B /* ArrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = DB1906261CBC519100E0B92B /* ArrowLeft.png */; };
 		DB1906291CBC519100E0B92B /* ArrowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = DB1906271CBC519100E0B92B /* ArrowRight.png */; };
 		DB2E50D11CA76B9800C889EF /* songTableDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E50D01CA76B9800C889EF /* songTableDisplay.swift */; };
@@ -25,17 +23,17 @@
 		DB3C93CA1C6925050032556B /* 7E.wav in Resources */ = {isa = PBXBuildFile; fileRef = DB3C93BE1C6925050032556B /* 7E.wav */; };
 		DB3C93CB1C6925050032556B /* 8F.wav in Resources */ = {isa = PBXBuildFile; fileRef = DB3C93BF1C6925050032556B /* 8F.wav */; };
 		DB3C93CC1C6925050032556B /* 9Fs.wav in Resources */ = {isa = PBXBuildFile; fileRef = DB3C93C01C6925050032556B /* 9Fs.wav */; };
-		DB3C93CE1C69323F0032556B /* SwiftlyMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C93CD1C69323F0032556B /* SwiftlyMessageHandler.swift */; };
 		DB3FBBD31BF824C4004C22A3 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FBBD21BF824C4004C22A3 /* Genre.swift */; };
 		DB3FBBD41BF824C4004C22A3 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FBBD21BF824C4004C22A3 /* Genre.swift */; };
 		DB3FBBD61BF8275A004C22A3 /* GenreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FBBD51BF8275A004C22A3 /* GenreTableViewController.swift */; };
 		DB3FBBD71BF8275A004C22A3 /* GenreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FBBD51BF8275A004C22A3 /* GenreTableViewController.swift */; };
-		DB3FBBD91BF8297A004C22A3 /* GenreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FBBD81BF8297A004C22A3 /* GenreTableViewCell.swift */; };
-		DB3FBBDA1BF8297A004C22A3 /* GenreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FBBD81BF8297A004C22A3 /* GenreTableViewCell.swift */; };
 		DB3FBBDC1BF94B64004C22A3 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FBBDB1BF94B64004C22A3 /* Song.swift */; };
 		DB3FBBDD1BF94B64004C22A3 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FBBDB1BF94B64004C22A3 /* Song.swift */; };
-		DB3FBBE51BFA9195004C22A3 /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FBBE41BFA9195004C22A3 /* SongTableViewCell.swift */; };
-		DB3FBBE61BFA9195004C22A3 /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FBBE41BFA9195004C22A3 /* SongTableViewCell.swift */; };
+		DB4703891CC7FB1A00977DE4 /* parser.js in Resources */ = {isa = PBXBuildFile; fileRef = DB4703881CC7FB1A00977DE4 /* parser.js */; };
+		DB47038B1CC7FB9800977DE4 /* ajax.js in Resources */ = {isa = PBXBuildFile; fileRef = DB47038A1CC7FB9800977DE4 /* ajax.js */; };
+		DB47038D1CC7FBB000977DE4 /* instruments.js in Resources */ = {isa = PBXBuildFile; fileRef = DB47038C1CC7FBB000977DE4 /* instruments.js */; };
+		DB47038F1CC7FBBB00977DE4 /* renderer.js in Resources */ = {isa = PBXBuildFile; fileRef = DB47038E1CC7FBBB00977DE4 /* renderer.js */; };
+		DB4703911CC8532C00977DE4 /* METRO.png in Resources */ = {isa = PBXBuildFile; fileRef = DB4703901CC8532C00977DE4 /* METRO.png */; };
 		DB62A1B41C7B9DF6007EDA48 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = DB62A1AD1C7B9DF6007EDA48 /* index.html */; };
 		DB62A1B51C7B9DF6007EDA48 /* inter.js in Resources */ = {isa = PBXBuildFile; fileRef = DB62A1AE1C7B9DF6007EDA48 /* inter.js */; };
 		DB62A1B61C7B9DF6007EDA48 /* JZZ.Midi.js in Resources */ = {isa = PBXBuildFile; fileRef = DB62A1AF1C7B9DF6007EDA48 /* JZZ.Midi.js */; };
@@ -44,7 +42,10 @@
 		DB62A1B91C7B9DF6007EDA48 /* vexflow-debug.js in Resources */ = {isa = PBXBuildFile; fileRef = DB62A1B21C7B9DF6007EDA48 /* vexflow-debug.js */; };
 		DB62A1BA1C7B9DF6007EDA48 /* vexflow-min.js in Resources */ = {isa = PBXBuildFile; fileRef = DB62A1B31C7B9DF6007EDA48 /* vexflow-min.js */; };
 		DB63260D1CC55D2600D81E71 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB63260C1CC55D2600D81E71 /* SongViewController.swift */; };
-		DB6D17981C814215005AFEFE /* InstrumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6D17971C814215005AFEFE /* InstrumentsViewController.swift */; };
+		DB6326111CC5A3E500D81E71 /* facebookIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = DB6326101CC5A3E500D81E71 /* facebookIcon.png */; };
+		DB6326171CC5A5B300D81E71 /* NOTE.png in Resources */ = {isa = PBXBuildFile; fileRef = DB6326161CC5A5B300D81E71 /* NOTE.png */; };
+		DB63261B1CC5A5CE00D81E71 /* FORK.png in Resources */ = {isa = PBXBuildFile; fileRef = DB63261A1CC5A5CE00D81E71 /* FORK.png */; };
+		DB63261D1CC5ADB600D81E71 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = DB63261C1CC5ADB600D81E71 /* menu.png */; };
 		DB9AEA7B1BF6D6AC00506C24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9AEA7A1BF6D6AC00506C24 /* AppDelegate.swift */; };
 		DB9AEA801BF6D6AC00506C24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB9AEA7E1BF6D6AC00506C24 /* Main.storyboard */; };
 		DB9AEA821BF6D6AC00506C24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB9AEA811BF6D6AC00506C24 /* Assets.xcassets */; };
@@ -82,8 +83,6 @@
 
 /* Begin PBXFileReference section */
 		DB1906201CB9AB1F00E0B92B /* SmartFeatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmartFeatures.swift; sourceTree = "<group>"; };
-		DB1906221CB9B11500E0B92B /* Next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Next.png; sourceTree = "<group>"; };
-		DB1906241CB9B1AE00E0B92B /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
 		DB1906261CBC519100E0B92B /* ArrowLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArrowLeft.png; sourceTree = "<group>"; };
 		DB1906271CBC519100E0B92B /* ArrowRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArrowRight.png; sourceTree = "<group>"; };
 		DB2E50D01CA76B9800C889EF /* songTableDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = songTableDisplay.swift; sourceTree = "<group>"; };
@@ -99,12 +98,15 @@
 		DB3C93BE1C6925050032556B /* 7E.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 7E.wav; sourceTree = "<group>"; };
 		DB3C93BF1C6925050032556B /* 8F.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 8F.wav; sourceTree = "<group>"; };
 		DB3C93C01C6925050032556B /* 9Fs.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 9Fs.wav; sourceTree = "<group>"; };
-		DB3C93CD1C69323F0032556B /* SwiftlyMessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftlyMessageHandler.swift; sourceTree = "<group>"; };
 		DB3FBBD21BF824C4004C22A3 /* Genre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		DB3FBBD51BF8275A004C22A3 /* GenreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreTableViewController.swift; sourceTree = "<group>"; };
-		DB3FBBD81BF8297A004C22A3 /* GenreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreTableViewCell.swift; sourceTree = "<group>"; };
 		DB3FBBDB1BF94B64004C22A3 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
-		DB3FBBE41BFA9195004C22A3 /* SongTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
+		DB4703881CC7FB1A00977DE4 /* parser.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = parser.js; sourceTree = "<group>"; };
+		DB47038A1CC7FB9800977DE4 /* ajax.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ajax.js; sourceTree = "<group>"; };
+		DB47038C1CC7FBB000977DE4 /* instruments.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = instruments.js; sourceTree = "<group>"; };
+		DB47038E1CC7FBBB00977DE4 /* renderer.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = renderer.js; sourceTree = "<group>"; };
+		DB4703901CC8532C00977DE4 /* METRO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = METRO.png; sourceTree = "<group>"; };
+		DB4703921CC9A94B00977DE4 /* FBSDKButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBSDKButton.h; sourceTree = "<group>"; };
 		DB62A1AD1C7B9DF6007EDA48 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		DB62A1AE1C7B9DF6007EDA48 /* inter.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = inter.js; sourceTree = "<group>"; };
 		DB62A1AF1C7B9DF6007EDA48 /* JZZ.Midi.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = JZZ.Midi.js; sourceTree = "<group>"; };
@@ -113,7 +115,10 @@
 		DB62A1B21C7B9DF6007EDA48 /* vexflow-debug.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "vexflow-debug.js"; sourceTree = "<group>"; };
 		DB62A1B31C7B9DF6007EDA48 /* vexflow-min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "vexflow-min.js"; sourceTree = "<group>"; };
 		DB63260C1CC55D2600D81E71 /* SongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
-		DB6D17971C814215005AFEFE /* InstrumentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstrumentsViewController.swift; sourceTree = "<group>"; };
+		DB6326101CC5A3E500D81E71 /* facebookIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebookIcon.png; sourceTree = "<group>"; };
+		DB6326161CC5A5B300D81E71 /* NOTE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NOTE.png; sourceTree = "<group>"; };
+		DB63261A1CC5A5CE00D81E71 /* FORK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FORK.png; sourceTree = "<group>"; };
+		DB63261C1CC5ADB600D81E71 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		DB9AEA771BF6D6AC00506C24 /* FermataBeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FermataBeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB9AEA7A1BF6D6AC00506C24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB9AEA7F1BF6D6AC00506C24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -186,6 +191,77 @@
 			path = TwelveNotes;
 			sourceTree = "<group>";
 		};
+		DB63260E1CC5A32000D81E71 /* MenuIcons */ = {
+			isa = PBXGroup;
+			children = (
+				DB63261A1CC5A5CE00D81E71 /* FORK.png */,
+				DB6326101CC5A3E500D81E71 /* facebookIcon.png */,
+				DB4703901CC8532C00977DE4 /* METRO.png */,
+				DB6326161CC5A5B300D81E71 /* NOTE.png */,
+			);
+			name = MenuIcons;
+			sourceTree = "<group>";
+		};
+		DB63260F1CC5A33800D81E71 /* Javascript */ = {
+			isa = PBXGroup;
+			children = (
+				DB4703881CC7FB1A00977DE4 /* parser.js */,
+				DB47038A1CC7FB9800977DE4 /* ajax.js */,
+				DB47038C1CC7FBB000977DE4 /* instruments.js */,
+				DB62A1B11C7B9DF6007EDA48 /* main.js */,
+				DB47038E1CC7FBBB00977DE4 /* renderer.js */,
+				DB62A1B01C7B9DF6007EDA48 /* JZZ.MidiFile.js */,
+				DB62A1B31C7B9DF6007EDA48 /* vexflow-min.js */,
+				DB62A1B21C7B9DF6007EDA48 /* vexflow-debug.js */,
+				DB62A1AD1C7B9DF6007EDA48 /* index.html */,
+				DB62A1AE1C7B9DF6007EDA48 /* inter.js */,
+				DB62A1AF1C7B9DF6007EDA48 /* JZZ.Midi.js */,
+			);
+			name = Javascript;
+			sourceTree = "<group>";
+		};
+		DB6326121CC5A44A00D81E71 /* SongStuff */ = {
+			isa = PBXGroup;
+			children = (
+				DB3FBBD51BF8275A004C22A3 /* GenreTableViewController.swift */,
+				DB3FBBDB1BF94B64004C22A3 /* Song.swift */,
+				DB2E50D01CA76B9800C889EF /* songTableDisplay.swift */,
+				DB63260C1CC55D2600D81E71 /* SongViewController.swift */,
+				DB1906201CB9AB1F00E0B92B /* SmartFeatures.swift */,
+			);
+			name = SongStuff;
+			sourceTree = "<group>";
+		};
+		DB6326131CC5A46400D81E71 /* MenuFeatures */ = {
+			isa = PBXGroup;
+			children = (
+				DBFB28211C5D132400999BE0 /* Metronome.swift */,
+				DBF794A21C84A57200AB5D7D /* metronomeClick.wav */,
+				DBFB28231C5D133000999BE0 /* Tuner.swift */,
+			);
+			name = MenuFeatures;
+			sourceTree = "<group>";
+		};
+		DB6326141CC5A47B00D81E71 /* MenuStuff */ = {
+			isa = PBXGroup;
+			children = (
+				DB63261C1CC5ADB600D81E71 /* menu.png */,
+				DBFB281D1C5C024F00999BE0 /* BackTableVC.swift */,
+				DBFB28141C5A791A00999BE0 /* ViewController.swift */,
+			);
+			name = MenuStuff;
+			sourceTree = "<group>";
+		};
+		DB6326151CC5A4F700D81E71 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				DB1906271CBC519100E0B92B /* ArrowRight.png */,
+				DB1906261CBC519100E0B92B /* ArrowLeft.png */,
+				DBA496961CC185A80030D868 /* blackLine.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		DB9AEA6E1BF6D6AC00506C24 = {
 			isa = PBXGroup;
 			children = (
@@ -213,34 +289,14 @@
 				DBB53C881CA87BB000403D6E /* FBSDKLoginKit.framework */,
 				DB3C93B41C6925050032556B /* TwelveNotes */,
 				DB9AEA7A1BF6D6AC00506C24 /* AppDelegate.swift */,
-				DB1906221CB9B11500E0B92B /* Next.png */,
-				DB1906261CBC519100E0B92B /* ArrowLeft.png */,
-				DB1906271CBC519100E0B92B /* ArrowRight.png */,
-				DB3FBBD51BF8275A004C22A3 /* GenreTableViewController.swift */,
-				DB62A1AD1C7B9DF6007EDA48 /* index.html */,
-				DB62A1AE1C7B9DF6007EDA48 /* inter.js */,
-				DB62A1AF1C7B9DF6007EDA48 /* JZZ.Midi.js */,
-				DB1906241CB9B1AE00E0B92B /* left.png */,
-				DB63260C1CC55D2600D81E71 /* SongViewController.swift */,
-				DB62A1B01C7B9DF6007EDA48 /* JZZ.MidiFile.js */,
-				DB62A1B11C7B9DF6007EDA48 /* main.js */,
-				DB62A1B21C7B9DF6007EDA48 /* vexflow-debug.js */,
-				DB62A1B31C7B9DF6007EDA48 /* vexflow-min.js */,
-				DBA496961CC185A80030D868 /* blackLine.png */,
-				DB3FBBDB1BF94B64004C22A3 /* Song.swift */,
-				DB3FBBD81BF8297A004C22A3 /* GenreTableViewCell.swift */,
-				DB3C93CD1C69323F0032556B /* SwiftlyMessageHandler.swift */,
+				DB63260E1CC5A32000D81E71 /* MenuIcons */,
+				DB63260F1CC5A33800D81E71 /* Javascript */,
+				DB6326151CC5A4F700D81E71 /* Images */,
+				DB6326121CC5A44A00D81E71 /* SongStuff */,
 				DB9AEA7E1BF6D6AC00506C24 /* Main.storyboard */,
-				DB1906201CB9AB1F00E0B92B /* SmartFeatures.swift */,
-				DB2E50D01CA76B9800C889EF /* songTableDisplay.swift */,
-				DB6D17971C814215005AFEFE /* InstrumentsViewController.swift */,
 				DBFB281F1C5D0ECA00999BE0 /* Login.swift */,
-				DBFB28211C5D132400999BE0 /* Metronome.swift */,
-				DBFB28231C5D133000999BE0 /* Tuner.swift */,
-				DBFB281D1C5C024F00999BE0 /* BackTableVC.swift */,
-				DBFB28141C5A791A00999BE0 /* ViewController.swift */,
-				DBF794A21C84A57200AB5D7D /* metronomeClick.wav */,
-				DB3FBBE41BFA9195004C22A3 /* SongTableViewCell.swift */,
+				DB6326131CC5A46400D81E71 /* MenuFeatures */,
+				DB6326141CC5A47B00D81E71 /* MenuStuff */,
 				DB9AEA811BF6D6AC00506C24 /* Assets.xcassets */,
 				DBFB280F1C5A77EC00999BE0 /* Supporting Files */,
 				DB9AEA831BF6D6AC00506C24 /* LaunchScreen.storyboard */,
@@ -273,6 +329,7 @@
 			children = (
 				DBFB28111C5A781800999BE0 /* SWRevealViewController.h */,
 				DBFB28121C5A781800999BE0 /* SWRevealViewController.m */,
+				DB4703921CC9A94B00977DE4 /* FBSDKButton.h */,
 				DBFB28101C5A781700999BE0 /* FermataBeta-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
@@ -383,8 +440,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB1906231CB9B11500E0B92B /* Next.png in Resources */,
+				DB47038F1CC7FBBB00977DE4 /* renderer.js in Resources */,
 				DB62A1B81C7B9DF6007EDA48 /* main.js in Resources */,
+				DB4703891CC7FB1A00977DE4 /* parser.js in Resources */,
 				DB3C93C71C6925050032556B /* 4Cs.wav in Resources */,
 				DB3C93CC1C6925050032556B /* 9Fs.wav in Resources */,
 				DB3C93C21C6925050032556B /* 10G.wav in Resources */,
@@ -392,13 +450,16 @@
 				DB62A1B71C7B9DF6007EDA48 /* JZZ.MidiFile.js in Resources */,
 				DB62A1B61C7B9DF6007EDA48 /* JZZ.Midi.js in Resources */,
 				DB3C93C61C6925050032556B /* 3C.wav in Resources */,
+				DB47038B1CC7FB9800977DE4 /* ajax.js in Resources */,
 				DB3C93C31C6925050032556B /* 11Gs.wav in Resources */,
 				DB62A1B51C7B9DF6007EDA48 /* inter.js in Resources */,
 				DB3C93C51C6925050032556B /* 2B.wav in Resources */,
 				DB9AEA851BF6D6AC00506C24 /* LaunchScreen.storyboard in Resources */,
 				DB3C93CB1C6925050032556B /* 8F.wav in Resources */,
+				DB6326111CC5A3E500D81E71 /* facebookIcon.png in Resources */,
 				DB9AEA821BF6D6AC00506C24 /* Assets.xcassets in Resources */,
 				DBA496971CC185A80030D868 /* blackLine.png in Resources */,
+				DB47038D1CC7FBB000977DE4 /* instruments.js in Resources */,
 				DB3C93C11C6925050032556B /* 0A.wav in Resources */,
 				DB62A1B91C7B9DF6007EDA48 /* vexflow-debug.js in Resources */,
 				DB62A1BA1C7B9DF6007EDA48 /* vexflow-min.js in Resources */,
@@ -406,11 +467,14 @@
 				DB3C93C91C6925050032556B /* 6Ds.wav in Resources */,
 				DB3C93C41C6925050032556B /* 1As.wav in Resources */,
 				DB3C93CA1C6925050032556B /* 7E.wav in Resources */,
+				DB63261D1CC5ADB600D81E71 /* menu.png in Resources */,
 				DB1906281CBC519100E0B92B /* ArrowLeft.png in Resources */,
 				DB62A1B41C7B9DF6007EDA48 /* index.html in Resources */,
-				DB1906251CB9B1AE00E0B92B /* left.png in Resources */,
+				DB6326171CC5A5B300D81E71 /* NOTE.png in Resources */,
+				DB63261B1CC5A5CE00D81E71 /* FORK.png in Resources */,
 				DB1906291CBC519100E0B92B /* ArrowRight.png in Resources */,
 				DB9AEA801BF6D6AC00506C24 /* Main.storyboard in Resources */,
+				DB4703911CC8532C00977DE4 /* METRO.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,17 +499,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB3C93CE1C69323F0032556B /* SwiftlyMessageHandler.swift in Sources */,
 				DB3FBBDC1BF94B64004C22A3 /* Song.swift in Sources */,
 				DB63260D1CC55D2600D81E71 /* SongViewController.swift in Sources */,
 				DBFB28201C5D0ECA00999BE0 /* Login.swift in Sources */,
 				DB3FBBD31BF824C4004C22A3 /* Genre.swift in Sources */,
 				DBFB281E1C5C024F00999BE0 /* BackTableVC.swift in Sources */,
 				DB3FBBD61BF8275A004C22A3 /* GenreTableViewController.swift in Sources */,
-				DB3FBBE51BFA9195004C22A3 /* SongTableViewCell.swift in Sources */,
 				DBFB28151C5A791A00999BE0 /* ViewController.swift in Sources */,
-				DB3FBBD91BF8297A004C22A3 /* GenreTableViewCell.swift in Sources */,
-				DB6D17981C814215005AFEFE /* InstrumentsViewController.swift in Sources */,
 				DB1906211CB9AB1F00E0B92B /* SmartFeatures.swift in Sources */,
 				DBFB28221C5D132400999BE0 /* Metronome.swift in Sources */,
 				DBFB28131C5A781800999BE0 /* SWRevealViewController.m in Sources */,
@@ -459,12 +519,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB3FBBE61BFA9195004C22A3 /* SongTableViewCell.swift in Sources */,
 				DB3FBBDD1BF94B64004C22A3 /* Song.swift in Sources */,
 				DB3FBBD71BF8275A004C22A3 /* GenreTableViewController.swift in Sources */,
 				DB9AEA901BF6D6AC00506C24 /* FermataBetaTests.swift in Sources */,
 				DB3FBBD41BF824C4004C22A3 /* Genre.swift in Sources */,
-				DB3FBBDA1BF8297A004C22A3 /* GenreTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,7 @@ import UIKit
 class GenreTableViewController: UITableViewController {
     // MARK: Properties
     
-
+/*
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -49,7 +49,7 @@ class GenreTableViewController: UITableViewController {
         
         // Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "GenreTableViewCell"
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! GenreTableViewCell
+        //let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! GenreTableViewCell
         
         let genre = genres[indexPath.row]
 
@@ -57,7 +57,7 @@ class GenreTableViewController: UITableViewController {
 
         return cell
     }
-
+*/
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

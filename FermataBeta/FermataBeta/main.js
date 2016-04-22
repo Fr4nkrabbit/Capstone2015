@@ -25,14 +25,18 @@
 //you can put your regular JavaScript code in this file or any other.
 
 //var clicks = 0
-function sendCount(){
+function start(){
 
-    var message = {"callbackFunc":function(responseAsJSON){
-        var response = JSON.parse(responseAsJSON)
-        fromPassedString(string1)
-        //return test3()
-        //document.querySelector("#messages_from_java").innerText = "Count is "+clicks
-        
-    }.toString()}
+    var message = {"callback": "start"}
     native.postMessage(message)
+}
+
+function currentMeasures(){
+    var m = ""
+    var start= (STARTING_MEASURE)
+    
+    var end =(STARTING_MEASURE+(MEASURES_PER_LINE*LINE_COUNT))
+    
+    native.postMessage({"callback": "measures", "m": m, "start": start,"end": end})
+    
 }

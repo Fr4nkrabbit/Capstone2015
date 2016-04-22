@@ -10,6 +10,12 @@ import Foundation
 import AVFoundation
 import UIKit
 
+//let's try to global thing
+struct GlobalStruct
+{
+    var details:Int;
+};
+
 class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
     
     //tuner stuff
@@ -39,8 +45,10 @@ class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
     //might not be room for the blinking light
     //@IBOutlet weak var blinkingLight: UILabel!
     
-    var metronomeTimer: NSTimer!
     
+    
+    
+    var metronomeTimer: NSTimer!
     var metronomeIsOn = false
     
     var metronomeSoundPlayer: AVAudioPlayer!
@@ -189,6 +197,8 @@ class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
     @IBAction func tempoChanged(tempoStepper: UIStepper) {
         // Save the new tempo.
         tempo = tempoStepper.value
+        
+
     }
     
     @IBAction func toggleMetronome(toggleMetronomeButton: UIButton) {
@@ -248,7 +258,6 @@ class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
     
     func playMetronomeSound() {
         let currentTime = CFAbsoluteTimeGetCurrent()
-        
         print("Play metronome sound @ \(currentTime)")
         
         //gives short delay and blinks red

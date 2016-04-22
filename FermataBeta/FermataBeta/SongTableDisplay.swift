@@ -24,6 +24,17 @@ class SongDisplay: UIViewController, UITableViewDataSource, UITableViewDelegate,
     //@IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBAction func revealTable(sender: AnyObject) {
+        //allows the right wipe
+       self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer()) 
+        
+    }
+    func swipe(){
+        
+        //allows the right wipe
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
+    }
     
     var searchActive : Bool = false
     var data = ["San Francisco","New York","San Jose","Chicago","Los Angeles","Austin","Seattle"]
@@ -36,7 +47,6 @@ class SongDisplay: UIViewController, UITableViewDataSource, UITableViewDelegate,
     //var numbers: [Int] = []
     
     func loadSampleSongs(){
-        
         
         //if let url = NSURL(string: "http://people.eecs.ku.edu/~sbenson/grabTitles.php") {
         if let url = NSURL(string: "http://people.eecs.ku.edu/~sxiao/grabTitles.php"){
@@ -91,13 +101,6 @@ class SongDisplay: UIViewController, UITableViewDataSource, UITableViewDelegate,
         }*/
         
     }
-
-    func swipe(){
-        
-        //allows the right wipe
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,7 +108,10 @@ class SongDisplay: UIViewController, UITableViewDataSource, UITableViewDelegate,
        // self.view.backgroundColor = UIColor(red:246, green:247, blue:235, alpha:1)
         //self.view.backgroundColor = UIColor(red:(246/255), green:(247/255), blue: (235/255), alpha:1.0)
         //self.view.backgroundColor = UIColor(netHex:0x1E1E1E)
-       self.view.backgroundColor = UIColor.redColor()
+        self.view.backgroundColor = UIColor.redColor()
+        
+        navigationController?.navigationBar.translucent = false
+        navigationController?.navigationBar.backgroundColor = UIColor.lightGrayColor()
         
         loadSampleSongs()
         swipe()
@@ -169,14 +175,23 @@ class SongDisplay: UIViewController, UITableViewDataSource, UITableViewDelegate,
         return testData.count;
     }
     
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 110.0
+    }
+
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell")! as UITableViewCell;
         
         cell.textLabel?.font = UIFont(name: "Hiragino Sans", size: 35)
         cell.textLabel?.font = UIFont.systemFontOfSize(35, weight: UIFontWeightThin)
+        //cell.backgroundColor = UIColor()
+        cell.layer.borderColor = UIColor.lightGrayColor().CGColor
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         
+        //background color to be
         
-        //cell.contentView.backgroundColor = UIColor(red: 102/256, green: 255/256, blue: 255/256, alpha: 0.66)
+        cell.contentView.backgroundColor = UIColor(red: 25/256, green: 28/256, blue: 39/256, alpha: 0.66)
         
         if(searchActive){
             cell.textLabel?.text = filtered[indexPath.row]

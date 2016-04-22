@@ -3,3 +3,6 @@
 //
 
 #import "SWRevealViewController.h"
+
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>

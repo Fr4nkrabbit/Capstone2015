@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         Menu.target = self.revealViewController()
+        //Menu.target = self.revealViewController().rearViewRevealWidth = self.view.frame.width-100
         Menu.action = #selector(SWRevealViewController.revealToggle(_:))
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
