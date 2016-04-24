@@ -6,7 +6,7 @@
 //  Copyright © 2016 Young Liu. All rights reserved.
 
 //  Code is heavily based on the tutorial provided by Jared Davidson in his
-//  youtube video "Makeing a Slide Out Menu (Swift in Xcode : SWRevealViewController)
+//  youtube video "Makeing a Slide Out Menu (Swift in Xcode : SWRevealViewController)"
 //  Additionally, I use the open source SWRevealController.swift from github to assist in making
 //  the slide out menu
 

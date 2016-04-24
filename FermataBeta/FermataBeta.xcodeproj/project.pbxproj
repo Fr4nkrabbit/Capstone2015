@@ -34,6 +34,8 @@
 		DB47038D1CC7FBB000977DE4 /* instruments.js in Resources */ = {isa = PBXBuildFile; fileRef = DB47038C1CC7FBB000977DE4 /* instruments.js */; };
 		DB47038F1CC7FBBB00977DE4 /* renderer.js in Resources */ = {isa = PBXBuildFile; fileRef = DB47038E1CC7FBBB00977DE4 /* renderer.js */; };
 		DB4703911CC8532C00977DE4 /* METRO.png in Resources */ = {isa = PBXBuildFile; fileRef = DB4703901CC8532C00977DE4 /* METRO.png */; };
+		DB4703941CCAD76200977DE4 /* loginImage.png in Resources */ = {isa = PBXBuildFile; fileRef = DB4703931CCAD76200977DE4 /* loginImage.png */; };
+		DB4703961CCAD80800977DE4 /* noteb.png in Resources */ = {isa = PBXBuildFile; fileRef = DB4703951CCAD80800977DE4 /* noteb.png */; };
 		DB62A1B41C7B9DF6007EDA48 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = DB62A1AD1C7B9DF6007EDA48 /* index.html */; };
 		DB62A1B51C7B9DF6007EDA48 /* inter.js in Resources */ = {isa = PBXBuildFile; fileRef = DB62A1AE1C7B9DF6007EDA48 /* inter.js */; };
 		DB62A1B61C7B9DF6007EDA48 /* JZZ.Midi.js in Resources */ = {isa = PBXBuildFile; fileRef = DB62A1AF1C7B9DF6007EDA48 /* JZZ.Midi.js */; };
@@ -55,6 +57,11 @@
 		DBA496971CC185A80030D868 /* blackLine.png in Resources */ = {isa = PBXBuildFile; fileRef = DBA496961CC185A80030D868 /* blackLine.png */; };
 		DBB53C891CA87BB000403D6E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB53C871CA87BB000403D6E /* FBSDKCoreKit.framework */; };
 		DBB53C8A1CA87BB000403D6E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB53C881CA87BB000403D6E /* FBSDKLoginKit.framework */; };
+		DBE44AF31CCD5CD300841F86 /* DUDE2.png in Resources */ = {isa = PBXBuildFile; fileRef = DBE44AF21CCD5CD300841F86 /* DUDE2.png */; };
+		DBE44AF51CCD5EA400841F86 /* FORK2.png in Resources */ = {isa = PBXBuildFile; fileRef = DBE44AF41CCD5EA400841F86 /* FORK2.png */; };
+		DBE44AF81CCD5EAD00841F86 /* METRO2.png in Resources */ = {isa = PBXBuildFile; fileRef = DBE44AF61CCD5EAD00841F86 /* METRO2.png */; };
+		DBE44AF91CCD5EAD00841F86 /* NOTE2.png in Resources */ = {isa = PBXBuildFile; fileRef = DBE44AF71CCD5EAD00841F86 /* NOTE2.png */; };
+		DBE44AFB1CCD660600841F86 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = DBE44AFA1CCD660600841F86 /* facebook.png */; };
 		DBF794A31C84A57200AB5D7D /* metronomeClick.wav in Resources */ = {isa = PBXBuildFile; fileRef = DBF794A21C84A57200AB5D7D /* metronomeClick.wav */; };
 		DBFB28131C5A781800999BE0 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBFB28121C5A781800999BE0 /* SWRevealViewController.m */; };
 		DBFB28151C5A791A00999BE0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFB28141C5A791A00999BE0 /* ViewController.swift */; };
@@ -107,6 +114,8 @@
 		DB47038E1CC7FBBB00977DE4 /* renderer.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = renderer.js; sourceTree = "<group>"; };
 		DB4703901CC8532C00977DE4 /* METRO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = METRO.png; sourceTree = "<group>"; };
 		DB4703921CC9A94B00977DE4 /* FBSDKButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBSDKButton.h; sourceTree = "<group>"; };
+		DB4703931CCAD76200977DE4 /* loginImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginImage.png; sourceTree = "<group>"; };
+		DB4703951CCAD80800977DE4 /* noteb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noteb.png; sourceTree = "<group>"; };
 		DB62A1AD1C7B9DF6007EDA48 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		DB62A1AE1C7B9DF6007EDA48 /* inter.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = inter.js; sourceTree = "<group>"; };
 		DB62A1AF1C7B9DF6007EDA48 /* JZZ.Midi.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = JZZ.Midi.js; sourceTree = "<group>"; };
@@ -134,6 +143,11 @@
 		DBA496961CC185A80030D868 /* blackLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackLine.png; sourceTree = "<group>"; };
 		DBB53C871CA87BB000403D6E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		DBB53C881CA87BB000403D6E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		DBE44AF21CCD5CD300841F86 /* DUDE2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DUDE2.png; sourceTree = "<group>"; };
+		DBE44AF41CCD5EA400841F86 /* FORK2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FORK2.png; sourceTree = "<group>"; };
+		DBE44AF61CCD5EAD00841F86 /* METRO2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = METRO2.png; sourceTree = "<group>"; };
+		DBE44AF71CCD5EAD00841F86 /* NOTE2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NOTE2.png; sourceTree = "<group>"; };
+		DBE44AFA1CCD660600841F86 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		DBF794A21C84A57200AB5D7D /* metronomeClick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = metronomeClick.wav; sourceTree = "<group>"; };
 		DBFB28101C5A781700999BE0 /* FermataBeta-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FermataBeta-Bridging-Header.h"; sourceTree = "<group>"; };
 		DBFB28111C5A781800999BE0 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -255,9 +269,16 @@
 		DB6326151CC5A4F700D81E71 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DB4703931CCAD76200977DE4 /* loginImage.png */,
+				DBE44AF21CCD5CD300841F86 /* DUDE2.png */,
 				DB1906271CBC519100E0B92B /* ArrowRight.png */,
 				DB1906261CBC519100E0B92B /* ArrowLeft.png */,
+				DB4703951CCAD80800977DE4 /* noteb.png */,
 				DBA496961CC185A80030D868 /* blackLine.png */,
+				DBE44AF61CCD5EAD00841F86 /* METRO2.png */,
+				DBE44AF71CCD5EAD00841F86 /* NOTE2.png */,
+				DBE44AF41CCD5EA400841F86 /* FORK2.png */,
+				DBE44AFA1CCD660600841F86 /* facebook.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -442,21 +463,25 @@
 			files = (
 				DB47038F1CC7FBBB00977DE4 /* renderer.js in Resources */,
 				DB62A1B81C7B9DF6007EDA48 /* main.js in Resources */,
+				DBE44AF51CCD5EA400841F86 /* FORK2.png in Resources */,
 				DB4703891CC7FB1A00977DE4 /* parser.js in Resources */,
 				DB3C93C71C6925050032556B /* 4Cs.wav in Resources */,
 				DB3C93CC1C6925050032556B /* 9Fs.wav in Resources */,
 				DB3C93C21C6925050032556B /* 10G.wav in Resources */,
 				DB3C93C81C6925050032556B /* 5D.wav in Resources */,
+				DBE44AF91CCD5EAD00841F86 /* NOTE2.png in Resources */,
 				DB62A1B71C7B9DF6007EDA48 /* JZZ.MidiFile.js in Resources */,
 				DB62A1B61C7B9DF6007EDA48 /* JZZ.Midi.js in Resources */,
 				DB3C93C61C6925050032556B /* 3C.wav in Resources */,
 				DB47038B1CC7FB9800977DE4 /* ajax.js in Resources */,
 				DB3C93C31C6925050032556B /* 11Gs.wav in Resources */,
 				DB62A1B51C7B9DF6007EDA48 /* inter.js in Resources */,
+				DBE44AF81CCD5EAD00841F86 /* METRO2.png in Resources */,
 				DB3C93C51C6925050032556B /* 2B.wav in Resources */,
 				DB9AEA851BF6D6AC00506C24 /* LaunchScreen.storyboard in Resources */,
 				DB3C93CB1C6925050032556B /* 8F.wav in Resources */,
 				DB6326111CC5A3E500D81E71 /* facebookIcon.png in Resources */,
+				DB4703941CCAD76200977DE4 /* loginImage.png in Resources */,
 				DB9AEA821BF6D6AC00506C24 /* Assets.xcassets in Resources */,
 				DBA496971CC185A80030D868 /* blackLine.png in Resources */,
 				DB47038D1CC7FBB000977DE4 /* instruments.js in Resources */,
@@ -466,10 +491,13 @@
 				DBF794A31C84A57200AB5D7D /* metronomeClick.wav in Resources */,
 				DB3C93C91C6925050032556B /* 6Ds.wav in Resources */,
 				DB3C93C41C6925050032556B /* 1As.wav in Resources */,
+				DB4703961CCAD80800977DE4 /* noteb.png in Resources */,
+				DBE44AFB1CCD660600841F86 /* facebook.png in Resources */,
 				DB3C93CA1C6925050032556B /* 7E.wav in Resources */,
 				DB63261D1CC5ADB600D81E71 /* menu.png in Resources */,
 				DB1906281CBC519100E0B92B /* ArrowLeft.png in Resources */,
 				DB62A1B41C7B9DF6007EDA48 /* index.html in Resources */,
+				DBE44AF31CCD5CD300841F86 /* DUDE2.png in Resources */,
 				DB6326171CC5A5B300D81E71 /* NOTE.png in Resources */,
 				DB63261B1CC5A5CE00D81E71 /* FORK.png in Resources */,
 				DB1906291CBC519100E0B92B /* ArrowRight.png in Resources */,

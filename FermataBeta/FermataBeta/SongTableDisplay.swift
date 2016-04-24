@@ -1,17 +1,10 @@
 //
-//  testSearch.swift
+//  SongDisplay
 //  FermataBeta
 //
 //  Created by Young Liu on 3/26/16.
 //  Copyright © 2016 Young Liu. All rights reserved.
 //
-
-//
-//  ViewController.swift
-//  SwiftSearch
-//
-//  Created by Shrikar Archak on 2/16/15.
-//  Copyright (c) 2015 Shrikar Archak. All rights reserved.
 
 //HEAVILY BASED ON THE TUTORIAL BY Shrikar Archak
 //
@@ -21,8 +14,6 @@ import UIKit
 class SongDisplay: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate{
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    //@IBOutlet weak var searchBar: UISearchBar!
-    //@IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBAction func revealTable(sender: AnyObject) {
@@ -31,10 +22,8 @@ class SongDisplay: UIViewController, UITableViewDataSource, UITableViewDelegate,
         
     }
     func swipe(){
-        
         //allows the right wipe
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        
     }
     
     var searchActive : Bool = false

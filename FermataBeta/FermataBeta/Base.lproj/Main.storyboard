@@ -92,6 +92,24 @@
             </objects>
             <point key="canvasLocation" x="3009" y="-1706"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="07j-OB-IJc">
+            <objects>
+                <viewController id="7l4-Ih-Aeg" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J4y-Oa-FsR"/>
+                        <viewControllerLayoutGuide type="bottom" id="enf-ua-Yu6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kr8-Lh-Fno">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aAj-JZ-baz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1045" y="-2454"/>
+        </scene>
         <!--Back TableVC-->
         <scene sceneID="hPR-VI-f4C">
             <objects>
@@ -101,48 +119,56 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Songs" rowHeight="73" id="ECr-U8-4l7">
-                                <rect key="frame" x="0.0" y="28" width="600" height="73"/>
+                            <tableViewCell clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Profile" rowHeight="163" id="ECr-U8-4l7">
+                                <rect key="frame" x="0.0" y="28" width="600" height="163"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ECr-U8-4l7" id="qJK-6A-e16">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="72.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="162.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="nuY-gL-v3f" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="eQF-3b-7EM"/>
-                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Login" rowHeight="72" id="Nt6-yv-e3F">
-                                <rect key="frame" x="0.0" y="101" width="600" height="72"/>
+                            <tableViewCell clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Login" rowHeight="72" id="Nt6-yv-e3F">
+                                <rect key="frame" x="0.0" y="191" width="600" height="72"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nt6-yv-e3F" id="p8n-Jf-2GY">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="71.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="nrS-YK-HGB" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="rhq-LI-RtR"/>
+                                    <segue destination="nrS-YK-HGB" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="OBF-LP-B0h"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Metronome" rowHeight="75" id="VAY-Af-DPG">
-                                <rect key="frame" x="0.0" y="173" width="600" height="75"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Songs" rowHeight="75" id="VAY-Af-DPG">
+                                <rect key="frame" x="0.0" y="263" width="600" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VAY-Af-DPG" id="Ey7-sS-HkG">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="74.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="qeS-ZP-nUs" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="CfS-hH-QCV"/>
+                                    <segue destination="nuY-gL-v3f" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="yTT-3M-rX5"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Tuner" rowHeight="70" id="2ae-K3-IcX">
-                                <rect key="frame" x="0.0" y="248" width="600" height="70"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Metronome" rowHeight="79" id="2ae-K3-IcX">
+                                <rect key="frame" x="0.0" y="338" width="600" height="79"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2ae-K3-IcX" id="3b8-WB-ngo">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="78.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="TIF-Ec-a5Z" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="MvR-I0-xR2"/>
+                                    <segue destination="qeS-ZP-nUs" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="Y78-Vt-JhL"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Tuner" rowHeight="79" id="MbY-FA-7hM">
+                                <rect key="frame" x="0.0" y="417" width="600" height="79"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MbY-FA-7hM" id="SMz-D8-fjn">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="78.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="TIF-Ec-a5Z" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="hVv-3c-rA5"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -165,7 +191,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="nuY-gL-v3f" kind="relationship" relationship="rootViewController" id="Gsj-ob-g0y"/>
+                        <segue destination="Q7O-7o-uTA" kind="relationship" relationship="rootViewController" id="la8-3m-7dW"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btG-dG-RAa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -181,22 +207,23 @@
                         <viewControllerLayoutGuide type="bottom" id="Agn-h4-eEs"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lqG-t6-ysA">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3O-k1-eeb">
-                                <rect key="frame" x="147" y="304" width="240" height="21"/>
+                                <rect key="frame" x="155" y="548" width="240" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oPO-l9-1nS">
-                                <rect key="frame" x="71" y="84" width="379" height="202"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="facebook.png" translatesAutoresizingMaskIntoConstraints="NO" id="oPO-l9-1nS">
+                                <rect key="frame" x="278" y="200" width="202" height="202"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="SI8-gA-3jS"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="ivUserProfileImage" destination="oPO-l9-1nS" id="lZT-PZ-lVI"/>
                         <outlet property="lblName" destination="V3O-k1-eeb" id="8Ru-fs-Uda"/>
@@ -204,39 +231,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aiu-B8-j0k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2933" y="-1022"/>
-        </scene>
-        <!--Instruments View Controller-->
-        <scene sceneID="xD8-1d-s6f">
-            <objects>
-                <viewController id="Maw-Na-TYv" customClass="InstrumentsViewController" customModule="FermataBeta" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="UiE-WL-uuc"/>
-                        <viewControllerLayoutGuide type="bottom" id="80Q-J2-9Ga"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="VNI-wg-daR">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IwE-mQ-LlW">
-                                <rect key="frame" x="20" y="20" width="43" height="30"/>
-                                <state key="normal" title="Songs"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="3QZ-YH-GwY"/>
-                    </toolbarItems>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="button" destination="IwE-mQ-LlW" id="ZPl-Nh-Uy9"/>
-                        <outlet property="goBack" destination="IwE-mQ-LlW" id="7ia-mM-gWl"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fyP-8T-bpU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4715" y="-2260"/>
+            <point key="canvasLocation" x="3009" y="-749"/>
         </scene>
         <!--Metronome View Controller-->
         <scene sceneID="LCZ-sr-mCh">
@@ -346,7 +341,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CPN-7J-3FY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5753" y="-702"/>
+            <point key="canvasLocation" x="4265" y="-62"/>
         </scene>
         <!--Song View Controller-->
         <scene sceneID="7Gr-c1-83y">
@@ -596,17 +591,18 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S9o-Tn-w55" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4941" y="-702"/>
+            <point key="canvasLocation" x="2933" y="458"/>
         </scene>
     </scenes>
     <resources>
         <image name="ArrowLeft.png" width="19" height="51"/>
         <image name="ArrowRight.png" width="19" height="51"/>
         <image name="Play" width="100" height="100"/>
+        <image name="facebook.png" width="2000" height="2000"/>
         <image name="menu.png" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eQF-3b-7EM"/>
+        <segue reference="RcQ-h0-Z2e"/>
         <segue reference="Etb-LB-cF4"/>
     </inferredMetricsTieBreakers>
 </document>
