@@ -195,31 +195,30 @@ function gatherEvents(arg)
 //this needs to be handed a list of that contains the starts and stops of notes and also the pulse per quater note
 function combineNotes(notes,ppqn)
 {
-    var combined=[]
+	var combined=[]
 
-    //go though and combine the note start and stops
-    for (item = 0; item < notes.length; item++)
-    {
-        if (notes[item][6] == "On")
-        {
-            for (thing = item+1; thing < notes.length; thing++)
-            {
-                if (notes[item][2] == notes[thing][2])
-                {
-                    combined.push(
-						{
+	//go though and combine the note start and stops
+	for (item = 0; item < notes.length; item++)
+	{
+		if (notes[item][6] == "On")
+		{
+			for (thing = item+1; thing < notes.length; thing++)
+			{
+				if (notes[item][2] == notes[thing][2])
+				{
+					combined.push({
 						start:	parseInt(notes[item][0]),
 						finish:	parseInt(notes[thing][0]),
 						pitch:	notes[item][2],
 						note:	((notes[thing][0]-notes[item][0])/ppqn)/4
 						})
-						break
-                }
-            }
-        }
-    }
-	
-    return combined
+					break
+				}
+			}
+		}
+	}
+
+	return combined
 }
 
 //resize notes that overlap
@@ -249,8 +248,8 @@ function forceMonophonic(notes, ppqn)
 //fills in the gap between notes with rest
 function createRest(notes,ppqn,timesig)
 {
-	//console.log('inside createRest ' + ppqn)
-	//console.log(notes)
+	console.log('inside createRest ' + ppqn*4)
+	console.log(notes)
 	var lasttime=0
 	var notesWithRest=[]
 
@@ -263,15 +262,18 @@ function createRest(notes,ppqn,timesig)
 		//to make sure we dont create unnescarry rest
 		//console.log('note starts at ' + notes[note].start)
 
+		var noteDec = ((notes[note].start- lasttime)/ppqn) / 4
+		//if (noteDec == 0) console.log('createRest is trying to push 0')
+		
 		//if (lasttime - notes[note].start <= -10)
-		if (notes[note].start - lasttime > 0)
+		if (notes[note].start - lasttime > 0 && noteDec > 0)
 		{
 			//console.log ('gap of size ' + (notes[note].start - lasttime))
 			notesWithRest.push({
 			start:	lasttime,
 			finish:	notes[note].start,
 			pitch:	-1,
-			note:	((notes[note].start- lasttime)/ppqn) / 4
+			note:	noteDec
 			})
 		}
 		
@@ -282,8 +284,9 @@ function createRest(notes,ppqn,timesig)
 	}
 
 	//  var trailingRest = lasttime % (ppqn * 4)
-	var  lastmeas = timesig[timesig.length-1]
-	var trailingRest = lasttime % (4/lastmeas[4].split('/')[0])*ppqn*lastmeas[4].split('/')[0]
+	var lastmeas = timesig[timesig.length-1]
+	var measureSize = (4/lastmeas[4].split('/')[0]) * ppqn * lastmeas[4].split('/')[0]
+	var trailingRest = lasttime % measureSize
 
 	//console.log('lasttime ' + lasttime + ' and whole note ' + (ppqn * 4))
 
@@ -291,6 +294,7 @@ function createRest(notes,ppqn,timesig)
 	{
 		var startT = lasttime
 		var finishT = lasttime + ((ppqn * 4) - trailingRest)
+		
 		//if the last note didn't end the measure, insert a rest
 		notesWithRest.push({
 			start:	startT,
@@ -299,8 +303,8 @@ function createRest(notes,ppqn,timesig)
 			note:	((finishT - startT)/ppqn)/4
 			})
 
-			console.log('trailing rest:')
-			console.log(notesWithRest[notesWithRest.length-1])
+			//console.log('trailing rest:')
+			//console.log(notesWithRest[notesWithRest.length-1])
 	}
 
 	return notesWithRest
@@ -362,8 +366,8 @@ function populateMeasures(notes2,ppqn,keysig,timesig)
 			//console.log("push a measure")
 			measures.push(meas)
 			newMeas()
-			console.log(lastMeas.bottom)
-			console.log(lastMeas.top)
+			//console.log(lastMeas.bottom)
+			//console.log(lastMeas.top)
 			ppqmeas += (lastMeas.top/lastMeas.bottom)*ppqn*4
 		}
 
