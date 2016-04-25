@@ -56,6 +56,8 @@ function drawSheets(inM)
 
 	for (var mC = STARTING_LINE; mC < stoppingPoint; mC++) //loop through measures
 	{
+		//console.log('measure ' + mC)
+		
 		var canvas = document.querySelector("canvas")
 
 		//var canvas = $("canvas")[mC]
@@ -89,14 +91,14 @@ function drawSheets(inM)
 
 		//create notes from inM
 		var notes = []
-
-		//console.log('measure ' + mC)
+		
 		var forbeamnotes=[],
 		allbeams=[],
 		lengthofbeam=0;
 		
 		var tuplets = []
-
+		var tripletCount = 0 //count to 3, then will create a triplet object
+		
 		for (var n = 0, i=0; n < inM[mC].m.length; n++) //loop through notes
 		{
 			//console.log(inM[mC].m[n])
@@ -106,26 +108,27 @@ function drawSheets(inM)
 			var dotted = false
 			var irregularNote = true
 			var tosmall = true
-			var tripletCount = 0
 
 			//Determine if the note is at least normal or dotted
-			for (var p = 0; p < 8 && irregularNote; p++)
+			//for (var p = 0; p < 8 && irregularNote; p++) 
+			for (var p = 0; p < 7 && irregularNote; p++) //p = power of 2 to check against
 			{
-				if (inM[mC].m[n].note * 2 / 3 == 1 / Math.pow(2,p))
+				if (inM[mC].m[n].note * 2 / 3 == 1 / Math.pow(2,p)) //regular dotted
 				{
 					dur = durToWhole((2/3)*(decDur))
 					dur = dur + 'd'
 					dotted = true
 					irregularNote = false
 				}
-				else if (decDur == 1 / Math.pow(2,p))
+				else if (decDur == 1 / Math.pow(2,p)) //regular
 				{
 					irregularNote = false
 				}
-				else if (decDur == 1 / (3 * Math.pow(2,p)))
+				else if (decDur == 1 / (3 * Math.pow(2,p))) //regular triplet
 				{
-					console.log(n + ' is a 1/' + (3 * Math.pow(2,p)))
+					dur = Math.pow(2, p+1)
 					tripletCount++
+					irregularNote = false
 				}
 			}
 			
@@ -133,6 +136,7 @@ function drawSheets(inM)
 			
 			if (irregularNote) //Create a collection of mini-notes to sum to the irregular note
 			{
+				//console.log('irregular note')
 				decDur = quantizeNote(decDur) //round the duration to the nearest 1/128th
 
 				var collection = [] //holds integers of the notes to be added
@@ -152,14 +156,34 @@ function drawSheets(inM)
 			}
 			else if (tripletCount > 0)
 			{
+				//console.log('triplet note')
 				
+				//console.log('pit ' + pit)
+				//console.log('dur ' + dur)
+				dur += ''
+				notes.push(new Vex.Flow.StaveNote({ keys: [pit], duration: dur }))
+				
+				if (tripletCount == 3)
+				{
+					//console.log('just read 3 triplets')
+					tripletSet = notes.slice(notes.length-3, notes.length)
+					
+					tuplets.push(new Vex.Flow.Tuplet(
+						tripletSet, 
+						{num_notes: 3, 
+						notes_occupied: 2}))
+					tripletCount = 0
+				}
 			}
 			else //Handle this note normally
 			{
-				
+				//console.log('normal note')
 				dur = dur + (inM[mC].m[n].pitch == -1 ? 'r' : '') //append 'r' if this note is a rest
 
 				//console.log('note' + n + ': ' + dur + ', ' + pit + ', dotted ' + dotted + " + " + inM[mC].m[n].pitch)
+				
+				//console.log('pit ' + pit)
+				//console.log('dur ' + dur)
 				notes.push(new Vex.Flow.StaveNote({ keys: [pit], duration: dur }))
 
 				if(dotted)
@@ -170,7 +194,7 @@ function drawSheets(inM)
 			}
 		} //end looping through notes
 		//console.log('')
-
+		
 		
 		
 		//Add beams
@@ -189,6 +213,8 @@ function drawSheets(inM)
 
 		// Create voices and add notes to each of them
 		var voice = create_voice(timesig).addTickables(notes)
+		
+		voice.setMode(2)
 
 		// Format and justify the notes
 		var formatter = new Vex.Flow.Formatter().joinVoices([voice]).format([voice], STAFF_WIDTH)
