@@ -122,13 +122,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FermataBeta/SmartFeatures.swift"
-            timestampString = "483483020.255233"
+            timestampString = "483487328.573885"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "120"
             endingLineNumber = "120"
-            landmarkName = "displayFreq(_:)"
-            landmarkType = "5">
+            landmarkName = "SmartFeatures"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FermataBeta/SmartFeatures.swift"
-            timestampString = "483483020.255233"
+            timestampString = "483487328.573885"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
             landmarkName = "tempoChanged(_:)"
             landmarkType = "5">
          </BreakpointContent>

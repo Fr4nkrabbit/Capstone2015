@@ -15,19 +15,20 @@ class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
     
     let callStuff = SongViewController()
     
-    @IBAction func FollowAlong(sender: AnyObject) {
-        //callStuff.followAlong()
-        print("should be calling stuff")
-        callStuff.nextLine()
-    }
     //tuner stuff
-    @IBOutlet weak var Note: UILabel!
+    
+    @IBOutlet weak var Prev: UIImageView!
+   // @IBOutlet weak var Next: UIImageView!
+    //@IBOutlet weak var Note: UILabel!
+    //@IBOutlet weak var playing: UILabel!
+    
+    
+    /*@IBOutlet weak var Note: UILabel!
     @IBOutlet weak var Next: UIImageView!
     @IBOutlet weak var Prev: UIImageView!
-    @IBOutlet weak var Freq: UILabel!
     @IBOutlet weak var blackBox: UILabel!
     
-    @IBOutlet weak var playing: UILabel!
+    @IBOutlet weak var playing: UILabel!*/
     /***************************************************
      PLAYS A PITCH FOR THE USER
      ***************************************************/
@@ -37,7 +38,7 @@ class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
     
     var noteList = [String]()
     var noteNames = [String]()
-    var freqList = [Float]()
+    //var freqList = [Float]()
     
     //metronome stuff
     @IBOutlet weak var tempoTextField: UITextField!
@@ -79,18 +80,18 @@ class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
         //initializes all the note files and the displayed note names
         noteList = ["0A", "1As", "2B", "3C", "4Cs", "5D", "6Ds", "7E", "8F", "9Fs", "10G", "11Gs"]
         noteNames = ["A", "Bb", "B", "C", "C#", "D", "Eb", "E", "F", "F#", "G", "G#"]
-        freqList = [440, 466, 493, 523, 554, 587, 622, 659, 698, 739, 783, 830]
+        //freqList = [440, 466, 493, 523, 554, 587, 622, 659, 698, 739, 783, 830]
         
         //changes the note display
-        Note.text = noteNames[count]
-        displayFreq(count)
+       /* Note.text = noteNames[count]
+        //displayFreq(count)
         
         Note?.font = UIFont(name: "Hiragino Sans", size: 35)
         Note?.font = UIFont.systemFontOfSize(35, weight: UIFontWeightThin)
         
         //make it look like a button
-        blackBox?.layer.borderWidth = 3
-        blackBox?.layer.borderColor = UIColor.blueColor().CGColor
+        //blackBox?.layer.borderWidth = 3
+        //blackBox?.layer.borderColor = UIColor.blueColor().CGColor
         //Note?.textAlignment = .Center
         
         //To play the note
@@ -113,16 +114,11 @@ class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
         
         tapPrev.delegate = self
         tapNote.delegate = self
-        tapNext.delegate = self
+        tapNext.delegate = self*/
         
     }
     
-    func displayFreq(count: Int) {
-        let s = NSString(format: "%.2f", freqList[count])
-        Freq.text = s as String
-    }
-    
-    func didTapPrev(sender: UITapGestureRecognizer){
+    /*func didTapPrev(sender: UITapGestureRecognizer){
         print("did tap prev")
         if count == 0{
             count=noteList.count-1
@@ -132,7 +128,7 @@ class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
         }
         print(count)
         Note.text = noteNames[count]
-        displayFreq(count)
+        //displayFreq(count)
 
         if beingPlayed {
             playNote()
@@ -149,7 +145,6 @@ class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
         }
         print(count)
         Note.text = noteNames[count]
-        displayFreq(count)
         
         //automatically changes the sound upon the user changing it if it's being played
         //pretty much the play button function
@@ -193,7 +188,7 @@ class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
     func stopNote(){
         audioPlayer.stop()
         playing?.text = ""
-    }
+    }*/
     
     //more metronome stuff
     @IBAction func tempoChanged(tempoStepper: UIStepper) {
