@@ -14,6 +14,7 @@ import AVFoundation
 
 class MetronomeViewController: UIViewController {
     
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var tempoTextField: UITextField!
     
     @IBOutlet weak var tempoStepper: UIStepper!
@@ -127,7 +128,12 @@ class MetronomeViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.title = "Metronome"
-
+        
+        if self.revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = Selector("revealToggle:")
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         

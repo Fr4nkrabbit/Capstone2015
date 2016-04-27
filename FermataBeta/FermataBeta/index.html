@@ -3,7 +3,7 @@
 <html>
     <head>
         <!-- External Scripts -->
-        
+
         <script type="text/javascript" src="inter.js" charset="utf-8"></script>
         <script type="text/javascript" src="main.js" charset="utf-8"></script>
         <script type="text/javascript" src="ajax.js" charset="utf-8"></script>
@@ -28,52 +28,52 @@
         }
         </style>
     </head>
-    
+
     <body>
         <p>
         <div id=fname>&nbsp;</div>
         </p>
-        
-        
-            <p id=songlist></p>
-            <form id=instrumentlist></form>
-            
-            <!-- Formatting Constants -->
-            <script>
-                var LINE_COUNT = 6 //total number of lines to be shown
-                var MEASURES_PER_LINE = 1
-                var STARTING_MEASURE=0
-                var FOLLOW_TEMPO=2000
-                var CANVAS_WIDTH = 950 //width of the theoretical sheet of paper
-                var CANVAS_HEIGHT = 140 * (LINE_COUNT) //height of the theoretical sheet of paper
-                
-                var STAFF_WIDTH = CANVAS_WIDTH / MEASURES_PER_LINE
-                var STAFF_OFFSET_X = 10
-                var STAFF_OFFSET_Y = 140
-                var STAFF_OFFSET_Y_CENTER = (CANVAS_HEIGHT - 120) / 2
-                var timer;
-                </script>
-            
-            <!-- Necessary, Hidden Divisions -->
-            <!--
-             <p >to run this as is you have to run parseMidi with a string passed in </p>
-             <p >like parseMidi(string1) will work cause string1 is a testing variable i use </p>
-             <p >this will generate an object called parsed events which has all the instruments and there notes and other key pieces of info </p>
-             <p>from here you can run createSheetMusic with an instrument from parsedevents and it will draw the sheet music
-             if you are using the example you can try createSheetMusic('FLUTE')</p>
-             <h1 id ="tester1"> one has not run yet</h1>
-             <h1 id ="tester2">two has not run yet</h1>
-             -->
-            <div style="display: none;" id=fname>&nbsp;</div>
-            <div style="display: none;" id=midi>Files accepted: SMF (*.mid, *.kar), RMID (*.rmi)</div>
-            
-            <!-- Create canvas -->
-            <script>
-                document.write('<p><canvas width=' + (CANVAS_WIDTH+25) + ' height=' + CANVAS_HEIGHT + '></canvas></p>')
-                start()
-            </script>
-            
-            
-            
-            </body>
+
+
+        <p id=songlist></p>
+        <form id=instrumentlist></form>
+
+<!-- Formatting Constants -->
+<script>
+    var timer
+	var LINE_COUNT = 5 //total number of lines to be shown
+	var MEASURES_PER_LINE = 1
+	var STARTING_MEASURE=0
+	var FOLLOW_TEMPO=2000
+	var CANVAS_WIDTH = 880 //width of the theoretical sheet of paper
+	var CANVAS_HEIGHT = 140 * (LINE_COUNT) //height of the theoretical sheet of paper
+
+	var STAFF_WIDTH = CANVAS_WIDTH / MEASURES_PER_LINE -25
+	var STAFF_OFFSET_X = 10
+	var STAFF_OFFSET_Y = 140
+	var STAFF_OFFSET_Y_CENTER = (CANVAS_HEIGHT - 120) / 2
+</script>
+
+        <!-- Necessary, Hidden Divisions -->
+        <!--
+         <p >to run this as is you have to run parseMidi with a string passed in </p>
+         <p >like parseMidi(string1) will work cause string1 is a testing variable i use </p>
+         <p >this will generate an object called parsed events which has all the instruments and there notes and other key pieces of info </p>
+         <p>from here you can run createSheetMusic with an instrument from parsedevents and it will draw the sheet music
+         if you are using the example you can try createSheetMusic('FLUTE')</p>
+         <h1 id ="tester1"> one has not run yet</h1>
+         <h1 id ="tester2">two has not run yet</h1>
+         -->
+        <div style="display: none;" id=fname>&nbsp;</div>
+        <div style="display: none;" id=midi>Files accepted: SMF (*.mid, *.kar), RMID (*.rmi)</div>
+
+        <!-- Create canvas -->
+<script>
+    start()
+  document.write('<p><canvas width=' + (CANVAS_WIDTH+25) + ' height=' + CANVAS_HEIGHT + '></canvas></p>')
+</script>
+
+
+
+    </body>
 </html>

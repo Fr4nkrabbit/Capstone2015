@@ -222,11 +222,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="SI8-gA-3jS"/>
+                    <navigationItem key="navigationItem" id="SI8-gA-3jS">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="SEN-MS-Ygz"/>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="ivUserProfileImage" destination="oPO-l9-1nS" id="lZT-PZ-lVI"/>
                         <outlet property="lblName" destination="V3O-k1-eeb" id="8Ru-fs-Uda"/>
+                        <outlet property="menuButton" destination="SEN-MS-Ygz" id="6Pi-Qd-aet"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aiu-B8-j0k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -272,16 +275,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="s4P-Ob-8pM"/>
+                    <navigationItem key="navigationItem" id="s4P-Ob-8pM">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="bjv-ea-Vyz"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="blinkingLight" destination="5e2-DG-m2H" id="Hb7-i2-rO6"/>
+                        <outlet property="menuButton" destination="bjv-ea-Vyz" id="uPU-32-K3g"/>
                         <outlet property="tempoStepper" destination="R24-gg-y9F" id="7Nc-uO-dvJ"/>
                         <outlet property="tempoTextField" destination="ofn-qp-WDM" id="AC8-i9-LvV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3J9-AZ-thr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2955" y="-257"/>
+            <point key="canvasLocation" x="2925" y="115"/>
         </scene>
         <!--Tuner-->
         <scene sceneID="sMV-i2-cYT">
@@ -296,14 +302,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezy-zU-beV">
-                                <rect key="frame" x="278" y="139" width="30" height="30"/>
+                                <rect key="frame" x="162" y="290" width="30" height="30"/>
                                 <state key="normal" title="Play"/>
                                 <connections>
                                     <action selector="play:" destination="X2l-VR-gKW" eventType="primaryActionTriggered" id="kqd-Vu-QLE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FAT-SA-eUg">
-                                <rect key="frame" x="277" y="183" width="32" height="30"/>
+                                <rect key="frame" x="359" y="341" width="32" height="30"/>
                                 <state key="normal" title="Stop"/>
                                 <connections>
                                     <action selector="stopButton:" destination="X2l-VR-gKW" eventType="touchUpInside" id="Ugx-mw-sJp"/>
@@ -316,6 +322,12 @@
                                     <action selector="UpButton:" destination="X2l-VR-gKW" eventType="touchUpInside" id="r5a-qa-IQs"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hsd-Ir-rIG">
+                                <rect key="frame" x="262" y="251" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFq-n4-X8t">
                                 <rect key="frame" x="126" y="139" width="47" height="30"/>
                                 <state key="normal" title="DOWN"/>
@@ -323,20 +335,17 @@
                                     <action selector="DownButton:" destination="X2l-VR-gKW" eventType="touchUpInside" id="ATo-WK-CIK"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hsd-Ir-rIG">
-                                <rect key="frame" x="272" y="246" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="xhG-lB-oBD"/>
+                    <navigationItem key="navigationItem" id="xhG-lB-oBD">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="YXF-bo-Gg9"/>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="Note" destination="Hsd-Ir-rIG" id="YX2-hE-Zbf"/>
+                        <outlet property="menuButton" destination="YXF-bo-Gg9" id="R3q-mV-ste"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CPN-7J-3FY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -355,19 +364,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eg3-ax-QMz">
-                                <rect key="frame" x="-5" y="519" width="600" height="80"/>
-                                <connections>
-                                    <segue destination="7nW-MS-Eee" kind="embed" id="itP-MP-gd8"/>
-                                </connections>
-                            </containerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jye-ZF-QPn">
-                                <rect key="frame" x="0.0" y="84" width="872" height="3"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1d-B3-LP7">
                                 <rect key="frame" x="540" y="62" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
@@ -382,16 +378,25 @@
                                     <action selector="followAlong:" destination="S7W-aS-m7B" eventType="touchUpInside" id="ful-As-cc8"/>
                                 </connections>
                             </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eg3-ax-QMz">
+                                <rect key="frame" x="-8" y="520" width="600" height="80"/>
+                                <connections>
+                                    <segue destination="7nW-MS-Eee" kind="embed" id="itP-MP-gd8"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Eg3-ax-QMz" firstAttribute="leading" secondItem="u1l-al-IfP" secondAttribute="leadingMargin" id="DEW-DB-Bdl"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Eg3-ax-QMz" secondAttribute="trailing" id="RKp-mW-EpR"/>
                             <constraint firstItem="U84-Yd-Knx" firstAttribute="top" secondItem="Eg3-ax-QMz" secondAttribute="bottom" id="sxG-yh-Qxd"/>
+                            <constraint firstItem="Eg3-ax-QMz" firstAttribute="leading" secondItem="u1l-al-IfP" secondAttribute="leadingMargin" id="tsb-PP-0nM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Eg3-ax-QMz" secondAttribute="trailing" id="uzx-n3-0k0"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="iBg-fH-z8h"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gld-Cc-OlY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -599,6 +604,7 @@
         <image name="ArrowRight.png" width="19" height="51"/>
         <image name="Play" width="100" height="100"/>
         <image name="facebook.png" width="2000" height="2000"/>
+        <image name="menu" width="22" height="22"/>
         <image name="menu.png" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>

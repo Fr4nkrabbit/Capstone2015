@@ -69,6 +69,8 @@ class BackTableVC: UITableViewController {
         let imageName = UIImage(named: MenuPictures[indexPath.row])
         block.imageView?.image = imageName
         
+        print("are we logged in?")
+        print(loggedIn)
         if loggedIn {
             block.imageView?.image = UIImage(data: NSData(contentsOfURL: NSURL(string: imageURL)!)!)
         }

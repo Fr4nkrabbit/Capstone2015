@@ -17,16 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="1Jf-oO-Whg">
-                                <rect key="frame" x="129" y="204" width="240" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SplashScreen" translatesAutoresizingMaskIntoConstraints="NO" id="4rf-0Q-O0G">
+                                <rect key="frame" x="161" y="181" width="240" height="128"/>
                             </imageView>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="1Jf-oO-Whg" secondAttribute="bottom" id="4dA-Fh-R8U"/>
-                            <constraint firstAttribute="trailing" secondItem="1Jf-oO-Whg" secondAttribute="trailing" id="Tgc-Yx-Mlx"/>
-                            <constraint firstItem="1Jf-oO-Whg" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Y7i-u8-PFF"/>
-                            <constraint firstItem="1Jf-oO-Whg" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="ry0-3E-vOy"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -35,6 +29,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo" width="1010" height="660"/>
+        <image name="SplashScreen" width="1700" height="1040"/>
     </resources>
 </document>

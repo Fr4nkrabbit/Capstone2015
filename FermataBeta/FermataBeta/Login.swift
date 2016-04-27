@@ -46,6 +46,9 @@ extension UIColor {
 
 class Login: UIViewController, FBSDKLoginButtonDelegate {
     
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+    
+    
     @IBOutlet weak var btnFacebook: FBSDKButton!
     
     @IBOutlet weak var lblName: UILabel!
@@ -63,6 +66,13 @@ class Login: UIViewController, FBSDKLoginButtonDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if self.revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = Selector("revealToggle:")
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+        
         self.navigationItem.title = "Facebook Login"
         swipe()
         

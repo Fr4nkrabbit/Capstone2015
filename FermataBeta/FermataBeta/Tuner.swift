@@ -14,6 +14,7 @@ import AVFoundation
 class Tuner: UIViewController {
 
     
+    @IBOutlet weak var menuButton: UIBarButtonItem!
 /***************************************************
     PLAYS A PITCH FOR THE USER
 ***************************************************/
@@ -101,6 +102,12 @@ class Tuner: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if self.revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = Selector("revealToggle:")
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
         
         //initializes all the note files and the displayed note names
         noteList = ["0A", "1As", "2B", "3C", "4Cs", "5D", "6Ds", "7E", "8F", "9Fs", "10G", "11Gs"]

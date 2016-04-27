@@ -9,10 +9,6 @@
  *
  **/
 
-var hello = function(message) {
-    return "Hello " + message;
-}
-
 var JZZ;
 if(!JZZ) JZZ={};
 else if(typeof JZZ!='object') throw new Error("JZZ namespace conflict");

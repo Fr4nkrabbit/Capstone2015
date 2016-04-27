@@ -63,6 +63,10 @@ class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
         
         tempo = 120
         
+        view.backgroundColor = UIColor(red: 255/256, green: 255/256, blue: 240/256, alpha: 1)
+        
+        //backgroundColor = UIColor(red: 25/256, green: 28/256, blue: 39/256, alpha: 0.6240
+        
         // Initialize the sou/Users/youngliu/Documents/EECS_581/FermataBeta/FermataBeta/SmartFeatures.swift:71:28: Use of instance member 'setStructDataReference' on type 'SongViewController'; did you mean to use a value of type 'SongViewController' instead?nd player
         let metronomeSoundURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("metronomeClick", ofType: "wav")!)
         metronomeSoundPlayer = try? AVAudioPlayer(contentsOfURL: metronomeSoundURL)

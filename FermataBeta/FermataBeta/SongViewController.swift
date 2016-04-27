@@ -56,6 +56,9 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
         super.viewDidLoad()
         showMeasure()
         
+        view.backgroundColor = UIColor(red: 255/256, green: 255/256, blue: 240/256, alpha: 1)
+
+        
         /*let smartFeatureBool = UIButton(frame: CGRectMake(0,0,100,100))
         let buttonWidth = screenWidth * 0.9
         smartFeatureBool.center = CGPointMake(buttonWidth, 67)
@@ -108,7 +111,12 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
         tapPrev.delegate = self
         tapNext.delegate = self
 
+        /*let labelScreenSize: CGRect = UIScreen.mainScreen().bounds
+        let screenHeight = labelScreenSize.height * 0.65
         
+        let darkLine = UILabel(frame:CGRectMake(0, screenHeight, 10, labelScreenSize.width))
+        darkLine.backgroundColor = UIColor.blackColor()
+        self.view.addSubview(darkLine)*/
         
         /*followLabel = UILabel(frame: CGRectMake(0, 0, 100, 100))
         //let screenSize: CGRect = UIScreen.mainScreen().bounds
@@ -316,7 +324,7 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
         
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         
-        let screenHeight = screenSize.height * 0.75
+        let screenHeight = screenSize.height * 0.7
         let screenWidth = screenSize.width
         
         let rect = CGRect(x: 0, y: 87, width: screenWidth, height: screenHeight)

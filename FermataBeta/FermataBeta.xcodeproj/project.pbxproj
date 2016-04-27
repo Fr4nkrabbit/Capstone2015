@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		DB1906211CB9AB1F00E0B92B /* SmartFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1906201CB9AB1F00E0B92B /* SmartFeatures.swift */; };
-		DB1906281CBC519100E0B92B /* ArrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = DB1906261CBC519100E0B92B /* ArrowLeft.png */; };
-		DB1906291CBC519100E0B92B /* ArrowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = DB1906271CBC519100E0B92B /* ArrowRight.png */; };
 		DB2E50D11CA76B9800C889EF /* songTableDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E50D01CA76B9800C889EF /* songTableDisplay.swift */; };
 		DB3C93C11C6925050032556B /* 0A.wav in Resources */ = {isa = PBXBuildFile; fileRef = DB3C93B51C6925050032556B /* 0A.wav */; };
 		DB3C93C21C6925050032556B /* 10G.wav in Resources */ = {isa = PBXBuildFile; fileRef = DB3C93B61C6925050032556B /* 10G.wav */; };
@@ -29,39 +27,26 @@
 		DB3FBBD71BF8275A004C22A3 /* GenreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FBBD51BF8275A004C22A3 /* GenreTableViewController.swift */; };
 		DB3FBBDC1BF94B64004C22A3 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FBBDB1BF94B64004C22A3 /* Song.swift */; };
 		DB3FBBDD1BF94B64004C22A3 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FBBDB1BF94B64004C22A3 /* Song.swift */; };
-		DB4703891CC7FB1A00977DE4 /* parser.js in Resources */ = {isa = PBXBuildFile; fileRef = DB4703881CC7FB1A00977DE4 /* parser.js */; };
-		DB47038B1CC7FB9800977DE4 /* ajax.js in Resources */ = {isa = PBXBuildFile; fileRef = DB47038A1CC7FB9800977DE4 /* ajax.js */; };
-		DB47038D1CC7FBB000977DE4 /* instruments.js in Resources */ = {isa = PBXBuildFile; fileRef = DB47038C1CC7FBB000977DE4 /* instruments.js */; };
-		DB47038F1CC7FBBB00977DE4 /* renderer.js in Resources */ = {isa = PBXBuildFile; fileRef = DB47038E1CC7FBBB00977DE4 /* renderer.js */; };
-		DB4703911CC8532C00977DE4 /* METRO.png in Resources */ = {isa = PBXBuildFile; fileRef = DB4703901CC8532C00977DE4 /* METRO.png */; };
-		DB4703941CCAD76200977DE4 /* loginImage.png in Resources */ = {isa = PBXBuildFile; fileRef = DB4703931CCAD76200977DE4 /* loginImage.png */; };
-		DB4703961CCAD80800977DE4 /* noteb.png in Resources */ = {isa = PBXBuildFile; fileRef = DB4703951CCAD80800977DE4 /* noteb.png */; };
-		DB62A1B41C7B9DF6007EDA48 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = DB62A1AD1C7B9DF6007EDA48 /* index.html */; };
-		DB62A1B51C7B9DF6007EDA48 /* inter.js in Resources */ = {isa = PBXBuildFile; fileRef = DB62A1AE1C7B9DF6007EDA48 /* inter.js */; };
-		DB62A1B61C7B9DF6007EDA48 /* JZZ.Midi.js in Resources */ = {isa = PBXBuildFile; fileRef = DB62A1AF1C7B9DF6007EDA48 /* JZZ.Midi.js */; };
-		DB62A1B71C7B9DF6007EDA48 /* JZZ.MidiFile.js in Resources */ = {isa = PBXBuildFile; fileRef = DB62A1B01C7B9DF6007EDA48 /* JZZ.MidiFile.js */; };
-		DB62A1B81C7B9DF6007EDA48 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = DB62A1B11C7B9DF6007EDA48 /* main.js */; };
-		DB62A1B91C7B9DF6007EDA48 /* vexflow-debug.js in Resources */ = {isa = PBXBuildFile; fileRef = DB62A1B21C7B9DF6007EDA48 /* vexflow-debug.js */; };
-		DB62A1BA1C7B9DF6007EDA48 /* vexflow-min.js in Resources */ = {isa = PBXBuildFile; fileRef = DB62A1B31C7B9DF6007EDA48 /* vexflow-min.js */; };
 		DB63260D1CC55D2600D81E71 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB63260C1CC55D2600D81E71 /* SongViewController.swift */; };
-		DB6326111CC5A3E500D81E71 /* facebookIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = DB6326101CC5A3E500D81E71 /* facebookIcon.png */; };
-		DB6326171CC5A5B300D81E71 /* NOTE.png in Resources */ = {isa = PBXBuildFile; fileRef = DB6326161CC5A5B300D81E71 /* NOTE.png */; };
-		DB63261B1CC5A5CE00D81E71 /* FORK.png in Resources */ = {isa = PBXBuildFile; fileRef = DB63261A1CC5A5CE00D81E71 /* FORK.png */; };
-		DB63261D1CC5ADB600D81E71 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = DB63261C1CC5ADB600D81E71 /* menu.png */; };
 		DB9AEA7B1BF6D6AC00506C24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9AEA7A1BF6D6AC00506C24 /* AppDelegate.swift */; };
 		DB9AEA801BF6D6AC00506C24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB9AEA7E1BF6D6AC00506C24 /* Main.storyboard */; };
 		DB9AEA821BF6D6AC00506C24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB9AEA811BF6D6AC00506C24 /* Assets.xcassets */; };
 		DB9AEA851BF6D6AC00506C24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB9AEA831BF6D6AC00506C24 /* LaunchScreen.storyboard */; };
 		DB9AEA901BF6D6AC00506C24 /* FermataBetaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9AEA8F1BF6D6AC00506C24 /* FermataBetaTests.swift */; };
 		DB9AEA9B1BF6D6AC00506C24 /* FermataBetaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9AEA9A1BF6D6AC00506C24 /* FermataBetaUITests.swift */; };
-		DBA496971CC185A80030D868 /* blackLine.png in Resources */ = {isa = PBXBuildFile; fileRef = DBA496961CC185A80030D868 /* blackLine.png */; };
 		DBB53C891CA87BB000403D6E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB53C871CA87BB000403D6E /* FBSDKCoreKit.framework */; };
 		DBB53C8A1CA87BB000403D6E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB53C881CA87BB000403D6E /* FBSDKLoginKit.framework */; };
-		DBE44AF31CCD5CD300841F86 /* DUDE2.png in Resources */ = {isa = PBXBuildFile; fileRef = DBE44AF21CCD5CD300841F86 /* DUDE2.png */; };
-		DBE44AF51CCD5EA400841F86 /* FORK2.png in Resources */ = {isa = PBXBuildFile; fileRef = DBE44AF41CCD5EA400841F86 /* FORK2.png */; };
-		DBE44AF81CCD5EAD00841F86 /* METRO2.png in Resources */ = {isa = PBXBuildFile; fileRef = DBE44AF61CCD5EAD00841F86 /* METRO2.png */; };
-		DBE44AF91CCD5EAD00841F86 /* NOTE2.png in Resources */ = {isa = PBXBuildFile; fileRef = DBE44AF71CCD5EAD00841F86 /* NOTE2.png */; };
-		DBE44AFB1CCD660600841F86 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = DBE44AFA1CCD660600841F86 /* facebook.png */; };
+		DBE44B091CCEAAA700841F86 /* ajax.js in Resources */ = {isa = PBXBuildFile; fileRef = DBE44AFE1CCEAAA700841F86 /* ajax.js */; };
+		DBE44B0A1CCEAAA700841F86 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = DBE44AFF1CCEAAA700841F86 /* index.html */; };
+		DBE44B0B1CCEAAA700841F86 /* instruments.js in Resources */ = {isa = PBXBuildFile; fileRef = DBE44B001CCEAAA700841F86 /* instruments.js */; };
+		DBE44B0C1CCEAAA700841F86 /* inter.js in Resources */ = {isa = PBXBuildFile; fileRef = DBE44B011CCEAAA700841F86 /* inter.js */; };
+		DBE44B0D1CCEAAA700841F86 /* JZZ.Midi.js in Resources */ = {isa = PBXBuildFile; fileRef = DBE44B021CCEAAA700841F86 /* JZZ.Midi.js */; };
+		DBE44B0E1CCEAAA700841F86 /* JZZ.MidiFile.js in Resources */ = {isa = PBXBuildFile; fileRef = DBE44B031CCEAAA700841F86 /* JZZ.MidiFile.js */; };
+		DBE44B0F1CCEAAA700841F86 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = DBE44B041CCEAAA700841F86 /* main.js */; };
+		DBE44B101CCEAAA700841F86 /* parser.js in Resources */ = {isa = PBXBuildFile; fileRef = DBE44B051CCEAAA700841F86 /* parser.js */; };
+		DBE44B111CCEAAA700841F86 /* renderer.js in Resources */ = {isa = PBXBuildFile; fileRef = DBE44B061CCEAAA700841F86 /* renderer.js */; };
+		DBE44B121CCEAAA700841F86 /* vexflow-debug.js in Resources */ = {isa = PBXBuildFile; fileRef = DBE44B071CCEAAA700841F86 /* vexflow-debug.js */; };
+		DBE44B131CCEAAA700841F86 /* vexflow-min.js in Resources */ = {isa = PBXBuildFile; fileRef = DBE44B081CCEAAA700841F86 /* vexflow-min.js */; };
 		DBF794A31C84A57200AB5D7D /* metronomeClick.wav in Resources */ = {isa = PBXBuildFile; fileRef = DBF794A21C84A57200AB5D7D /* metronomeClick.wav */; };
 		DBFB28131C5A781800999BE0 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBFB28121C5A781800999BE0 /* SWRevealViewController.m */; };
 		DBFB28151C5A791A00999BE0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFB28141C5A791A00999BE0 /* ViewController.swift */; };
@@ -90,8 +75,6 @@
 
 /* Begin PBXFileReference section */
 		DB1906201CB9AB1F00E0B92B /* SmartFeatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmartFeatures.swift; sourceTree = "<group>"; };
-		DB1906261CBC519100E0B92B /* ArrowLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArrowLeft.png; sourceTree = "<group>"; };
-		DB1906271CBC519100E0B92B /* ArrowRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArrowRight.png; sourceTree = "<group>"; };
 		DB2E50D01CA76B9800C889EF /* songTableDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = songTableDisplay.swift; sourceTree = "<group>"; };
 		DB3C93B51C6925050032556B /* 0A.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0A.wav; sourceTree = "<group>"; };
 		DB3C93B61C6925050032556B /* 10G.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 10G.wav; sourceTree = "<group>"; };
@@ -108,26 +91,8 @@
 		DB3FBBD21BF824C4004C22A3 /* Genre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		DB3FBBD51BF8275A004C22A3 /* GenreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreTableViewController.swift; sourceTree = "<group>"; };
 		DB3FBBDB1BF94B64004C22A3 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
-		DB4703881CC7FB1A00977DE4 /* parser.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = parser.js; sourceTree = "<group>"; };
-		DB47038A1CC7FB9800977DE4 /* ajax.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ajax.js; sourceTree = "<group>"; };
-		DB47038C1CC7FBB000977DE4 /* instruments.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = instruments.js; sourceTree = "<group>"; };
-		DB47038E1CC7FBBB00977DE4 /* renderer.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = renderer.js; sourceTree = "<group>"; };
-		DB4703901CC8532C00977DE4 /* METRO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = METRO.png; sourceTree = "<group>"; };
 		DB4703921CC9A94B00977DE4 /* FBSDKButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBSDKButton.h; sourceTree = "<group>"; };
-		DB4703931CCAD76200977DE4 /* loginImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginImage.png; sourceTree = "<group>"; };
-		DB4703951CCAD80800977DE4 /* noteb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noteb.png; sourceTree = "<group>"; };
-		DB62A1AD1C7B9DF6007EDA48 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		DB62A1AE1C7B9DF6007EDA48 /* inter.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = inter.js; sourceTree = "<group>"; };
-		DB62A1AF1C7B9DF6007EDA48 /* JZZ.Midi.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = JZZ.Midi.js; sourceTree = "<group>"; };
-		DB62A1B01C7B9DF6007EDA48 /* JZZ.MidiFile.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = JZZ.MidiFile.js; sourceTree = "<group>"; };
-		DB62A1B11C7B9DF6007EDA48 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
-		DB62A1B21C7B9DF6007EDA48 /* vexflow-debug.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "vexflow-debug.js"; sourceTree = "<group>"; };
-		DB62A1B31C7B9DF6007EDA48 /* vexflow-min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "vexflow-min.js"; sourceTree = "<group>"; };
 		DB63260C1CC55D2600D81E71 /* SongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
-		DB6326101CC5A3E500D81E71 /* facebookIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebookIcon.png; sourceTree = "<group>"; };
-		DB6326161CC5A5B300D81E71 /* NOTE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NOTE.png; sourceTree = "<group>"; };
-		DB63261A1CC5A5CE00D81E71 /* FORK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FORK.png; sourceTree = "<group>"; };
-		DB63261C1CC5ADB600D81E71 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		DB9AEA771BF6D6AC00506C24 /* FermataBeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FermataBeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB9AEA7A1BF6D6AC00506C24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB9AEA7F1BF6D6AC00506C24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -140,14 +105,19 @@
 		DB9AEA961BF6D6AC00506C24 /* FermataBetaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FermataBetaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB9AEA9A1BF6D6AC00506C24 /* FermataBetaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FermataBetaUITests.swift; sourceTree = "<group>"; };
 		DB9AEA9C1BF6D6AC00506C24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DBA496961CC185A80030D868 /* blackLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackLine.png; sourceTree = "<group>"; };
 		DBB53C871CA87BB000403D6E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		DBB53C881CA87BB000403D6E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		DBE44AF21CCD5CD300841F86 /* DUDE2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DUDE2.png; sourceTree = "<group>"; };
-		DBE44AF41CCD5EA400841F86 /* FORK2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FORK2.png; sourceTree = "<group>"; };
-		DBE44AF61CCD5EAD00841F86 /* METRO2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = METRO2.png; sourceTree = "<group>"; };
-		DBE44AF71CCD5EAD00841F86 /* NOTE2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NOTE2.png; sourceTree = "<group>"; };
-		DBE44AFA1CCD660600841F86 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
+		DBE44AFE1CCEAAA700841F86 /* ajax.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ajax.js; sourceTree = "<group>"; };
+		DBE44AFF1CCEAAA700841F86 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		DBE44B001CCEAAA700841F86 /* instruments.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = instruments.js; sourceTree = "<group>"; };
+		DBE44B011CCEAAA700841F86 /* inter.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = inter.js; sourceTree = "<group>"; };
+		DBE44B021CCEAAA700841F86 /* JZZ.Midi.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = JZZ.Midi.js; sourceTree = "<group>"; };
+		DBE44B031CCEAAA700841F86 /* JZZ.MidiFile.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = JZZ.MidiFile.js; sourceTree = "<group>"; };
+		DBE44B041CCEAAA700841F86 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
+		DBE44B051CCEAAA700841F86 /* parser.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = parser.js; sourceTree = "<group>"; };
+		DBE44B061CCEAAA700841F86 /* renderer.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = renderer.js; sourceTree = "<group>"; };
+		DBE44B071CCEAAA700841F86 /* vexflow-debug.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "vexflow-debug.js"; sourceTree = "<group>"; };
+		DBE44B081CCEAAA700841F86 /* vexflow-min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "vexflow-min.js"; sourceTree = "<group>"; };
 		DBF794A21C84A57200AB5D7D /* metronomeClick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = metronomeClick.wav; sourceTree = "<group>"; };
 		DBFB28101C5A781700999BE0 /* FermataBeta-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FermataBeta-Bridging-Header.h"; sourceTree = "<group>"; };
 		DBFB28111C5A781800999BE0 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -208,10 +178,6 @@
 		DB63260E1CC5A32000D81E71 /* MenuIcons */ = {
 			isa = PBXGroup;
 			children = (
-				DB63261A1CC5A5CE00D81E71 /* FORK.png */,
-				DB6326101CC5A3E500D81E71 /* facebookIcon.png */,
-				DB4703901CC8532C00977DE4 /* METRO.png */,
-				DB6326161CC5A5B300D81E71 /* NOTE.png */,
 			);
 			name = MenuIcons;
 			sourceTree = "<group>";
@@ -219,17 +185,17 @@
 		DB63260F1CC5A33800D81E71 /* Javascript */ = {
 			isa = PBXGroup;
 			children = (
-				DB4703881CC7FB1A00977DE4 /* parser.js */,
-				DB47038A1CC7FB9800977DE4 /* ajax.js */,
-				DB47038C1CC7FBB000977DE4 /* instruments.js */,
-				DB62A1B11C7B9DF6007EDA48 /* main.js */,
-				DB47038E1CC7FBBB00977DE4 /* renderer.js */,
-				DB62A1B01C7B9DF6007EDA48 /* JZZ.MidiFile.js */,
-				DB62A1B31C7B9DF6007EDA48 /* vexflow-min.js */,
-				DB62A1B21C7B9DF6007EDA48 /* vexflow-debug.js */,
-				DB62A1AD1C7B9DF6007EDA48 /* index.html */,
-				DB62A1AE1C7B9DF6007EDA48 /* inter.js */,
-				DB62A1AF1C7B9DF6007EDA48 /* JZZ.Midi.js */,
+				DBE44AFE1CCEAAA700841F86 /* ajax.js */,
+				DBE44AFF1CCEAAA700841F86 /* index.html */,
+				DBE44B001CCEAAA700841F86 /* instruments.js */,
+				DBE44B011CCEAAA700841F86 /* inter.js */,
+				DBE44B021CCEAAA700841F86 /* JZZ.Midi.js */,
+				DBE44B031CCEAAA700841F86 /* JZZ.MidiFile.js */,
+				DBE44B041CCEAAA700841F86 /* main.js */,
+				DBE44B051CCEAAA700841F86 /* parser.js */,
+				DBE44B061CCEAAA700841F86 /* renderer.js */,
+				DBE44B071CCEAAA700841F86 /* vexflow-debug.js */,
+				DBE44B081CCEAAA700841F86 /* vexflow-min.js */,
 			);
 			name = Javascript;
 			sourceTree = "<group>";
@@ -259,7 +225,6 @@
 		DB6326141CC5A47B00D81E71 /* MenuStuff */ = {
 			isa = PBXGroup;
 			children = (
-				DB63261C1CC5ADB600D81E71 /* menu.png */,
 				DBFB281D1C5C024F00999BE0 /* BackTableVC.swift */,
 				DBFB28141C5A791A00999BE0 /* ViewController.swift */,
 			);
@@ -269,16 +234,6 @@
 		DB6326151CC5A4F700D81E71 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				DB4703931CCAD76200977DE4 /* loginImage.png */,
-				DBE44AF21CCD5CD300841F86 /* DUDE2.png */,
-				DB1906271CBC519100E0B92B /* ArrowRight.png */,
-				DB1906261CBC519100E0B92B /* ArrowLeft.png */,
-				DB4703951CCAD80800977DE4 /* noteb.png */,
-				DBA496961CC185A80030D868 /* blackLine.png */,
-				DBE44AF61CCD5EAD00841F86 /* METRO2.png */,
-				DBE44AF71CCD5EAD00841F86 /* NOTE2.png */,
-				DBE44AF41CCD5EA400841F86 /* FORK2.png */,
-				DBE44AFA1CCD660600841F86 /* facebook.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -461,48 +416,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB47038F1CC7FBBB00977DE4 /* renderer.js in Resources */,
-				DB62A1B81C7B9DF6007EDA48 /* main.js in Resources */,
-				DBE44AF51CCD5EA400841F86 /* FORK2.png in Resources */,
-				DB4703891CC7FB1A00977DE4 /* parser.js in Resources */,
+				DBE44B0F1CCEAAA700841F86 /* main.js in Resources */,
 				DB3C93C71C6925050032556B /* 4Cs.wav in Resources */,
 				DB3C93CC1C6925050032556B /* 9Fs.wav in Resources */,
 				DB3C93C21C6925050032556B /* 10G.wav in Resources */,
+				DBE44B0A1CCEAAA700841F86 /* index.html in Resources */,
 				DB3C93C81C6925050032556B /* 5D.wav in Resources */,
-				DBE44AF91CCD5EAD00841F86 /* NOTE2.png in Resources */,
-				DB62A1B71C7B9DF6007EDA48 /* JZZ.MidiFile.js in Resources */,
-				DB62A1B61C7B9DF6007EDA48 /* JZZ.Midi.js in Resources */,
 				DB3C93C61C6925050032556B /* 3C.wav in Resources */,
-				DB47038B1CC7FB9800977DE4 /* ajax.js in Resources */,
 				DB3C93C31C6925050032556B /* 11Gs.wav in Resources */,
-				DB62A1B51C7B9DF6007EDA48 /* inter.js in Resources */,
-				DBE44AF81CCD5EAD00841F86 /* METRO2.png in Resources */,
+				DBE44B131CCEAAA700841F86 /* vexflow-min.js in Resources */,
+				DBE44B0E1CCEAAA700841F86 /* JZZ.MidiFile.js in Resources */,
+				DBE44B0D1CCEAAA700841F86 /* JZZ.Midi.js in Resources */,
 				DB3C93C51C6925050032556B /* 2B.wav in Resources */,
+				DBE44B0B1CCEAAA700841F86 /* instruments.js in Resources */,
+				DBE44B121CCEAAA700841F86 /* vexflow-debug.js in Resources */,
+				DBE44B0C1CCEAAA700841F86 /* inter.js in Resources */,
+				DBE44B091CCEAAA700841F86 /* ajax.js in Resources */,
 				DB9AEA851BF6D6AC00506C24 /* LaunchScreen.storyboard in Resources */,
+				DBE44B111CCEAAA700841F86 /* renderer.js in Resources */,
 				DB3C93CB1C6925050032556B /* 8F.wav in Resources */,
-				DB6326111CC5A3E500D81E71 /* facebookIcon.png in Resources */,
-				DB4703941CCAD76200977DE4 /* loginImage.png in Resources */,
 				DB9AEA821BF6D6AC00506C24 /* Assets.xcassets in Resources */,
-				DBA496971CC185A80030D868 /* blackLine.png in Resources */,
-				DB47038D1CC7FBB000977DE4 /* instruments.js in Resources */,
+				DBE44B101CCEAAA700841F86 /* parser.js in Resources */,
 				DB3C93C11C6925050032556B /* 0A.wav in Resources */,
-				DB62A1B91C7B9DF6007EDA48 /* vexflow-debug.js in Resources */,
-				DB62A1BA1C7B9DF6007EDA48 /* vexflow-min.js in Resources */,
 				DBF794A31C84A57200AB5D7D /* metronomeClick.wav in Resources */,
 				DB3C93C91C6925050032556B /* 6Ds.wav in Resources */,
 				DB3C93C41C6925050032556B /* 1As.wav in Resources */,
-				DB4703961CCAD80800977DE4 /* noteb.png in Resources */,
-				DBE44AFB1CCD660600841F86 /* facebook.png in Resources */,
 				DB3C93CA1C6925050032556B /* 7E.wav in Resources */,
-				DB63261D1CC5ADB600D81E71 /* menu.png in Resources */,
-				DB1906281CBC519100E0B92B /* ArrowLeft.png in Resources */,
-				DB62A1B41C7B9DF6007EDA48 /* index.html in Resources */,
-				DBE44AF31CCD5CD300841F86 /* DUDE2.png in Resources */,
-				DB6326171CC5A5B300D81E71 /* NOTE.png in Resources */,
-				DB63261B1CC5A5CE00D81E71 /* FORK.png in Resources */,
-				DB1906291CBC519100E0B92B /* ArrowRight.png in Resources */,
 				DB9AEA801BF6D6AC00506C24 /* Main.storyboard in Resources */,
-				DB4703911CC8532C00977DE4 /* METRO.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
