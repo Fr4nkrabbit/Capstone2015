@@ -28,6 +28,9 @@
 		DB3FBBDC1BF94B64004C22A3 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FBBDB1BF94B64004C22A3 /* Song.swift */; };
 		DB3FBBDD1BF94B64004C22A3 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FBBDB1BF94B64004C22A3 /* Song.swift */; };
 		DB63260D1CC55D2600D81E71 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB63260C1CC55D2600D81E71 /* SongViewController.swift */; };
+		DB8415481CD13CCE0048B016 /* Left_Arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8415451CD13CCE0048B016 /* Left_Arrow.png */; };
+		DB8415491CD13CCE0048B016 /* Right_Arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8415461CD13CCE0048B016 /* Right_Arrow.png */; };
+		DB84154A1CD13CCE0048B016 /* Stop_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8415471CD13CCE0048B016 /* Stop_Icon.png */; };
 		DB9AEA7B1BF6D6AC00506C24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9AEA7A1BF6D6AC00506C24 /* AppDelegate.swift */; };
 		DB9AEA801BF6D6AC00506C24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB9AEA7E1BF6D6AC00506C24 /* Main.storyboard */; };
 		DB9AEA821BF6D6AC00506C24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB9AEA811BF6D6AC00506C24 /* Assets.xcassets */; };
@@ -93,6 +96,9 @@
 		DB3FBBDB1BF94B64004C22A3 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		DB4703921CC9A94B00977DE4 /* FBSDKButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBSDKButton.h; sourceTree = "<group>"; };
 		DB63260C1CC55D2600D81E71 /* SongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
+		DB8415451CD13CCE0048B016 /* Left_Arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Left_Arrow.png; sourceTree = "<group>"; };
+		DB8415461CD13CCE0048B016 /* Right_Arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Right_Arrow.png; sourceTree = "<group>"; };
+		DB8415471CD13CCE0048B016 /* Stop_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stop_Icon.png; sourceTree = "<group>"; };
 		DB9AEA771BF6D6AC00506C24 /* FermataBeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FermataBeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB9AEA7A1BF6D6AC00506C24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB9AEA7F1BF6D6AC00506C24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -234,6 +240,9 @@
 		DB6326151CC5A4F700D81E71 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DB8415451CD13CCE0048B016 /* Left_Arrow.png */,
+				DB8415461CD13CCE0048B016 /* Right_Arrow.png */,
+				DB8415471CD13CCE0048B016 /* Stop_Icon.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -418,6 +427,7 @@
 			files = (
 				DBE44B0F1CCEAAA700841F86 /* main.js in Resources */,
 				DB3C93C71C6925050032556B /* 4Cs.wav in Resources */,
+				DB84154A1CD13CCE0048B016 /* Stop_Icon.png in Resources */,
 				DB3C93CC1C6925050032556B /* 9Fs.wav in Resources */,
 				DB3C93C21C6925050032556B /* 10G.wav in Resources */,
 				DBE44B0A1CCEAAA700841F86 /* index.html in Resources */,
@@ -430,8 +440,10 @@
 				DB3C93C51C6925050032556B /* 2B.wav in Resources */,
 				DBE44B0B1CCEAAA700841F86 /* instruments.js in Resources */,
 				DBE44B121CCEAAA700841F86 /* vexflow-debug.js in Resources */,
+				DB8415481CD13CCE0048B016 /* Left_Arrow.png in Resources */,
 				DBE44B0C1CCEAAA700841F86 /* inter.js in Resources */,
 				DBE44B091CCEAAA700841F86 /* ajax.js in Resources */,
+				DB8415491CD13CCE0048B016 /* Right_Arrow.png in Resources */,
 				DB9AEA851BF6D6AC00506C24 /* LaunchScreen.storyboard in Resources */,
 				DBE44B111CCEAAA700841F86 /* renderer.js in Resources */,
 				DB3C93CB1C6925050032556B /* 8F.wav in Resources */,

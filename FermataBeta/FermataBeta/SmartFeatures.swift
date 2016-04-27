@@ -10,10 +10,16 @@ import Foundation
 import AVFoundation
 import UIKit
 
-
 var globalTempo = "120.0"
 class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
     
+    let callStuff = SongViewController()
+    
+    @IBAction func FollowAlong(sender: AnyObject) {
+        //callStuff.followAlong()
+        print("should be calling stuff")
+        callStuff.nextLine()
+    }
     //tuner stuff
     @IBOutlet weak var Note: UILabel!
     @IBOutlet weak var Next: UIImageView!
@@ -42,8 +48,6 @@ class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
     //@IBOutlet weak var blinkingLight: UILabel!
     
     
-    
-    
     var metronomeTimer: NSTimer!
     var metronomeIsOn = false
     
@@ -57,13 +61,12 @@ class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
         }
     }
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tempo = 120
         
-        view.backgroundColor = UIColor(red: 255/256, green: 255/256, blue: 240/256, alpha: 1)
+        //view.backgroundColor = UIColor(red: 255/256, green: 255/256, blue: 240/256, alpha: 1)
         
         //backgroundColor = UIColor(red: 25/256, green: 28/256, blue: 39/256, alpha: 0.6240
         

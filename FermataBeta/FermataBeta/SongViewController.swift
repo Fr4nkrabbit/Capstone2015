@@ -18,23 +18,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-
-
 import UIKit
 import WebKit
+
 class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRecognizerDelegate {
     
     var followBool = true
-    @IBAction func followAlong(sender: AnyObject) {
-        print("hi")
-        if followBool{
-            basicFollow(globalTempo)
-        }
-        else {
-            stopFollow()
-        }
-        followBool = !followBool
-    }
+    
 
     var theWebView:WKWebView?
 
@@ -51,12 +41,19 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
     //let u = SomeStructure.storedTypeProperty
     
     //var structData:GlobalStruct;
+    
+    func loadSmartFeatures(){
+        let smartFeatures = SmartFeatures()
+        //view.addSubview(smartFeatures)
+    }
         
     override func viewDidLoad() {
         super.viewDidLoad()
         showMeasure()
         
-        view.backgroundColor = UIColor(red: 255/256, green: 255/256, blue: 240/256, alpha: 1)
+        //loadSmartFeatures()
+        
+        //view.backgroundColor = UIColor(red: 255/256, green: 255/256, blue: 240/256, alpha: 1)
 
         
         /*let smartFeatureBool = UIButton(frame: CGRectMake(0,0,100,100))
@@ -85,14 +82,14 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         let screenWidth = screenSize.width * 0.5
         let rightWidth = screenWidth + 50+25
-        rightArrowView.frame = CGRect(x: rightWidth, y: 55, width: 47, height: 26)
+        rightArrowView.frame = CGRect(x: rightWidth, y: 15, width: 47, height: 26)
         view.addSubview(rightArrowView)
         
         let leftArrowName = "ArrowLeft.png"
         let leftImage = UIImage(named: leftArrowName)
         let leftArrowView = UIImageView(image: leftImage!)
         let leftWidth = screenWidth - 90-25
-        leftArrowView.frame = CGRect(x: leftWidth, y: 55, width: 47, height: 26)
+        leftArrowView.frame = CGRect(x: leftWidth, y: 15, width: 47, height: 26)
         view.addSubview(leftArrowView)
         
         
@@ -127,6 +124,20 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
         self.view.addSubview(followLabel)*/
         
     }
+    
+    func followAlong() {
+        print("yo kyle imma prove ya wrong")
+        if followBool{
+            print("getting hit yo")
+            basicFollow(globalTempo)
+        }
+        else {
+            print("ehhh")
+            stopFollow()
+        }
+        followBool = !followBool
+    }
+    
     func pageTurnButtonLoad(){
         let rightArrowName = "ArrowRight.png"
         let rightImage = UIImage(named: rightArrowName)
@@ -134,14 +145,14 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         let screenWidth = screenSize.width * 0.5
         let rightWidth = screenWidth + 50
-        rightArrowView.frame = CGRect(x: rightWidth, y: 55, width: 47, height: 26)
+        rightArrowView.frame = CGRect(x: rightWidth, y: 15, width: 47, height: 26)
         view.addSubview(rightArrowView)
         
         let leftArrowName = "ArrowLeft.png"
         let leftImage = UIImage(named: leftArrowName)
         let leftArrowView = UIImageView(image: leftImage!)
         let leftWidth = screenWidth - 90
-        leftArrowView.frame = CGRect(x: leftWidth, y: 55, width: 47, height: 26)
+        leftArrowView.frame = CGRect(x: leftWidth, y:  15, width: 47, height: 26)
         view.addSubview(leftArrowView)
         
         //To change the note down
@@ -184,7 +195,7 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
         measuresShown = UILabel(frame: CGRectMake(0, 0, 100, 100))
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         let screenWidth = screenSize.width * 0.5
-        measuresShown.center = CGPointMake(screenWidth, 67)
+        measuresShown.center = CGPointMake(screenWidth, 25)
         measuresShown.textAlignment = NSTextAlignment.Center
         measuresShown.text = "measures"
         self.view.addSubview(measuresShown)
@@ -193,6 +204,8 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
         print("i got tapped")
         print(globalTempo)
         backPage()
+        let d = "120"
+        //followAlong()
     }
     func didTapNext(sender: UITapGestureRecognizer){
         print("i got tapped-right")
@@ -294,6 +307,8 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
     
     //this will start off the follow along at a flat tempo
     func basicFollow(tempo: String){
+        print("ai yo")
+        print(tempo)
         theWebView?.evaluateJavaScript("startBasicFollow("+tempo+")", completionHandler: nil)
         
         

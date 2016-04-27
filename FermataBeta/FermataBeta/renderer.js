@@ -240,8 +240,6 @@ function drawSheets(inM)
 function startBasicFollow(tempo){
     FOLLOW_TEMPO=tempo/60*1000
     follow()
-    
-    
 }
 
 function follow(){
