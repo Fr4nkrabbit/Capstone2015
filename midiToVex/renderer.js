@@ -52,9 +52,9 @@ function drawSheets(inM)
 		acidentals:[]
 	}
 
-	var stoppingPoint = Math.min(inM.length, (LINE_COUNT+STARTING_LINE)* MEASURES_PER_LINE)
+	var stoppingPoint = Math.min(inM.length, (LINE_COUNT+STARTING_MEASURE)* MEASURES_PER_LINE)
 
-	for (var mC = STARTING_LINE; mC < stoppingPoint; mC++) //loop through measures
+	for (var mC = STARTING_MEASURE; mC < stoppingPoint; mC++) //loop through measures
 	{
 		//console.log('measure ' + mC)
 		
@@ -66,7 +66,7 @@ function drawSheets(inM)
 
 		//Decide where to draw the measure, or "staff" as Vexflow calls it
 		var offsetX = STAFF_OFFSET_X + (mC % MEASURES_PER_LINE) * STAFF_WIDTH
-		var offsetY = STAFF_OFFSET_Y * Math.floor((mC-STARTING_LINE) / MEASURES_PER_LINE)
+		var offsetY = STAFF_OFFSET_Y * Math.floor((mC-STARTING_MEASURE) / MEASURES_PER_LINE)
 		var stave = new Vex.Flow.Stave(offsetX, offsetY, STAFF_WIDTH)
 
 		// Add a treble clef if it's the first measure of the line
@@ -233,13 +233,72 @@ function drawSheets(inM)
 	} //end looping through measures
 
 	console.log("Successful run!")
+    currentMeasures()
+
 }
 
-function follow()
-{
-	STARTING_LINE++
-	$('canvas').parent()[0].innerHTML='<canvas width="975" height="1100"></canvas>'
-	createSheetMusic(string)
+function startBasicFollow(tempo){
+    FOLLOW_TEMPO=tempo/60*1000
+    follow()
+    
+    
+}
 
-	setTimeout(follow,FOLLOW_TEMPO)
+function follow(){
+    timer=setTimeout(follow,FOLLOW_TEMPO)
+    STARTING_MEASURE++
+    $('canvas').parent()[0].innerHTML='<canvas width=' + (CANVAS_WIDTH+25) + ' height=' + CANVAS_HEIGHT + '></canvas>'
+    createSheetMusic(string)
+    
+    //currentMeasures()
+}
+
+function turnPage(dir){
+    STARTING_MEASURE+= LINE_COUNT*MEASURES_PER_LINE*dir
+    $('canvas').parent()[0].innerHTML='<canvas width=' + (CANVAS_WIDTH+25) + ' height=' + CANVAS_HEIGHT + '></canvas>'
+    
+    createSheetMusic(string)
+    //currentMeasures()
+}
+
+function singleMeasure(dir ){
+    STARTING_MEASURE+= dir
+    $('canvas').parent()[0].innerHTML='<canvas width=' + (CANVAS_WIDTH+25) + ' height=' + CANVAS_HEIGHT + '></canvas>'
+    
+    createSheetMusic(string)
+}
+
+function singleLine(dir){
+    STARTING_MEASURE+= dir*MEASURES_PER_LINE
+    $('canvas').parent()[0].innerHTML='<canvas width=' + (CANVAS_WIDTH+25) + ' height=' + CANVAS_HEIGHT + '></canvas>'
+    
+    createSheetMusic(string)
+    
+}
+function goToMeasure(meas){
+    STARTING_MEASURE=meas
+    $('canvas').parent()[0].innerHTML='<canvas width=' + (CANVAS_WIDTH+25) + ' height=' + CANVAS_HEIGHT + '></canvas>'
+    
+    createSheetMusic(string)
+    
+}
+
+function setMeasurePerLine(num){
+    MEASURES_PER_LINE=num
+    $('canvas').parent()[0].innerHTML='<canvas width=' + (CANVAS_WIDTH+25) + ' height=' + CANVAS_HEIGHT + '></canvas>'
+    
+    createSheetMusic(string)
+}
+function setLineCount(num){
+    LINE_COUNT=num
+    $('canvas').parent()[0].innerHTML='<canvas width=' + (CANVAS_WIDTH+25) + ' height=' + CANVAS_HEIGHT + '></canvas>'
+    
+    createSheetMusic(string)
+}
+
+
+function stopTimer(){
+    clearTimeout(timer)
+    
+    
 }
