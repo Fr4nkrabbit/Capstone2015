@@ -17,18 +17,12 @@ class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
     
     //tuner stuff
     
-    @IBOutlet weak var Prev: UIImageView!
-   // @IBOutlet weak var Next: UIImageView!
-    //@IBOutlet weak var Note: UILabel!
-    //@IBOutlet weak var playing: UILabel!
-    
-    
-    /*@IBOutlet weak var Note: UILabel!
+    @IBOutlet weak var playing: UILabel!
     @IBOutlet weak var Next: UIImageView!
+    @IBOutlet weak var Note: UILabel!
     @IBOutlet weak var Prev: UIImageView!
-    @IBOutlet weak var blackBox: UILabel!
     
-    @IBOutlet weak var playing: UILabel!*/
+
     /***************************************************
      PLAYS A PITCH FOR THE USER
      ***************************************************/
@@ -83,12 +77,13 @@ class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
         //freqList = [440, 466, 493, 523, 554, 587, 622, 659, 698, 739, 783, 830]
         
         //changes the note display
-       /* Note.text = noteNames[count]
+        Note.text = noteNames[count]
+        Note.textAlignment = .Center
         //displayFreq(count)
         
         Note?.font = UIFont(name: "Hiragino Sans", size: 35)
         Note?.font = UIFont.systemFontOfSize(35, weight: UIFontWeightThin)
-        
+        /*
         //make it look like a button
         //blackBox?.layer.borderWidth = 3
         //blackBox?.layer.borderColor = UIColor.blueColor().CGColor

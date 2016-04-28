@@ -455,17 +455,33 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Right_Arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="xfy-KY-2OR">
+                                <rect key="frame" x="126" y="15" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="g8j-eu-zix"/>
+                                    <constraint firstAttribute="width" constant="60" id="ncc-m6-kNb"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsQ-Tz-U2N">
+                                <rect key="frame" x="68" y="51" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xfy-KY-2OR" firstAttribute="leading" secondItem="KoI-TS-6pR" secondAttribute="trailing" constant="8" id="41T-hM-YZ5"/>
                             <constraint firstItem="KoI-TS-6pR" firstAttribute="centerY" secondItem="qdo-RO-buh" secondAttribute="centerY" id="584-HT-AAo"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4Q4-CY-dL7" secondAttribute="trailing" constant="120" id="6W3-NB-2K4"/>
+                            <constraint firstItem="xfy-KY-2OR" firstAttribute="leading" secondItem="KoI-TS-6pR" secondAttribute="trailing" constant="16" id="78T-OG-bhc"/>
                             <constraint firstItem="CgB-jx-9Ee" firstAttribute="leading" secondItem="qdo-RO-buh" secondAttribute="leadingMargin" constant="1" id="AeW-d1-QAq"/>
                             <constraint firstItem="CgB-jx-9Ee" firstAttribute="leading" secondItem="qdo-RO-buh" secondAttribute="leadingMargin" constant="10" id="FoY-5C-JOV"/>
                             <constraint firstItem="CgB-jx-9Ee" firstAttribute="leading" secondItem="qdo-RO-buh" secondAttribute="leadingMargin" constant="10" id="Gjl-fT-7kT"/>
                             <constraint firstItem="kQ0-eR-AMr" firstAttribute="centerX" secondItem="qdo-RO-buh" secondAttribute="centerX" id="MvD-KX-i6s"/>
                             <constraint firstItem="KoI-TS-6pR" firstAttribute="leading" secondItem="CgB-jx-9Ee" secondAttribute="trailing" constant="8" id="Rbo-aM-CeN"/>
                             <constraint firstItem="4Q4-CY-dL7" firstAttribute="leading" secondItem="kQ0-eR-AMr" secondAttribute="trailing" constant="2" id="T9w-OM-Znu"/>
+                            <constraint firstItem="xfy-KY-2OR" firstAttribute="centerY" secondItem="qdo-RO-buh" secondAttribute="centerY" id="dOb-QT-xZf"/>
                             <constraint firstItem="CgB-jx-9Ee" firstAttribute="centerY" secondItem="qdo-RO-buh" secondAttribute="centerY" id="hF9-0O-Gj6"/>
                             <constraint firstItem="kQ0-eR-AMr" firstAttribute="top" secondItem="iRG-99-Srv" secondAttribute="bottom" constant="3" id="hRc-zd-DfM"/>
                             <constraint firstItem="4Q4-CY-dL7" firstAttribute="leading" secondItem="iRG-99-Srv" secondAttribute="trailing" constant="25" id="jQ9-ja-A6l"/>
@@ -476,13 +492,17 @@
                             <mask key="constraints">
                                 <exclude reference="AeW-d1-QAq"/>
                                 <exclude reference="Gjl-fT-7kT"/>
+                                <exclude reference="41T-hM-YZ5"/>
                                 <exclude reference="zyB-JT-SSk"/>
                                 <exclude reference="MvD-KX-i6s"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="Next" destination="xfy-KY-2OR" id="s2h-CR-ckI"/>
+                        <outlet property="Note" destination="KoI-TS-6pR" id="fsB-Jp-iuz"/>
                         <outlet property="Prev" destination="CgB-jx-9Ee" id="n1P-vR-ygo"/>
+                        <outlet property="playing" destination="gsQ-Tz-U2N" id="4rO-St-L0V"/>
                         <outlet property="tempoStepper" destination="kQ0-eR-AMr" id="obo-zJ-17j"/>
                         <outlet property="tempoTextField" destination="iRG-99-Srv" id="upB-B9-aS9"/>
                     </connections>
