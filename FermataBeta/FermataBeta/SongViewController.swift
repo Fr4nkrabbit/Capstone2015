@@ -323,7 +323,7 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
     func loadwebview(){
         let index1 = MidiArg.startIndex.advancedBy(MidiArg.characters.count-1)
         let substring1 = MidiArg.substringToIndex(index1)
-        let js = "parseMidi('\(substring1)')" as String
+        let js = "stringParseMidi('\(substring1)')" as String
         theWebView?.evaluateJavaScript(js,completionHandler: nil)
     }
     
@@ -410,10 +410,11 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
         
         if(callback=="start"){
             //passes the Midi file to javasript
-            
+            print("started")
             let index1 = MidiArg.startIndex.advancedBy(MidiArg.characters.count-1)
             let substring1 = MidiArg.substringToIndex(index1)
-            let js = "parseMidi('\(substring1)')" as String
+            let js = "stringParseMidi('\(substring1)')" as String
+            print(js)
             theWebView!.evaluateJavaScript(js,completionHandler: nil)
             
         }else if(callback=="measures"){

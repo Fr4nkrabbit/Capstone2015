@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FermataBeta/BackTableVC.swift"
-            timestampString = "483520057.456461"
+            timestampString = "483520546.126661"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "maskRoundedImage(_:radius:)"
             landmarkType = "5">
          </BreakpointContent>
