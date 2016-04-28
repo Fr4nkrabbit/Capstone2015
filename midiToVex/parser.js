@@ -25,7 +25,7 @@ function stringParseMidi(s)
 	var jzzmf=JZZ.MidiFile.fromBase64(s)
 	parseMidi(jzzmf)
 }
-	
+
 function parseMidi(s)
 {
 
@@ -46,9 +46,9 @@ function parseMidi(s)
 	console.log(instruments)
 
 	parsedEvents = events
-	
+
 	if(instruments.length==1)
-		createSheetMusic(instruments[0])
+		createSheetMusic([instruments[0]])
 	else
 	{
 		instlister()
@@ -56,24 +56,30 @@ function parseMidi(s)
 	}
 }
 
-function createSheetMusic(instrument)
+function createSheetMusic(instruments)
 {
+	var m=[]
 	if(parsedEvents==undefined)
 		return "no events"
+	for(i in instruments){
+		var notesToShow = combineNotes(parsedEvents.instruments[instruments[i]], parsedEvents.ppqn)
 
-	var notesToShow = combineNotes(parsedEvents.instruments[instrument], parsedEvents.ppqn)
+		//fix overlapping notes
+		notesToShow = forceMonophonic(notesToShow, parsedEvents.ppqn)
 
-	//fix overlapping notes
-	notesToShow = forceMonophonic(notesToShow, parsedEvents.ppqn)
+		//add in rests where there are gaps
+		notesToShow = createRest(notesToShow, parsedEvents.ppqn,parsedEvents.timesig)
 
-	//add in rests where there are gaps
-	notesToShow = createRest(notesToShow, parsedEvents.ppqn,parsedEvents.timesig)
+		//console.log(notesToShow)
+		var measures=populateMeasures(notesToShow,parsedEvents.ppqn,parsedEvents.keysig,parsedEvents.timesig)
 
-	//console.log(notesToShow)
-	var measures=populateMeasures(notesToShow,parsedEvents.ppqn,parsedEvents.keysig,parsedEvents.timesig)
+		console.log(measures)
+		parsedEvents[instruments[i]]=measures
+		m[instruments[i]]={measures: measures, clef: CLEF}
 
-	console.log(measures)
-	drawSheets(measures)
+	}
+	TO_DRAW=m
+	drawSheets(m)
 }
 
         //takes a midi file that has been parsed into a 64 bit string and generates sheet music
@@ -119,13 +125,13 @@ function gatherEvents(arg)
 {
 	var instruments = {}
 	var events = {}
-	
+
 	events.notes = []
 	events.tempo = []
 	events.keysig = []
 	events.timesig = []
 	events.ppqn = globalppqn
-	
+
 	var lasttime = 0;
 	var hitnote = false;
 	var title;
@@ -152,7 +158,7 @@ function gatherEvents(arg)
 			events.notes=[]
 			hitnote=false
 		}
-		
+
 		lasttime=parseInt(lts[0]);
 
 		if(parseInt(lts[1]/10) == 9)
@@ -173,7 +179,7 @@ function gatherEvents(arg)
 			//console.log(title)
 		}
 	}
-	
+
 	if(hitnote)
 	{
 		console.log('title is '); console.log(title)
@@ -185,7 +191,7 @@ function gatherEvents(arg)
 		//events.notes=[]
 		hitnote=false
 	}
-	
+
 	events.instruments=instruments
 	return events
 }
@@ -194,7 +200,6 @@ function gatherEvents(arg)
 function combineNotes(notes,ppqn)
 {
 	var combined=[]
-
 	//go though and combine the note start and stops
 	for (item = 0; item < notes.length; item++)
 	{
@@ -262,7 +267,7 @@ function createRest(notes,ppqn,timesig)
 
 		var noteDec = ((notes[note].start- lasttime)/ppqn) / 4
 		//if (noteDec == 0) console.log('createRest is trying to push 0')
-		
+
 		//if (lasttime - notes[note].start <= -10)
 		if (notes[note].start - lasttime > 0 && noteDec > 0)
 		{
@@ -274,7 +279,7 @@ function createRest(notes,ppqn,timesig)
 			note:	noteDec
 			})
 		}
-		
+
 		notesWithRest.push(notes[note])
 		lasttime=notes[note].finish
 
@@ -292,7 +297,7 @@ function createRest(notes,ppqn,timesig)
 	{
 		var startT = lasttime
 		var finishT = lasttime + ((ppqn * 4) - trailingRest)
-		
+
 		//if the last note didn't end the measure, insert a rest
 		notesWithRest.push({
 			start:	startT,
@@ -314,6 +319,10 @@ function createRest(notes,ppqn,timesig)
 //of notes that fit into measures
 function populateMeasures(notes2,ppqn,keysig,timesig)
 {
+
+	var averageNotePitch=0
+	var counter=0
+
 	var laststart = -1
 	var lastfinish = 0
 	console.log(ppqn)
@@ -323,11 +332,14 @@ function populateMeasures(notes2,ppqn,keysig,timesig)
 	var holder
 	var measures = []
 	var meas
+
+
+
 	function newMeas()
 	{
 		meas = {m: []}
 
-		if(keysig[0]&&lastfinish==parseInt(keysig[0][0])) 
+		if(keysig[0]&&lastfinish==parseInt(keysig[0][0]))
 		{
 			meas.key=keysig[0][4]
 			keysig=keysig.slice(1)
@@ -356,6 +368,10 @@ function populateMeasures(notes2,ppqn,keysig,timesig)
 	//populate measures
 	for (noter in notes2)
 	{
+		if(parseInt(notes2[noter].pitch,16)!=-1){
+			averageNotePitch+=parseInt(notes2[noter].pitch,16)
+			counter++
+		}
 		if(notes2[noter].start >= ppqmeas)
 		{
 			//adds a measures if the note we are about to look at is in another measure
@@ -402,5 +418,8 @@ function populateMeasures(notes2,ppqn,keysig,timesig)
 
 	//console.log("pushing last measure")
 	measures.push(meas)
+	averageNotePitch/=counter
+	if(averageNotePitch<60)
+		CLEF="bass"
 	return measures
 }
