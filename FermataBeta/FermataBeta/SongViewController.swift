@@ -93,14 +93,14 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
         let rightArrowView = UIImageView(image: rightImage!)
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         let screenWidth = screenSize.width * 0.5
-        let rightWidth = screenWidth + 50+40
+        let rightWidth = screenWidth + 50
         rightArrowView.frame = CGRect(x: rightWidth, y: 15, width: 47, height: 26)
         view.addSubview(rightArrowView)
         
         let leftArrowName = "Left_Arrow.png"
         let leftImage = UIImage(named: leftArrowName)
         let leftArrowView = UIImageView(image: leftImage!)
-        let leftWidth = screenWidth - 90-40
+        let leftWidth = screenWidth - 90
         leftArrowView.frame = CGRect(x: leftWidth, y: 15, width: 47, height: 26)
         view.addSubview(leftArrowView)
         
@@ -143,14 +143,14 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
         let rightArrowView = UIImageView(image: rightImage!)
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         let screenWidth = screenSize.width * 0.5
-        let rightWidth = screenWidth + 50
+        let rightWidth = screenWidth + 50 + 40
         rightArrowView.frame = CGRect(x: rightWidth, y: 15, width: 47, height: 26)
         view.addSubview(rightArrowView)
         
-        let leftArrowName = "Left_Arrow.png"
+        let leftArrowName = "DoubleArrowLeft"
         let leftImage = UIImage(named: leftArrowName)
         let leftArrowView = UIImageView(image: leftImage!)
-        let leftWidth = screenWidth - 90
+        let leftWidth = screenWidth - 90 - 40
         leftArrowView.frame = CGRect(x: leftWidth, y:  15, width: 47, height: 26)
         view.addSubview(leftArrowView)
         

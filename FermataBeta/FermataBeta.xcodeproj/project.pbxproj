@@ -40,6 +40,8 @@
 		DB9AEA9B1BF6D6AC00506C24 /* FermataBetaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9AEA9A1BF6D6AC00506C24 /* FermataBetaUITests.swift */; };
 		DB9DB3DC1CD1EDFC001537E0 /* defaultPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = DB9DB3DB1CD1EDFC001537E0 /* defaultPhoto.png */; };
 		DB9DB3DE1CD28A9A001537E0 /* SplashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = DB9DB3DD1CD28A9A001537E0 /* SplashScreen.png */; };
+		DB9DB3E11CD2A1D1001537E0 /* DoubleArrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = DB9DB3DF1CD2A1D1001537E0 /* DoubleArrowLeft.png */; };
+		DB9DB3E21CD2A1D1001537E0 /* DoubleArrowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = DB9DB3E01CD2A1D1001537E0 /* DoubleArrowRight.png */; };
 		DBB53C891CA87BB000403D6E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB53C871CA87BB000403D6E /* FBSDKCoreKit.framework */; };
 		DBB53C8A1CA87BB000403D6E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB53C881CA87BB000403D6E /* FBSDKLoginKit.framework */; };
 		DBE44B091CCEAAA700841F86 /* ajax.js in Resources */ = {isa = PBXBuildFile; fileRef = DBE44AFE1CCEAAA700841F86 /* ajax.js */; };
@@ -117,6 +119,8 @@
 		DB9AEA9C1BF6D6AC00506C24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB9DB3DB1CD1EDFC001537E0 /* defaultPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultPhoto.png; sourceTree = "<group>"; };
 		DB9DB3DD1CD28A9A001537E0 /* SplashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreen.png; sourceTree = "<group>"; };
+		DB9DB3DF1CD2A1D1001537E0 /* DoubleArrowLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoubleArrowLeft.png; sourceTree = "<group>"; };
+		DB9DB3E01CD2A1D1001537E0 /* DoubleArrowRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoubleArrowRight.png; sourceTree = "<group>"; };
 		DBB53C871CA87BB000403D6E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		DBB53C881CA87BB000403D6E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		DBE44AFE1CCEAAA700841F86 /* ajax.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ajax.js; sourceTree = "<group>"; };
@@ -250,6 +254,8 @@
 				DB9DB3DB1CD1EDFC001537E0 /* defaultPhoto.png */,
 				DB8415451CD13CCE0048B016 /* Left_Arrow.png */,
 				DB8415461CD13CCE0048B016 /* Right_Arrow.png */,
+				DB9DB3DF1CD2A1D1001537E0 /* DoubleArrowLeft.png */,
+				DB9DB3E01CD2A1D1001537E0 /* DoubleArrowRight.png */,
 				DB8415471CD13CCE0048B016 /* Stop_Icon.png */,
 			);
 			name = Images;
@@ -463,7 +469,9 @@
 				DB9DB3DC1CD1EDFC001537E0 /* defaultPhoto.png in Resources */,
 				DBF794A31C84A57200AB5D7D /* metronomeClick.wav in Resources */,
 				DB3C93C91C6925050032556B /* 6Ds.wav in Resources */,
+				DB9DB3E21CD2A1D1001537E0 /* DoubleArrowRight.png in Resources */,
 				DB3C93C41C6925050032556B /* 1As.wav in Resources */,
+				DB9DB3E11CD2A1D1001537E0 /* DoubleArrowLeft.png in Resources */,
 				DB3C93CA1C6925050032556B /* 7E.wav in Resources */,
 				DB9AEA801BF6D6AC00506C24 /* Main.storyboard in Resources */,
 			);
