@@ -103,7 +103,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Songs" id="4j9-YL-JAB">
-                        <barButtonItem key="leftBarButtonItem" image="Rigt" id="dq9-4e-XA6">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="dq9-4e-XA6">
                             <connections>
                                 <action selector="revealTable:" destination="Q7O-7o-uTA" id="hhd-S3-4do"/>
                             </connections>
@@ -308,32 +308,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ofn-qp-WDM">
-                                <rect key="frame" x="177" y="98" width="201" height="154"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="120"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="240" translatesAutoresizingMaskIntoConstraints="NO" id="R24-gg-y9F">
-                                <rect key="frame" x="230" y="349" width="94" height="29"/>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="240" translatesAutoresizingMaskIntoConstraints="NO" id="R24-gg-y9F">
+                                <rect key="frame" x="230" y="387" width="94" height="29"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <action selector="tempoChanged:" destination="341-73-xpx" eventType="valueChanged" id="dDn-Oe-bra"/>
                                 </connections>
                             </stepper>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61g-Yh-VX9">
-                                <rect key="frame" x="228" y="389" width="100" height="100"/>
-                                <state key="normal" image="Play"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61g-Yh-VX9">
+                                <rect key="frame" x="227" y="429" width="100" height="100"/>
+                                <state key="normal" image="Right_Arrow.png"/>
                                 <connections>
                                     <action selector="toggleMetronome:" destination="341-73-xpx" eventType="touchUpInside" id="IPO-MP-u8U"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="        " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5e2-DG-m2H">
-                                <rect key="frame" x="263" y="281" width="36" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="        " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5e2-DG-m2H">
+                                <rect key="frame" x="259" y="358" width="36" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="METRO2" translatesAutoresizingMaskIntoConstraints="NO" id="GQg-lf-n5b">
+                                <rect key="frame" x="230" y="72" width="93" height="98"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Metronome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZi-Is-6Qv">
+                                <rect key="frame" x="227" y="537" width="101" height="21"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="35"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ofn-qp-WDM">
+                                <rect key="frame" x="177" y="196" width="201" height="154"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="120"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="R24-gg-y9F" firstAttribute="centerX" secondItem="7FK-VO-fbW" secondAttribute="centerX" id="1nV-52-2M7"/>
+                            <constraint firstItem="R24-gg-y9F" firstAttribute="top" secondItem="5e2-DG-m2H" secondAttribute="bottom" constant="8" id="Ak5-IE-3FE"/>
+                            <constraint firstItem="iZi-Is-6Qv" firstAttribute="centerX" secondItem="7FK-VO-fbW" secondAttribute="centerX" id="J4k-Ce-wcQ"/>
+                            <constraint firstItem="61g-Yh-VX9" firstAttribute="top" secondItem="R24-gg-y9F" secondAttribute="bottom" constant="13" id="NBO-lg-eVG"/>
+                            <constraint firstItem="BSN-jc-coH" firstAttribute="top" secondItem="iZi-Is-6Qv" secondAttribute="bottom" constant="12" id="NeI-0G-Rgv"/>
+                            <constraint firstItem="5e2-DG-m2H" firstAttribute="top" secondItem="ofn-qp-WDM" secondAttribute="bottom" constant="8" id="OUf-oq-ZMx"/>
+                            <constraint firstItem="5e2-DG-m2H" firstAttribute="centerX" secondItem="7FK-VO-fbW" secondAttribute="centerX" id="RV9-xT-V3M"/>
+                            <constraint firstItem="GQg-lf-n5b" firstAttribute="centerX" secondItem="7FK-VO-fbW" secondAttribute="centerX" id="UPJ-bb-hB1"/>
+                            <constraint firstItem="61g-Yh-VX9" firstAttribute="centerX" secondItem="7FK-VO-fbW" secondAttribute="centerX" id="gKe-G3-i29"/>
+                            <constraint firstItem="ofn-qp-WDM" firstAttribute="centerX" secondItem="7FK-VO-fbW" secondAttribute="centerX" id="oKC-kS-0Od"/>
+                            <constraint firstItem="iZi-Is-6Qv" firstAttribute="top" secondItem="61g-Yh-VX9" secondAttribute="bottom" constant="300" id="sdP-sc-tcw"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="s4P-Ob-8pM">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="bjv-ea-Vyz"/>
@@ -366,7 +390,7 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zg9-4a-vGL">
                                 <rect key="frame" x="264" y="277" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -383,17 +407,29 @@
                                     <action selector="PlayStop:" destination="X2l-VR-gKW" eventType="touchUpInside" id="cYg-eO-AO1"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="FORK2" translatesAutoresizingMaskIntoConstraints="NO" id="Ked-eE-D7G">
+                                <rect key="frame" x="182" y="114" width="93" height="98"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tuner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVD-Yb-Kc7">
+                                <rect key="frame" x="276" y="527" width="44" height="21"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zg9-4a-vGL" firstAttribute="centerY" secondItem="6y9-O2-FqG" secondAttribute="centerY" id="10n-zH-9Qy"/>
                             <constraint firstItem="zg9-4a-vGL" firstAttribute="leading" secondItem="W57-tp-ufm" secondAttribute="trailing" constant="50" id="6aS-8d-nvJ"/>
                             <constraint firstItem="oBZ-6Y-RDm" firstAttribute="top" secondItem="zg9-4a-vGL" secondAttribute="bottom" constant="100" id="HZt-lE-th5"/>
+                            <constraint firstItem="EZn-3x-e5G" firstAttribute="top" secondItem="lVD-Yb-Kc7" secondAttribute="bottom" constant="12" id="PJ3-Ro-upJ"/>
                             <constraint firstItem="oBZ-6Y-RDm" firstAttribute="centerX" secondItem="6y9-O2-FqG" secondAttribute="centerX" id="XvY-ww-z0Q"/>
                             <constraint firstItem="z7B-Ux-xRO" firstAttribute="leading" secondItem="zg9-4a-vGL" secondAttribute="trailing" constant="50" id="e0R-Hs-9yA"/>
+                            <constraint firstItem="lVD-Yb-Kc7" firstAttribute="centerX" secondItem="6y9-O2-FqG" secondAttribute="centerX" id="gR8-ma-1O1"/>
                             <constraint firstItem="z7B-Ux-xRO" firstAttribute="centerY" secondItem="6y9-O2-FqG" secondAttribute="centerY" id="jQ3-8I-B6y"/>
                             <constraint firstItem="zg9-4a-vGL" firstAttribute="centerX" secondItem="6y9-O2-FqG" secondAttribute="centerX" id="jiR-Mi-Hxg"/>
                             <constraint firstItem="W57-tp-ufm" firstAttribute="centerY" secondItem="6y9-O2-FqG" secondAttribute="centerY" id="x0b-nJ-ruf"/>
+                            <constraint firstItem="Ked-eE-D7G" firstAttribute="centerX" secondItem="6y9-O2-FqG" secondAttribute="centerX" id="yXo-3l-fkJ"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -673,14 +709,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S9o-Tn-w55" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2933" y="458"/>
+            <point key="canvasLocation" x="2722" y="761"/>
         </scene>
     </scenes>
     <resources>
+        <image name="FORK2" width="128" height="128"/>
         <image name="Left_Arrow.png" width="128" height="128"/>
+        <image name="METRO2" width="128" height="128"/>
         <image name="Play" width="100" height="100"/>
         <image name="Right_Arrow.png" width="128" height="128"/>
-        <image name="Rigt" width="22" height="22"/>
         <image name="facebook" width="2000" height="2000"/>
         <image name="facebook.png" width="2000" height="2000"/>
         <image name="menu" width="22" height="22"/>

@@ -56,7 +56,7 @@ class MetronomeViewController: UIViewController {
             
             // Change the toggle metronome button's image to "Play" and tint
             // color to green.
-            toggleMetronomeButton.setImage(UIImage(named: "Play"), forState: .Normal)
+            toggleMetronomeButton.setImage(UIImage(named: "Right_Arrow.png"), forState: .Normal)
             toggleMetronomeButton.tintColor = UIColor.greenColor()
             
             // Enable the metronome stepper.
@@ -80,7 +80,7 @@ class MetronomeViewController: UIViewController {
             
             // Change the toggle metronome button's image to "Stop" and tint
             // color to red.
-            toggleMetronomeButton.setImage(UIImage(named: "Stop"), forState: .Normal)
+            toggleMetronomeButton.setImage(UIImage(named: "Stop_Icon.png"), forState: .Normal)
             toggleMetronomeButton.tintColor = UIColor.redColor()
             
             // Disable the metronome stepper.
@@ -126,6 +126,9 @@ class MetronomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor(red: 103/256, green: 112/256, blue: 119/256, alpha: 1)
+        
         
         self.navigationItem.title = "Metronome"
         

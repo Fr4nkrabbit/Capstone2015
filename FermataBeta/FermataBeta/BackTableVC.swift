@@ -25,7 +25,7 @@ class BackTableVC: UITableViewController {
         MenuItems = ["cell","Login", "Songs", "Metronome", "Tuner"]
         MenuPictures = ["nil","DUDE2","NOTE2","METRO2","FORK2"]
         self.revealViewController().rearViewRevealWidth = self.view.frame.width - 100
-        self.tableView.backgroundColor = UIColor(red: 25/256, green: 28/256, blue: 39/256, alpha: 1)
+        self.tableView.backgroundColor = UIColor(red: 37/256, green: 40/256, blue: 57/256, alpha: 1)
         //self.automaticallyAdjustsScrollViewInsets = false
         
     }
@@ -73,13 +73,13 @@ class BackTableVC: UITableViewController {
         block.separatorInset = UIEdgeInsetsZero;
         let row = indexPath.row
         if row == 0 {
-            /*block.textLabel?.text = " \(firstName) \(lastName)"
+            block.textLabel?.text = " \(firstName) \(lastName)"
             let image: UIImage = UIImage(data: NSData(contentsOfURL: NSURL(string: imageURL)!)!)!
             let newImage = UIImageView(image: image)
             newImage.layer.cornerRadius = newImage.frame.size.width/2
             newImage.clipsToBounds = true
             
-            block.imageView?.image = newImage.image*/
+            block.imageView?.image = newImage.image
             
         }
         //fills out the rest of the menu
@@ -94,12 +94,7 @@ class BackTableVC: UITableViewController {
         block.textLabel?.font = UIFont(name: "Hiragino Sans", size: 55)
         block.textLabel?.font = UIFont.systemFontOfSize(40, weight: UIFontWeightThin)
         block.textLabel?.textColor = UIColor.whiteColor()
-        block.backgroundColor = UIColor(red: 25/256, green: 28/256, blue: 39/256, alpha: 0.66)
-
-        //block.backgroundColor = UIColorFromRGB(#0e1d53)
-        //block.contentView.backgroundColor = UIColor(red: 25/256, green: 28/256, blue: 39/256, alpha: 0.66)
-        //block.backgroundColor = UIColor(red: 14/256, green: 29/256, blue: 83/256, alpha: 1.0)
-        //block.contentView.backgroundColor = UIColor(red: 14/256, green: 29/256, blue: 83/256, alpha: 1.0)
+        block.backgroundColor = UIColor(red: 37/256, green: 40/256, blue: 57/256, alpha: 1)
         
         print("are we logged in?")
         

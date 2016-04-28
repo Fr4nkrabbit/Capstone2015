@@ -22,8 +22,7 @@ class InitLogin: UIViewController, FBSDKLoginButtonDelegate
     {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor(red: 25/256, green: 28/256, blue: 39/256, alpha: 0.66)
-        //UIColor(red: 0, green: 33/256, blue: 66/256, alpha: 1)//UIColor(red: 0, green: 33/256, blue: 66/256, alpha: 1)
+        self.view.backgroundColor = UIColor(red: 103/256, green: 112/256, blue: 119/256, alpha: 1)
         
         facebookImage.layer.cornerRadius = facebookImage.frame.size.width/2
         facebookImage.clipsToBounds = true

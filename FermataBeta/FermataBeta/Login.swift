@@ -84,7 +84,7 @@ class Login: UIViewController, FBSDKLoginButtonDelegate {
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        self.view.backgroundColor = UIColor(red: 25/256, green: 28/256, blue: 39/256, alpha: 0.66)//UIColor(red: 0, green: 33/256, blue: 66/256, alpha: 1)
+        self.view.backgroundColor = UIColor(red: 103/256, green: 112/256, blue: 119/256, alpha: 1)
         
         lblName.font = UIFont(name: "Hiragino Sans", size: 55)
         lblName.font = UIFont.systemFontOfSize(40, weight: UIFontWeightThin)

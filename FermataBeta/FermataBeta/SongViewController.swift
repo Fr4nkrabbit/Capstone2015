@@ -338,7 +338,7 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
         let screenHeight = screenSize.height * 0.8
         let screenWidth = screenSize.width
         
-        let rect = CGRect(x: 0, y: 33, width: screenWidth, height: screenHeight)
+        let rect = CGRect(x: 0, y: 38, width: screenWidth, height: screenHeight)
         
         /////////////////////////////////////////
         //kyles' stuff

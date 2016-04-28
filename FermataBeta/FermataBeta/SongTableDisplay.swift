@@ -176,16 +176,18 @@ class SongDisplay: UIViewController, UITableViewDataSource, UITableViewDelegate,
         
         cell.textLabel?.font = UIFont(name: "Hiragino Sans", size: 35)
         cell.textLabel?.font = UIFont.systemFontOfSize(35, weight: UIFontWeightThin)
-        cell.textLabel?.backgroundColor = UIColor(red: 25/256, green: 28/256, blue: 39/256, alpha: 0.66)
+        cell.textLabel?.backgroundColor = UIColor(red: 103/256, green: 112/256, blue: 119/256, alpha: 1)
         cell.textLabel?.textColor = UIColor.whiteColor()
         cell.layer.borderColor = UIColor.lightGrayColor().CGColor
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        //let color = UIColor(red: 103/256, green: 112/256, blue: 119/256, alpha: 1)
+        //cell.selectionStyle = UITableViewCellSelectionStyle.Gray
+        //cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         
         //background color to be
         
         //UIColor(red: 25/256, green: 28/256, blue: 39/256, alpha: 0.66)
         
-        cell.contentView.backgroundColor = UIColor(red: 0, green: 33/256, blue: 66/256, alpha: 1)
+        cell.contentView.backgroundColor = UIColor(red: 103/256, green: 112/256, blue: 119/256, alpha: 1)
         
         if(searchActive){
             cell.textLabel?.text = filtered[indexPath.row]

@@ -17,6 +17,8 @@ function instlister()
 }
 function instclicked() {
     
+ 
+    
     //document.querySelector("#tester1").innerText="string"
     string=[]//=document.querySelector('input:checked').value
     //document.querySelector("#tester1").innerText=string

@@ -250,7 +250,7 @@
                   moduleName = "FermataBeta"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/youngliu/Documents/EECS_581/FermataBeta/FermataBeta/AppDelegate.swift"
-                  timestampString = "483305049.212325"
+                  timestampString = "483562685.557211"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "13"
@@ -261,16 +261,16 @@
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "FermataBeta.AppDelegate.window.setter : Swift.Optional&lt;__ObjC.UIWindow&gt;"
+                  symbolName = "FermataBeta.AppDelegate.init () -&gt; FermataBeta.AppDelegate"
                   moduleName = "FermataBeta"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/youngliu/Documents/EECS_581/FermataBeta/FermataBeta/AppDelegate.swift"
-                  timestampString = "483305049.212489"
+                  timestampString = "483562685.557733"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "13"
                   endingLineNumber = "13"
-                  offsetFromSymbolStart = "76">
+                  offsetFromSymbolStart = "29">
                </Location>
             </Locations>
          </BreakpointContent>

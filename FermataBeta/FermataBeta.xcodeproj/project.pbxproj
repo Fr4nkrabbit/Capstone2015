@@ -39,6 +39,7 @@
 		DB9AEA901BF6D6AC00506C24 /* FermataBetaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9AEA8F1BF6D6AC00506C24 /* FermataBetaTests.swift */; };
 		DB9AEA9B1BF6D6AC00506C24 /* FermataBetaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9AEA9A1BF6D6AC00506C24 /* FermataBetaUITests.swift */; };
 		DB9DB3DC1CD1EDFC001537E0 /* defaultPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = DB9DB3DB1CD1EDFC001537E0 /* defaultPhoto.png */; };
+		DB9DB3DE1CD28A9A001537E0 /* SplashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = DB9DB3DD1CD28A9A001537E0 /* SplashScreen.png */; };
 		DBB53C891CA87BB000403D6E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB53C871CA87BB000403D6E /* FBSDKCoreKit.framework */; };
 		DBB53C8A1CA87BB000403D6E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB53C881CA87BB000403D6E /* FBSDKLoginKit.framework */; };
 		DBE44B091CCEAAA700841F86 /* ajax.js in Resources */ = {isa = PBXBuildFile; fileRef = DBE44AFE1CCEAAA700841F86 /* ajax.js */; };
@@ -115,6 +116,7 @@
 		DB9AEA9A1BF6D6AC00506C24 /* FermataBetaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FermataBetaUITests.swift; sourceTree = "<group>"; };
 		DB9AEA9C1BF6D6AC00506C24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB9DB3DB1CD1EDFC001537E0 /* defaultPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultPhoto.png; sourceTree = "<group>"; };
+		DB9DB3DD1CD28A9A001537E0 /* SplashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreen.png; sourceTree = "<group>"; };
 		DBB53C871CA87BB000403D6E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		DBB53C881CA87BB000403D6E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		DBE44AFE1CCEAAA700841F86 /* ajax.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ajax.js; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 		DB63260E1CC5A32000D81E71 /* MenuIcons */ = {
 			isa = PBXGroup;
 			children = (
+				DB9DB3DD1CD28A9A001537E0 /* SplashScreen.png */,
 			);
 			name = MenuIcons;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				DBE44B0D1CCEAAA700841F86 /* JZZ.Midi.js in Resources */,
 				DB3C93C51C6925050032556B /* 2B.wav in Resources */,
 				DBE44B0B1CCEAAA700841F86 /* instruments.js in Resources */,
+				DB9DB3DE1CD28A9A001537E0 /* SplashScreen.png in Resources */,
 				DBE44B121CCEAAA700841F86 /* vexflow-debug.js in Resources */,
 				DB8415481CD13CCE0048B016 /* Left_Arrow.png in Resources */,
 				DBE44B0C1CCEAAA700841F86 /* inter.js in Resources */,

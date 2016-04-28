@@ -58,6 +58,8 @@ function parseMidi(s)
 
 function createSheetMusic(instruments)
 {
+    document.body.style.backgroundColor = "#ffffff"
+    
     var m=[]
     if(parsedEvents==undefined)
         return "no events"

@@ -22,7 +22,7 @@ class Tuner: UIViewController, UIGestureRecognizerDelegate {
     
     @IBAction func PlayStop(sender: UIButton) {
         sender.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        sender.titleLabel?.font =  UIFont(name: "Hiragino Sans", size: 35)
+        sender.titleLabel?.font =  UIFont(name: "Hiragino Sans", size: 60)
         sender.titleLabel?.font = UIFont.systemFontOfSize(35, weight: UIFontWeightThin)
         sender.titleLabel?.textColor = UIColor.whiteColor()
         if (!beingPlayed){
@@ -130,7 +130,7 @@ class Tuner: UIViewController, UIGestureRecognizerDelegate {
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        view.backgroundColor = UIColor(red: 25/256, green: 28/256, blue: 39/256, alpha: 0.66)
+        view.backgroundColor = UIColor(red: 103/256, green: 112/256, blue: 119/256, alpha: 1)
         
         //initializes all the note files and the displayed note names
         noteList = ["0A", "1As", "2B", "3C", "4Cs", "5D", "6Ds", "7E", "8F", "9Fs", "10G", "11Gs"]
