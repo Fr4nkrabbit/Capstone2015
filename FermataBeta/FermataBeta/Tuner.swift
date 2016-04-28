@@ -19,13 +19,24 @@ class Tuner: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var Prev: UIImageView!
     
     @IBOutlet weak var Note: UILabel!
-    /*@IBAction func PlayStop(sender: AnyObject) {
+    
+    @IBAction func PlayStop(sender: UIButton) {
+        sender.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        sender.titleLabel?.font =  UIFont(name: "Hiragino Sans", size: 35)
+        sender.titleLabel?.font = UIFont.systemFontOfSize(35, weight: UIFontWeightThin)
+        sender.titleLabel?.textColor = UIColor.whiteColor()
         if (!beingPlayed){
             playNote()
+            sender.setTitle("Stop", forState: .Normal)
+
         }else {
             stopNote()
+            sender.setTitle("Play", forState: .Normal)
+
         }
-    }*/
+        //sender.titleLabel?.font =  UIFont(name: "Hiragino Sans", size: 35)
+        //sender.titleLabel?.font = UIFont.systemFontOfSize(35, weight: UIFontWeightThin)
+    }
     /*@IBAction func UserButton(sender: UIButton) {
         if (!beingPlayed){
             sender.setTitle("Stop", forState: UIControlState.Normal)

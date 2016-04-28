@@ -23,11 +23,10 @@ class SongDisplay: UIViewController, UITableViewDataSource, UITableViewDelegate,
     }
     func swipe(){
         //allows the right wipe
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        //self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
     
     var searchActive : Bool = false
-    var data = ["San Francisco","New York","San Jose","Chicago","Los Angeles","Austin","Seattle"]
     var testData:[String] = []
     var filtered:[String] = []
     
@@ -95,15 +94,12 @@ class SongDisplay: UIViewController, UITableViewDataSource, UITableViewDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       // self.view.backgroundColor = UIColor(red:246, green:247, blue:235, alpha:1)
-        //self.view.backgroundColor = UIColor(red:(246/255), green:(247/255), blue: (235/255), alpha:1.0)
-        //self.view.backgroundColor = UIColor(netHex:0x1E1E1E)
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = Selector("revealToggle:")
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-        self.tableView.backgroundColor = UIColor(red: 25/256, green: 28/256, blue: 39/256, alpha: 0.66)
+        //self.tableView.backgroundColor = UIColor(red: 25/256, green: 28/256, blue: 39/256, alpha: 0.66)
         
         navigationController?.navigationBar.translucent = false
         navigationController?.navigationBar.backgroundColor = UIColor.lightGrayColor()
@@ -186,6 +182,8 @@ class SongDisplay: UIViewController, UITableViewDataSource, UITableViewDelegate,
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         
         //background color to be
+        
+        //UIColor(red: 25/256, green: 28/256, blue: 39/256, alpha: 0.66)
         
         cell.contentView.backgroundColor = UIColor(red: 0, green: 33/256, blue: 66/256, alpha: 1)
         

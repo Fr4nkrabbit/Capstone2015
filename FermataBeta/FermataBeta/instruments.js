@@ -8,7 +8,7 @@ for(num in parsedEvents.instruments)
 var identifyingName = '"' + num + '"'
 var displayName = num
 
-$("#instrumentlist")[0].innerHTML += '<input type=radio name=instrument value='+identifyingName+'>'+displayName+'<br>'
+$("#instrumentlist")[0].innerHTML += '<input type=checkbox name=instrument value='+identifyingName+'>'+displayName+'<br>'
 
 console.log($("#instrumentlist")[0].innerHTML)
 }

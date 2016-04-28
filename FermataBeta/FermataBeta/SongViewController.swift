@@ -26,6 +26,18 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
     var followBool = true
     
 
+    @IBAction func followSong(sender: AnyObject) {
+        if followBool{
+            print("getting hit yo")
+            basicFollow(globalTempo)
+        }
+        else {
+            print("ehhh")
+            stopFollow()
+        }
+        followBool = !followBool
+    }
+
     var theWebView:WKWebView?
 
     var instruments: String = ""
@@ -76,19 +88,19 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
         
         pageTurnButtonLoad()
     
-        let rightArrowName = "ArrowRight.png"
+        let rightArrowName = "Right_Arrow.png"
         let rightImage = UIImage(named: rightArrowName)
         let rightArrowView = UIImageView(image: rightImage!)
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         let screenWidth = screenSize.width * 0.5
-        let rightWidth = screenWidth + 50+25
+        let rightWidth = screenWidth + 50+40
         rightArrowView.frame = CGRect(x: rightWidth, y: 15, width: 47, height: 26)
         view.addSubview(rightArrowView)
         
-        let leftArrowName = "ArrowLeft.png"
+        let leftArrowName = "Left_Arrow.png"
         let leftImage = UIImage(named: leftArrowName)
         let leftArrowView = UIImageView(image: leftImage!)
-        let leftWidth = screenWidth - 90-25
+        let leftWidth = screenWidth - 90-40
         leftArrowView.frame = CGRect(x: leftWidth, y: 15, width: 47, height: 26)
         view.addSubview(leftArrowView)
         
@@ -125,21 +137,8 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
         
     }
     
-    func followAlong() {
-        print("yo kyle imma prove ya wrong")
-        if followBool{
-            print("getting hit yo")
-            basicFollow(globalTempo)
-        }
-        else {
-            print("ehhh")
-            stopFollow()
-        }
-        followBool = !followBool
-    }
-    
     func pageTurnButtonLoad(){
-        let rightArrowName = "ArrowRight.png"
+        let rightArrowName = "Right_Arrow.png"
         let rightImage = UIImage(named: rightArrowName)
         let rightArrowView = UIImageView(image: rightImage!)
         let screenSize: CGRect = UIScreen.mainScreen().bounds
@@ -148,7 +147,7 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
         rightArrowView.frame = CGRect(x: rightWidth, y: 15, width: 47, height: 26)
         view.addSubview(rightArrowView)
         
-        let leftArrowName = "ArrowLeft.png"
+        let leftArrowName = "Left_Arrow.png"
         let leftImage = UIImage(named: leftArrowName)
         let leftArrowView = UIImageView(image: leftImage!)
         let leftWidth = screenWidth - 90
@@ -326,9 +325,6 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
         let substring1 = MidiArg.substringToIndex(index1)
         let js = "parseMidi('\(substring1)')" as String
         theWebView?.evaluateJavaScript(js,completionHandler: nil)
-        
-        
-        
     }
     
     
@@ -339,10 +335,10 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
         
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         
-        let screenHeight = screenSize.height * 0.7
+        let screenHeight = screenSize.height * 0.8
         let screenWidth = screenSize.width
         
-        let rect = CGRect(x: 0, y: 87, width: screenWidth, height: screenHeight)
+        let rect = CGRect(x: 0, y: 33, width: screenWidth, height: screenHeight)
         
         /////////////////////////////////////////
         //kyles' stuff

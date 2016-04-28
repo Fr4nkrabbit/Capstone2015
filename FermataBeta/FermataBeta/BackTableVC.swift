@@ -7,21 +7,23 @@
 //
 
 import Foundation
+import QuartzCore
+import UIKit
 
 class BackTableVC: UITableViewController {
-    
+   
     var MenuItems = [String]()
     var MenuPictures = [String]()
-    /*var firstName=""
-    var lastName=""
-    var imageURL=""*/
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
     
     override func viewDidLoad() {
-        MenuItems = ["Profile","Login", "Songs", "Metronome", "Tuner"]
+        definesPresentationContext = true
+        
+        MenuItems = ["cell","Login", "Songs", "Metronome", "Tuner"]
         MenuPictures = ["nil","DUDE2","NOTE2","METRO2","FORK2"]
-        if loggedIn {
-            MenuItems[0] = "Welcome to Fermata Sheet Music, \(firstName) \(lastName)"
-        }
         self.revealViewController().rearViewRevealWidth = self.view.frame.width - 100
         self.tableView.backgroundColor = UIColor(red: 25/256, green: 28/256, blue: 39/256, alpha: 1)
         //self.automaticallyAdjustsScrollViewInsets = false
@@ -45,15 +47,50 @@ class BackTableVC: UITableViewController {
         }
     }
     
+    func maskRoundedImage(image: UIImage, radius: Float) -> UIImage {
+        var imageView: UIImageView = UIImageView(image: image)
+        var layer: CALayer = CALayer()
+        layer = imageView.layer
+        
+        layer.masksToBounds = true
+        layer.cornerRadius = CGFloat(radius)
+        
+        UIGraphicsBeginImageContext(imageView.bounds.size)
+        layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        var roundedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return roundedImage
+    }
+    
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         tableView.contentInset = UIEdgeInsetsZero;
-        //let cell = tableView.dequeueReusableCellWithIdentifier(MenuItems[indexPath.row=0], forIndexPath: indexPath) as UITableViewCell
         
         let block = tableView.dequeueReusableCellWithIdentifier(MenuItems[indexPath.row], forIndexPath: indexPath) as UITableViewCell
+        //let cell = tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell;
         
         block.separatorInset = UIEdgeInsetsZero;
+        let row = indexPath.row
+        if row == 0 {
+            /*block.textLabel?.text = " \(firstName) \(lastName)"
+            let image: UIImage = UIImage(data: NSData(contentsOfURL: NSURL(string: imageURL)!)!)!
+            let newImage = UIImageView(image: image)
+            newImage.layer.cornerRadius = newImage.frame.size.width/2
+            newImage.clipsToBounds = true
+            
+            block.imageView?.image = newImage.image*/
+            
+        }
+        //fills out the rest of the menu
+        else {
+            block.textLabel?.text = MenuItems[indexPath.row]
+            //Picture customization
+            let imageName = UIImage(named: MenuPictures[indexPath.row])
+            block.imageView?.image = imageName
+        }
+        
         //Text customizations
-        block.textLabel?.text = MenuItems[indexPath.row]
         block.textLabel?.font = UIFont(name: "Hiragino Sans", size: 55)
         block.textLabel?.font = UIFont.systemFontOfSize(40, weight: UIFontWeightThin)
         block.textLabel?.textColor = UIColor.whiteColor()
@@ -64,16 +101,7 @@ class BackTableVC: UITableViewController {
         //block.backgroundColor = UIColor(red: 14/256, green: 29/256, blue: 83/256, alpha: 1.0)
         //block.contentView.backgroundColor = UIColor(red: 14/256, green: 29/256, blue: 83/256, alpha: 1.0)
         
-        
-        //Picture customization
-        let imageName = UIImage(named: MenuPictures[indexPath.row])
-        block.imageView?.image = imageName
-        
         print("are we logged in?")
-        print(loggedIn)
-        if loggedIn {
-            block.imageView?.image = UIImage(data: NSData(contentsOfURL: NSURL(string: imageURL)!)!)
-        }
         
         return block
     }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DB1906211CB9AB1F00E0B92B /* SmartFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1906201CB9AB1F00E0B92B /* SmartFeatures.swift */; };
+		DB1AF8D61CD1BED6009F3502 /* InitLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1AF8D51CD1BED6009F3502 /* InitLogin.swift */; };
 		DB2E50D11CA76B9800C889EF /* songTableDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E50D01CA76B9800C889EF /* songTableDisplay.swift */; };
 		DB3C93C11C6925050032556B /* 0A.wav in Resources */ = {isa = PBXBuildFile; fileRef = DB3C93B51C6925050032556B /* 0A.wav */; };
 		DB3C93C21C6925050032556B /* 10G.wav in Resources */ = {isa = PBXBuildFile; fileRef = DB3C93B61C6925050032556B /* 10G.wav */; };
@@ -37,6 +38,7 @@
 		DB9AEA851BF6D6AC00506C24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB9AEA831BF6D6AC00506C24 /* LaunchScreen.storyboard */; };
 		DB9AEA901BF6D6AC00506C24 /* FermataBetaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9AEA8F1BF6D6AC00506C24 /* FermataBetaTests.swift */; };
 		DB9AEA9B1BF6D6AC00506C24 /* FermataBetaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9AEA9A1BF6D6AC00506C24 /* FermataBetaUITests.swift */; };
+		DB9DB3DC1CD1EDFC001537E0 /* defaultPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = DB9DB3DB1CD1EDFC001537E0 /* defaultPhoto.png */; };
 		DBB53C891CA87BB000403D6E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB53C871CA87BB000403D6E /* FBSDKCoreKit.framework */; };
 		DBB53C8A1CA87BB000403D6E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB53C881CA87BB000403D6E /* FBSDKLoginKit.framework */; };
 		DBE44B091CCEAAA700841F86 /* ajax.js in Resources */ = {isa = PBXBuildFile; fileRef = DBE44AFE1CCEAAA700841F86 /* ajax.js */; };
@@ -78,6 +80,7 @@
 
 /* Begin PBXFileReference section */
 		DB1906201CB9AB1F00E0B92B /* SmartFeatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmartFeatures.swift; sourceTree = "<group>"; };
+		DB1AF8D51CD1BED6009F3502 /* InitLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitLogin.swift; sourceTree = "<group>"; };
 		DB2E50D01CA76B9800C889EF /* songTableDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = songTableDisplay.swift; sourceTree = "<group>"; };
 		DB3C93B51C6925050032556B /* 0A.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0A.wav; sourceTree = "<group>"; };
 		DB3C93B61C6925050032556B /* 10G.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 10G.wav; sourceTree = "<group>"; };
@@ -111,6 +114,7 @@
 		DB9AEA961BF6D6AC00506C24 /* FermataBetaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FermataBetaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB9AEA9A1BF6D6AC00506C24 /* FermataBetaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FermataBetaUITests.swift; sourceTree = "<group>"; };
 		DB9AEA9C1BF6D6AC00506C24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB9DB3DB1CD1EDFC001537E0 /* defaultPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultPhoto.png; sourceTree = "<group>"; };
 		DBB53C871CA87BB000403D6E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		DBB53C881CA87BB000403D6E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		DBE44AFE1CCEAAA700841F86 /* ajax.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ajax.js; sourceTree = "<group>"; };
@@ -240,6 +244,7 @@
 		DB6326151CC5A4F700D81E71 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DB9DB3DB1CD1EDFC001537E0 /* defaultPhoto.png */,
 				DB8415451CD13CCE0048B016 /* Left_Arrow.png */,
 				DB8415461CD13CCE0048B016 /* Right_Arrow.png */,
 				DB8415471CD13CCE0048B016 /* Stop_Icon.png */,
@@ -279,6 +284,7 @@
 				DB6326151CC5A4F700D81E71 /* Images */,
 				DB6326121CC5A44A00D81E71 /* SongStuff */,
 				DB9AEA7E1BF6D6AC00506C24 /* Main.storyboard */,
+				DB1AF8D51CD1BED6009F3502 /* InitLogin.swift */,
 				DBFB281F1C5D0ECA00999BE0 /* Login.swift */,
 				DB6326131CC5A46400D81E71 /* MenuFeatures */,
 				DB6326141CC5A47B00D81E71 /* MenuStuff */,
@@ -450,6 +456,7 @@
 				DB9AEA821BF6D6AC00506C24 /* Assets.xcassets in Resources */,
 				DBE44B101CCEAAA700841F86 /* parser.js in Resources */,
 				DB3C93C11C6925050032556B /* 0A.wav in Resources */,
+				DB9DB3DC1CD1EDFC001537E0 /* defaultPhoto.png in Resources */,
 				DBF794A31C84A57200AB5D7D /* metronomeClick.wav in Resources */,
 				DB3C93C91C6925050032556B /* 6Ds.wav in Resources */,
 				DB3C93C41C6925050032556B /* 1As.wav in Resources */,
@@ -480,6 +487,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB3FBBDC1BF94B64004C22A3 /* Song.swift in Sources */,
+				DB1AF8D61CD1BED6009F3502 /* InitLogin.swift in Sources */,
 				DB63260D1CC55D2600D81E71 /* SongViewController.swift in Sources */,
 				DBFB28201C5D0ECA00999BE0 /* Login.swift in Sources */,
 				DB3FBBD31BF824C4004C22A3 /* Genre.swift in Sources */,

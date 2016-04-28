@@ -11,11 +11,6 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-var firstName=""
-var lastName=""
-var imageURL=""
-var loggedIn = false
-
 extension UIColor {
     public convenience init?(hexString: String) {
         let r, g, b, a: CGFloat
@@ -49,23 +44,39 @@ class Login: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     
+    @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var btnFacebook: FBSDKButton!
     
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var ivUserProfileImage: UIImageView!
     
-    func swipe(){
-        //allows the right wipe
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-    }
-    
     func fillImage(){
-        self.lblName.text = "Welcome to Fermata Sheet Music, \(firstName) \(lastName)"
+        self.lblName.text = "Welcome to Fermata Sheet Music, "
+        self.userName.text = "\(firstName)"
         self.ivUserProfileImage.image = UIImage(data: NSData(contentsOfURL: NSURL(string: imageURL)!)!)
+    }
+
+    func menuAppears(){
+        print("menu appears")
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (FBSDKAccessToken.currentAccessToken() == nil)
+        {
+            print("Not logged in...")
+        }
+        else
+        {
+            print("Logged in...")
+            //menuAppears()
+        }
+        
+        self.fillImage()
+        
+        self.navigationItem.title = "Facebook Login"
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
@@ -73,49 +84,25 @@ class Login: UIViewController, FBSDKLoginButtonDelegate {
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        self.navigationItem.title = "Facebook Login"
-        swipe()
+        self.view.backgroundColor = UIColor(red: 25/256, green: 28/256, blue: 39/256, alpha: 0.66)//UIColor(red: 0, green: 33/256, blue: 66/256, alpha: 1)
         
-        //self.view.backgroundColor = UIColor(hexString: "#b5b5b7ff")
+        lblName.font = UIFont(name: "Hiragino Sans", size: 55)
+        lblName.font = UIFont.systemFontOfSize(40, weight: UIFontWeightThin)
+        lblName.textColor = UIColor.whiteColor()
         
-         self.view.backgroundColor = UIColor(red: 0, green: 33/256, blue: 66/256, alpha: 1)
-        
-        /*let imageName = "facebook.png"
-        let image = UIImage(named: imageName)
-        let imageView = UIImageView(image: image!)
-        
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
-        
-        let screenHeight = screenSize.height * (2/6)
-        let screenWidth = screenSize.width - 500
-        
-        let screenHeightEnd = screenSize.height - 750
-        let screenWidthEnd = screenSize.width * (1/4)*/
-        
-        lblName.text = ""
-        
-        //imageView.frame = CGRect(x: screenWidth, y: screenHeight, width: screenWidthEnd, height: screenHeightEnd)
-        //view.addSubview(imageView)
-         
-         //self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-         
-         /*if (FBSDKAccessToken.currentAccessToken() == nil){
-         print("not logged in")
-         } else {
-         print("logged in!")
-         }*/
+        userName.textAlignment = .Center
+        userName.font = UIFont(name: "Hiragino Sans", size: 55)
+        userName.font = UIFont.systemFontOfSize(40, weight: UIFontWeightThin)
+        userName.textColor = UIColor.whiteColor()
         
         let loginButton = FBSDKLoginButton()
         loginButton.readPermissions = ["public_profile", "email", "user_friends"]
-        loginButton.center = self.view.center
-        //loginButton.frame.height = 600
+        loginButton.frame = CGRectMake(self.view.frame.size.width/2 - loginButton.frame.size.width/2, self.view.frame.size.height/2+100, loginButton.frame.size.width, loginButton.frame.size.height);
+        //loginButton.frame.height = 700
         loginButton.delegate = self
         self.view.addSubview(loginButton)
         // Do any additional setup after loading the view, typically from a nib.*/
         
-        if loggedIn{
-            fillImage()
-        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -123,27 +110,37 @@ class Login: UIViewController, FBSDKLoginButtonDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!)
+    /*func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!)
     {
-        FBSDKGraphRequest.init(graphPath: "me", parameters: ["fields":"first_name, last_name, picture.type(large)"]).startWithCompletionHandler { (connection, result, error) -> Void in
-            
-            firstName = (result.objectForKey("first_name") as? String)!
-            lastName = (result.objectForKey("last_name") as? String)!
-            imageURL = (result.objectForKey("picture")?.objectForKey("data")?.objectForKey("url") as? String)!
-            
-            loggedIn = true
-            
-            self.fillImage()
+        if error == nil
+        {
+            print("Login complete.")
+            //self.performSegueWithIdentifier("showNew", sender: self)
         }
+        else
+        {
+            print(error.localizedDescription)
+        }
+        
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!)
     {
+        print("User logged out...")
+    }*/
+    
+     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!)
+     {
+
+     }
+     
+     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!)
+     {
         let loginManager: FBSDKLoginManager = FBSDKLoginManager()
         loginManager.logOut()
-        
+     
         ivUserProfileImage.image = nil
         lblName.text = "Please login!"
-    }
+     }
     
 }

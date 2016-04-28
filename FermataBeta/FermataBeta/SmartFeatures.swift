@@ -83,7 +83,7 @@ class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
         
         Note?.font = UIFont(name: "Hiragino Sans", size: 35)
         Note?.font = UIFont.systemFontOfSize(35, weight: UIFontWeightThin)
-        /*
+        
         //make it look like a button
         //blackBox?.layer.borderWidth = 3
         //blackBox?.layer.borderColor = UIColor.blueColor().CGColor
@@ -109,11 +109,11 @@ class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
         
         tapPrev.delegate = self
         tapNote.delegate = self
-        tapNext.delegate = self*/
+        tapNext.delegate = self
         
     }
     
-    /*func didTapPrev(sender: UITapGestureRecognizer){
+    func didTapPrev(sender: UITapGestureRecognizer){
         print("did tap prev")
         if count == 0{
             count=noteList.count-1
@@ -183,7 +183,7 @@ class SmartFeatures:  UIViewController, UIGestureRecognizerDelegate {
     func stopNote(){
         audioPlayer.stop()
         playing?.text = ""
-    }*/
+    }
     
     //more metronome stuff
     @IBAction func tempoChanged(tempoStepper: UIStepper) {
