@@ -10,7 +10,7 @@ function loadsong(songname)
 function(data, status){
 console.log(status)
 console.log(data)
-return parseMidi(data)
+return stringParseMidi(data)
 });
 }
 
