@@ -26,6 +26,30 @@
             font-family: Courier;
             font-size: 14px;
         }
+        div.uncheckbox{
+          background-color: #232839;
+          padding: 10px;
+          border-color: #ffffff;
+          border-width: 2px;
+          border-style: solid;
+          margin: 0px;
+          color:white;
+          text-align: center;
+        }
+        div.checkbox{
+          background-color: #677077;
+          padding: 10px;
+          border-color: #ffffff;
+          border-width: 2px;
+          border-style: solid;
+          margin: 0px;
+          color:white;
+          text-align: center;
+        }
+        #instrumentlist{
+          background-color: #232839;
+
+        }
         </style>
     </head>
 
@@ -41,17 +65,19 @@
 
 <!-- Formatting Constants -->
 <script>
-	var LINE_COUNT = 5 //total number of lines to be shown
-	var MEASURES_PER_LINE = 3
+  var CLEF="treble"
+	var LINE_COUNT = 7 //total number of lines to be shown
+	var MEASURES_PER_LINE = 2
 	var STARTING_MEASURE=0
 	var FOLLOW_TEMPO=2000
-	var CANVAS_WIDTH = 1920 //width of the theoretical sheet of paper
+	var CANVAS_WIDTH = 880 //width of the theoretical sheet of paper
 	var CANVAS_HEIGHT = 140 * (LINE_COUNT) //height of the theoretical sheet of paper
 
 	var STAFF_WIDTH = CANVAS_WIDTH / MEASURES_PER_LINE
-	var STAFF_OFFSET_X = 10
-	var STAFF_OFFSET_Y = 140
+	var STAFF_OFFSET_X = 20
+	var STAFF_OFFSET_Y = 100
 	var STAFF_OFFSET_Y_CENTER = (CANVAS_HEIGHT - 120) / 2
+  var TO_DRAW
 </script>
 
         <!-- Necessary, Hidden Divisions -->
@@ -70,7 +96,7 @@
         <!-- Create canvas -->
 <script>
   document.write('<p><canvas width=' + (CANVAS_WIDTH+25) + ' height=' + CANVAS_HEIGHT + '></canvas></p>')
-  
+
 start()
 </script>
 
