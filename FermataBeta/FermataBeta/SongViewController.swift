@@ -147,7 +147,7 @@ class SongViewController: UIViewController, WKScriptMessageHandler, UIGestureRec
         rightArrowView.frame = CGRect(x: rightWidth, y: 15, width: 47, height: 26)
         view.addSubview(rightArrowView)
         
-        let leftArrowName = "DoubleArrowLeft"
+        let leftArrowName = "Left_Arrow.png"
         let leftImage = UIImage(named: leftArrowName)
         let leftArrowView = UIImageView(image: leftImage!)
         let leftWidth = screenWidth - 90 - 40

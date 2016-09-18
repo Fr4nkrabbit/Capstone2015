@@ -11,34 +11,6 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-extension UIColor {
-    public convenience init?(hexString: String) {
-        let r, g, b, a: CGFloat
-        
-        if hexString.hasPrefix("#") {
-            let start = hexString.startIndex.advancedBy(1)
-            let hexColor = hexString.substringFromIndex(start)
-            
-            if hexColor.characters.count == 8 {
-                let scanner = NSScanner(string: hexColor)
-                var hexNumber: UInt64 = 0
-                
-                if scanner.scanHexLongLong(&hexNumber) {
-                    r = CGFloat((hexNumber & 0xff000000) >> 24) / 255
-                    g = CGFloat((hexNumber & 0x00ff0000) >> 16) / 255
-                    b = CGFloat((hexNumber & 0x0000ff00) >> 8) / 255
-                    a = CGFloat(hexNumber & 0x000000ff) / 255
-                    
-                    self.init(red: r, green: g, blue: b, alpha: a)
-                    return
-                }
-            }
-        }
-        
-        return nil
-    }
-}
-
 class Login: UIViewController, FBSDKLoginButtonDelegate {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -67,6 +39,7 @@ class Login: UIViewController, FBSDKLoginButtonDelegate {
         if (FBSDKAccessToken.currentAccessToken() == nil)
         {
             print("Not logged in...")
+            
         }
         else
         {
@@ -110,25 +83,6 @@ class Login: UIViewController, FBSDKLoginButtonDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    /*func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!)
-    {
-        if error == nil
-        {
-            print("Login complete.")
-            //self.performSegueWithIdentifier("showNew", sender: self)
-        }
-        else
-        {
-            print(error.localizedDescription)
-        }
-        
-    }
-    
-    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!)
-    {
-        print("User logged out...")
-    }*/
-    
      func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!)
      {
 
@@ -141,6 +95,7 @@ class Login: UIViewController, FBSDKLoginButtonDelegate {
      
         ivUserProfileImage.image = nil
         lblName.text = "Please login!"
+        self.performSegueWithIdentifier("showOld", sender: self)
      }
     
 }

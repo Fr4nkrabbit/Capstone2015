@@ -3,7 +3,15 @@ function instlister()
     
     for(num in parsedEvents.instruments)
     {
-        
+        /*for (i in num.split("")){
+            var t = num.charCodeAt(i)
+            if ((t>=65)&&t<=90) || (t>=97 && t<=122)){
+                
+            }else {
+                num = num.replace(num.charAt(i)," ")
+                i--;
+            }
+        }*/
         //wrap "s around the identifying name
         var displayName = num.split(" ").join("")
         var identifyingName = '"' + displayName + '"'

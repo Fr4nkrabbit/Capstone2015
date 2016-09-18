@@ -159,6 +159,11 @@ function create_voice(sig)
 
 function drawSheets(inM)
 {
+    
+    if(STARTING_MEASURE<0){
+        STARTING_MEASURE = 0
+    }
+    
     /*
      for each line create a new struct that will have each instruments list of measures
      for that line
@@ -197,6 +202,13 @@ function drawSheets(inM)
             var staves=[]
             
             for (var instr in inM){//for the different instruments
+                if(inM.length>=STARTING_MEASURE+LINE_COUNT){
+                    STARTING_MEASURE=inM.length-LINE_COUNT
+                    measNum=mC+line*MEASURES_PER_LINE+STARTING_MEASURE
+                    stoppingPoint = Math.min(inM.length, (LINE_COUNT+STARTING_MEASURE)* MEASURES_PER_LINE)
+                    
+                }
+                
                 //console.log("instr "+instr);
                 //Decide where to draw the measure, or "staff" as Vexflow calls it
                 var offsetX = STAFF_OFFSET_X + mC * STAFF_WIDTH
@@ -216,10 +228,10 @@ function drawSheets(inM)
                 {
                     stave.addTimeSignature(""+timesig.top+'/'+timesig.bottem)
                     timesig =inM[instr].measures[measNum].time
-                }else if (mC % MEASURES_PER_LINE == 0){
+                }/*else if (mC % MEASURES_PER_LINE == 0){
                     stave.addTimeSignature(""+timesig.top+'/'+timesig.bottem)
                     
-                }else{
+                }*/else{
                     shift-=30
                 }
                 
@@ -228,10 +240,10 @@ function drawSheets(inM)
                     keysig.name =inM[instr].measures[measNum].key
                     keysig.Accidental=[]
                     stave.addKeySignature(keysig.name)
-                }else if (mC % MEASURES_PER_LINE == 0){
+                }/*else if (mC % MEASURES_PER_LINE == 0){
                     stave.addKeySignature(keysig.name)
                     
-                }else{
+                }*/else{
                     shift-=30
                 }
                 

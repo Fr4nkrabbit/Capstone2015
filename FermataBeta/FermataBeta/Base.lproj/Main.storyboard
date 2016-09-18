@@ -38,7 +38,7 @@
                         <viewControllerLayoutGuide type="bottom" id="M4l-0Y-soa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BjP-st-3Uz">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="facebook" translatesAutoresizingMaskIntoConstraints="NO" id="7Ut-td-j66">
@@ -234,7 +234,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Agn-h4-eEs"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lqG-t6-ysA">
-                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3O-k1-eeb">
@@ -290,6 +290,7 @@
                         <outlet property="lblName" destination="V3O-k1-eeb" id="8Ru-fs-Uda"/>
                         <outlet property="menuButton" destination="SEN-MS-Ygz" id="6Pi-Qd-aet"/>
                         <outlet property="userName" destination="uAE-0W-tec" id="iFI-Mi-HCs"/>
+                        <segue destination="3cJ-jP-qb5" kind="presentation" identifier="showOld" id="yiU-Zy-2Xs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aiu-B8-j0k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -723,7 +724,7 @@
         <image name="menu" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zZF-fk-syG"/>
+        <segue reference="9fZ-8j-src"/>
         <segue reference="Etb-LB-cF4"/>
     </inferredMetricsTieBreakers>
 </document>
